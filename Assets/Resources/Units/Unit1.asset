@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d811aa10f09014b9c77f46fbbd419e, type: 3}
+  m_Name: Unit1
+  m_EditorClassIdentifier: 
+  unitName: Dani
+  unitSprite: {fileID: -7973819453764043974, guid: c7893ba2715f16d4b8243729885726a9, type: 3}
+  unitPortrait: {fileID: -1835460341244905078, guid: c5d7e38d8f7daa849bca202a563c946a, type: 3}
+  unitReaction: {fileID: 4059986141265103341, guid: 402858b838eacdd44b2cbcb56592dc00, type: 3}
+  unitAction: {fileID: -3154856129881823021, guid: 402858b838eacdd44b2cbcb56592dc00, type: 3}
+  unitTimelineIcon: {fileID: 21300000, guid: 8f6cf65b405a90f40ac62f5775f79cc2, type: 3}
+  unitWeapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
