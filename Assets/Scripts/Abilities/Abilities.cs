@@ -82,7 +82,7 @@ public class Abilities : ScriptableObject
 
     public int range;
     [Header("Ability Variables")]
-    [SerializeField] int planticidaCost;
+ 
     public string abilityName;
     [SerializeField] EffectType abilityEffect;
     float planticidaBuffDmg;
@@ -91,7 +91,7 @@ public class Abilities : ScriptableObject
     //Variables relacionado con daño
     public float initialDamage;
     float finalDamage;
-    
+    float abilityModifier = 0.5f;
 
     [Header("Heal")]
     //Si la habilidad es de curación, se utilizan estas variables
@@ -143,33 +143,40 @@ public class Abilities : ScriptableObject
         return false;
     }
 
-    public void UseAbilityAgainstPlayerUnit(Unit target)
-    {
-        CalculateDmg();
-        target.ReceiveDamage(finalDamage);
-    }
+    //public void UseAbilityAgainstPlayerUnit(Unit target)
+    //{
+    //    CalculateDmg();
+    //    target.ReceiveDamage(finalDamage);
+    //}
 
-    void CalculateDmg()
+    void CalculateDmg(EnemyUnit enemy)
     {
-        if (weapon.planticidaPoints >= 75)
-        {
-            planticidaBuffDmg = 1.5f;
-        }
-        else if(weapon.planticidaPoints >= 40)
-        {
-            planticidaBuffDmg = 1.25f;
-        }
-        else if(weapon.planticidaPoints >= 0)
-        {
-            planticidaBuffDmg = 1f;
-        }
+        float criticalDmg = 1f;
+        if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, enemy.Elements_Effectiveness);
+        //finalDamage = (((weapon.Power * criticalDmg) + ((weapon.Power * weapon.ElementPower) * elementDmg)) * abilityModifier) - weapon.Defense;
 
-        //desgaste planticidaPoints;
-        weapon.PlanticidaLost(planticidaCost);
-        Debug.Log("planticidaBuff: " + planticidaBuffDmg + "initial damage es " + initialDamage);
-        //COMPROBAR CÓMO REDONDEA
-        finalDamage = Mathf.Round(initialDamage * planticidaBuffDmg);
-        Debug.Log("finaldamage: " + finalDamage + "planticidaPoints es " + weapon.planticidaPoints);
+        finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
+
+        //if (weapon.planticidaPoints >= 75)
+        //{
+        //    planticidaBuffDmg = 1.5f;
+        //}
+        //else if(weapon.planticidaPoints >= 40)
+        //{
+        //    planticidaBuffDmg = 1.25f;
+        //}
+        //else if(weapon.planticidaPoints >= 0)
+        //{
+        //    planticidaBuffDmg = 1f;
+        //}
+
+        ////desgaste planticidaPoints;
+        //weapon.PlanticidaLost(planticidaCost);
+        //Debug.Log("planticidaBuff: " + planticidaBuffDmg + "initial damage es " + initialDamage);
+        ////COMPROBAR CÓMO REDONDEA
+        //finalDamage = Mathf.Round(initialDamage * planticidaBuffDmg);
+        //Debug.Log("finaldamage: " + finalDamage + "planticidaPoints es " + weapon.planticidaPoints);
     }
 
     void CalculateHeal()
@@ -187,12 +194,12 @@ public class Abilities : ScriptableObject
                 target.DamageEffect();
                 if (target.GetComponent<EnemyUnit>())
                 {
-                    CalculateDmg();
+                    CalculateDmg(target.GetComponent<EnemyUnit>());
                     target.ReceiveDamageStun(finalDamage, stunDamage);     
                 }
                 else
                 {
-                    CalculateDmg();
+                    //CalculateDmg();
                     target.ReceiveDamage(finalDamage);
 
                     if(target.GetComponent<PlayerUnit>() != null)

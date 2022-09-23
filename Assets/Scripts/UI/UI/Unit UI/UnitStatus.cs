@@ -7,7 +7,7 @@ public class UnitStatus : MonoBehaviour
 {
     [SerializeField] Text unitName;
     [SerializeField] Slider unitHealth;
-    [SerializeField] Slider unitSharpness;
+    //[SerializeField] Slider unitSharpness;
     [SerializeField] Image unitPortrait;
     [SerializeField] Image unitWeapon;
 
@@ -24,8 +24,8 @@ public class UnitStatus : MonoBehaviour
         unitHealth.value = unit.health.baseValue;
 
         unitPortrait.sprite = unit.unitPortrait;
-        unitSharpness.maxValue = unit.weapon.planticidaPoints;
-        unitSharpness.value = unit.weapon.planticidaPoints;
+        //unitSharpness.maxValue = unit.weapon.planticidaPoints;
+        //unitSharpness.value = unit.weapon.planticidaPoints;
 
         unitWeapon.sprite = unit.weapon.weaponIcon;
 
@@ -44,10 +44,10 @@ public class UnitStatus : MonoBehaviour
         StartCoroutine(SliderValueAnimation(unitHealth, target));
     }
 
-    public void SharpnessAnimation(int target)
-    {
-        StartCoroutine(SliderValueAnimation(unitSharpness, target));
-    }
+    //public void SharpnessAnimation(int target)
+    //{
+    //    StartCoroutine(SliderValueAnimation(unitSharpness, target));
+    //}
 
     IEnumerator SliderValueAnimation(Slider s, int targetValue)
     {
