@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3959468725763629856
 Transform:
   m_ObjectHideFlags: 0
@@ -243,6 +243,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
       propertyPath: m_Name
       value: DesertBasic_03_cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
