@@ -33,10 +33,6 @@ public class SquareAbilityRange : AbilityRange
                 GetTileInPosition(new Point(0, i), board);
             }
 
-            if(GetTileInPosition(new Point(0, i), board) != null)
-            {
-                retValue.Add(GetTileInPosition(new Point(0, i), board));
-            }
 
             if(GetTileInPosition(new Point(i, i), board) != null)
             {

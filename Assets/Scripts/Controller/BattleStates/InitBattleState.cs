@@ -63,14 +63,28 @@ public class InitBattleState : BattleState
 
         for (int i = 0; i < levelData.enemySpawnPoints.Count; i++)
         {
+
             if (levelData.enemyInLevel == null) break;
             GameObject instance = Instantiate(levelData.enemyInLevel) as GameObject;
             Point p = levelData.enemySpawnPoints.ToArray()[i];
 
             Unit unit = instance.GetComponent<Unit>();
+
             unit.Place(board.GetTile(p));
+
+            
+
             unit.Match();
 
+            SquareAbilityRange monsterRange = unit.GetComponent<SquareAbilityRange>();
+
+            List<Tile> monsterTiles = monsterRange.GetTilesInRange(board);
+            foreach (Tile t in monsterTiles)
+            {
+                t.content = unit.gameObject;
+            }
+
+            board.SelectAttackTiles(monsterTiles);
             Movement m = instance.AddComponent(components[i]) as Movement;
             m.range = 10;
             m.jumpHeight = 1;
@@ -78,15 +92,6 @@ public class InitBattleState : BattleState
             unitsInGame.Add(unit);
 
             owner.enemyUnits.Add(unit);
-            //if (unit.UnitType == UnitType.PlayerUnit)
-            //{
-            //    owner.playerUnits.Add(unit);
-            //}
-
-            //if (unit.UnitType == UnitType.EnemyUnit)
-            //{
-            //    owner.enemyUnits.Add(unit);
-            //}
         }
 
        
