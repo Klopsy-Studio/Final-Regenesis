@@ -21,6 +21,11 @@ public class Unit : TimelineElements
 
         set { timelineVelocity = value; SetCurrentVelocity();}
     }
+    public override int ActionsPerTurn
+    {
+        get { return actionsPerTurn; }
+        set { actionsPerTurn = value; }
+    }
 
 
     //When unit uses its action, the turn goes to the next unit

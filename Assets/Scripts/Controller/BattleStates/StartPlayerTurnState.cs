@@ -16,8 +16,8 @@ public class StartPlayerTurnState : BattleState
     IEnumerator SetStats()
     {
         owner.currentUnit.TimelineVelocity = TimelineVelocity.None;
-      
-        owner.currentUnit.stamina += 50;
+        owner.currentUnit.ActionsPerTurn = 5;
+    
         yield return null;
         owner.ChangeState<SelectActionState>();
     }

@@ -32,7 +32,7 @@ public class SelectActionState : BattleState
            
         }
 
-
+     
         if (!owner.currentUnit.CanDoAbility())
         {
             ActionSelectionUI.DisableSelectOption(typeOfAction.Ability);
@@ -41,6 +41,8 @@ public class SelectActionState : BattleState
         {
             ActionSelectionUI.EnableSelectOption(typeOfAction.Ability);
         }
+
+        //COMPROBAR SI SE UTILIZAR LOS ITEMS, SI NO SE PUEDE, QUE ESTE FADED
     }
 
     public override void Exit()
@@ -131,11 +133,13 @@ public class SelectActionState : BattleState
                 break;
 
             case 1:
-                if (owner.currentUnit.CanDoAbility())
-                {
-                    Debug.Log("CASE 1");
-                    owner.ChangeState<SelectAbilityState>();
-                }
+                Debug.Log("CASE 1");
+                owner.ChangeState<SelectAbilityState>();
+                //if (owner.currentUnit.CanDoAbility())
+                //{
+                //    Debug.Log("CASE 1");
+                //    owner.ChangeState<SelectAbilityState>();
+                //}
                 //OpenAbilityMenu
                 break;
 
@@ -179,10 +183,11 @@ public class SelectActionState : BattleState
                 break;
 
             case typeOfAction.Ability:
-                if (owner.currentUnit.CanDoAbility())
-                {
-                    owner.ChangeState<SelectAbilityState>();
-                }
+                //if (owner.currentUnit.CanDoAbility())
+                //{
+                //    owner.ChangeState<SelectAbilityState>();
+                //}
+                owner.ChangeState<SelectAbilityState>();
                 //OpenAbilityMenu
                 break;
 

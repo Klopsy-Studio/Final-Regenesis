@@ -34,6 +34,12 @@ public enum EffectType
 [CreateAssetMenu(menuName = "Ability/New Ability")]
 public class Abilities : ScriptableObject
 {
+    [Range (1,5)]
+    [SerializeField] int actionCost;
+    public int ActionCost
+    {
+        get { return actionCost; }
+    }
     public AbilityVelocityCost abilityVelocityCost;
     public TypeOfAbilityRange rangeType;
 
@@ -78,20 +84,21 @@ public class Abilities : ScriptableObject
     }
 
     AbilityRange _rangeScript;
-    float velocityCost = 0;
-
+   
     public int range;
     [Header("Ability Variables")]
  
     public string abilityName;
     [SerializeField] EffectType abilityEffect;
-    float planticidaBuffDmg;
+  
 
     [Header("Damage")]
     //Variables relacionado con daño
     public float initialDamage;
     float finalDamage;
-    float abilityModifier = 0.5f;
+    
+    [Range(0.1f, 1f)]
+    [SerializeField] float abilityModifier; //CAMBIAR ESTA VARIABLE A PUBLICA Y HACER QUE SEA UN SLIDE ENTRE 0 A 1 
 
     [Header("Heal")]
     //Si la habilidad es de curación, se utilizan estas variables
@@ -109,7 +116,7 @@ public class Abilities : ScriptableObject
     
     [Space]
     [Header("Others")]
-    public int staminaCost;
+ 
     public int stunDamage;
     public string animationName;
     [HideInInspector] public Unit lastTarget;
@@ -118,11 +125,11 @@ public class Abilities : ScriptableObject
     public string[] description;
 
   
-    public void SetUnitTimelineVelocity(Unit u)
+    public void SetUnitTimelineVelocityAndActionCost(Unit u)
     {
-
+        u.ActionsPerTurn -= actionCost;
         u.TimelineVelocity += (int)abilityVelocityCost+1;
-        Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity);
+        Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
     }
 
     public bool CheckUnitInRange(Board board)
@@ -151,13 +158,14 @@ public class Abilities : ScriptableObject
 
     void CalculateDmg(EnemyUnit enemy)
     {
+
         float criticalDmg = 1f;
         if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
         float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, enemy.Elements_Effectiveness);
-        //finalDamage = (((weapon.Power * criticalDmg) + ((weapon.Power * weapon.ElementPower) * elementDmg)) * abilityModifier) - weapon.Defense;
+
 
         finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
-
+      
         //if (weapon.planticidaPoints >= 75)
         //{
         //    planticidaBuffDmg = 1.5f;
@@ -187,6 +195,9 @@ public class Abilities : ScriptableObject
 
     public void UseAbility(Unit target)
     {
+        //AQUI ES DONDE SE HACE EL ACTION COST
+        target.ActionsPerTurn -= ActionCost;
+
         switch (abilityEffect)
         {
             case EffectType.Damage:
@@ -195,7 +206,8 @@ public class Abilities : ScriptableObject
                 if (target.GetComponent<EnemyUnit>())
                 {
                     CalculateDmg(target.GetComponent<EnemyUnit>());
-                    target.ReceiveDamageStun(finalDamage, stunDamage);     
+                    target.ReceiveDamageStun(finalDamage, stunDamage);
+                  
                 }
                 else
                 {
