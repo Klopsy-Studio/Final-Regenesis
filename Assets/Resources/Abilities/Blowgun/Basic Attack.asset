@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
   m_Name: Basic Attack
   m_EditorClassIdentifier: 
+  actionCost: 1
   abilityVelocityCost: 0
   rangeType: 8
   cameraSize: 3
@@ -19,14 +20,13 @@ MonoBehaviour:
   shakeIntensity: 0.01
   shakeDuration: 0.05
   range: 2
-  planticidaCost: 5
   abilityName: Basic Attack
   abilityEffect: 0
   initialDamage: 100
+  abilityModifier: 0.5
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
-  staminaCost: 0
   stunDamage: 0
   animationName: 
   lastTarget: {fileID: 0}

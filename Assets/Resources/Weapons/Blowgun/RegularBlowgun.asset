@@ -15,11 +15,12 @@ MonoBehaviour:
   equipmentName: Regular Blowgun
   sprite: {fileID: 0}
   equipmentType: 1
-  planticidaPoints: 100
-  damage: 40
-  sharpness: 100
+  elements_Effectiveness: 0
+  power: 30
+  elementPower: 0
+  defense: 0
   staminaCost: 0
-  range: 4
+  range: 5
   Abilities:
   - {fileID: 11400000, guid: 552638faf7f68d742a24b53ffebef8b2, type: 2}
   - {fileID: 11400000, guid: 577af5607b1c56f49a4865d255cb48ba, type: 2}
