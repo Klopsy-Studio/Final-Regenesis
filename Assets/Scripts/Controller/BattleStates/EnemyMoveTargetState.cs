@@ -25,7 +25,7 @@ public class EnemyMoveTargetState : BattleState
         base.Enter();
         owner.isTimeLineActive = false;
         Movement mover = owner.currentEnemyUnit.GetComponent<Movement>();
-        tiles = mover.GetTilesInRange(board, true);
+        tiles = mover.GetTilesInRange(board);
 
       
         StartCoroutine(Sequence());
@@ -74,13 +74,14 @@ public class EnemyMoveTargetState : BattleState
         Movement m = owner.currentEnemyUnit.GetComponent<Movement>();
 
         owner.currentEnemyUnit.currentPoint = owner.currentTile.pos;
-        yield return StartCoroutine(m.Traverse(owner.currentTile));
+        yield return StartCoroutine(m.SimpleTraverse(owner.currentTile));
+        
 
         while (m.moving)
         {
             yield return null;
         }
-
+        
         owner.ChangeState<EnemyAttackState>();
     }
 

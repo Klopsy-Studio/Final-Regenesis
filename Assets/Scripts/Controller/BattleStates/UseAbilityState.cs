@@ -185,14 +185,10 @@ public class UseAbilityState : BattleState
             {
                 foreach (Tile t in selectTiles)
                 {
-                    if (t.content != null)
+                    if (t.occupied)
                     {
-                        if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
-                        {
-                            StartCoroutine(UseAbilitySequence(t.content.GetComponent<Unit>()));
-                        }
+                        StartCoroutine(UseAbilitySequence(owner.enemyUnits[0]));
                     }
-
                 }
             }
             

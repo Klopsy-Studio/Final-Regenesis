@@ -135,5 +135,22 @@ public abstract class BattleState : State
         return target;
     }
 
+    protected void FilterTiles(List<Tile> t)
+    {
+        List<Tile> tileList = new List<Tile>();
+
+        foreach(Tile tile in t)
+        {
+            tileList.Add(tile);
+        }
+
+        foreach(Tile tile in tileList)
+        {
+            if (tile.occupied)
+            {
+                t.Remove(tile);
+            }
+        }
+    }
 
 }

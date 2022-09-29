@@ -28,7 +28,7 @@ public class EnemyState : State
         Movement enemyMovement = currentEnemy.GetComponent<Movement>();
         enemyMovement.ChangeFilter(TimeLineTypes.EnemyUnit);
         enemyMovement.ChangeRange(range);
-        List<Tile> t = enemyMovement.GetTilesInRange(battleController.board, true);
+        List<Tile> t = enemyMovement.GetTilesInRange(battleController.board);
         return t;
     }
 

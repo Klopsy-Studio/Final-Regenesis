@@ -26,8 +26,10 @@ public class MoveTargetState : BattleState
         Movement m = owner.currentUnit.GetComponent<Movement>();
 
         m.range = owner.currentUnit.weapon.range;
-        tiles = m.GetTilesInRange(board, true);
+        tiles = m.GetTilesInRange(board);
 
+        FilterTiles(tiles);
+        
         board.SelectMovementTiles(tiles);
         tiles.Add(owner.currentTile);
         originPoint = owner.currentTile;
@@ -49,6 +51,7 @@ public class MoveTargetState : BattleState
         owner.ChangeState<SelectActionState>();
     }
 
+    
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
         SelectTile(owner.currentUnit.currentPoint);

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Movement : MonoBehaviour
 {
     public int range = 5;
-    int originalRange;
+    public int originalRange;
     public int OriginalRange { get { return originalRange; } }
     public int jumpHeight;
     protected Unit unit;
@@ -34,17 +34,17 @@ public abstract class Movement : MonoBehaviour
         originalRange = range;
     }
 
-    public virtual List<Tile> GetTilesInRange(Board board, bool filterEnemies)
+    public virtual List<Tile> GetTilesInRange(Board board)
     {
         List<Tile> retValue = board.Search(unit.tile, ExpandSearch);
-        Filter(retValue, filterEnemies);
+        Filter(retValue);
         return retValue;
     }
 
     public virtual List<Tile> GetTilesInRangeWithEnemy(Board board, bool filterEnemies)
     {
         List<Tile> retValue = board.Search(unit.tile, ExpandSearchWithEnemies);
-        Filter(retValue, filterEnemies);
+        Filter(retValue);
         return retValue;
     }
     protected virtual bool ExpandSearch(Tile from, Tile to) //Conditions for units to traverse tiles
@@ -55,23 +55,13 @@ public abstract class Movement : MonoBehaviour
     {
         return (from.distance + 1) <= range;
     }
-    protected virtual void Filter(List<Tile> tiles, bool filterEnemies)
+    protected virtual void Filter(List<Tile> tiles)
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            if (!filterEnemies)
+            if(tiles[i].content != null)
             {
-                if (tiles[i].content != null)
-                {
-                    if (tiles[i].content.GetComponent<EnemyUnit>() == null)
-                    {
-                        tiles.RemoveAt(i);
-                    }
-                }
-            }
-            else
-            {
-                if (tiles[i].content != null)
+                if (tiles[i].content.GetComponent<EnemyUnit>() == null)
                 {
                     tiles.RemoveAt(i);
                 }
@@ -118,7 +108,7 @@ public abstract class Movement : MonoBehaviour
 
     public abstract IEnumerator SimpleTraverse(Tile tile); //Unit just teleports.
 
-    public abstract IEnumerator Traverse(Tile tile); //Traverse animation
+    public abstract IEnumerator Traverse(Tile tile, Board board); //Traverse animation
     protected virtual IEnumerator Turn(Directions dir)
     {
         if(unit.dir == Directions.North || unit.dir == Directions.East)
@@ -144,10 +134,10 @@ public abstract class Movement : MonoBehaviour
         range = OriginalRange;
     }
 
-    public void PushUnit(Directions pushDir, int pushStrength, Board board)
+    public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
         range = pushStrength;
-        List<Tile> t = GetTilesInRange(board, true);
+        List<Tile> t = GetTilesInRange(board);
         Tile desiredTile = null;
         foreach(Tile dirTile in t)
         {
@@ -159,7 +149,7 @@ public abstract class Movement : MonoBehaviour
 
         if(desiredTile != null && desiredTile.content == null)
         {
-            StartCoroutine(Traverse(desiredTile));
+            StartCoroutine(Traverse(desiredTile, board));
         }
     }
 

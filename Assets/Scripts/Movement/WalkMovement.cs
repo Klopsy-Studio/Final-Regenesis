@@ -36,7 +36,7 @@ public class WalkMovement : Movement
         yield return null;
     }
 
-    public override IEnumerator Traverse(Tile tile)
+    public override IEnumerator Traverse(Tile tile, Board board)
     {
         moving = true;
         unit.Place(tile);
@@ -66,12 +66,17 @@ public class WalkMovement : Movement
 
         moving = false;
 
+        if (unit.GetComponent<EnemyUnit>() != null)
+        {
+            unit.GetComponent<EnemyUnit>().UpdateMonsterSpace(board);
+        }
         yield return null;
     }
 
 
     protected override bool ExpandSearch(Tile from, Tile to) 
     {
+        filter = TimeLineTypes.EnemyUnit;
         // Skip if the distance in height between the two tiles is more than the unit can jump
         if ((Mathf.Abs(from.height - to.height) > jumpHeight))
             return false;

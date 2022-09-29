@@ -40,16 +40,21 @@ public class Monster1MoveToClosestUnit : Monster1State
 
         tiles = range.GetTilesInRangeForEnemy(battleController.board, false);
 
+        List<Tile> validTiles = new List<Tile>();
 
         closestDistance = 0f;
 
         foreach (Tile tile in tiles)
         {
-            if(Vector3.Distance(tile.transform.position, t.tile.transform.position) <= closestDistance || closestDistance == 0f && tile.content == null)
+            if(tile.CheckSurroundings(owner.battleController.board) != null)
             {
-                closestDistance = Vector3.Distance(tile.transform.position, t.tile.transform.position);
-                closestTile = tile;
+                if (Vector3.Distance(tile.transform.position, t.tile.transform.position) <= closestDistance || closestDistance == 0f && tile.content == null)
+                {
+                    closestDistance = Vector3.Distance(tile.transform.position, t.tile.transform.position);
+                    closestTile = tile;
+                }
             }
+            
         }
 
         Movement m = currentEnemy.GetComponent<Movement>();
@@ -59,13 +64,13 @@ public class Monster1MoveToClosestUnit : Monster1State
 
         battleController.board.SelectMovementTiles(test);
 
-        StartCoroutine(m.Traverse(closestTile));
-
-        while (m.moving)
-        {
-            yield return null;
-        }
+        StartCoroutine(m.SimpleTraverse(closestTile));
+        
+        owner.currentEnemy.UpdateMonsterSpace(owner.battleController.board);
         battleController.board.DeSelectDefaultTiles(test);
+
+        yield return null;
+
         owner.ChangeState<Monster1CheckNextAction>();
     }
 

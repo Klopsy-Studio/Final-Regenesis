@@ -11,49 +11,15 @@ public class SquareAbilityRange : AbilityRange
 
         retValue.Add(GetTileInPosition(new Point(0, 0), board));
 
-        for (int i = 1; i <= squareReach; i++)
+        for (int x = -squareReach; x < squareReach+1; x++)
         {
-            if(GetTileInPosition(new Point(i, 0), board) != null)
+            for (int y = -squareReach; y < squareReach+1; y++)
             {
-                retValue.Add(GetTileInPosition(new Point(i, 0), board));
+                if (IsTileValid(board, x, y))
+                {
+                    retValue.Add(board.GetTile(new Point(unit.currentPoint.x + x, unit.currentPoint.y + y)));
+                }
             }
-
-            if(GetTileInPosition(new Point(-i, 0), board) != null)
-            {
-                retValue.Add(GetTileInPosition(new Point(-i, 0), board));
-            }
-
-            if(GetTileInPosition(new Point(0, -i), board) != null)
-            {
-                retValue.Add(GetTileInPosition(new Point(0, -i), board));
-            }
-
-            if(GetTileInPosition(new Point(0, i), board) != null)
-            {
-                GetTileInPosition(new Point(0, i), board);
-            }
-
-
-            if(GetTileInPosition(new Point(i, i), board) != null)
-            {
-                retValue.Add(GetTileInPosition(new Point(i, i), board));
-            }
-
-            if(GetTileInPosition(new Point(-i, -i), board) != null)
-            {
-                retValue.Add(GetTileInPosition(new Point(-i, -i), board));
-            }
-            
-            if(GetTileInPosition(new Point(i, -i), board) != null)
-            {
-                retValue.Add(GetTileInPosition(new Point(i, -i), board));
-            }
-            
-            if(GetTileInPosition(new Point(-i, i), board))
-            {
-                retValue.Add(GetTileInPosition(new Point(-i, i), board));
-            }
-            
         }
 
         return retValue;
@@ -70,6 +36,19 @@ public class SquareAbilityRange : AbilityRange
         else
         {
             return null;
+        }
+    }
+
+
+    public bool IsTileValid(Board board, int offsetX, int offsetY)
+    {
+        if (board.GetTile(new Point(unit.currentPoint.x + offsetX, unit.currentPoint.y + offsetY)) != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

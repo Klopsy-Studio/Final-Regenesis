@@ -72,20 +72,11 @@ public class InitBattleState : BattleState
 
             unit.Place(board.GetTile(p));
 
-            
-
             unit.Match();
 
-            SquareAbilityRange monsterRange = unit.GetComponent<SquareAbilityRange>();
+            unit.GetComponent<EnemyUnit>().UpdateMonsterSpace(board);
 
-            List<Tile> monsterTiles = monsterRange.GetTilesInRange(board);
-            foreach (Tile t in monsterTiles)
-            {
-                t.content = unit.gameObject;
-            }
-
-            board.SelectAttackTiles(monsterTiles);
-            Movement m = instance.AddComponent(components[i]) as Movement;
+            MonsterMovement m = instance.GetComponent<MonsterMovement>();
             m.range = 10;
             m.jumpHeight = 1;
 

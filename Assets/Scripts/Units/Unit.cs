@@ -78,7 +78,7 @@ public class Unit : TimelineElements
     public void Match()
     {
         transform.localPosition = tile.center;
-        transform.localEulerAngles = dir.ToEuler();
+        //transform.localEulerAngles = dir.ToEuler();
         currentPoint = tile.pos;
     }
 
