@@ -54,7 +54,7 @@ public class PlayerUnit : Unit
 
         foreach (Abilities a in weapon.Abilities)
         {
-            if (actionsPerTurn >= a.ActionCost)
+            if (actionsPerTurn >= (int)a.abilityVelocityCost)
             {
                 return true;
             }
