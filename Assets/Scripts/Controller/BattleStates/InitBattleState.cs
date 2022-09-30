@@ -13,12 +13,10 @@ public class InitBattleState : BattleState
     IEnumerator Init()
     {
         board.Load(levelData);
-        Point p = new Point((int)levelData.tiles[0].x, (int)levelData.tiles[0].z);
-         
-        SelectTile(p);
         SpawnUnits();
         yield return null;
         //owner.ChangeState<StartPlayerTurnState>();
+        SelectTile(new Point(1, 5));
         owner.ChangeState<TimeLineState>();
     }
 

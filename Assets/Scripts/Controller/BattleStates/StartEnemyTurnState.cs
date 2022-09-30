@@ -23,7 +23,6 @@ public class StartEnemyTurnState : BattleState
     {
         yield return null;
         owner.currentEnemyController.StartEnemy();
-        //owner.ChangeState<EnemyMoveTargetState>();
     }
 
 
