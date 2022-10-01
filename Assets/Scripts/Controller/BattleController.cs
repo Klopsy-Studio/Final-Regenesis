@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BattleController : StateMachine
 {
+    [HideInInspector] public MonsterController monsterController;
+
     public bool isTimeLineActive = true;
     public CameraRig cameraRig;
     public Board board;

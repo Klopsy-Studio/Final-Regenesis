@@ -15,35 +15,22 @@ public class StartEnemyTurnState : BattleState
         owner.turnStatusUI.EnemyTurn();
         //tileSelectionIndicator.gameObject.SetActive(false);
 
-        //StartCoroutine(EnemyTurnSequence());
-        StartCoroutine(StartEnemyTurnCoroutine());
+       
+        //StartCoroutine(StartEnemyTurnCoroutine());
     }
+
+    //IEnumerator StartEnemyTurnCoroutine()
+    //{
+    //    yield return null;
+    //    owner.currentEnemyController.StartEnemy();
+    //}
+
 
     IEnumerator StartEnemyTurnCoroutine()
     {
         yield return null;
-        owner.currentEnemyController.StartEnemy();
+        owner.monsterController.StartState();
     }
-
-
-    //Sistema anterior
-
-    //IEnumerator EnemyTurnSequence()
-    //{
-    //    EnemyUnit enemy = owner.enemyUnits[0].GetComponent<EnemyUnit>();
-    //    if (enemy != null)
-    //    {
-    //        owner.currentEnemyTurn = enemy;
-    //        owner.turnStatusUI.ActivateEnemyTurn();
-
-    //        yield return new WaitForSeconds(2);
-
-    //        owner.turnStatusUI.DeactivateEnemyTurn();
-    //        yield return null;
-    //        owner.ChangeState<EnemyMoveTargetState>();
-    //    }
-
-    //}
 
 
 }
