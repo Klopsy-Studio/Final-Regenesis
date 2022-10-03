@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: eca18d6a55553564ea8355847dcc6e80, type: 2}
   battleController: {fileID: 0}
-  currentEnemy: {fileID: 0}
+  currentEnemy: {fileID: 131185405536904068}
   currentTarget: {fileID: 0}
   targets: []
   lastAction: 0

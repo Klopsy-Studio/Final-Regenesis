@@ -33,8 +33,9 @@ public class EnemyUnit : Unit
     protected override void Start()
     {
         base.Start();
-        timelineFill = Random.Range(0, 3);
-    
+        //timelineFill = Random.Range(0, 3);
+
+        timelineFill = 90;
         timelineTypes = TimeLineTypes.EnemyUnit;
         health.baseValue = maxHealth.baseValue;
 

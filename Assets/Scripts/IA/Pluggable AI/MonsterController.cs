@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
+    public bool isUpdatingState = false;
    
     public MState currentState;
     
@@ -22,11 +23,16 @@ public class MonsterController : MonoBehaviour
     //    currentState.UpdateState(this);
     //}
 
-    public void StartState()
+
+    public void Update()
     {
+        if (!isUpdatingState) return;
+
         currentState.UpdateState(this);
     }
-    
+
+
+
     protected void OnDrawGizmos()
     {
         if (currentState != null)

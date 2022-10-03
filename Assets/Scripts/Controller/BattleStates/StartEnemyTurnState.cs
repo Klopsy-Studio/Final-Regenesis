@@ -14,9 +14,10 @@ public class StartEnemyTurnState : BattleState
         owner.turnStatusUI.ActivateBanner();
         owner.turnStatusUI.EnemyTurn();
         //tileSelectionIndicator.gameObject.SetActive(false);
-
        
+     
         //StartCoroutine(StartEnemyTurnCoroutine());
+        StartCoroutine(StartEnemyTurnCoroutine());
     }
 
     //IEnumerator StartEnemyTurnCoroutine()
@@ -29,7 +30,8 @@ public class StartEnemyTurnState : BattleState
     IEnumerator StartEnemyTurnCoroutine()
     {
         yield return null;
-        owner.monsterController.StartState();
+
+        owner.monsterController.isUpdatingState = true; ;
     }
 
 

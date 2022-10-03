@@ -7,6 +7,7 @@ public class CheckRangeDecision : Decision
 {
     public override bool Decide(MonsterController controller)
     {
+        Debug.Log("DECIDE");
         return CheckToMoveClosestUnit(controller);
     }
 
@@ -46,8 +47,9 @@ public class CheckRangeDecision : Decision
             }
         }
 
-
-        return isThereAnyUnit;
+        Debug.Log("ISTHERE ANYUNIT, " + isThereAnyUnit);
+        //return isThereAnyUnit;
+        return true;
     }
 
 
