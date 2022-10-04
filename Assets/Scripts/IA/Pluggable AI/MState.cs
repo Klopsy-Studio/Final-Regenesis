@@ -37,7 +37,7 @@ public class MState : ScriptableObject
             {
                 Debug.Log("SUCCEEDD");
                 controller.TransitionToState(transition.decision[i].trueState);
-                break;
+              
             }
             
         }

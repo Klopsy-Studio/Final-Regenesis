@@ -7,8 +7,8 @@ public class MonsterController : MonoBehaviour
     public bool isUpdatingState = false;
    
     public MState currentState;
-    
 
+    public MState startState;
 
     public BattleController battleController;
     public EnemyUnit currentEnemy;
@@ -53,7 +53,6 @@ public class MonsterController : MonoBehaviour
 
 
 
-
     public virtual T GetRange<T>() where T : AbilityRange
     {
         T target = GetComponent<T>();
@@ -63,5 +62,11 @@ public class MonsterController : MonoBehaviour
         }
 
         return target;
+    }
+
+    public void CallCoroutine (IEnumerator coroutine)
+    {
+        Debug.Log("call coroutine");
+        StartCoroutine(coroutine);
     }
 }

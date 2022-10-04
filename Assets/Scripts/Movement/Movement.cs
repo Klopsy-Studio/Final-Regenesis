@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour
 {
-    bool isTraverseCalled = false;
+    
+    public bool isTraverseCalled = false;
     public int range = 5;
     int originalRange;
     public int OriginalRange { get { return originalRange; } }
@@ -128,8 +129,21 @@ public abstract class Movement : MonoBehaviour
             isTraverseCalled = true;
             Debug.Log("LLAMANDO A CORUTINA");
             StartCoroutine(Traverse(tile));
+            
         }
       
+    }
+
+    public bool IsDoneMoving()
+    {
+        if (moving)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     protected virtual IEnumerator Turn(Directions dir)
     {

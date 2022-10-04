@@ -12,8 +12,5 @@ public class StartTurnAction : Action
         controller.battleController.SelectTile(controller.currentEnemy.tile.pos);
     }
 
-  
-
-
 }
 

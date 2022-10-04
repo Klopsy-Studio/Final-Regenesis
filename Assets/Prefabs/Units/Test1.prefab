@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853318af2651e0747bb8af5ed05d0dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUpdatingState: 0
   currentState: {fileID: 11400000, guid: eca18d6a55553564ea8355847dcc6e80, type: 2}
+  startState: {fileID: 11400000, guid: eca18d6a55553564ea8355847dcc6e80, type: 2}
   battleController: {fileID: 0}
   currentEnemy: {fileID: 131185405536904068}
   currentTarget: {fileID: 0}

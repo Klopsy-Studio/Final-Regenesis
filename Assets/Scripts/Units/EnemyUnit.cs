@@ -35,7 +35,7 @@ public class EnemyUnit : Unit
         base.Start();
         //timelineFill = Random.Range(0, 3);
 
-        timelineFill = 90;
+        timelineFill = 70;
         timelineTypes = TimeLineTypes.EnemyUnit;
         health.baseValue = maxHealth.baseValue;
 
