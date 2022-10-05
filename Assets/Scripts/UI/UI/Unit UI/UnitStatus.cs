@@ -7,19 +7,17 @@ public class UnitStatus : MonoBehaviour
 {
     [SerializeField] Text unitName;
     [SerializeField] Slider unitHealth;
-    //[SerializeField] Slider unitSharpness;
     [SerializeField] Image unitPortrait;
     [SerializeField] Image unitWeapon;
 
     [Header("Titles")]
-    [SerializeField] GameObject sharpnessTitle;
     [HideInInspector] public bool updatingValue;
     [Header("UI Animations Variables")]
     [SerializeField] float speed;
 
     public void SetUnit(PlayerUnit unit)
     {
-        unitName.text = unit.unitName;
+        //unitName.text = unit.unitName;
         unitHealth.maxValue = unit.health.baseValue;
         unitHealth.value = unit.health.baseValue;
 
