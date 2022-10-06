@@ -16,7 +16,6 @@ public class MState : ScriptableObject
     {
         Debug.Log("STATE AAA");
         actions.Act(controller);
-        CheckTransitions(controller);
         //DoActions(controller);
     }
 
@@ -28,7 +27,7 @@ public class MState : ScriptableObject
     //    }
     //}
 
-    private void CheckTransitions(MonsterController controller)
+    public void CheckTransitions(MonsterController controller)
     {
         for (int i = 0; i < transition.decision.Length; i++)
         {
@@ -37,7 +36,6 @@ public class MState : ScriptableObject
             {
                 Debug.Log("SUCCEEDD");
                 controller.TransitionToState(transition.decision[i].trueState);
-              
             }
             
         }

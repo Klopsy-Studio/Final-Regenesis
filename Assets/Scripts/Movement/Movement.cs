@@ -128,8 +128,7 @@ public abstract class Movement : MonoBehaviour
         {
             isTraverseCalled = true;
             Debug.Log("LLAMANDO A CORUTINA");
-            StartCoroutine(Traverse(tile));
-            
+            StartCoroutine(Traverse(tile));          
         }
       
     }

@@ -5,20 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/MoveAction")]
 public class MoveAction : Action
 {
-
+    bool isCalled = false;
     Movement m;
     public override void Act(MonsterController controller)
     {
-        
-
-        controller.CallCoroutine(MoveMonster(controller));
-       
+        if (!isCalled)
+        {
+            controller.CallCoroutine(MoveMonster(controller));
+        }
     }
 
-  
+
     IEnumerator MoveMonster(MonsterController controller)
     {
-
+        isCalled = true;
         //Move To Closest Player Unit
         Tile closestTile = null;
         float closestDistance = 0f;
@@ -71,14 +71,24 @@ public class MoveAction : Action
         {
             yield return null;
         }
+
         controller.battleController.board.DeSelectDefaultTiles(test);
         //owner.ChangeState<Monster1CheckNextAction>();
         //m.isTraverseCalled = false;
 
       
         Debug.Log("ISTRAVERSECALLED, " + m.isTraverseCalled);
+
         
         controller.currentEnemy.actionDone = true;
+        OnExit(controller);
         
+    }
+
+    protected override void OnExit(MonsterController controller)
+    {
+        isCalled = false;
+        base.OnExit(controller);
+        //m.isTraverseCalled = false;
     }
 }

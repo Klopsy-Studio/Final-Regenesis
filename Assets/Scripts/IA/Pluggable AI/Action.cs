@@ -5,6 +5,9 @@ using UnityEngine;
 public abstract class Action : ScriptableObject
 {
     public abstract void Act(MonsterController controller);
- 
 
+    protected virtual void OnExit(MonsterController controller)
+    {
+        controller.currentState.CheckTransitions(controller);
+    }
 }

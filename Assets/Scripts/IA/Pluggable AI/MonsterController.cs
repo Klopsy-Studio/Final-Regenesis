@@ -47,7 +47,6 @@ public class MonsterController : MonoBehaviour
         if (nextState != currentState)
         {
             currentState = nextState;
-          
         }
     }
 
@@ -66,7 +65,7 @@ public class MonsterController : MonoBehaviour
 
     public void CallCoroutine (IEnumerator coroutine)
     {
-        Debug.Log("call coroutine");
         StartCoroutine(coroutine);
+        Debug.Log("Call");
     }
 }
