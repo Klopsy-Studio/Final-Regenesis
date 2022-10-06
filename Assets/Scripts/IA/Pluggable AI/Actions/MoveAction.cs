@@ -7,7 +7,7 @@ public class MoveAction : Action
 {
     bool isCalled = false;
     Movement m;
-    public override void Act(MonsterController controller)
+    protected override void Act(MonsterController controller)
     {
         if (!isCalled)
         {
@@ -82,7 +82,6 @@ public class MoveAction : Action
         
         controller.currentEnemy.actionDone = true;
         OnExit(controller);
-        
     }
 
     protected override void OnExit(MonsterController controller)

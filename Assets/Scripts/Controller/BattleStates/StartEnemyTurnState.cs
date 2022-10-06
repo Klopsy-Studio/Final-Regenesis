@@ -30,8 +30,7 @@ public class StartEnemyTurnState : BattleState
     IEnumerator StartEnemyTurnCoroutine()
     {
         yield return null;
-        //SET TO FALSE WHEN ENEMY FINISH HIS TURN
-        owner.monsterController.isUpdatingState = true; 
+        owner.monsterController.StartMonster(); 
     }
 
 

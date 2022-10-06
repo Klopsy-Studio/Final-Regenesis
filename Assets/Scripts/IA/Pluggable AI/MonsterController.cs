@@ -24,11 +24,10 @@ public class MonsterController : MonoBehaviour
     //}
 
 
-    public void Update()
+    public void StartMonster()
     {
-        if (!isUpdatingState) return;
-
         currentState.UpdateState(this);
+        
     }
 
 
