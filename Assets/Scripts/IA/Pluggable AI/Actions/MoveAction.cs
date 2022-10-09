@@ -7,7 +7,7 @@ public class MoveAction : Action
 {
     bool isCalled = false;
     Movement m;
-    protected override void Act(MonsterController controller)
+    public override void Act(MonsterController controller)
     {
         if (!isCalled)
         {

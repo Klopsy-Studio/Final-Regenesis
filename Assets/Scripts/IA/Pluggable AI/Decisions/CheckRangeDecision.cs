@@ -7,7 +7,6 @@ public class CheckRangeDecision : Decision
 {
     public override bool Decide(MonsterController controller)
     {
-        Debug.Log("DECIDE");
         return CheckToMoveClosestUnit(controller);
     }
 
@@ -31,7 +30,7 @@ public class CheckRangeDecision : Decision
                 //If there is an enemy in range 1, we check if there are more than 2 enemies in this range
                 if (t.content.GetComponent<PlayerUnit>() != null)
                 {
-                    controller.currentTarget = t.content.GetComponent<PlayerUnit>();
+                    controller.target = t.content.GetComponent<PlayerUnit>();
                    
                     isThereAnyUnit = true;
                   

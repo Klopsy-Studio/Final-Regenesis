@@ -62,18 +62,4 @@ public class SquareAbilityRange : AbilityRange
 
         return retValue;
     }
-
-
-    
-    protected Tile GetTileInPosition(Point pos, Board board)
-    {
-        if(board.GetTile(unit.currentPoint + pos) != null)
-        {
-            return board.GetTile(unit.currentPoint + pos);
-        }
-        else
-        {
-            return null;
-        }
-    }
 }

@@ -12,11 +12,10 @@ public class MonsterController : MonoBehaviour
 
     public BattleController battleController;
     public EnemyUnit currentEnemy;
-    public Unit currentTarget;
-    public List<PlayerUnit> targets;
+    public PlayerUnit target;
+    public List<PlayerUnit> possibleTargets;
     public EnemyActions lastAction = EnemyActions.None;
-    public Abilities[] abilities;
-    public int attactkToUse;
+    [HideInInspector] public List<MonsterAbility> validAbilities;
     // Update is called once per frame
     //void Update()
     //{
@@ -66,5 +65,15 @@ public class MonsterController : MonoBehaviour
     {
         StartCoroutine(coroutine);
         Debug.Log("Call");
+    }
+
+    public virtual MonsterAbility ChooseAttack()
+    {
+        return null;
+    }
+
+    public virtual MonsterAbility ChooseSpecificAttack()
+    {
+        return null;
     }
 }
