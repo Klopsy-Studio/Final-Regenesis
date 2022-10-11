@@ -6,6 +6,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    // To reproduce a sound: Play("The name of the sound");
+
     public static AudioManager instance;
 
     public Sound[] sounds;
