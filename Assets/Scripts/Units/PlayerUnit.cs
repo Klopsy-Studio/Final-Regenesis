@@ -50,9 +50,11 @@ public class PlayerUnit : Unit
 
     public bool CanDoAbility()
     {
-        foreach(Abilities a in weapon.Abilities)
+       
+
+        foreach (Abilities a in weapon.Abilities)
         {
-            if(stamina >= a.staminaCost)
+            if (actionsPerTurn >= (int)a.abilityVelocityCost)
             {
                 return true;
             }

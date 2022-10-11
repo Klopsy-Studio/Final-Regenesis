@@ -14,6 +14,8 @@ public class EnemyUnit : Unit
     [Header("Abilities")]
     public Abilities[] abilities;
     public Unit target;
+    [SerializeField] E_Effectiveness elements_Effectiveness;
+    public E_Effectiveness Elements_Effectiveness { get { return elements_Effectiveness; } }
 
     //Enemy Stats
     float stunThreshold = 100;
@@ -34,8 +36,9 @@ public class EnemyUnit : Unit
     protected override void Start()
     {
         base.Start();
-        timelineFill = Random.Range(0, 3);
-    
+        //timelineFill = Random.Range(0, 3);
+
+        timelineFill = 70;
         timelineTypes = TimeLineTypes.EnemyUnit;
         health.baseValue = maxHealth.baseValue;
     }

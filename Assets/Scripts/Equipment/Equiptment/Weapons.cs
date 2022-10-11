@@ -2,40 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Equipment/New weapon")]
+[CreateAssetMenu(menuName = "Equipment/New weapon")]
 public class Weapons : Equipment
 {
-    const int planticidaFull = 100;
-    [HideInInspector ]public int planticidaPoints;
+    int criticalPercentage;
+    public int CriticalPercentage { get { return criticalPercentage; } }
+
+    [SerializeField] E_Effectiveness elements_Effectiveness;
+    public E_Effectiveness Elements_Effectiveness { get { return elements_Effectiveness; } }
+
+    [SerializeField] private int power;
+    public int Power { get { return power; } }
+
+    [SerializeField] private int elementPower;
+    public int ElementPower { get { return elementPower; } }
+
+    [SerializeField] private int defense;
+    public int Defense { get { return defense; } }
+
+    [SerializeField] private int staminaCost;
+    public int StaminaCost { get { return staminaCost; } }
+
+
+    public int range;
+
   
 
-    [SerializeField] private int damage;
-    [SerializeField] private int sharpness;
-    [SerializeField] private int staminaCost;
-    public int range;
-    
-    public int Damage { get { return damage; } }
-    public int Sharpness { get { return sharpness; } }
 
-    public int StaminaCost { get { return staminaCost; } }
+  
+
+    
 
     public Abilities[] Abilities;
 
     public Sprite weaponIcon;
     public override void EquipItem(Unit c)
     {
-        planticidaPoints = planticidaFull;
-        c.damage.AddModifier(new StatsModifier(damage, StatModType.Flat, this));
+       
+        c.damage.AddModifier(new StatsModifier(power, StatModType.Flat, this));
     }
 
-    public void PlanticidaLost(int i)
-    {
-        planticidaPoints -= i;
-        if (planticidaPoints <= 0)
-        {
-            planticidaPoints = 0;
-        }
-    }
-
+   
   
 }

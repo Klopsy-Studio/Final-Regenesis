@@ -17,7 +17,7 @@ public class UseAbilityState : BattleState
 
         Movement mover = owner.currentUnit.GetComponent<Movement>();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
-        currentAbility.SetUnitTimelineVelocity(owner.currentUnit);
+        currentAbility.SetUnitTimelineVelocityAndActionCost(owner.currentUnit);
 
         tiles = PreviewAbility();
         board.SelectMovementTiles(tiles);
@@ -285,7 +285,7 @@ public class UseAbilityState : BattleState
         else
         {
             yield return null;
-            owner.ChangeState<FinishPlayerUnitTurnState>();
+            owner.ChangeState<SelectActionState>();
         }
 
 

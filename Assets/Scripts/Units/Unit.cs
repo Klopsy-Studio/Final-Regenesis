@@ -21,6 +21,11 @@ public class Unit : TimelineElements
 
         set { timelineVelocity = value; SetCurrentVelocity();}
     }
+    public override int ActionsPerTurn
+    {
+        get { return actionsPerTurn; }
+        set { actionsPerTurn = value; }
+    }
 
 
     //When unit uses its action, the turn goes to the next unit
@@ -204,4 +209,6 @@ public class Unit : TimelineElements
         GameObject temp = Instantiate(healEffect, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), healEffect.transform.rotation);
         Destroy(temp, 0.8f);
     }
+
+    
 }

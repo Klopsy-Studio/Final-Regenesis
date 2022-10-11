@@ -21,13 +21,21 @@ public enum TimelineVelocity
 }
 public abstract class TimelineElements : MonoBehaviour
 {
+    protected int actionsPerTurn;
+    public virtual int ActionsPerTurn
+    {
+        get { return actionsPerTurn; }
+        set { actionsPerTurn = value; }
+    }
+
+
     protected TimeLineTypes timelineTypes;
     public TimeLineTypes TimelineTypes { get { return timelineTypes; } }
     [Header("Timelines variables")]
     protected TimelineVelocity timelineVelocity = TimelineVelocity.Normal;
     public virtual TimelineVelocity TimelineVelocity
     {
-        get { return timelineVelocity; }  
+        get { return timelineVelocity; }
         set { timelineVelocity = value; }
     }
 

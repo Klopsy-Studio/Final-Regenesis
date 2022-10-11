@@ -4,61 +4,69 @@ using UnityEngine;
 
 public class SideAbilityRange : AbilityRange
 {
-    public Directions dir = Directions.North;
-    public int reach;
+    public Directions sideDir;
+    public int sideReach;
+    public int sideLength;
     public override List<Tile> GetTilesInRange(Board board)
     {
         List<Tile> retValue = new List<Tile>();
-        List<Tile> tiles = new List<Tile>();
 
-        switch (dir)
+        switch (sideDir)
         {
             case Directions.North:
-                for (int i = -1; i < 2; i++)
+
+                for (int i = -sideLength; i < sideLength + 1; i++)
                 {
-                    if (board.GetTile(new Point(unit.currentPoint.x+i, unit.currentPoint.y +reach)) != null)
+                    if (GetTileInPosition(new Point(i, sideReach), board) != null)
                     {
-                        retValue.Add(board.GetTile(new Point(unit.currentPoint.x + reach, unit.currentPoint.y + i)));
+                        retValue.Add(GetTileInPosition(new Point(i, sideReach), board));
                     }
                 }
                 break;
             case Directions.East:
-                for (int i = -1; i < 2; i++)
+                for (int i = -sideLength; i < sideLength + 1; i++)
                 {
-                    if (board.GetTile(new Point(unit.currentPoint.x -reach, unit.currentPoint.y +i)) != null)
+                    if (GetTileInPosition(new Point(-sideReach, i), board) != null)
                     {
-                        retValue.Add(board.GetTile(new Point(unit.currentPoint.x + reach, unit.currentPoint.y + i)));
+                        retValue.Add(GetTileInPosition(new Point(-sideReach, i), board));
                     }
                 }
                 break;
             case Directions.South:
-                for (int i = -1; i < 2; i++)
+                for (int i = -sideLength; i < sideLength+1; i++)
                 {
-                    if (board.GetTile(new Point(unit.currentPoint.x + i , unit.currentPoint.y - reach)) != null)
+                    if (GetTileInPosition(new Point(i, -sideReach), board) != null)
                     {
-                        retValue.Add(board.GetTile(new Point(unit.currentPoint.x + reach, unit.currentPoint.y + i)));
+                        retValue.Add(GetTileInPosition(new Point(i, -sideReach), board));
                     }
                 }
                 break;
             case Directions.West:
-                for (int i = -1; i < 2; i++)
+                for (int i = -sideLength; i < sideLength+1; i++)
                 {
-                    if (board.GetTile(new Point(unit.currentPoint.x + reach, unit.currentPoint.y + i)) != null)
+                    if (GetTileInPosition(new Point(sideReach, i), board) != null)
                     {
-                        retValue.Add(board.GetTile(new Point(unit.currentPoint.x + reach, unit.currentPoint.y + i)));
+                        retValue.Add(GetTileInPosition(new Point(sideReach, i), board));
                     }
                 }
                 break;
             default:
                 break;
         }
-       
 
         return retValue;
     }
 
     public void ChangeDirections(Tile t)
     {
-        dir = unit.tile.GetDirections(t);
+        sideDir = unit.tile.GetDirections(t);
     }
+
+    public void AssignVariables(Directions newSideDir, int newSideReach, int newSideLength)
+    {
+        sideDir = newSideDir;
+        sideReach = newSideReach;
+        sideLength = newSideLength;
+    }
+
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BattleController : StateMachine
 {
+    [HideInInspector] public MonsterController monsterController;
 
     public bool isTimeLineActive = true;
-
     public CameraRig cameraRig;
     public Board board;
     public LevelData levelData;
@@ -20,6 +20,8 @@ public class BattleController : StateMachine
     public PlayerUnit currentUnit;
     public EnemyUnit currentEnemyUnit;
     [HideInInspector] public EnemyController currentEnemyController;
+   
+
 
     [HideInInspector] public ItemElements currentItem;
     [HideInInspector] public int itemIndexToRemove;
@@ -76,6 +78,12 @@ public class BattleController : StateMachine
     //    return CurrentState is SelectActionState || CurrentState is SelectAbilityState || CurrentState is SelectItemState || CurrentState is SelectItemState;
 
     //}
+
+
+    private void Update()
+    {
+
+    }
 
     public virtual void SelectTile(Point p)
     {

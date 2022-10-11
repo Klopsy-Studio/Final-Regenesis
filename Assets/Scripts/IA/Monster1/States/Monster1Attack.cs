@@ -61,7 +61,7 @@ public class Monster1Attack : Monster1State
     IEnumerator Attack2()
     {
         SideAbilityRange range = GetRange<SideAbilityRange>();
-        range.dir = currentEnemy.dir;
+        //range.dir = currentEnemy.dir;
         tiles = range.GetTilesInRange(battleController.board);
         battleController.board.SelectAttackTiles(tiles);
 

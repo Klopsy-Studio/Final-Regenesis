@@ -80,5 +80,10 @@ public class CrossAbilityRange : AbilityRange
     }
 
 
+    public void AssignVariables(int newCrossLength)
+    {
+        crossLength = newCrossLength;
+    }
+
     
 }

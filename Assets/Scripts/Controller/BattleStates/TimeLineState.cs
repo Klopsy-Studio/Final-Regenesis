@@ -38,8 +38,11 @@ public class TimeLineState : BattleState
 
                         owner.currentEnemyUnit = e;
                         SelectTile(owner.currentEnemyUnit.tile.pos);
-                        owner.currentEnemyController = e.GetComponent<EnemyController>();
-                        owner.currentEnemyController.battleController = owner;
+                        //owner.currentEnemyController = e.GetComponent<EnemyController>();
+                        //owner.currentEnemyController.battleController = owner;
+
+                        owner.monsterController = e.GetComponent<MonsterController>();
+                        owner.monsterController.battleController = owner;
                         owner.ChangeState<StartEnemyTurnState>();
                         break;
                     }

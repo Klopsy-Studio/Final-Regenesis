@@ -86,6 +86,7 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: cef1499263dfaa64d99306c6c33ac9c2, type: 2}
   target: {fileID: 0}
+  elementsEffectiveness: 1
   sprite: {fileID: 1262454043973379550}
   defaultSprite: {fileID: 21300000, guid: 96acfb51729c80d4b8d4648ac8b1b5d5, type: 3}
   reactSprite: {fileID: -2933916564714595955, guid: 857fd445f32c5ea4e8e6ff74759486b6, type: 3}

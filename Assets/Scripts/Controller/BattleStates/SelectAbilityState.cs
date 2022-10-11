@@ -7,7 +7,7 @@ public class SelectAbilityState : BattleState
 {
     public int currentActionIndex;
     bool canShowUI;
-
+    Abilities[] abilityList;
     public override void Enter()
     {
         base.Enter();
@@ -17,12 +17,12 @@ public class SelectAbilityState : BattleState
 
         AbilitySelectionUI.gameObject.SetActive(true);
 
-        Abilities[] a = owner.currentUnit.weapon.Abilities;
+        abilityList = owner.currentUnit.weapon.Abilities;
 
 
         for (int i = 0; i < owner.abilitySelectionUI.options.Length; i++)
         {
-            AbilitySelectionUI.options[i].GetComponent<Text>().text = a[i].abilityName;
+            AbilitySelectionUI.options[i].GetComponent<Text>().text = abilityList[i].abilityName;
         }
 
         
@@ -85,8 +85,12 @@ public class SelectAbilityState : BattleState
     {
         owner.attackChosen = e.info;
 
-        ActionSelectionUI.gameObject.SetActive(false);
-        owner.ChangeState<UseAbilityState>();
+        if (owner.currentUnit.ActionsPerTurn>= (int)abilityList[e.info].abilityVelocityCost)
+        {
+            ActionSelectionUI.gameObject.SetActive(false);
+           owner.ChangeState<UseAbilityState>();
+        }
+            
     }
 
     protected override void OnSelectCancelEvent(object sender, InfoEventArgs<int> e)
@@ -98,8 +102,14 @@ public class SelectAbilityState : BattleState
     {
         owner.attackChosen = currentActionIndex;
 
-        ActionSelectionUI.gameObject.SetActive(false);
-        owner.ChangeState<UseAbilityState>();
+        //ActionSelectionUI.gameObject.SetActive(false);
+        //owner.ChangeState<UseAbilityState>();
+
+        if (owner.currentUnit.ActionsPerTurn >= (int)abilityList[currentActionIndex].abilityVelocityCost)
+        {
+            ActionSelectionUI.gameObject.SetActive(false);
+            owner.ChangeState<UseAbilityState>();
+        }
     }
 
     public override void Exit()

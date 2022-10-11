@@ -11,9 +11,9 @@ public class SquareAbilityRange : AbilityRange
 
         retValue.Add(GetTileInPosition(new Point(0, 0), board));
 
-        for (int x = -squareReach; x < squareReach+1; x++)
+        for (int x = -squareReach; x < squareReach + 1; x++)
         {
-            for (int y = -squareReach; y < squareReach+1; y++)
+            for (int y = -squareReach; y < squareReach + 1; y++)
             {
                 if (IsTileValid(board, x, y))
                 {
@@ -26,10 +26,10 @@ public class SquareAbilityRange : AbilityRange
     }
 
 
-    
+
     protected Tile GetTileInPosition(Point pos, Board board)
     {
-        if(board.GetTile(unit.currentPoint + pos) != null)
+        if (board.GetTile(unit.currentPoint + pos) != null)
         {
             return board.GetTile(unit.currentPoint + pos);
         }

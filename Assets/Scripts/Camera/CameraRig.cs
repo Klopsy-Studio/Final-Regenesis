@@ -9,6 +9,12 @@ public class CameraRig : MonoBehaviour
     public Transform follow;
     Transform _transform;
 
+
+    [SerializeField] float minX;
+    [SerializeField] float maxX;
+    [SerializeField] float minY;
+    [SerializeField] float maxY;
+
     private void Awake()
     {
         _transform = transform;

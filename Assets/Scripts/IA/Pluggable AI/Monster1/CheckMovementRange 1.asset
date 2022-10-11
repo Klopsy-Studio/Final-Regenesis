@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faac35666e13ac4896ef676d48edf74, type: 3}
+  m_Name: CheckMovementRange 1
+  m_EditorClassIdentifier: 
+  trueState: {fileID: 11400000, guid: df5e1d05c318a7048be7582e9739e01e, type: 2}
