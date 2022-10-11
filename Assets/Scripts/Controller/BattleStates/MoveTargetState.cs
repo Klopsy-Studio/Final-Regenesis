@@ -26,7 +26,7 @@ public class MoveTargetState : BattleState
         Movement m = owner.currentUnit.GetComponent<Movement>();
 
         m.range = owner.currentUnit.weapon.range;
-        tiles = m.GetTilesInRange(board);
+        tiles = m.GetTilesInRange(board, true);
 
         FilterTiles(tiles);
         

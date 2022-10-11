@@ -9,7 +9,7 @@ public class MonsterMovement : WalkMovement
     public override void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
         range = pushStrength;
-        List<Tile> t = GetTilesInRange(board);
+        List<Tile> t = GetTilesInRange(board, true);
         Tile desiredTile = null;
         foreach (Tile dirTile in t)
         {
@@ -21,7 +21,7 @@ public class MonsterMovement : WalkMovement
 
         SideAbilityRange sideRange = GetComponent<SideAbilityRange>();
 
-        sideRange.dir = pushDir;
+        sideRange.sideDir = pushDir;
 
         List<Tile> dirT = sideRange.GetTilesInRange(board);
 

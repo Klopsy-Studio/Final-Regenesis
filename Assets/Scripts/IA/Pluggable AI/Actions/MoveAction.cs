@@ -63,7 +63,7 @@ public class MoveAction : Action
         test.Add(closestTile);
       
         controller.battleController.board.SelectMovementTiles(test);
-        m.StartTraverse(closestTile);
+        controller.CallCoroutine(m.Traverse(closestTile, controller.battleController.board));
 
         //StartCoroutine(m.Traverse(closestTile));
 
