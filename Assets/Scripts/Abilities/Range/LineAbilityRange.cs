@@ -15,7 +15,7 @@ public class LineAbilityRange : AbilityRange
         switch (lineDir)
         {
             case Directions.North:
-                for (int i = 0; i < lineLength-1; i++)
+                for (int i = 0; i < lineLength+1; i++)
                 {
                     if (board.GetTile(startPos + new Point(0, i)) != null)
                     {
@@ -29,7 +29,7 @@ public class LineAbilityRange : AbilityRange
                 }
                 break;
             case Directions.East:
-                for (int i = 0; i < lineLength - 1; i++)
+                for (int i = 0; i < lineLength+1; i++)
                 {
                     if (board.GetTile(startPos + new Point(-i, 0)) != null)
                     {
@@ -43,7 +43,7 @@ public class LineAbilityRange : AbilityRange
                 }
                 break;
             case Directions.South:
-                for (int i = 0; i < lineLength - 1; i++)
+                for (int i = 0; i < lineLength+1; i++)
                 {
                     if (board.GetTile(startPos + new Point(0,-i)) != null)
                     {
@@ -57,7 +57,7 @@ public class LineAbilityRange : AbilityRange
                 }
                 break;
             case Directions.West:
-                for (int i = 0; i < lineLength - 1; i++)
+                for (int i = 0; i < lineLength+1; i++)
                 {
                     if (board.GetTile(startPos + new Point(i, 0)) != null)
                     {

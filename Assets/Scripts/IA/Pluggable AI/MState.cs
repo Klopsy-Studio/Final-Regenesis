@@ -16,7 +16,7 @@ public class MState : ScriptableObject
 
     public void UpdateState(MonsterController controller)
     {
-        Debug.Log("State Updated");
+        Debug.Log("Current State: "+this.name);
         actions.Act(controller);
     }
 

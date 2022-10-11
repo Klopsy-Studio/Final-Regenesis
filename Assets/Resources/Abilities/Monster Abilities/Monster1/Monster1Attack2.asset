@@ -21,6 +21,7 @@ MonoBehaviour:
     sideReach: 1
     sideLength: 1
     crossLength: 0
+    squareReach: 0
   initialDamage: 20
   abilityModifier: 0
   initialHeal: 0

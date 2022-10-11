@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8ab4fa5f77d9447941adc74c8c2159, type: 3}
   m_Name: 01.01 to 01.02 - 01.04
   m_EditorClassIdentifier: 
-  multipleStates: 0
-  trueState: []
+  multipleStates: 1
+  conditionalStates: []
+  trueState:
+  - {fileID: 11400000, guid: c874673f9919f104aab1f0b1b98fc411, type: 2}
+  - {fileID: 11400000, guid: d8d360de558269148ac467eafca7826c, type: 2}
   falseState: []

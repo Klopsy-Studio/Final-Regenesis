@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfAbility: 0
   attackRange:
-  - range: 3
+  - range: 7
     lineDir: 2
     lineLength: 2
     sideDir: 0
     sideReach: 0
     sideLength: 0
-    crossLength: 0
+    crossLength: 1
+    squareReach: 0
   initialDamage: 20
   abilityModifier: 0.1
   initialHeal: 0

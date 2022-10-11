@@ -28,7 +28,7 @@ public class CheckAttackRangeDecisionDrawer : PropertyDrawer
                 return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 2;
 
             case TypeOfAbilityRange.SquareAbility:
-                return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 2;
+                return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 3;
 
             case TypeOfAbilityRange.Side:
                 return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 5;
@@ -84,6 +84,7 @@ public class CheckAttackRangeDecisionDrawer : PropertyDrawer
             case TypeOfAbilityRange.SelfAbility:
                 break;
             case TypeOfAbilityRange.SquareAbility:
+                DisplayVariable("squareReach", ref position, property);
                 break;
             case TypeOfAbilityRange.Side:
                 DisplayVariable("sideDir", ref position, property);

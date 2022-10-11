@@ -44,7 +44,9 @@ public class MonsterAbility : ScriptableObject
                 case TypeOfAbilityRange.LineAbility:
                     LineAbilityRange lineRange = monster.GetRange<LineAbilityRange>();
                     lineRange.AssignVariables(r.lineDir, r.lineLength);
-                    if(CheckForUnits(lineRange.GetTilesInRange(monster.battleController.board)))
+
+                    monster.battleController.board.SelectAttackTiles(lineRange.GetTilesInRange(monster.battleController.board));
+                    if (CheckForUnits(lineRange.GetTilesInRange(monster.battleController.board)))
                     {
                         return true;
                     }
@@ -52,6 +54,8 @@ public class MonsterAbility : ScriptableObject
                 case TypeOfAbilityRange.Side:
                     SideAbilityRange sideRange = monster.GetRange<SideAbilityRange>();
                     sideRange.AssignVariables(r.sideDir, r.sideReach, r.sideLength);
+
+                    //monster.battleController.board.SelectAttackTiles(sideRange.GetTilesInRange(monster.battleController.board));
                     if (CheckForUnits(sideRange.GetTilesInRange(monster.battleController.board)))
                     {
                         return true;
@@ -113,7 +117,7 @@ public class MonsterAbility : ScriptableObject
         {
             if(t.content != null)
             {
-                if(t.GetComponent<PlayerUnit>() != null)
+                if(t.content.GetComponent<PlayerUnit>() != null)
                 {
                     return true;
                 }

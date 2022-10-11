@@ -15,7 +15,12 @@ public class MonsterController : MonoBehaviour
     public PlayerUnit target;
     public List<PlayerUnit> possibleTargets;
     public EnemyActions lastAction = EnemyActions.None;
+
     [HideInInspector] public List<MonsterAbility> validAbilities;
+    [HideInInspector] public MonsterAbility validAttack;
+    [Space]
+    [Header("Special Abilities")]
+    public GameObject obstacle;
     // Update is called once per frame
     //void Update()
     //{
@@ -56,8 +61,9 @@ public class MonsterController : MonoBehaviour
         if (target == null)
         {
             target = gameObject.AddComponent<T>();
+            
         }
-
+        target.unit = currentEnemy;
         return target;
     }
 
@@ -67,7 +73,7 @@ public class MonsterController : MonoBehaviour
         Debug.Log("Call");
     }
 
-    public virtual MonsterAbility ChooseAttack()
+    public virtual MonsterAbility ChooseRandomAttack()
     {
         return null;
     }

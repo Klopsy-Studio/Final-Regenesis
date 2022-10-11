@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "PluggableAI/Actions/Attack")]
-public class AttackAction : Action
+[CreateAssetMenu(menuName = "PluggableAI/Actions/Specific Attack")]
+public class SpecificAttackAction : Action
 {
     public override void Act(MonsterController controller)
     {
-        controller.CallCoroutine(Attack(controller, controller.ChooseAttack()));
+        controller.CallCoroutine(Attack(controller, controller.ChooseSpecificAttack()));
     }
 
 
@@ -33,6 +33,8 @@ public class AttackAction : Action
         controller.target.Default();
         controller.currentEnemy.Default();
 
+        controller.validAttack = null;
         OnExit(controller);
     }
 }
+

@@ -11,7 +11,7 @@ public class CanDoSpecificAttack : Decision
 
     public override bool Decide(MonsterController controller)
     {
-        throw new System.NotImplementedException();
+        return CheckAttack(controller);
     }
 
 
@@ -19,6 +19,7 @@ public class CanDoSpecificAttack : Decision
     {
         if (specificAbility.CheckIfAttackIsValid(controller))
         {
+            controller.validAttack = specificAbility;
             return true;
         }
 

@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class TestMonsterController : MonsterController
 {
-    public GameObject Obstacle;
-    public Tile tileToPlaceObstacle;
-
-    public override MonsterAbility ChooseAttack()
+    public override MonsterAbility ChooseRandomAttack()
     {
-        MonsterAbility randomAttack = validAbilities[Random.Range(0, validAbilities.Count)];
-        possibleTargets = randomAttack.ReturnPossibleTargets(this);
+        MonsterAbility attack = validAbilities[Random.Range(0, validAbilities.Count)];
+        possibleTargets = attack.ReturnPossibleTargets(this);
 
         if(possibleTargets.Count > 1)
         {
@@ -48,7 +45,51 @@ public class TestMonsterController : MonsterController
             target = possibleTargets[0];
         }
 
-        return randomAttack;
+        return attack;
+    }
+
+    public override MonsterAbility ChooseSpecificAttack()
+    {
+        MonsterAbility attack = validAttack;
+        possibleTargets = attack.ReturnPossibleTargets(this);
+
+        if (possibleTargets.Count > 1)
+        {
+            int random = Random.Range(0, 2);
+
+            if (random == 0)
+            {
+                PlayerUnit lowestHealthUnit = null;
+
+                foreach (PlayerUnit unit in possibleTargets)
+                {
+                    if (lowestHealthUnit != null)
+                    {
+                        if (unit.health.Value < lowestHealthUnit.health.Value)
+                        {
+                            lowestHealthUnit = unit;
+                        }
+                    }
+                    else
+                    {
+                        lowestHealthUnit = unit;
+                    }
+                }
+
+                target = lowestHealthUnit;
+            }
+
+            else if (random == 1)
+            {
+                target = possibleTargets[Random.Range(0, possibleTargets.Count)];
+            }
+        }
+        else
+        {
+            target = possibleTargets[0];
+        }
+
+        return attack;
     }
 
 }

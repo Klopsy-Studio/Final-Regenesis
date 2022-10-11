@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/MoveAction")]
 public class MoveAction : Action
 {
-    bool isCalled = false;
+    public bool isCalled = false;
     Movement m;
     public override void Act(MonsterController controller)
     {
@@ -79,7 +79,7 @@ public class MoveAction : Action
       
         Debug.Log("ISTRAVERSECALLED, " + m.isTraverseCalled);
 
-        
+        controller.currentEnemy.currentPoint = closestTile.pos;
         controller.currentEnemy.actionDone = true;
         OnExit(controller);
     }

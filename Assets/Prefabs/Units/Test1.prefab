@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2512748260298187115}
   - component: {fileID: 131185405536904068}
-  - component: {fileID: -8139861659074162106}
+  - component: {fileID: 3600112416777368949}
   m_Layer: 6
   m_Name: Test1
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MonoBehaviour:
   sprite: {fileID: 1262454043973379550}
   defaultSprite: {fileID: 21300000, guid: 96acfb51729c80d4b8d4648ac8b1b5d5, type: 3}
   reactSprite: {fileID: -2933916564714595955, guid: 857fd445f32c5ea4e8e6ff74759486b6, type: 3}
---- !u!114 &-8139861659074162106
+--- !u!114 &3600112416777368949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,19 +95,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 118657081945532926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 853318af2651e0747bb8af5ed05d0dab, type: 3}
+  m_Script: {fileID: 11500000, guid: 1387f5090e7122048a4cc3bc65fa3f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isUpdatingState: 0
-  currentState: {fileID: 11400000, guid: eca18d6a55553564ea8355847dcc6e80, type: 2}
-  startState: {fileID: 11400000, guid: eca18d6a55553564ea8355847dcc6e80, type: 2}
+  currentState: {fileID: 11400000, guid: fc1d1fbbb0d92f14482ad52cac86c990, type: 2}
+  startState: {fileID: 11400000, guid: fc1d1fbbb0d92f14482ad52cac86c990, type: 2}
   battleController: {fileID: 0}
   currentEnemy: {fileID: 131185405536904068}
-  currentTarget: {fileID: 0}
-  targets: []
+  target: {fileID: 0}
+  possibleTargets: []
   lastAction: 0
-  abilities: []
-  attactkToUse: 0
+  validAbilities: []
+  validAttack: {fileID: 0}
+  obstacle: {fileID: 986858306413133845, guid: 3ccb7408d54443c4eba8e9f77a2d75bc, type: 3}
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0

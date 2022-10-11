@@ -15,7 +15,7 @@ public class SideAbilityRange : AbilityRange
         {
             case Directions.North:
 
-                for (int i = -sideLength; i < sideLength; i++)
+                for (int i = -sideLength; i < sideLength + 1; i++)
                 {
                     if (GetTileInPosition(new Point(i, sideReach), board) != null)
                     {
@@ -24,29 +24,29 @@ public class SideAbilityRange : AbilityRange
                 }
                 break;
             case Directions.East:
-                for (int i = -sideLength; i < sideLength; i++)
+                for (int i = -sideLength; i < sideLength + 1; i++)
                 {
                     if (GetTileInPosition(new Point(-sideReach, i), board) != null)
                     {
-                        retValue.Add(GetTileInPosition(new Point(i, sideReach), board));
+                        retValue.Add(GetTileInPosition(new Point(-sideReach, i), board));
                     }
                 }
                 break;
             case Directions.South:
-                for (int i = -sideLength; i < sideLength; i++)
+                for (int i = -sideLength; i < sideLength+1; i++)
                 {
                     if (GetTileInPosition(new Point(i, -sideReach), board) != null)
                     {
-                        retValue.Add(GetTileInPosition(new Point(i, sideReach), board));
+                        retValue.Add(GetTileInPosition(new Point(i, -sideReach), board));
                     }
                 }
                 break;
             case Directions.West:
-                for (int i = -sideLength; i < sideLength; i++)
+                for (int i = -sideLength; i < sideLength+1; i++)
                 {
                     if (GetTileInPosition(new Point(sideReach, i), board) != null)
                     {
-                        retValue.Add(GetTileInPosition(new Point(i, sideReach), board));
+                        retValue.Add(GetTileInPosition(new Point(sideReach, i), board));
                     }
                 }
                 break;

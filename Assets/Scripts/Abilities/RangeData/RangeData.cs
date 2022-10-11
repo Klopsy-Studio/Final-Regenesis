@@ -12,5 +12,6 @@ public class RangeData
     [SerializeField] public int sideReach;
     [SerializeField] public int sideLength;
     [SerializeField] public int crossLength;
+    [SerializeField] public int squareReach;
 }
 
