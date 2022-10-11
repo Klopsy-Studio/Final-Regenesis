@@ -79,7 +79,7 @@ public class MissionBoard : MonoBehaviour
 
     public void LoadMission()
     {
-        GameManager.instance.LoadMission(_currentMission);
+        GameManager.instance.LoadMission();
     }
 
     public void UpdateDetails()

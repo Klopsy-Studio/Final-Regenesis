@@ -24,9 +24,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void LoadMission(LevelData data)
+    public void LoadMission()
     {
-        currentMission = data;
         SceneManager.LoadScene("Battle");
     }
 }
