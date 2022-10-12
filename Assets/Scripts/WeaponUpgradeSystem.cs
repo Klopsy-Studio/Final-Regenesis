@@ -6,17 +6,25 @@ using UnityEngine;
 public class WeaponUpgradeSystem : ScriptableObject
 {
 
-    [SerializeField] WeaponShop[] weaponTree1;
+   public AllWeaponsTrees[] allWeaponsTrees;
   
 }
 
 [System.Serializable]
-public class WeaponShop
+public class AllWeaponsTrees
+{
+   public WeaponUpgradeTree[] weaponUpgrade;
+
+  
+}
+
+[System.Serializable]
+public class WeaponUpgradeTree
 {
     public string itemName;
     public Weapons weapon;
-    public int coins;
-    public int material1;
+    public int cost;
+    public Weapons weaponRequired;
     public MaterialRequirement[] materialsRequired;
   
 
@@ -42,5 +50,5 @@ public class MaterialRequirement
     public Monster monster;
     public TypeOfMaterial material;
     public int numberOfMaterial;
-    public Weapons weaponRequired;
+   
 }

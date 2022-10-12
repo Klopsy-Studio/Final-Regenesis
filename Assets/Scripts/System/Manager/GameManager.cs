@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static ConsumableInventory consumableInventory;
     public static GameManager instance;
 
     public LevelData currentMission;
@@ -28,4 +29,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Battle");
     }
+
+
+    
+ 
 }
