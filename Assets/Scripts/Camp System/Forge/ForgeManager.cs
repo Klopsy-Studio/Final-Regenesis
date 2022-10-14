@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class ForgeManager : MonoBehaviour
 {
-    //WEAPONINFOTEMPLATE SE RELLENA LA INFORMACION DE LAS ARMAS. CUANDO SE HACE CLICK, WEAPONINFOTEMPLATE PASA LA INFORMACION
-
+   
+    
 
     [SerializeField] WeaponUpgradeSystem weaponUpgradeSystem;
     public int coins;
     public Text coinUI;
     [SerializeField] WeaponInfoTemplate[] weaponInfo;
-    //public Button[] myPurchaseButton;
+  
 
     public Text kitNameTxt;
     public Text costTxt;
@@ -28,6 +28,7 @@ public class ForgeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         for (int i = 0; i < weaponUpgradeSystem.allWeaponsTrees.Length; i++)
         {
             for (int w = 0; w < weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade.Length; w++)
@@ -81,7 +82,10 @@ public class ForgeManager : MonoBehaviour
 
     //    }
     //}
-
+    public void Purchase(Weapons weapon)
+    {
+        GameManager.instance.equipmentInventory.AddItem(weapon);
+    }
 
     public void LoadPanels()
     {
@@ -92,6 +96,7 @@ public class ForgeManager : MonoBehaviour
             for (int w = 0; w < weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade.Length; w++)
             {
                 //weaponPanel[w].costTxt.text = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].coins.ToString();
+                weaponInfo[w].weapon = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon;
                 weaponInfo[w].kitName = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].itemName;
                 weaponInfo[w].cost = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].cost.ToString();
                 weaponInfo[w].moveRange = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.range.ToString();

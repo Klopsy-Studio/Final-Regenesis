@@ -15,10 +15,10 @@ MonoBehaviour:
   equipmentName: Regular Blowgun
   sprite: {fileID: 0}
   equipmentType: 1
-  elements_Effectiveness: 0
+  elements_Effectiveness: 2
   power: 30
-  elementPower: 0
-  defense: 0
+  elementPower: 21
+  defense: 3
   staminaCost: 0
   range: 5
   Abilities:

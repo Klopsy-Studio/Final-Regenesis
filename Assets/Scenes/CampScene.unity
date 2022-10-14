@@ -8967,7 +8967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.0009765625, y: -0.0005493164}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.0005493164}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &511834263
@@ -14533,7 +14533,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 954907216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1493460231}
+        m_TargetAssemblyTypeName: ForgeManager, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: Weapons, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &954907216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22924,17 +22936,17 @@ MonoBehaviour:
   weaponUpgradeSystem: {fileID: 11400000, guid: af0f93d9e431c9747b318b91773a767e, type: 2}
   coins: 0
   coinUI: {fileID: 344916969}
-  weaponPanel:
+  weaponInfo:
   - {fileID: 1635230080}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  myPurchaseButton:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  kitName: {fileID: 450870459}
+  - {fileID: 1674513852}
+  kitNameTxt: {fileID: 450870459}
+  costTxt: {fileID: 470986155}
+  moveRangeTxt: {fileID: 734868997}
+  elementTxt: {fileID: 392275680}
+  powerTxt: {fileID: 307136298}
+  defenseTxt: {fileID: 134262124}
+  criticTxt: {fileID: 1698901041}
+  elementalDefenseTxt: {fileID: 1485618451}
 --- !u!224 &1494180595 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1807175470445489406, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
@@ -26015,6 +26027,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1674513852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 167374867713474236, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+  m_PrefabInstance: {fileID: 1807175468986437133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a2a7b48ef8b4d4aa56fe446b654b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1678382641
 GameObject:
   m_ObjectHideFlags: 0
@@ -31989,6 +32012,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 167374867713474236, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+      propertyPath: kitTxt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 167374867713474236, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+      propertyPath: forgeManager
+      value: 
+      objectReference: {fileID: 1493460231}
     - target: {fileID: 1807175470445489406, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -32081,6 +32112,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6983664611863234563, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+      propertyPath: kitTxt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983664611863234563, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+      propertyPath: forgeManager
+      value: 
+      objectReference: {fileID: 1493460231}
     - target: {fileID: 7881733152725173648, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -32097,7 +32136,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 127077702814500483, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
 --- !u!1001 &8466311376182702065
 PrefabInstance:
@@ -32154,5 +32194,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
+      propertyPath: equipmentInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: f10321b6418451b4cad52286af6067e9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}

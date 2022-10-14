@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static ConsumableInventory consumableInventory;
+    public EquipmentInventory equipmentInventory;
+    public ConsumableInventory consumableInventory;
     public static GameManager instance;
 
     public LevelData currentMission;
