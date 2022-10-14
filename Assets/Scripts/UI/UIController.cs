@@ -37,23 +37,25 @@ public class UIController : MonoBehaviour
 
     public RectTransform ReturnSelector()
     {
-        if(battleController.moveActionSelector == true)
+        if(battleController.moveActionSelector)
         {
             //Debug.Log("SELECTOR ACTION");
             return selectorAction;
         }
 
-        if (battleController.moveAbilitySelector == true)
+        if (battleController.moveAbilitySelector)
         {
             //Debug.Log("SELECTOR ABILITY");
             return selectorAbility;
         }
 
-        if (battleController.moveItemSelector == true)
+        if (battleController.moveItemSelector)
         {
             //Debug.Log("SELECTOR ITEM");
             return selectorItem;
         }
+
+
         return null;
 
     }

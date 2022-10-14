@@ -17,6 +17,9 @@ public class Weapons : Equipment
     [SerializeField] private int elementPower;
     public int ElementPower { get { return elementPower; } }
 
+    [SerializeField] private int elementDefense;
+    public int ElementDefense { get { return elementDefense; } }
+
     [SerializeField] private int defense;
     public int Defense { get { return defense; } }
 
@@ -26,22 +29,17 @@ public class Weapons : Equipment
 
     public int range;
 
-  
-
-
-  
-
-    
 
     public Abilities[] Abilities;
 
     public Sprite weaponIcon;
+    public string weaponName;
     public override void EquipItem(Unit c)
     {
        
         c.damage.AddModifier(new StatsModifier(power, StatModType.Flat, this));
     }
 
-   
+    
   
 }

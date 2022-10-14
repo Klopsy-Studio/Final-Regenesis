@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d811aa10f09014b9c77f46fbbd419e, type: 3}
   m_Name: Unit1
   m_EditorClassIdentifier: 
-  unitName: Dani
-  unitSprite: {fileID: -7973819453764043974, guid: c7893ba2715f16d4b8243729885726a9, type: 3}
-  unitPortrait: {fileID: -1835460341244905078, guid: c5d7e38d8f7daa849bca202a563c946a, type: 3}
+  unitName: Kaeo
+  unitSprite: {fileID: 21300000, guid: 633f225723600ff43b09a39a601f9a64, type: 3}
+  unitPortrait: {fileID: 21300000, guid: 0bb6e7b84c657ba4d91363036a5edd31, type: 3}
+  unitFullPortrait: {fileID: 21300000, guid: 4ea23bb2150e7c748a54b6246d0a3163, type: 3}
   unitReaction: {fileID: 4059986141265103341, guid: 402858b838eacdd44b2cbcb56592dc00, type: 3}
   unitAction: {fileID: -3154856129881823021, guid: 402858b838eacdd44b2cbcb56592dc00, type: 3}
   unitTimelineIcon: {fileID: 21300000, guid: 8f6cf65b405a90f40ac62f5775f79cc2, type: 3}

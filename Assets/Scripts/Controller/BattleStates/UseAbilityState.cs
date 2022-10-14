@@ -14,11 +14,13 @@ public class UseAbilityState : BattleState
     {
         base.Enter();
         owner.isTimeLineActive = false;
+        
 
         Movement mover = owner.currentUnit.GetComponent<Movement>();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
         currentAbility.SetUnitTimelineVelocityAndActionCost(owner.currentUnit);
 
+        owner.currentUnit.playerUI.PreviewActionCost(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
         tiles = PreviewAbility();
         board.SelectMovementTiles(tiles);
     }
@@ -41,6 +43,8 @@ public class UseAbilityState : BattleState
             {
                 if (owner.currentTile.content.gameObject.GetComponent<EnemyUnit>() != null && tiles.Contains(owner.currentTile))
                 {
+                    owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                    owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
                     StartCoroutine(UseAbilitySequence(owner.currentTile.content.gameObject.GetComponent<EnemyUnit>()));
                 }
             }
@@ -189,6 +193,8 @@ public class UseAbilityState : BattleState
                     {
                         if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
                         {
+                            owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                            owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
                             StartCoroutine(UseAbilitySequence(t.content.GetComponent<Unit>()));
                         }
                     }
@@ -297,6 +303,7 @@ public class UseAbilityState : BattleState
     public override void Exit()
     {
         base.Exit();
+        selectTiles = null;
 
         if(tiles != null)
         {

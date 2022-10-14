@@ -35,7 +35,7 @@ public enum EffectType
 public class Abilities : ScriptableObject
 {
     [Range (1,5)]
-    [SerializeField] int actionCost;
+    public int actionCost;
     public int ActionCost
     {
         get { return actionCost; }

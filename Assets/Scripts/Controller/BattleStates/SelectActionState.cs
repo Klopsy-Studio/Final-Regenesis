@@ -8,6 +8,7 @@ public enum typeOfAction
     Ability,
     Item,
     Wait,
+    Status,
 };
 public class SelectActionState : BattleState
 {
@@ -15,6 +16,8 @@ public class SelectActionState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.currentUnit.playerUI.unitUI.gameObject.SetActive(true);
+        owner.currentUnit.playerUI.ShowActionPoints();
 
         owner.currentUnit.unitSprite.gameObject.GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 1);
         owner.isTimeLineActive = false;
@@ -74,7 +77,7 @@ public class SelectActionState : BattleState
             switch (currentAction)
             {
                 case typeOfAction.Move:
-                    currentAction = typeOfAction.Wait;
+                    currentAction = typeOfAction.Status;
                     break;
                 case typeOfAction.Ability:
                     currentAction = typeOfAction.Move;
@@ -84,6 +87,9 @@ public class SelectActionState : BattleState
                     break;
                 case typeOfAction.Wait:
                     currentAction = typeOfAction.Item;
+                    break;
+                case typeOfAction.Status:
+                    currentAction = typeOfAction.Wait;
                     break;
                 default:
                     break;
@@ -105,6 +111,9 @@ public class SelectActionState : BattleState
                     currentAction = typeOfAction.Wait;
                     break;
                 case typeOfAction.Wait:
+                    currentAction = typeOfAction.Status;
+                    break;
+                case typeOfAction.Status:
                     currentAction = typeOfAction.Move;
                     break;
                 default:
@@ -118,7 +127,6 @@ public class SelectActionState : BattleState
 
     protected override void OnSelectAction(object sender, InfoEventArgs<int> e)
     {
-       
         switch (e.info)
         {
             case 0:
@@ -165,6 +173,10 @@ public class SelectActionState : BattleState
                 owner.ChangeState<WaitUnitState>();
                 break;
 
+            case 5:
+                owner.ChangeState<CheckUnitStatusState>();
+                break;
+
         }
     }
     protected override void OnFire(object sender, InfoEventArgs<KeyCode> e)
@@ -202,6 +214,11 @@ public class SelectActionState : BattleState
                 //Skip turn
                 currentAction = typeOfAction.Move;
                 owner.ChangeState<WaitUnitState>();
+                break;
+            case typeOfAction.Status:
+                currentAction = typeOfAction.Status;
+
+                owner.ChangeState<CheckUnitStatusState>();
                 break;
 
         }

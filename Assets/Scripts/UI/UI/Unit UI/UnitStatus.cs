@@ -3,30 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+enum StatusMode
+{
+    Big, Small
+}
 public class UnitStatus : MonoBehaviour
 {
-    [SerializeField] Text unitName;
-    [SerializeField] Slider unitHealth;
-    [SerializeField] Image unitPortrait;
-    [SerializeField] Image unitWeapon;
+    [Header("Status Modes")]
+    [SerializeField] GameObject bigUnitUI;
+    [SerializeField] GameObject smallUnitUI;
+    [Space]
+    [Header("Unit Status References")]
+    
+    [SerializeField] Text bigUnitName;
+    [SerializeField] Slider smallUnitHealth;
+    [SerializeField] Slider bigUnitHealth;
+    [SerializeField] Image smallUnitPortrait;
+    [SerializeField] Image bigUnitPortrait;
+    [SerializeField] Image smallUnitWeapon;
+    [SerializeField] Image bigUnitWeapon;
+
 
     [Header("Titles")]
     [HideInInspector] public bool updatingValue;
     [Header("UI Animations Variables")]
     [SerializeField] float speed;
 
+    [Header("Status Mode")]
+    [SerializeField] StatusMode uiStatus;
     public void SetUnit(PlayerUnit unit)
     {
         //unitName.text = unit.unitName;
-        unitHealth.maxValue = unit.health.baseValue;
-        unitHealth.value = unit.health.baseValue;
+        smallUnitHealth.maxValue = unit.health.baseValue;
+        smallUnitHealth.value = unit.health.baseValue;
 
-        unitPortrait.sprite = unit.unitPortrait;
+        bigUnitHealth.maxValue = unit.health.baseValue;
+        bigUnitHealth.value = unit.health.baseValue;
+
+        smallUnitPortrait.sprite = unit.unitPortrait;
+        bigUnitPortrait.sprite = unit.unitPortrait;
+
         //unitSharpness.maxValue = unit.weapon.planticidaPoints;
         //unitSharpness.value = unit.weapon.planticidaPoints;
 
-        unitWeapon.sprite = unit.weapon.weaponIcon;
+        smallUnitWeapon.sprite = unit.weapon.weaponIcon;
+        bigUnitWeapon.sprite = unit.weapon.weaponIcon;
 
+        bigUnitName.text = unit.unitName;
 
         unit.status = this;
     }
@@ -39,7 +62,17 @@ public class UnitStatus : MonoBehaviour
 
     public void HealthAnimation(int target)
     {
-        StartCoroutine(SliderValueAnimation(unitHealth, target));
+        switch (uiStatus)
+        {
+            case StatusMode.Big:
+                StartCoroutine(SliderValueAnimation(bigUnitHealth, target));
+                break;
+            case StatusMode.Small:
+                StartCoroutine(SliderValueAnimation(smallUnitHealth, target));
+                break;
+            default:
+                break;
+        }
     }
 
     //public void SharpnessAnimation(int target)
@@ -82,5 +115,23 @@ public class UnitStatus : MonoBehaviour
         updatingValue = false;
     }
          
-    
+    public void ChangeToBig()
+    {
+        if(uiStatus != StatusMode.Big)
+        {
+            uiStatus = StatusMode.Big;
+            smallUnitUI.SetActive(false);
+            bigUnitUI.SetActive(true);
+        }
+    }
+
+    public void ChangeToSmall()
+    {
+        if (uiStatus != StatusMode.Small)
+        {
+            uiStatus = StatusMode.Small;
+            smallUnitUI.SetActive(true);
+            bigUnitUI.SetActive(false);
+        }
+    }
 }
