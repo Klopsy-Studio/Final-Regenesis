@@ -19,6 +19,7 @@ public enum TypeOfAbilityRange
     SelfAbility,
     SquareAbility,
     Side,
+    AlternateSide,
     Cross,
     Normal,
 };

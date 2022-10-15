@@ -74,7 +74,6 @@ public class EnemyUnit : Unit
 
         if(monsterSpace != null)
         {
-            board.DeSelectTiles(monsterSpace);
 
             foreach(Tile t in monsterSpace)
             {
@@ -95,8 +94,6 @@ public class EnemyUnit : Unit
         {
             t.occupied = true;
         }
-
-        board.SelectAttackTiles(monsterSpace);
     }
 
 }

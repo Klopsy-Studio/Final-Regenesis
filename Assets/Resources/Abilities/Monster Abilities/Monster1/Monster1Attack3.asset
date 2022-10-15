@@ -14,14 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfAbility: 0
   attackRange:
-  - range: 3
-    lineDir: 2
-    lineLength: 2
+  - range: 7
+    lineDir: 0
+    lineLength: 0
     sideDir: 0
     sideReach: 0
     sideLength: 0
-    crossLength: 1
+    crossLength: 0
     squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 2
+    alternateSideLength: 2
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 1
+    alternateSideReach: 2
+    alternateSideLength: 2
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 3
+    alternateSideReach: 2
+    alternateSideLength: 2
   initialDamage: 20
   abilityModifier: 0
   initialHeal: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfAbility: 0
   attackRange:
-  - range: 6
+  - range: 7
     lineDir: 0
     lineLength: 0
     sideDir: 2
@@ -22,6 +22,9 @@ MonoBehaviour:
     sideLength: 1
     crossLength: 0
     squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
   initialDamage: 20
   abilityModifier: 0
   initialHeal: 0

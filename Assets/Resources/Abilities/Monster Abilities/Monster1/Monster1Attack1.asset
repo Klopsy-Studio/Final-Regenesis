@@ -14,12 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfAbility: 0
   attackRange:
-  - range: 7
+  - range: 6
     lineDir: 2
     lineLength: 2
     sideDir: 0
-    sideReach: 0
-    sideLength: 0
+    sideReach: 2
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
+    sideDir: 1
+    sideReach: 2
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
+    sideDir: 2
+    sideReach: 2
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
+    sideDir: 3
+    sideReach: 2
+    sideLength: 1
     crossLength: 1
     squareReach: 0
   initialDamage: 20
