@@ -1236,7 +1236,7 @@ PrefabInstance:
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
-      objectReference: {fileID: 11400000, guid: f84d80f6d433ac24a8f5f0ad41242717, type: 2}
+      objectReference: {fileID: 11400000, guid: b90eaef850f44a14781502a4bdce162b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
 --- !u!1001 &85011357939115778
@@ -1246,6 +1246,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Lens.Dutch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223092, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.5172844
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223092, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.776709
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223092, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.891354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 11400000, guid: b90eaef850f44a14781502a4bdce162b, type: 2}
     - target: {fileID: 3099776044107931977, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1293,6 +1325,42 @@ PrefabInstance:
     - target: {fileID: 3099776044107931979, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_Name
       value: BattleController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.4918947
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.018314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99960065
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.012794226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.02198115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.012321211
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886122782810732646, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886122782810732646, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: near clip plane
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886122782810732646, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
