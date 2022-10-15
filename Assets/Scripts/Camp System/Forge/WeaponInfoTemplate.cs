@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] ForgeManager forgeManager;
-    [SerializeField] PurchaseForge purchaseForge;
+    [HideInInspector] public ForgeManager forgeManager;
+    [HideInInspector] public PurchaseForge purchaseForge;
     [HideInInspector] public Weapons weaponToPurchase;
     [HideInInspector] public string kitName;
     [HideInInspector] public int cost;

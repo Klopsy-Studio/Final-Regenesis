@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92293337c2721b7438af83a935bcd548, type: 3}
-  m_Name: WEAPONTEST1
+  m_Name: 2121412
   m_EditorClassIdentifier: 
-  equipmentName: 3213
+  equipmentName: 21323
   sprite: {fileID: 0}
-  equipmentType: 0
-  elements_Effectiveness: 3
-  power: 0
-  elementPower: 0
-  defense: 0
-  staminaCost: 0
-  range: 0
+  equipmentType: 1
+  elements_Effectiveness: 2
+  power: 2
+  elementPower: 34
+  defense: 5
+  staminaCost: 123
+  range: 213213
   Abilities: []
   weaponIcon: {fileID: 0}

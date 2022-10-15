@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class ForgeManager : MonoBehaviour
 {
+    //Prueba
+    [SerializeField] WeaponTreeTemplate[] weaponTreeTemplateList;
+    [SerializeField] PurchaseForge purchaseForge;
+    //------------
 
     public MonsterMaterial monsterMaterial1;
     public MonsterMaterial monsterMaterial2;
@@ -29,22 +33,37 @@ public class ForgeManager : MonoBehaviour
     //public MaterialRequirement[] materialRequirement;
     
    
-    public void SelectCurrentWeaponInfo(WeaponInfoTemplate value)
-    {
-        currentWeaponInfoSelected = value;
 
-    }
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < weaponTreeTemplateList.Length; i++)
+        {
+            foreach (var item in weaponTreeTemplateList)
+            {
+                item.FillVariables(this, purchaseForge);
+            }
+        }
        
+        //for (int i = 0; i < weaponUpgradeSystem.allWeaponsTrees.Length; i++)
+        //{
+        //    Debug.Log("ee");
+        //    for (int w = 0; w < weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade.Length; w++)
+        //    {
+        //        Debug.Log("RECORRIDO");
+        //        weaponInfo[w].gameObject.SetActive(true);
+        //    }
+          
+        //}
+
         for (int i = 0; i < weaponUpgradeSystem.allWeaponsTrees.Length; i++)
         {
+            Debug.Log("ee");
             for (int w = 0; w < weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade.Length; w++)
             {
-                weaponInfo[w].gameObject.SetActive(true);
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].gameObject.SetActive(true);
             }
-          
+
         }
 
         coinUI.text = coins.ToString();
@@ -100,6 +119,12 @@ public class ForgeManager : MonoBehaviour
         
     }
 
+    public void SelectCurrentWeaponInfo(WeaponInfoTemplate value)
+    {
+        currentWeaponInfoSelected = value;
+
+    }
+
     public void UpdateForgeUI()
     {
         coinUI.text = coins.ToString();
@@ -133,21 +158,21 @@ public class ForgeManager : MonoBehaviour
      
         for (int i = 0; i < weaponUpgradeSystem.allWeaponsTrees.Length; i++)
         {
-          
+            Debug.Log("LOAD PANEL");
             for (int w = 0; w < weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade.Length; w++)
             {
-              
-                weaponInfo[w].weaponToPurchase = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon;
-                weaponInfo[w].kitName = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].itemName;
-                weaponInfo[w].cost = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].cost;
-                weaponInfo[w].moveRange = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.range.ToString();
-                weaponInfo[w].element = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.ElementPower.ToString();
-                weaponInfo[w].power = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Power.ToString();
-                weaponInfo[w].defense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Defense.ToString();
-                weaponInfo[w].critic = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.CriticalPercentage.ToString();
-                weaponInfo[w].elementalDefense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Elements_Effectiveness.ToString();
-                weaponInfo[w].materialRequirement = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].materialsRequired;
-                weaponInfo[w].weaponUpgradeTree = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w];
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].weaponToPurchase = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon;
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].kitName = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].itemName;
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].cost =  weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].cost;
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].moveRange = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.range.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].element = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.ElementPower.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].power = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Power.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].defense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Defense.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].critic = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.CriticalPercentage.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].elementalDefense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Elements_Effectiveness.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].materialRequirement = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].materialsRequired;
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].weaponUpgradeTree = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w];
+
 
             }
         }
