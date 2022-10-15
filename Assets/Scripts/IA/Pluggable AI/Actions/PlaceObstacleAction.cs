@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlaceObstacleAction : Action
 {
+    [SerializeField] MonsterAbility obstacleRange;
     public override void Act(MonsterController controller)
     {
         controller.CallCoroutine(PlaceObstacle(controller));
@@ -13,12 +14,10 @@ public class PlaceObstacleAction : Action
 
     IEnumerator PlaceObstacle(MonsterController controller)
     {
-        //Currently for only 1 tile monster
-        //Change square reach to 2 to change this
-        SquareAbilityRange squareRange = controller.GetRange<SquareAbilityRange>();
-        squareRange.squareReach = 1;
 
-        List<Tile> rangeTiles = squareRange.GetTilesInRange(controller.battleController.board);
+        List<Tile> rangeTiles = obstacleRange.GetAttackTiles(controller);
+
+        controller.battleController.board.SelectAttackTiles(rangeTiles);
         List<Tile> validTiles = new List<Tile>();
         Tile tileToPlaceObstacle = new Tile();
 

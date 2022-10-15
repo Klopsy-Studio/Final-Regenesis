@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc6c313d5726b84eb0b40578ea91b3c, type: 3}
   m_Name: PlaceObstacle
   m_EditorClassIdentifier: 
+  obstacleRange: {fileID: 11400000, guid: 06fefaa7a6ed3ba499d50c6fd07d0100, type: 2}
