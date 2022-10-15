@@ -94,6 +94,7 @@ public class InitBattleState : BattleState
     public void AssignUnitData(UnitProfile data, PlayerUnit unit)
     {
         unit.unitPortrait = data.unitPortrait;
+        unit.fullUnitPortrait = data.unitFullPortrait;
         unit.weapon = data.unitWeapon;
         unit.unitName = data.unitName;
 

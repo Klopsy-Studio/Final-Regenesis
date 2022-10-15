@@ -24,6 +24,7 @@ public class OptionSelection : MonoBehaviour
     [SerializeField] Text abilityText;
     [SerializeField] Text itemText;
     [SerializeField] Text waitText;
+    [SerializeField] Text statusText;
 
     [Space]
 
@@ -31,6 +32,7 @@ public class OptionSelection : MonoBehaviour
     [SerializeField] Button buttonAbility;
     [SerializeField] Button buttonItem;
     [SerializeField] Button buttonWait;
+    [SerializeField] Button buttonStatus;
     [Space]
 
     [Header("Ability Options")]
@@ -103,6 +105,13 @@ public class OptionSelection : MonoBehaviour
             });
         }
 
+        if(buttonStatus != null)
+        {
+            buttonStatus.onClick.AddListener(() =>
+            {
+                UIController.instance.ClickConfirm(5);
+            });
+        }
         //ABILITIES BUTTON
         if (buttonSelectAbility1 != null)
         {

@@ -45,6 +45,7 @@ public class BattleController : StateMachine
     public AttackUI attackUI;
     public SpriteRenderer ghostImage;
     public TimelineUI timelineUI;
+    public ExpandedUnitStatus expandedUnitStatus;
 
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;

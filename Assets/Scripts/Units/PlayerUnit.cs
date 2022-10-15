@@ -7,6 +7,7 @@ public class PlayerUnit : Unit
     public UnitProfile profile;
     public SpriteRenderer unitSprite;
     [HideInInspector] public Sprite unitPortrait;
+    [HideInInspector] public Sprite fullUnitPortrait;
     public bool didNotMove;
     public Weapons weapon;
     public Armor armor;
@@ -15,9 +16,16 @@ public class PlayerUnit : Unit
     public bool changing;
 
     [HideInInspector] public UnitStatus status;
+
+    public PlayerUnitUI playerUI;
     protected override void Start()
     {
         base.Start();
+
+        playerUI.unitUI.worldCamera = Camera.main;
+        playerUI.unitUI.planeDistance = 0.01f;
+        playerUI.unitUI.gameObject.SetActive(false);
+
         didNotMove = true;
         timelineFill = Random.Range(0, 50);
         //ESTO DEBERÍA DE ESTAR EN UNIT

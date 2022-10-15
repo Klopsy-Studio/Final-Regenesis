@@ -10,6 +10,7 @@ public class UnitProfile : ScriptableObject
     [Header("Sprites")]
     public Sprite unitSprite;
     public Sprite unitPortrait;
+    public Sprite unitFullPortrait;
     public Sprite unitReaction;
     public Sprite unitAction;
     public Sprite unitTimelineIcon;

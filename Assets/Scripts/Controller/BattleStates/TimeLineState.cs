@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimeLineState : BattleState
 {
+    [SerializeField] PlayerUnit selectedUnit;
     public override void Enter()
     {
         base.Enter();
@@ -15,6 +16,11 @@ public class TimeLineState : BattleState
 
         if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse())
         {
+            if(selectedUnit != null)
+            {
+                selectedUnit.status.ChangeToSmall();
+                selectedUnit = null;
+            }
             //Timeline del evento real
             //owner.realTimeEvent.UpdateTimeLine();
 
@@ -29,6 +35,7 @@ public class TimeLineState : BattleState
                     if (t is PlayerUnit p)
                     {
                         owner.currentUnit = p;
+                        owner.currentUnit.playerUI.ResetActionPoints();
                         owner.ChangeState<SelectUnitState>();
                         break;
                     }
@@ -61,6 +68,7 @@ public class TimeLineState : BattleState
                         owner.ChangeState<ItemActiveState>();
                         break;
                     }
+                    
 
                 }
                
@@ -69,18 +77,21 @@ public class TimeLineState : BattleState
 
         else
         {
-            if(owner.timelineUI.selectedIcon != null)
+            if (owner.timelineUI.selectedIcon != null)
             {
-                if(owner.timelineUI.selectedIcon.element.GetComponent<Unit>() != null)
+                if (owner.timelineUI.selectedIcon.element.GetComponent<Unit>() != null)
                 {
+                    if (owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>() != null)
+                    {
+                        selectedUnit = owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>();
+                        selectedUnit.status.ChangeToBig();
+                    }
                     SelectTile(owner.timelineUI.selectedIcon.element.GetComponent<Unit>().tile.pos);
                 }
-                
+
                 owner.timelineUI.selectedIcon.Grow();
             }
         }
-
-       
 
     }
 

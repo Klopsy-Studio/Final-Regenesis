@@ -34,7 +34,12 @@ public enum EffectType
 [CreateAssetMenu(menuName = "Ability/New Ability")]
 public class Abilities : ScriptableObject
 {
-    
+    [Range (1,5)]
+    public int actionCost;
+    public int ActionCost
+    {
+        get { return actionCost; }
+    }
     public AbilityVelocityCost abilityVelocityCost;
     public TypeOfAbilityRange rangeType;
 
@@ -119,10 +124,10 @@ public class Abilities : ScriptableObject
 
     public string[] description;
 
-   
+  
     public void SetUnitTimelineVelocityAndActionCost(Unit u)
     {
-        u.ActionsPerTurn -= (int)abilityVelocityCost;
+        u.ActionsPerTurn -= actionCost;
         u.TimelineVelocity += (int)abilityVelocityCost+1;
         Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
     }
@@ -190,7 +195,9 @@ public class Abilities : ScriptableObject
 
     public void UseAbility(Unit target)
     {
-      
+        //AQUI ES DONDE SE HACE EL ACTION COST
+        target.ActionsPerTurn -= ActionCost;
+
         switch (abilityEffect)
         {
             case EffectType.Damage:

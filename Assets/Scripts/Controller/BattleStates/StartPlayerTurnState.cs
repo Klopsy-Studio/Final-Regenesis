@@ -7,6 +7,7 @@ public class StartPlayerTurnState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.currentUnit.status.ChangeToBig();
         owner.turnStatusUI.ActivateBanner();
         owner.turnStatusUI.PlayerTurn();
         //StartCoroutine(BeginPlayerTurn());
