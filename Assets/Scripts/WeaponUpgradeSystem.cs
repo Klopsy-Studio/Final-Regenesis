@@ -27,28 +27,79 @@ public class WeaponUpgradeTree
     public Weapons weaponRequired;
     public MaterialRequirement[] materialsRequired;
   
+    public bool HasRequiredWeapon(EquipmentInventory _inventory)
+    {
+        foreach (var i in _inventory.container)
+        {
+            if(i.weapon == weaponRequired)
+            {
+                return true;
+            }
+     
+        }
 
+        return false;
+    }
+
+    public void QuitRequiredWeapon(EquipmentInventory _inventory)
+    {
+        foreach (var i in _inventory.container)
+        {
+            if (i.weapon == weaponRequired)
+            {
+                _inventory.container.Remove(i);
+                break;
+            }
+           
+        }
+    }
 }
 
-public enum Monster
-{
-    Monster1,
-    Monster2,
-    Monster3
-}
 
-public enum TypeOfMaterial
-{
-    Scale,
-    Fang,
-    Skull
-}
 
 [System.Serializable]
 public class MaterialRequirement
 {
-    public Monster monster;
-    public TypeOfMaterial material;
+    public MonsterMaterial monsterMaterial;
     public int numberOfMaterial;
-   
+
+    public bool DoIHaveEnoughMaterial(MaterialInventory inventory)
+    {
+
+        foreach (var item in inventory.materialContainer)
+        {
+            if(item.material == monsterMaterial)
+            {
+              
+               if(item.amount>= numberOfMaterial)
+               {
+                    return true;
+               }
+               else
+               {
+                    return false;
+               }
+
+            }
+          
+        }
+
+        return false;
+    }
+
+    public void ReduceMaterial(MaterialInventory inventory)
+    {
+        foreach (var item in inventory.materialContainer)
+        {
+            if (item.material == monsterMaterial)
+            {
+
+                item.amount -= numberOfMaterial;
+
+            }
+
+        }
+
+    }
+
 }

@@ -12,7 +12,25 @@ public class PurchaseForge : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("WEAPON TO PURCHASE IS NULL");
         }
-        GameManager.instance.equipmentInventory.AddItem(weaponToPurchase);
+
+        if (forgeManager.canPurchaseItem())
+        {
+            Debug.Log("AAAAAAAAA");
+            forgeManager.coins -= forgeManager.currentWeaponInfoSelected.cost;
+
+            for (int i = 0; i < forgeManager.currentWeaponInfoSelected.materialRequirement.Length; i++)
+            {
+                forgeManager.currentWeaponInfoSelected.materialRequirement[i].ReduceMaterial(GameManager.instance.materialInventory);
+             
+            }
+
+            forgeManager.UpdateForgeUI();
+            GameManager.instance.equipmentInventory.AddItem(weaponToPurchase);
+            forgeManager.currentWeaponInfoSelected.weaponUpgradeTree.QuitRequiredWeapon(GameManager.instance.equipmentInventory);
+        }
+
+        
+     
      
     }
 }

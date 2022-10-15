@@ -5,15 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "InventorySystem/ConsumableInventory")]
 public class ConsumableInventory : ScriptableObject
 {
-    public List<ConsumableSlot> container = new List<ConsumableSlot>();
-    public void AddItem(Consumables _consumable, int _amount)
+    public List<ConsumableSlot> consumableContainer = new List<ConsumableSlot>();
+    public void AddConsumable(Consumables _consumable, int _amount)
     {
         bool hasConsumable = false;
-        for (int i = 0; i < container.Count; i++)
+        for (int i = 0; i < consumableContainer.Count; i++)
         {
-            if (container[i].consumable == _consumable)
+            if (consumableContainer[i].consumable == _consumable)
             {
-                container[i].AddAmount(_amount);
+                consumableContainer[i].AddAmount(_amount);
                 hasConsumable = true;
                 break;
             }
@@ -21,7 +21,7 @@ public class ConsumableInventory : ScriptableObject
 
         if (!hasConsumable)
         {
-            container.Add(new ConsumableSlot(_consumable, _amount));
+            consumableContainer.Add(new ConsumableSlot(_consumable, _amount));
         }
     }
 

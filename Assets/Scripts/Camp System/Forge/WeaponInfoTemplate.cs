@@ -8,28 +8,34 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] ForgeManager forgeManager;
     [SerializeField] PurchaseForge purchaseForge;
-    [HideInInspector] public Weapons weapon;
+    [HideInInspector] public Weapons weaponToPurchase;
     [HideInInspector] public string kitName;
-    [HideInInspector] public string cost;
+    [HideInInspector] public int cost;
+    [HideInInspector] public WeaponUpgradeTree weaponUpgradeTree;
     [HideInInspector] public string moveRange;
     [HideInInspector] public string element;
     [HideInInspector] public string power;
     [HideInInspector] public string defense;
     [HideInInspector] public string critic;
     [HideInInspector] public string elementalDefense;
+    [HideInInspector] public MaterialRequirement[] materialRequirement;
  
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        purchaseForge.weaponToPurchase = weapon;
+
+        forgeManager.SelectCurrentWeaponInfo(this);
+        purchaseForge.weaponToPurchase = weaponToPurchase;
+
         forgeManager.kitNameTxt.text = kitName;
-        forgeManager.costTxt.text = cost;
+        forgeManager.costTxt.text = cost.ToString();
         forgeManager.moveRangeTxt.text = moveRange;
         forgeManager.elementTxt.text = element;
         forgeManager.powerTxt.text = power;
         forgeManager.defenseTxt.text = defense;
         forgeManager.criticTxt.text = critic;
         forgeManager.elementalDefenseTxt.text = elementalDefense;
+        //forgeManager.materialRequirement = materialRequirement;
 
 
     }

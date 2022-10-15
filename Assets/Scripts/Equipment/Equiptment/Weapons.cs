@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Equipment/New weapon")]
-public class Weapons : Equipment
+public class Weapons : weapon
 {
     int criticalPercentage;
     public int CriticalPercentage { get { return criticalPercentage; } }

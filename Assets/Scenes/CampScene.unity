@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 32069220}
   - component: {fileID: 32069219}
   m_Layer: 5
-  m_Name: GenerateCoin Button
+  m_Name: GenerateMaterials
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1117,8 +1117,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -167.2713, y: -27.59314}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -52, y: -46.607}
+  m_SizeDelta: {x: 344.005, y: 68.027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &32069219
 MonoBehaviour:
@@ -14463,6 +14463,7 @@ GameObject:
   - component: {fileID: 954907217}
   - component: {fileID: 954907216}
   - component: {fileID: 954907215}
+  - component: {fileID: 954907218}
   m_Layer: 5
   m_Name: Material/Purchase BTN
   m_TagString: Untagged
@@ -14497,7 +14498,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954907213}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -14584,6 +14585,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954907213}
   m_CullTransparentMesh: 1
+--- !u!114 &954907218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954907213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09742aaff6660742898d5c7d790854a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forgeManager: {fileID: 1493460231}
+  weaponToPurchase: {fileID: 0}
 --- !u!1 &955228066
 GameObject:
   m_ObjectHideFlags: 0
@@ -17467,10 +17482,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -17478,7 +17493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'GenerateCoin
+  m_Text: 'GenerateResources
 
 '
 --- !u!222 &1114742674
@@ -22933,12 +22948,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc923ecb01d0c1f43901d99b2a4b6418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterMaterial1: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+  monsterMaterial2: {fileID: 11400000, guid: 0f60321a62da5aa4a9eed7508b82cf2a, type: 2}
   weaponUpgradeSystem: {fileID: 11400000, guid: af0f93d9e431c9747b318b91773a767e, type: 2}
   coins: 0
   coinUI: {fileID: 344916969}
   weaponInfo:
   - {fileID: 1635230080}
   - {fileID: 1674513852}
+  currentWeaponInfoSelected: {fileID: 0}
   kitNameTxt: {fileID: 450870459}
   costTxt: {fileID: 470986155}
   moveRangeTxt: {fileID: 734868997}
@@ -32020,6 +32038,10 @@ PrefabInstance:
       propertyPath: forgeManager
       value: 
       objectReference: {fileID: 1493460231}
+    - target: {fileID: 167374867713474236, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+      propertyPath: purchaseForge
+      value: 
+      objectReference: {fileID: 954907218}
     - target: {fileID: 1807175470445489406, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -32120,6 +32142,10 @@ PrefabInstance:
       propertyPath: forgeManager
       value: 
       objectReference: {fileID: 1493460231}
+    - target: {fileID: 6983664611863234563, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
+      propertyPath: purchaseForge
+      value: 
+      objectReference: {fileID: 954907218}
     - target: {fileID: 7881733152725173648, guid: 83a1379208935074e8b8d8a85a3d4f82, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -32194,6 +32220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
+      propertyPath: materialInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f9e3a9b313e7094ab10e3351d3b0017, type: 2}
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: equipmentInventory
       value: 

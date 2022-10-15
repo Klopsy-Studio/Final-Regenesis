@@ -17,19 +17,16 @@ MonoBehaviour:
     - itemName: GREAT SWORD
       weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
       cost: 21
-      weaponRequired: {fileID: 0}
+      weaponRequired: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
       materialsRequired:
-      - monster: 0
-        material: 0
-        numberOfMaterial: 0
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 3
     - itemName: BLOW GUN
       weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
       cost: 37
       weaponRequired: {fileID: 0}
       materialsRequired:
-      - monster: 0
-        material: 0
-        numberOfMaterial: 0
-      - monster: 0
-        material: 0
-        numberOfMaterial: 0
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 5
+      - monsterMaterial: {fileID: 11400000, guid: 0f60321a62da5aa4a9eed7508b82cf2a, type: 2}
+        numberOfMaterial: 5

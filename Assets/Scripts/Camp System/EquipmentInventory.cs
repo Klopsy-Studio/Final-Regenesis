@@ -4,24 +4,24 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "InventorySystem/EquipmentInventory")]
 public class EquipmentInventory : ScriptableObject
 {
-    public List<EquipmentSlot> container = new List<EquipmentSlot>();
-    public void AddItem(Equipment _equipment)
+    public List<WeaponSlot> container = new List<WeaponSlot>();
+    public void AddItem(weapon _equipment)
     {
         bool hasEquipment = false;
         for (int i = 0; i < container.Count; i++)
         {
-            if (container[i].equipment == _equipment)
+            if (container[i].weapon == _equipment)
             {
                 
                 hasEquipment = true;
-                container.Add(new EquipmentSlot(_equipment));
+                container.Add(new WeaponSlot(_equipment));
                 break;
             }
         }
 
         if (!hasEquipment)
         {
-            container.Add(new EquipmentSlot(_equipment));
+            container.Add(new WeaponSlot(_equipment));
         }
     }
 
@@ -32,18 +32,19 @@ public class EquipmentInventory : ScriptableObject
 }
 
 [System.Serializable]
-public class EquipmentSlot
+public class WeaponSlot
 {
-    public Equipment equipment;
+    public weapon weapon;
     
-    public EquipmentSlot(Equipment _equipment)
+    public WeaponSlot(weapon _weapon)
     {
-        equipment = _equipment;
+        weapon = _weapon;
     }
 
     //public void AddAmount(int value)
     //{
     //    amount += value;
     //}
+
 }
 
