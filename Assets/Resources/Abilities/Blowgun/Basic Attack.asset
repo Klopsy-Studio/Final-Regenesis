@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Basic Attack
   m_EditorClassIdentifier: 
   actionCost: 1
-  abilityVelocityCost: 0
   rangeType: 8
   cameraSize: 3
   effectDuration: 0.5

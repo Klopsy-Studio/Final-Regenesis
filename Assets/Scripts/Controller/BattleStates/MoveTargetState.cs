@@ -111,7 +111,7 @@ public class MoveTargetState : BattleState
         {
             owner.ghostImage.gameObject.SetActive(false);
             owner.currentUnit.didNotMove = false;
-            owner.currentUnit.TimelineVelocity += 1;
+            owner.currentUnit.ActionsPerTurn -= 1;
             owner.currentUnit.actionDone = true;
             owner.ChangeState<MoveSequenceState>();
         }
@@ -122,7 +122,7 @@ public class MoveTargetState : BattleState
         if (tiles.Contains(owner.currentTile) && owner.currentTile != originPoint)
         {
             owner.currentUnit.didNotMove = false;
-            owner.currentUnit.TimelineVelocity += 1;
+            owner.currentUnit.ActionsPerTurn -= 1;
             owner.currentUnit.actionDone = true;
             owner.ChangeState<MoveSequenceState>();
         }

@@ -12,11 +12,22 @@ public enum TimeLineTypes
 }
 public enum TimelineVelocity
 {
-    None,
-    Quick,
-    Normal,
-    Slow,
+    //None,
+    //Quick,
+    //VeryQuick,
+    //Normal,
+    //Slow,
+    //VerySlow,
+
+
     VerySlow,
+    Slow,
+    Normal,
+    Quick,
+    VeryQuick,
+    TurboFast,
+   
+    
 
 }
 public abstract class TimelineElements : MonoBehaviour
@@ -31,6 +42,7 @@ public abstract class TimelineElements : MonoBehaviour
 
     protected TimeLineTypes timelineTypes;
     public TimeLineTypes TimelineTypes { get { return timelineTypes; } }
+
     [Header("Timelines variables")]
     protected TimelineVelocity timelineVelocity = TimelineVelocity.Normal;
     public virtual TimelineVelocity TimelineVelocity

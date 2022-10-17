@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AbilityVelocityCost
-{
-    Quick,
-    Normal,
-    Slow,
-    VerySlow,
-}
+//public enum AbilityVelocityCost
+//{
+//    Quick,
+//    Normal,
+//    Slow,
+//    VerySlow,
+//}
 
 public enum TypeOfAbilityRange
 {
@@ -40,7 +40,7 @@ public class Abilities : ScriptableObject
     {
         get { return actionCost; }
     }
-    public AbilityVelocityCost abilityVelocityCost;
+    //public AbilityVelocityCost abilityVelocityCost;
     public TypeOfAbilityRange rangeType;
 
     [Header("Effect parameters")]
@@ -128,8 +128,9 @@ public class Abilities : ScriptableObject
     public void SetUnitTimelineVelocityAndActionCost(Unit u)
     {
         u.ActionsPerTurn -= actionCost;
-        u.TimelineVelocity += (int)abilityVelocityCost+1;
-        Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
+     
+        //u.TimelineVelocity += (int)abilityVelocityCost+1;
+        //Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
     }
 
     public bool CheckUnitInRange(Board board)

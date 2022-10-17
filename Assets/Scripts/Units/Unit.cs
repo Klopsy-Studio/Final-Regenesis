@@ -19,7 +19,7 @@ public class Unit : TimelineElements
     {
         get { return timelineVelocity; }
 
-        set { timelineVelocity = value; SetCurrentVelocity();}
+        set { timelineVelocity = value;/* SetCurrentVelocity(); */}
     }
     public override int ActionsPerTurn
     {
@@ -61,7 +61,7 @@ public class Unit : TimelineElements
     protected virtual void Start()
     {
         Match();
-        SetCurrentVelocity();
+        SetInitVelocity();
         stamina = 100;
         damage.baseValue = 10;
     }
@@ -137,31 +137,63 @@ public class Unit : TimelineElements
         }
     }
 
-   
-
-    public void SetCurrentVelocity()
+    public void SetInitVelocity()
     {
         switch (timelineVelocity)
         {
-            case TimelineVelocity.None:
-                fTimelineVelocity = 25f;
-                break;
-            case TimelineVelocity.Quick:
-                fTimelineVelocity = 25f;
-                break;
-            case TimelineVelocity.Normal:
-                fTimelineVelocity = 20;
+            case TimelineVelocity.VerySlow:
+                fTimelineVelocity = 5;
                 break;
             case TimelineVelocity.Slow:
-                fTimelineVelocity = 15f;
+                fTimelineVelocity = 10f;
                 break;
+            case TimelineVelocity.Normal:
+                fTimelineVelocity = 15;
+                break;
+            case TimelineVelocity.Quick:
+                fTimelineVelocity = 20f;
+                break;
+            case TimelineVelocity.VeryQuick:
+                fTimelineVelocity = 25;
+                break;
+            case TimelineVelocity.TurboFast:
+                fTimelineVelocity = 30f;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SetCurrentVelocity()
+    {
+
+        timelineVelocity += (int)actionsPerTurn;
+        //Debug.Log("TimelineVelocitydespues " + timelineVelocity +" valor" + (int)timelineVelocity);
+        switch (timelineVelocity)
+        {
             case TimelineVelocity.VerySlow:
-                fTimelineVelocity = 10;
+                fTimelineVelocity = 5;
+                break;
+            case TimelineVelocity.Slow:
+                fTimelineVelocity = 10f;
+                break;
+            case TimelineVelocity.Normal:
+                fTimelineVelocity = 15;
+                break;
+            case TimelineVelocity.Quick:
+                fTimelineVelocity = 20f;
+                break;
+            case TimelineVelocity.VeryQuick:
+                fTimelineVelocity = 25;
+                break;
+            case TimelineVelocity.TurboFast:
+                fTimelineVelocity = 30f;
                 break;
             default:
                 break;
         }
         //Debug.Log("CURRENT VELOCITY TYPE " + currentVelocity);
+
     }
 
     public override bool UpdateTimeLine()
@@ -176,10 +208,10 @@ public class Unit : TimelineElements
         return false;
     }
 
-    public void DebugThings()
-    {
-        Debug.Log( this.unitName + "current velocity: " + timelineVelocity);
-    }
+    //public void DebugThings()
+    //{
+    //    Debug.Log( this.unitName + "current velocity: " + timelineVelocity);
+    //}
 
 
     public virtual void React()
