@@ -24,7 +24,8 @@ public class Weapons : Equipment
     public int StaminaCost { get { return staminaCost; } }
 
 
-    public int range;
+    public int originalRange;
+    [HideInInspector] public int range;
 
 
 
@@ -42,6 +43,10 @@ public class Weapons : Equipment
         c.damage.AddModifier(new StatsModifier(power, StatModType.Flat, this));
     }
 
-   
-  
+    private void OnEnable()
+    {
+        range = originalRange;
+    }
+
+
 }
