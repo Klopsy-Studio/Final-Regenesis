@@ -5,7 +5,7 @@ using UnityEngine;
 public class EquipmentInventory : ScriptableObject
 {
     public List<WeaponSlot> container = new List<WeaponSlot>();
-    public void AddItem(weapon _equipment)
+    public void AddItem(Weapons _equipment)
     {
         bool hasEquipment = false;
         for (int i = 0; i < container.Count; i++)
@@ -34,9 +34,9 @@ public class EquipmentInventory : ScriptableObject
 [System.Serializable]
 public class WeaponSlot
 {
-    public weapon weapon;
+    public Weapons weapon;
     
-    public WeaponSlot(weapon _weapon)
+    public WeaponSlot(Weapons _weapon)
     {
         weapon = _weapon;
     }
