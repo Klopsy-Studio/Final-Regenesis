@@ -16,10 +16,11 @@ public class Monster1SpecialAbility : Monster1State
     {
         if(owner.tileToPlaceObstacle == null)
         {
-            List<Tile> tiles = RegularGetTilesInRange(1);
+            MonsterAbilityRange range = GetComponent<MonsterAbilityRange>();
+            List<Tile> tiles = range.GetTilesInRange(owner.battleController.board);
             int e = Random.Range(0, tiles.Count);
 
-            while(tiles.ToArray()[e].content != null)
+            while(tiles.ToArray()[e].content != null && !tiles.ToArray()[e].occupied)
             {
                 e = Random.Range(0, tiles.Count);
             }

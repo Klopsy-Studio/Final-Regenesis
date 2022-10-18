@@ -13,7 +13,7 @@ public class EnemyAttackState : BattleState
         owner.isTimeLineActive = false;
         Movement mover = owner.currentEnemyUnit.GetComponent<Movement>();
         ability = owner.currentEnemyUnit.abilities[SelectRandomAbility()];
-        mover.range = ability.range;
+        //mover.range = ability.range;
         mover.ChangeFilter(TimeLineTypes.PlayerUnit);
         tiles = mover.GetTilesInRangeForEnemy(board, true);
         //tiles = mover.GetTilesInRange(board, true);

@@ -7,17 +7,24 @@ public class PlayerUnit : Unit
     public UnitProfile profile;
     public SpriteRenderer unitSprite;
     [HideInInspector] public Sprite unitPortrait;
+    [HideInInspector] public Sprite fullUnitPortrait;
     public bool didNotMove;
     public Weapons weapon;
-    
 
 
     public bool changing;
 
     [HideInInspector] public UnitStatus status;
+
+    public PlayerUnitUI playerUI;
     protected override void Start()
     {
         base.Start();
+
+        playerUI.unitUI.worldCamera = Camera.main;
+        playerUI.unitUI.planeDistance = 0.01f;
+        playerUI.unitUI.gameObject.SetActive(false);
+
         didNotMove = true;
         timelineFill = Random.Range(0, 50);
         //ESTO DEBERÍA DE ESTAR EN UNIT
@@ -35,7 +42,6 @@ public class PlayerUnit : Unit
 
         
         weapon.EquipItem(this);
-      
         maxHealth.baseValue = health.Value;
 
     }
@@ -54,7 +60,7 @@ public class PlayerUnit : Unit
 
         foreach (Abilities a in weapon.Abilities)
         {
-            if (actionsPerTurn >= a.ActionCost)
+            if (actionsPerTurn >= (int)a.abilityVelocityCost)
             {
                 return true;
             }

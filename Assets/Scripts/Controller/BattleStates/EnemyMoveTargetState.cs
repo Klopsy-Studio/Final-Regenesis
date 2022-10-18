@@ -20,16 +20,16 @@ public class EnemyMoveTargetState : BattleState
     float minDist = float.PositiveInfinity;
     float nearestCell = float.PositiveInfinity;
     Unit targetUnit;
-    public override void Enter()
-    {
-        base.Enter();
-        owner.isTimeLineActive = false;
-        Movement mover = owner.currentEnemyUnit.GetComponent<Movement>();
-        tiles = mover.GetTilesInRange(board, true);
+    //public override void Enter()
+    //{
+    //    base.Enter();
+    //    owner.isTimeLineActive = false;
+    //    Movement mover = owner.currentEnemyUnit.GetComponent<Movement>();
+    //    tiles = mover.GetTilesInRange(board, true);
 
       
-        StartCoroutine(Sequence());
-    }
+    //    StartCoroutine(Sequence());
+    //}
     public override void Exit()
     {
       
@@ -74,13 +74,14 @@ public class EnemyMoveTargetState : BattleState
         Movement m = owner.currentEnemyUnit.GetComponent<Movement>();
 
         owner.currentEnemyUnit.currentPoint = owner.currentTile.pos;
-        yield return StartCoroutine(m.Traverse(owner.currentTile));
+        yield return StartCoroutine(m.SimpleTraverse(owner.currentTile));
+        
 
         while (m.moving)
         {
             yield return null;
         }
-
+        
         owner.ChangeState<EnemyAttackState>();
     }
 

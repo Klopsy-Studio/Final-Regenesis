@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour
 {
+    
+    public bool isTraverseCalled = false;
     public int range = 5;
     int originalRange;
     public int OriginalRange { get { return originalRange; } }
@@ -118,7 +120,30 @@ public abstract class Movement : MonoBehaviour
 
     public abstract IEnumerator SimpleTraverse(Tile tile); //Unit just teleports.
 
-    public abstract IEnumerator Traverse(Tile tile); //Traverse animation
+    public abstract IEnumerator Traverse(Tile tile, Board board); //Traverse animation
+
+    //public void StartTraverse(Tile tile)
+    //{
+    //    if (!isTraverseCalled)
+    //    {
+    //        isTraverseCalled = true;
+    //        Debug.Log("LLAMANDO A CORUTINA");
+    //        StartCoroutine(Traverse(tile, board));          
+    //    }
+      
+    //}
+
+    public bool IsDoneMoving()
+    {
+        if (moving)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     protected virtual IEnumerator Turn(Directions dir)
     {
         if(unit.dir == Directions.North || unit.dir == Directions.East)
@@ -144,7 +169,7 @@ public abstract class Movement : MonoBehaviour
         range = OriginalRange;
     }
 
-    public void PushUnit(Directions pushDir, int pushStrength, Board board)
+    public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
         range = pushStrength;
         List<Tile> t = GetTilesInRange(board, true);
@@ -159,7 +184,7 @@ public abstract class Movement : MonoBehaviour
 
         if(desiredTile != null && desiredTile.content == null)
         {
-            StartCoroutine(Traverse(desiredTile));
+            StartCoroutine(Traverse(desiredTile, board));
         }
     }
 

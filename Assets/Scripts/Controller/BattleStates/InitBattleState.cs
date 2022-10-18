@@ -61,30 +61,26 @@ public class InitBattleState : BattleState
 
         for (int i = 0; i < levelData.enemySpawnPoints.Count; i++)
         {
+
             if (levelData.enemyInLevel == null) break;
             GameObject instance = Instantiate(levelData.enemyInLevel) as GameObject;
             Point p = levelData.enemySpawnPoints.ToArray()[i];
 
             Unit unit = instance.GetComponent<Unit>();
+
             unit.Place(board.GetTile(p));
+
             unit.Match();
 
-            Movement m = instance.AddComponent(components[i]) as Movement;
+            unit.GetComponent<EnemyUnit>().UpdateMonsterSpace(board);
+
+            MonsterMovement m = instance.GetComponent<MonsterMovement>();
             m.range = 10;
             m.jumpHeight = 1;
 
             unitsInGame.Add(unit);
 
             owner.enemyUnits.Add(unit);
-            //if (unit.UnitType == UnitType.PlayerUnit)
-            //{
-            //    owner.playerUnits.Add(unit);
-            //}
-
-            //if (unit.UnitType == UnitType.EnemyUnit)
-            //{
-            //    owner.enemyUnits.Add(unit);
-            //}
         }
 
        
@@ -98,6 +94,7 @@ public class InitBattleState : BattleState
     public void AssignUnitData(UnitProfile data, PlayerUnit unit)
     {
         unit.unitPortrait = data.unitPortrait;
+        unit.fullUnitPortrait = data.unitFullPortrait;
         unit.weapon = data.unitWeapon;
         unit.unitName = data.unitName;
 

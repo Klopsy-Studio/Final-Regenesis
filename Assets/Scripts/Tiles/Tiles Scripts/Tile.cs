@@ -47,6 +47,8 @@ public class Tile : MonoBehaviour
         }
     }
 
+    public bool occupied;
+
     public GameObject m_content = null;
 
     [HideInInspector] public Tile prev; //stores the tile which was traversed to reach it
@@ -116,6 +118,41 @@ public class Tile : MonoBehaviour
     {
         prevMaterial = defaultMaterial;
         model.material = defaultMaterial;
+    }
+
+    public Tile CheckSurroundings(Board board)
+    {
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                if(!IsTileValid(board, x, y))
+                {
+                    return null;
+                }
+            }
+        }
+
+        return this;
+    }
+
+    public bool IsTileValid(Board board, int offsetX, int offsetY)
+    {
+        if (board.GetTile(new Point(pos.x + offsetX, pos.y+offsetY)) != null)
+        {
+            if(!board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).occupied && board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).content == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 

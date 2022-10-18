@@ -100,23 +100,23 @@ public class Monster1CheckRange : Monster1State
 
                 //If there weren't to or more enemies on this side, we check the other ones.
 
-                switch (attack2Range.dir)
-                {
-                    case Directions.North:
-                        attack2Range.dir = Directions.East;
-                        break;
-                    case Directions.East:
-                        attack2Range.dir = Directions.South;
-                        break;
-                    case Directions.South:
-                        attack2Range.dir = Directions.West;
-                        break;
-                    case Directions.West:
-                        attack2Range.dir = Directions.West;
-                        break;
-                    default:
-                        break;
-                }
+                //switch (attack2Range.dir)
+                //{
+                //    case Directions.North:
+                //        attack2Range.dir = Directions.East;
+                //        break;
+                //    case Directions.East:
+                //        attack2Range.dir = Directions.South;
+                //        break;
+                //    case Directions.South:
+                //        attack2Range.dir = Directions.West;
+                //        break;
+                //    case Directions.West:
+                //        attack2Range.dir = Directions.West;
+                //        break;
+                //    default:
+                //        break;
+                //}
 
                 owner.targets.Clear();
                 tiles.Clear();

@@ -27,7 +27,7 @@ public class MoveTargetState : BattleState
 
         m.range = owner.currentUnit.weapon.range;
         tiles = m.GetTilesInRange(board, true);
-
+        owner.currentUnit.playerUI.PreviewActionCost(2);
         board.SelectMovementTiles(tiles);
         tiles.Add(owner.currentTile);
         originPoint = owner.currentTile;
@@ -109,6 +109,7 @@ public class MoveTargetState : BattleState
     {
         if (tiles.Contains(owner.currentTile) && owner.currentTile != originPoint)
         {
+            owner.currentUnit.playerUI.SpendActionPoints(2);
             owner.ghostImage.gameObject.SetActive(false);
             owner.currentUnit.didNotMove = false;
             owner.currentUnit.ActionsPerTurn -= 1;
@@ -121,6 +122,8 @@ public class MoveTargetState : BattleState
     {
         if (tiles.Contains(owner.currentTile) && owner.currentTile != originPoint)
         {
+            owner.currentUnit.playerUI.SpendActionPoints(2);
+
             owner.currentUnit.didNotMove = false;
             owner.currentUnit.ActionsPerTurn -= 1;
             owner.currentUnit.actionDone = true;

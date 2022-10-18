@@ -23,7 +23,8 @@ public class FinishPlayerUnitTurnState : BattleState
         Debug.Log("CURRENT VELOCITY ES " + owner.currentUnit.TimelineVelocity + " CURRENT UNIT ACTIONS " + owner.currentUnit.ActionsPerTurn);
         owner.currentUnit.didNotMove = true;
         owner.currentUnit.timelineFill = 0;
-        
+        owner.currentUnit.status.ChangeToSmall();
+        owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
         yield return null;
         owner.ChangeState<TimeLineState>();
     }

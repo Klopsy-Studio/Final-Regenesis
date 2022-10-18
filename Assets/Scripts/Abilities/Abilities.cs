@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//public enum AbilityVelocityCost
-//{
-//    Quick,
-//    Normal,
-//    Slow,
-//    VerySlow,
-//}
+public enum AbilityVelocityCost
+{
+    Quick,
+    Normal,
+    Slow,
+    VerySlow,
+}
 
 public enum TypeOfAbilityRange
 {
@@ -19,6 +19,7 @@ public enum TypeOfAbilityRange
     SelfAbility,
     SquareAbility,
     Side,
+    AlternateSide,
     Cross,
     Normal,
 };
@@ -35,57 +36,24 @@ public enum EffectType
 public class Abilities : ScriptableObject
 {
     [Range (1,5)]
-    [SerializeField] int actionCost;
+    public int actionCost;
     public int ActionCost
     {
         get { return actionCost; }
     }
-    //public AbilityVelocityCost abilityVelocityCost;
-    public TypeOfAbilityRange rangeType;
+    public AbilityVelocityCost abilityVelocityCost;
 
+
+    public RangeData rangeData;
     [Header("Effect parameters")]
     [SerializeField] public float cameraSize = 3f;
     [SerializeField] public float effectDuration = 0.5f;
     [SerializeField] public float shakeIntensity = 0.01f;
     [SerializeField] public float shakeDuration = 0.05f;
 
-
-    public AbilityRange rangeScript
-    {
-        get
-        {
-            switch (rangeType)
-            {
-                case TypeOfAbilityRange.Cone:
-                    return new ConeAbilityRange();
-                case TypeOfAbilityRange.Constant:
-                    return new ConstantAbilityRange();
-                case TypeOfAbilityRange.Infinite:
-                    return new InfiniteAbilityRange();
-                case TypeOfAbilityRange.LineAbility:
-                    return new LineAbilityRange();
-                case TypeOfAbilityRange.SelfAbility:
-                    return new SelfAbilityRange();
-                case TypeOfAbilityRange.SquareAbility:
-                    return new SquareAbilityRange();
-                case TypeOfAbilityRange.Side:
-                    return new SideAbilityRange();
-                case TypeOfAbilityRange.Normal:
-                    return new MovementRange();
-                default:
-                    return null;
-            }
-        }
-
-        set
-        {
-            _rangeScript = value;
-        }
-    }
-
-    AbilityRange _rangeScript;
+    [Header("")]
+    public AbilityRange rangeScript;
    
-    public int range;
     [Header("Ability Variables")]
  
     public string abilityName;
@@ -124,17 +92,22 @@ public class Abilities : ScriptableObject
 
     public string[] description;
 
-  
+
+    private void Awake()
+    {
+        GetRangeScript();
+    }
+
     public void SetUnitTimelineVelocityAndActionCost(Unit u)
     {
         u.ActionsPerTurn -= actionCost;
-     
-        //u.TimelineVelocity += (int)abilityVelocityCost+1;
-        //Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
+        u.TimelineVelocity += (int)abilityVelocityCost+1;
+        Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
     }
 
     public bool CheckUnitInRange(Board board)
     {
+        rangeScript.AssignVariables(rangeData);
         List<Tile> tiles = rangeScript.GetTilesInRange(board);
 
         foreach(Tile t in tiles)
@@ -156,7 +129,38 @@ public class Abilities : ScriptableObject
     //    CalculateDmg();
     //    target.ReceiveDamage(finalDamage);
     //}
-
+    public void GetRangeScript()
+    {
+        switch (rangeData.range)
+        {
+            case TypeOfAbilityRange.Cone:
+                rangeScript = new ConeAbilityRange();
+                break;
+            case TypeOfAbilityRange.Constant:
+                rangeScript = new ConstantAbilityRange();
+                break;
+            case TypeOfAbilityRange.Infinite:
+                rangeScript = new InfiniteAbilityRange();
+                break;
+            case TypeOfAbilityRange.LineAbility:
+                rangeScript = new LineAbilityRange();
+                break;
+            case TypeOfAbilityRange.SelfAbility:
+                rangeScript = new SelfAbilityRange();
+                break;
+            case TypeOfAbilityRange.SquareAbility:
+                rangeScript = new SquareAbilityRange();
+                break;
+            case TypeOfAbilityRange.Side:
+                rangeScript = new SideAbilityRange();
+                break;
+            case TypeOfAbilityRange.Normal:
+                rangeScript = new MovementRange();
+                break;
+            default:
+                break;
+        }
+    }
     void CalculateDmg(EnemyUnit enemy)
     {
 

@@ -83,7 +83,7 @@ public class Unit : TimelineElements
     public void Match()
     {
         transform.localPosition = tile.center;
-        transform.localEulerAngles = dir.ToEuler();
+        //transform.localEulerAngles = dir.ToEuler();
         currentPoint = tile.pos;
     }
 
@@ -241,4 +241,6 @@ public class Unit : TimelineElements
         GameObject temp = Instantiate(healEffect, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), healEffect.transform.rotation);
         Destroy(temp, 0.8f);
     }
+
+    
 }

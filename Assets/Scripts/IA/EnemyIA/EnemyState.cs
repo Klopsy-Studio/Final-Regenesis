@@ -25,11 +25,11 @@ public class EnemyState : State
 
     protected List<Tile> RegularGetTilesInRange(int range)
     {
-        Movement enemyMovement = currentEnemy.GetComponent<Movement>();
-        enemyMovement.ChangeFilter(TimeLineTypes.EnemyUnit);
-        enemyMovement.ChangeRange(range);
-        List<Tile> t = enemyMovement.GetTilesInRange(battleController.board, true);
-        return t;
+        //Movement enemyMovement = currentEnemy.GetComponent<Movement>();
+        //enemyMovement.ChangeFilter(TimeLineTypes.EnemyUnit);
+        //enemyMovement.ChangeRange(range);
+        //List<Tile> t = enemyMovement.GetTilesInRange(battleController.board);
+        return null;
     }
 
 }

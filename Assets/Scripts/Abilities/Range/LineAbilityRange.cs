@@ -11,57 +11,67 @@ public class LineAbilityRange : AbilityRange
         Point startPos = unit.tile.pos;
         List<Tile> retValue  = new List<Tile>();
 
-        for (int i = 0; i < lineLength; i++)
+
+        switch (lineDir)
         {
-            switch (lineDir)
-            {
-                case Directions.North:
-                    if(board.GetTile(startPos + new Point (0, 1)) != null)
+            case Directions.North:
+                for (int i = 0; i < lineLength+1; i++)
+                {
+                    if (board.GetTile(startPos + new Point(0, i)) != null)
                     {
-                        startPos += new Point(0, 1);
-                        retValue.Add(board.GetTile(startPos));
+                        retValue.Add(board.GetTile(startPos + new Point(0, i)));
                     }
                     else
                     {
                         break;
                     }
-                    break;
-                case Directions.East:
-                    if (board.GetTile(startPos + new Point(1, 0)) != null)
+                 
+                }
+                break;
+            case Directions.East:
+                for (int i = 0; i < lineLength+1; i++)
+                {
+                    if (board.GetTile(startPos + new Point(-i, 0)) != null)
                     {
-                        startPos += new Point(1, 0);
-                        retValue.Add(board.GetTile(startPos));
+                        retValue.Add(board.GetTile(startPos+ new Point(-i, 0)));
                     }
                     else
                     {
                         break;
                     }
-                    break;
-                case Directions.South:
-                    if (board.GetTile(startPos + new Point(0, -1)) != null)
+
+                }
+                break;
+            case Directions.South:
+                for (int i = 0; i < lineLength+1; i++)
+                {
+                    if (board.GetTile(startPos + new Point(0,-i)) != null)
                     {
-                        startPos += new Point(0, -1);
-                        retValue.Add(board.GetTile(startPos));
+                        retValue.Add(board.GetTile(startPos + new Point(0, -i)));
                     }
                     else
                     {
                         break;
                     }
-                    break;
-                case Directions.West:
-                    if (board.GetTile(startPos + new Point(-1, 0)) != null)
+
+                }
+                break;
+            case Directions.West:
+                for (int i = 0; i < lineLength+1; i++)
+                {
+                    if (board.GetTile(startPos + new Point(i, 0)) != null)
                     {
-                        startPos += new Point(-1, 0);
-                        retValue.Add(board.GetTile(startPos));
+                        retValue.Add(board.GetTile(startPos + new Point(i, 0)));
                     }
                     else
                     {
                         break;
                     }
-                    break;
-                default:
-                    break;
-            }
+
+                }
+                break;
+            default:
+                break;
         }
 
         return retValue;
@@ -71,5 +81,11 @@ public class LineAbilityRange : AbilityRange
     public void ChangeDirection(Directions dir)
     {
         lineDir = dir;
+    }
+
+    public override void AssignVariables(RangeData rangeData)
+    {
+        lineDir = rangeData.lineDir;
+        lineLength = rangeData.lineLength;
     }
 }

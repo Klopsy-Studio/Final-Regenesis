@@ -7,6 +7,9 @@ public class FinishEnemyUnitTurnState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.monsterController.currentEnemy.GetComponent<Movement>().isTraverseCalled = false;
+        owner.monsterController.currentState = owner.monsterController.startState;
+        owner.monsterController.isUpdatingState = false;
         StartCoroutine(FinishTurnCoroutine());
     }
 

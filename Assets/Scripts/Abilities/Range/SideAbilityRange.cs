@@ -2,65 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideAbilityRange : SquareAbilityRange
+public class SideAbilityRange : AbilityRange
 {
-    public Directions dir = Directions.North;
+    public Directions sideDir;
+    public int sideReach;
+    public int sideLength;
     public override List<Tile> GetTilesInRange(Board board)
     {
         List<Tile> retValue = new List<Tile>();
-        List<Tile> tiles = new List<Tile>();
 
-        if(GetTileInPosition(new Point(0, 0), board)!= null)
+        switch (sideDir)
         {
-            tiles.Add(GetTileInPosition(new Point(0, 0), board));
-        }
+            case Directions.North:
 
-        if (GetTileInPosition(new Point(1, 0), board) != null) ;
-        {
-            tiles.Add(GetTileInPosition(new Point(1, 0), board));
-        }
-        
-        if(GetTileInPosition(new Point(-1, 0), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(-1, 0), board));
-        }
-        
-        if(GetTileInPosition(new Point(0, -1), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(0, -1), board));
-        }
-
-        if(GetTileInPosition(new Point(0, 1), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(0, 1), board));
-        }
-        
-        if(GetTileInPosition(new Point(1, 1), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(1, 1), board));
-        }
-        
-        if(GetTileInPosition(new Point(-1, -1), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(-1, -1), board));
-        }
-        
-        if(GetTileInPosition(new Point(1, -1), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(1, -1), board));
-        }
-        
-        if(GetTileInPosition(new Point(-1, 1), board) != null)
-        {
-            tiles.Add(GetTileInPosition(new Point(-1, 1), board));
-        }
-
-        foreach (Tile t in tiles)
-        {
-            if(unit.tile.CheckSpecificDirection(t, dir))
-            {
-                retValue.Add(t);
-            }
+                for (int i = -sideLength; i < sideLength + 1; i++)
+                {
+                    if (GetTileInPosition(new Point(i, sideReach), board) != null)
+                    {
+                        retValue.Add(GetTileInPosition(new Point(i, sideReach), board));
+                    }
+                }
+                break;
+            case Directions.East:
+                for (int i = -sideLength; i < sideLength + 1; i++)
+                {
+                    if (GetTileInPosition(new Point(-sideReach, i), board) != null)
+                    {
+                        retValue.Add(GetTileInPosition(new Point(-sideReach, i), board));
+                    }
+                }
+                break;
+            case Directions.South:
+                for (int i = -sideLength; i < sideLength+1; i++)
+                {
+                    if (GetTileInPosition(new Point(i, -sideReach), board) != null)
+                    {
+                        retValue.Add(GetTileInPosition(new Point(i, -sideReach), board));
+                    }
+                }
+                break;
+            case Directions.West:
+                for (int i = -sideLength; i < sideLength+1; i++)
+                {
+                    if (GetTileInPosition(new Point(sideReach, i), board) != null)
+                    {
+                        retValue.Add(GetTileInPosition(new Point(sideReach, i), board));
+                    }
+                }
+                break;
+            default:
+                break;
         }
 
         return retValue;
@@ -68,6 +59,14 @@ public class SideAbilityRange : SquareAbilityRange
 
     public void ChangeDirections(Tile t)
     {
-        dir = unit.tile.GetDirections(t);
+        sideDir = unit.tile.GetDirections(t);
+    }
+
+
+    public override void AssignVariables(RangeData rangeData)
+    {
+        sideDir = rangeData.sideDir;
+        sideReach = rangeData.sideReach;
+        sideLength = rangeData.sideLength;
     }
 }

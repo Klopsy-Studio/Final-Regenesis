@@ -24,6 +24,7 @@ public class OptionSelection : MonoBehaviour
     [SerializeField] Text abilityText;
     [SerializeField] Text itemText;
     [SerializeField] Text waitText;
+    [SerializeField] Text statusText;
 
     [Space]
 
@@ -31,6 +32,7 @@ public class OptionSelection : MonoBehaviour
     [SerializeField] Button buttonAbility;
     [SerializeField] Button buttonItem;
     [SerializeField] Button buttonWait;
+    [SerializeField] Button buttonStatus;
     [Space]
 
     [Header("Ability Options")]
@@ -103,6 +105,13 @@ public class OptionSelection : MonoBehaviour
             });
         }
 
+        if(buttonStatus != null)
+        {
+            buttonStatus.onClick.AddListener(() =>
+            {
+                UIController.instance.ClickConfirm(5);
+            });
+        }
         //ABILITIES BUTTON
         if (buttonSelectAbility1 != null)
         {
@@ -177,7 +186,8 @@ public class OptionSelection : MonoBehaviour
     {
         selector = UIController.instance.ReturnSelector();
         onOption = true;
-        if(selector != null)
+
+        if(selector != null && s.canBeSelected)
         {
             selector.position = new Vector3(selector.position.x, s.transform.position.y, selector.position.z);
         }
@@ -201,7 +211,7 @@ public class OptionSelection : MonoBehaviour
             currentSelection = 0;
         }
 
-        MoveSelector(options[currentSelection].position.y);
+        MoveSelector(options[currentSelection].rect.position.y);
     }
     
     //public void OnHover(int index)
@@ -217,10 +227,10 @@ public class OptionSelection : MonoBehaviour
         }
         else
         {
-            currentSelection = options.Length - 1;
+            currentSelection = options.Length-1;
         }
 
-        MoveSelector(options[currentSelection].position.y);
+        MoveSelector(options[currentSelection].rect.position.y);
     }
 
     public void ResetSelector()
@@ -230,7 +240,7 @@ public class OptionSelection : MonoBehaviour
     }
     void MoveSelector(float newPosition)
     {
-        selector.position = new Vector3(selector.position.x, newPosition +offset, selector.position.z);
+        selector.position = new Vector3(selector.position.x, newPosition + +offset, selector.position.z);
     }
 
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BattleController : StateMachine
 {
+    [HideInInspector] public MonsterController monsterController;
+
     public bool isTimeLineActive = true;
     public CameraRig cameraRig;
     public Board board;
@@ -18,6 +20,8 @@ public class BattleController : StateMachine
     public PlayerUnit currentUnit;
     public EnemyUnit currentEnemyUnit;
     [HideInInspector] public EnemyController currentEnemyController;
+   
+
 
     [HideInInspector] public ItemElements currentItem;
     [HideInInspector] public int itemIndexToRemove;
@@ -41,6 +45,7 @@ public class BattleController : StateMachine
     public AttackUI attackUI;
     public SpriteRenderer ghostImage;
     public TimelineUI timelineUI;
+    public ExpandedUnitStatus expandedUnitStatus;
 
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;

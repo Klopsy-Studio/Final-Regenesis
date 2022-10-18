@@ -14,12 +14,20 @@ public class UseAbilityState : BattleState
     {
         base.Enter();
         owner.isTimeLineActive = false;
-
-        Movement mover = owner.currentUnit.GetComponent<Movement>();
+        
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
         currentAbility.SetUnitTimelineVelocityAndActionCost(owner.currentUnit);
 
-        tiles = PreviewAbility();
+        owner.currentUnit.playerUI.PreviewActionCost(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
+        //tiles = PreviewAbility();
+
+        tiles = PreviewAbility(currentAbility.rangeData);
+
+        if(tiles == null)
+        {
+            Debug.Log("?");
+        }
+
         board.SelectMovementTiles(tiles);
     }
 
@@ -27,7 +35,6 @@ public class UseAbilityState : BattleState
     {
         if (!attacking)
         {
-            
             SelectTile(e.info + pos);
         }
         
@@ -41,6 +48,8 @@ public class UseAbilityState : BattleState
             {
                 if (owner.currentTile.content.gameObject.GetComponent<EnemyUnit>() != null && tiles.Contains(owner.currentTile))
                 {
+                    owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                    owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
                     StartCoroutine(UseAbilitySequence(owner.currentTile.content.gameObject.GetComponent<EnemyUnit>()));
                 }
             }
@@ -73,62 +82,6 @@ public class UseAbilityState : BattleState
                         {
                             selectTiles = new List<Tile>();
                         }
-
-                        switch (currentAbility.rangeType)
-                        {
-                            case TypeOfAbilityRange.Cone:
-
-                                selectTiles.Add(owner.currentTile);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-                            case TypeOfAbilityRange.Constant:
-                                selectTiles.Add(owner.currentTile);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-                            case TypeOfAbilityRange.Infinite:
-                                selectTiles.Add(owner.currentTile);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-                            case TypeOfAbilityRange.LineAbility:
-                                selectTiles.Add(owner.currentTile);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-                            case TypeOfAbilityRange.SelfAbility:
-                                selectTiles.Add(owner.currentTile);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-                            case TypeOfAbilityRange.SquareAbility:
-                                selectTiles.Add(owner.currentTile);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-                            case TypeOfAbilityRange.Side:
-                                SideAbilityRange sideRange = GetRange<SideAbilityRange>();
-                                sideRange.unit = owner.currentUnit;
-                                sideRange.ChangeDirections(owner.currentTile);
-
-                                selectTiles = sideRange.GetTilesInRange(board);
-                                board.SelectAttackTiles(selectTiles);
-
-                                break;
-                            case TypeOfAbilityRange.Cross:
-                                LineAbilityRange lineRange = GetRange<LineAbilityRange>();
-                                lineRange.ChangeDirection(owner.currentUnit.tile.GetDirections(owner.currentTile));
-                                lineRange.lineLength = currentAbility.range;
-                                lineRange.unit = owner.currentUnit;
-
-                                selectTiles = lineRange.GetTilesInRange(board);
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-
-                            case TypeOfAbilityRange.Normal:
-                                selectTiles.Add(owner.currentTile);
-
-                                board.SelectAttackTiles(selectTiles);
-                                break;
-
-                            default:
-                                break;
-                        }
                     }
 
                     else
@@ -142,8 +95,10 @@ public class UseAbilityState : BattleState
 
                     if (owner.currentTile.content != null)
                     {
-                        if (owner.currentTile.content.GetComponent<EnemyUnit>() != null)
+                        if (owner.currentTile.content.GetComponent<Unit>() != null)
                         {
+                            selectTiles.Add(owner.currentTile);
+                            board.SelectAttackTiles(selectTiles);
                             //EnemyUnit target = owner.currentTile.content.GetComponent<EnemyUnit>();
 
                             //Unit status code, remove when new UI
@@ -171,6 +126,13 @@ public class UseAbilityState : BattleState
                 }
 
             }
+            //else
+            //{
+            //    if(selectTiles != null)
+            //    {
+            //        board.DeSelectTiles(selectTiles);
+            //    }
+            //}
 
         }
 
@@ -189,6 +151,8 @@ public class UseAbilityState : BattleState
                     {
                         if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
                         {
+                            owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                            owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
                             StartCoroutine(UseAbilitySequence(t.content.GetComponent<Unit>()));
                         }
                     }
@@ -297,6 +261,7 @@ public class UseAbilityState : BattleState
     public override void Exit()
     {
         base.Exit();
+        selectTiles = null;
 
         if(tiles != null)
         {
@@ -316,10 +281,9 @@ public class UseAbilityState : BattleState
         owner.attackChosen = 0;
     }
 
-
-    public List<Tile> PreviewAbility()
+    public List<Tile> PreviewAbility(RangeData data)
     {
-        switch (currentAbility.rangeType)
+        switch (data.range)
         {
             case TypeOfAbilityRange.Cone:
                 ConeAbilityRange rangeCone = GetRange<ConeAbilityRange>();
@@ -339,9 +303,8 @@ public class UseAbilityState : BattleState
 
             case TypeOfAbilityRange.LineAbility:
                 LineAbilityRange lineRange = GetRange<LineAbilityRange>();
-                lineRange.lineLength = currentAbility.range;
+                lineRange.AssignVariables(data);
                 lineRange.unit = owner.currentUnit;
-                lineRange.ChangeDirection(owner.currentUnit.tile.GetDirections(owner.currentTile));
 
                 return lineRange.GetTilesInRange(board);
 
@@ -349,10 +312,10 @@ public class UseAbilityState : BattleState
                 SelfAbilityRange selfRange = GetRange<SelfAbilityRange>();
                 selfRange.unit = owner.currentUnit;
                 return selfRange.GetTilesInRange(board);
-
                 
             case TypeOfAbilityRange.SquareAbility:
                 SquareAbilityRange squareRange = GetRange<SquareAbilityRange>();
+                squareRange.AssignVariables(data);
                 squareRange.unit = owner.currentUnit;
 
                 return squareRange.GetTilesInRange(board);
@@ -361,24 +324,20 @@ public class UseAbilityState : BattleState
 
                 MovementRange sideRange = GetRange<MovementRange>();
                 sideRange.unit = owner.currentUnit;
-                sideRange.tile = owner.currentUnit.tile;
-                sideRange.range = 1;
+                sideRange.AssignVariables(data);
                 return sideRange.GetTilesInRange(board);
 
             case TypeOfAbilityRange.Cross:
                 CrossAbilityRange crossRange = GetRange<CrossAbilityRange>();
-                crossRange.crossLength = 1;
+                crossRange.AssignVariables(data);
                 crossRange.unit = owner.currentUnit;
 
                 return crossRange.GetTilesInRange(board);
 
             case TypeOfAbilityRange.Normal:
                 MovementRange normalRange = GetRange<MovementRange>();
-                normalRange.tile = owner.currentUnit.tile;
-                normalRange.range = currentAbility.range;
+                normalRange.AssignVariables(data);
                 normalRange.unit = owner.currentUnit;
-                normalRange.removeContent = false;
-
                 return normalRange.GetTilesInRange(board);
             default:
                 return null;

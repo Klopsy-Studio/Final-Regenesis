@@ -23,6 +23,9 @@ public class EnemyUnit : Unit
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite reactSprite;
+
+
+    List<Tile> monsterSpace;
     public float StunThreshold
     {
         get { return stunThreshold; }
@@ -33,11 +36,11 @@ public class EnemyUnit : Unit
     protected override void Start()
     {
         base.Start();
-        timelineFill = Random.Range(0, 3);
-    
+        //timelineFill = Random.Range(0, 3);
+
+        timelineFill = 70;
         timelineTypes = TimeLineTypes.EnemyUnit;
         health.baseValue = maxHealth.baseValue;
-
     }
 
     
@@ -64,6 +67,33 @@ public class EnemyUnit : Unit
     {
         base.Default();
         sprite.sprite = defaultSprite;
+    }
+
+    public void UpdateMonsterSpace(Board board)
+    {
+
+        if(monsterSpace != null)
+        {
+
+            foreach(Tile t in monsterSpace)
+            {
+                t.occupied = false;
+            }
+
+            monsterSpace.Clear();
+        }
+
+        Match();
+        //Place(board.GetTile(currentPoint));
+
+        SquareAbilityRange monsterRange = GetComponent<SquareAbilityRange>();
+
+        monsterSpace = monsterRange.GetTilesInRange(board);
+
+        foreach (Tile t in monsterSpace)
+        {
+            t.occupied = true;
+        }
     }
 
 }

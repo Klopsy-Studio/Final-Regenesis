@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 2512748260298187115}
   - component: {fileID: 131185405536904068}
   - component: {fileID: 6655357974802538771}
+  - component: {fileID: 4479537950099291599}
+  - component: {fileID: 2793316147885699590}
+  - component: {fileID: 791753766009545169}
+  - component: {fileID: 5246652809376665854}
   m_Layer: 6
   m_Name: Monster
   m_TagString: Untagged
@@ -110,6 +114,71 @@ MonoBehaviour:
   attackToUse: 0
   obstacle: {fileID: 986858306413133845, guid: 3ccb7408d54443c4eba8e9f77a2d75bc, type: 3}
   tileToPlaceObstacle: {fileID: 0}
+--- !u!114 &4479537950099291599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827fad8a48ca0824bb79f7a6b00193ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 131185405536904068}
+  squareReach: 1
+--- !u!114 &2793316147885699590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a2baf66eb32fe4fa8366bc438651ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 131185405536904068}
+  monsterReach: 2
+--- !u!114 &791753766009545169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d438dade88657fd4c9d24ed943499afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 131185405536904068}
+  dir: 0
+  reach: 2
+--- !u!114 &5246652809376665854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7d88fce6c8bc944b41f26d1a1a4ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 5
+  originalRange: 0
+  jumpHeight: 0
+  moving: 0
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0
