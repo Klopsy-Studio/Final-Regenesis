@@ -10,7 +10,6 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite fullUnitPortrait;
     public bool didNotMove;
     public Weapons weapon;
-    public Armor armor;
 
 
     public bool changing;
@@ -38,12 +37,11 @@ public class PlayerUnit : Unit
     //ESTA FUNCION HAY QUE REVISARLA
     public void EquipAllItems()
     {
-        if (weapon == null || armor == null) { return; }
+        if (weapon == null) { return; }
         health.baseValue = 100;
 
         
         weapon.EquipItem(this);
-        armor.EquipItem(this);
         maxHealth.baseValue = health.Value;
 
     }

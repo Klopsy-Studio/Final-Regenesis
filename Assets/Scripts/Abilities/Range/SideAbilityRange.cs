@@ -62,11 +62,11 @@ public class SideAbilityRange : AbilityRange
         sideDir = unit.tile.GetDirections(t);
     }
 
-    public void AssignVariables(Directions newSideDir, int newSideReach, int newSideLength)
-    {
-        sideDir = newSideDir;
-        sideReach = newSideReach;
-        sideLength = newSideLength;
-    }
 
+    public override void AssignVariables(RangeData rangeData)
+    {
+        sideDir = rangeData.sideDir;
+        sideReach = rangeData.sideReach;
+        sideLength = rangeData.sideLength;
+    }
 }

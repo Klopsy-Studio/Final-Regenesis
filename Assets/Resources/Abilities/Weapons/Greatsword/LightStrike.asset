@@ -10,17 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
-  m_Name: Attack
+  m_Name: LightStrike
   m_EditorClassIdentifier: 
-  actionCost: 1
+  actionCost: 3
   abilityVelocityCost: 0
-  rangeType: 7
+  rangeData:
+    range: 9
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 2
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 2
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
-  range: 1
-  abilityName: Basic Attack
+  rangeScript: {fileID: 0}
+  abilityName: Light Strike
   abilityEffect: 0
   initialDamage: 105
   abilityModifier: 0.5

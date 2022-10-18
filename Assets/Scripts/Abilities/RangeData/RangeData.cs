@@ -16,5 +16,6 @@ public class RangeData
     [SerializeField] public Directions alternateSideDir;
     [SerializeField] public int alternateSideReach;
     [SerializeField] public int alternateSideLength;
+    [SerializeField] public int movementRange;
 }
 

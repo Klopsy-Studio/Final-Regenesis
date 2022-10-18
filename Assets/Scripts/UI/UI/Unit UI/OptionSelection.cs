@@ -186,7 +186,8 @@ public class OptionSelection : MonoBehaviour
     {
         selector = UIController.instance.ReturnSelector();
         onOption = true;
-        if(selector != null)
+
+        if(selector != null && s.canBeSelected)
         {
             selector.position = new Vector3(selector.position.x, s.transform.position.y, selector.position.z);
         }
@@ -210,7 +211,7 @@ public class OptionSelection : MonoBehaviour
             currentSelection = 0;
         }
 
-        MoveSelector(options[currentSelection].position.y);
+        MoveSelector(options[currentSelection].rect.position.y);
     }
     
     //public void OnHover(int index)
@@ -226,10 +227,10 @@ public class OptionSelection : MonoBehaviour
         }
         else
         {
-            currentSelection = options.Length - 1;
+            currentSelection = options.Length-1;
         }
 
-        MoveSelector(options[currentSelection].position.y);
+        MoveSelector(options[currentSelection].rect.position.y);
     }
 
     public void ResetSelector()
@@ -239,7 +240,7 @@ public class OptionSelection : MonoBehaviour
     }
     void MoveSelector(float newPosition)
     {
-        selector.position = new Vector3(selector.position.x, newPosition +offset, selector.position.z);
+        selector.position = new Vector3(selector.position.x, newPosition + +offset, selector.position.z);
     }
 
 

@@ -51,4 +51,10 @@ public class SquareAbilityRange : AbilityRange
             return false;
         }
     }
+
+
+    public override void AssignVariables(RangeData rangeData)
+    {
+        squareReach = rangeData.squareReach;
+    }
 }

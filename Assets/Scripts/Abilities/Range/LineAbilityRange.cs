@@ -83,9 +83,9 @@ public class LineAbilityRange : AbilityRange
         lineDir = dir;
     }
 
-    public void AssignVariables(Directions newLineDir, int newLineLength)
+    public override void AssignVariables(RangeData rangeData)
     {
-        lineDir = newLineDir;
-        lineLength = newLineLength;
+        lineDir = rangeData.lineDir;
+        lineLength = rangeData.lineLength;
     }
 }

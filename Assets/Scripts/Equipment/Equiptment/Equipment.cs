@@ -6,9 +6,6 @@ public enum EquipmentType
 {
     GreatSword,
     Blowgun,
-    Helmet,
-    Chest,
-    Gloves,
 }
 
 

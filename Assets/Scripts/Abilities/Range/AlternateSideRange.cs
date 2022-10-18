@@ -57,7 +57,7 @@ public class AlternateSideRange : AbilityRange
         return retValue;
     }
 
-    public void AssignVariables(RangeData data)
+    public override void AssignVariables(RangeData data)
     {
         alternateSideDir = data.alternateSideDir;
         alternateSideReach = data.alternateSideReach;

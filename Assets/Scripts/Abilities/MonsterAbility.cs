@@ -43,7 +43,7 @@ public class MonsterAbility : ScriptableObject
             {
                 case TypeOfAbilityRange.LineAbility:
                     LineAbilityRange lineRange = monster.GetRange<LineAbilityRange>();
-                    lineRange.AssignVariables(r.lineDir, r.lineLength);
+                    lineRange.AssignVariables(r);
                     if (CheckForUnits(lineRange.GetTilesInRange(monster.battleController.board)))
                     {
                         return true;
@@ -51,7 +51,7 @@ public class MonsterAbility : ScriptableObject
                     break;
                 case TypeOfAbilityRange.Side:
                     SideAbilityRange sideRange = monster.GetRange<SideAbilityRange>();
-                    sideRange.AssignVariables(r.sideDir, r.sideReach, r.sideLength);
+                    sideRange.AssignVariables(r);
                     if (CheckForUnits(sideRange.GetTilesInRange(monster.battleController.board)))
                     {
                         return true;
@@ -83,13 +83,13 @@ public class MonsterAbility : ScriptableObject
             {
                 case TypeOfAbilityRange.LineAbility:
                     LineAbilityRange lineRange = monster.GetRange<LineAbilityRange>();
-                    lineRange.AssignVariables(r.lineDir, r.lineLength);
+                    lineRange.AssignVariables(r);
                     List<Tile> lineTiles = lineRange.GetTilesInRange(monster.battleController.board);
                     AddTilesToList(retValue, lineTiles);
                     break;
                 case TypeOfAbilityRange.Side:
                     SideAbilityRange sideRange = monster.GetRange<SideAbilityRange>();
-                    sideRange.AssignVariables(r.sideDir, r.sideReach, r.sideLength);
+                    sideRange.AssignVariables(r);
                     List<Tile> sideTiles = sideRange.GetTilesInRange(monster.battleController.board);
                     AddTilesToList(retValue, sideTiles);
                     break;

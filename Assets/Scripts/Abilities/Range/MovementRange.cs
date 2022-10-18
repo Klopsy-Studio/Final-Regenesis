@@ -10,6 +10,7 @@ public class MovementRange : AbilityRange
     public bool removeContent = false;
     public override List<Tile> GetTilesInRange(Board board)
     {
+        tile = unit.tile;
         List<Tile> retValue = board.Search(tile, ExpandSearch);
 
         if (removeContent)
@@ -31,5 +32,11 @@ public class MovementRange : AbilityRange
     protected virtual bool ExpandSearch(Tile from, Tile to)
     {
         return (from.distance + 1) <= range;
+    }
+
+
+    public override void AssignVariables(RangeData rangeData)
+    {
+        range = rangeData.movementRange;
     }
 }

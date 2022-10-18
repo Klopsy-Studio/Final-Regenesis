@@ -10,23 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
-  m_Name: Wide Swing
+  m_Name: Bash
   m_EditorClassIdentifier: 
+  actionCost: 3
   abilityVelocityCost: 1
   rangeType: 6
+  rangeData:
+    range: 9
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 1
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
   range: 1
-  planticidaCost: 10
-  abilityName: Wide Swing
+  abilityName: Bash
   abilityEffect: 0
   initialDamage: 110
+  abilityModifier: 0
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
-  staminaCost: 0
   stunDamage: 0
   animationName: 
   lastTarget: {fileID: 0}
