@@ -8,28 +8,9 @@ public class WalkMovement : Movement
     {
         moving = true;
         unit.Place(tile);
-        // Build a list of way points from the unit's 
-        // starting tile to the destination tile
-        //List<Tile> targets = new List<Tile>();
-        //while (tile != null)
-        //{
-        //    targets.Insert(0, tile);
-        //    tile = tile.prev;
-        //}
-        //// Move to each way point in succession
-        //for (int i = 1; i < targets.Count; ++i)
-        //{
-        //    Tile from = targets[i - 1];
-        //    Tile to = targets[i];
-        //    Directions dir = from.GetDirections(to);
-        //    if (unit.dir != dir)
-        //        yield return StartCoroutine(Turn(dir));
-        //    if (from.height == to.height)
-        //        yield return StartCoroutine(Walk(to));
-        //    else
-        //        yield return StartCoroutine(Jump(to));
-        //}
 
+
+        UpdateUnitSprite(tile);
 
         moving = false;
         unit.transform.position = new Vector3(tile.pos.x, unit.transform.position.y, tile.pos.y);
@@ -63,13 +44,18 @@ public class WalkMovement : Movement
                 yield return StartCoroutine(Jump(to));
         }
 
-
         moving = false;
 
         if (unit.GetComponent<EnemyUnit>() != null)
         {
             unit.GetComponent<EnemyUnit>().UpdateMonsterSpace(board);
         }
+
+        if(tile != null)
+        {
+            UpdateUnitSprite(tile);
+        }
+
         yield return null;
     }
 
@@ -138,4 +124,45 @@ public class WalkMovement : Movement
             yield return null;
     }
 
+    public void UpdateUnitSprite(Tile tile)
+    {
+        //Save it for later
+
+        //if (unit.dir == unit.tile.GetDirections(tile))
+        //{
+        //    unit.unitSprite.flipX = false;
+        //}
+        //else
+        //{
+        //    switch (unit.dir)
+        //    {
+        //        case Directions.North:
+        //            if (unit.tile.GetDirections(tile) != Directions.West)
+        //            {
+        //                unit.unitSprite.flipX = true;
+        //            }
+        //            break;
+        //        case Directions.East:
+        //            if (unit.tile.GetDirections(tile) != Directions.South)
+        //            {
+        //                unit.unitSprite.flipX = true;
+        //            }
+        //            break;
+        //        case Directions.South:
+        //            if (unit.tile.GetDirections(tile) != Directions.East)
+        //            {
+        //                unit.unitSprite.flipX = true;
+        //            }
+        //            break;
+        //        case Directions.West:
+        //            if (unit.tile.GetDirections(tile) != Directions.North)
+        //            {
+        //                unit.unitSprite.flipX = true;
+        //            }
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
+    }
 }

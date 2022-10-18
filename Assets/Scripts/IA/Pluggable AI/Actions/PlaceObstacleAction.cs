@@ -17,7 +17,6 @@ public class PlaceObstacleAction : Action
 
         List<Tile> rangeTiles = obstacleRange.GetAttackTiles(controller);
 
-        controller.battleController.board.SelectAttackTiles(rangeTiles);
         List<Tile> validTiles = new List<Tile>();
         Tile tileToPlaceObstacle = new Tile();
 
@@ -34,6 +33,10 @@ public class PlaceObstacleAction : Action
             tileToPlaceObstacle = validTiles[Random.Range(0, validTiles.Count-1)];
         }
 
+        List<Tile> singleTile = new List<Tile>();
+        singleTile.Add(tileToPlaceObstacle);
+        controller.battleController.board.SelectAttackTiles(singleTile);
+
         GameObject obstacle = Instantiate(controller.obstacle, new Vector3(tileToPlaceObstacle.pos.x, 1, tileToPlaceObstacle.pos.y), controller.obstacle.transform.rotation);
         tileToPlaceObstacle.content = obstacle;
         obstacle.transform.parent = null;
@@ -47,6 +50,7 @@ public class PlaceObstacleAction : Action
             yield return null;
         }
 
+        controller.battleController.board.DeSelectTiles(singleTile);
         controller.currentEnemy.Default();
 
         OnExit(controller);

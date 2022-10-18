@@ -23,15 +23,17 @@ public class MoveSequenceState : BattleState
         Movement m = owner.currentUnit.GetComponent<Movement>();
 
         owner.currentUnit.currentPoint = owner.currentTile.pos;
-        yield return StartCoroutine(m.SimpleTraverse(owner.currentTile));
+        StartCoroutine(m.SimpleTraverse(owner.currentTile));
 
-        while (m.moving)
-        {
-            yield return null;
-        }
+        //while (m.moving)
+        //{
+        //    yield return null;
+        //}
+        
 
         owner.currentUnit.actionDone = true;
 
+        yield return null;
         owner.ChangeState<SelectActionState>();
 
     }

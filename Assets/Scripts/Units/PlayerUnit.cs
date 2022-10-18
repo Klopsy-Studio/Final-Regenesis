@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerUnit : Unit  
 {
     public UnitProfile profile;
-    public SpriteRenderer unitSprite;
     [HideInInspector] public Sprite unitPortrait;
     [HideInInspector] public Sprite fullUnitPortrait;
     public bool didNotMove;
