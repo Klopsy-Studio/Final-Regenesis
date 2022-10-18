@@ -33,10 +33,6 @@ public class Unit : TimelineElements
     public bool actionDone;
     public Point currentPoint;
 
-    [Header("PLACEHOLDER")]
-    public Material disabledMaterial;
-    public Material enabledMaterial;
-    public MeshRenderer renderer;
 
     //Variables que se comparten entre unidades del jugador y del enemigo
     public Stats maxHealth;
@@ -58,6 +54,7 @@ public class Unit : TimelineElements
     [SerializeField] GameObject healEffect;
     [SerializeField] GameObject hitEffect;
 
+    public SpriteRenderer unitSprite;
     protected virtual void Start()
     {
         Match();
@@ -87,17 +84,6 @@ public class Unit : TimelineElements
         currentPoint = tile.pos;
     }
 
-    public void DisableUnit()
-    {
-        renderer.material = disabledMaterial;
-    }
-
-    public void EnableUnit()
-    {
-        turnEnded = false;
-        actionDone = false;  
-        renderer.material = enabledMaterial;
-    }
 
     public virtual bool ReceiveDamage(float damage)
     {

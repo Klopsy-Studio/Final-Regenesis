@@ -15,9 +15,14 @@ public class MoveAction : Action
         }
     }
 
+    private void OnEnable()
+    {
+        isCalled = false;
+    }
 
     IEnumerator MoveMonster(MonsterController controller)
     {
+        yield return new WaitForSeconds(1);
         isCalled = true;
         //Move To Closest Player Unit
         Tile closestTile = null;
@@ -63,15 +68,17 @@ public class MoveAction : Action
         test.Add(closestTile);
       
         controller.battleController.board.SelectMovementTiles(test);
-        controller.CallCoroutine(m.Traverse(closestTile, controller.battleController.board));
+        controller.battleController.SelectTile(closestTile.pos);
+        controller.CallCoroutine(m.SimpleTraverse(closestTile));
 
         //StartCoroutine(m.Traverse(closestTile));
 
-        while (m.moving)
-        {
-            yield return null;
-        }
+        //while (m.moving)
+        //{
+        //    yield return null;
+        //}
 
+        yield return new WaitForSeconds(0.5f);
         controller.battleController.board.DeSelectDefaultTiles(test);
         //owner.ChangeState<Monster1CheckNextAction>();
         //m.isTraverseCalled = false;

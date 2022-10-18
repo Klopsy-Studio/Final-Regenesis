@@ -60,9 +60,6 @@ MonoBehaviour:
   currentPoint:
     x: 0
     y: 0
-  disabledMaterial: {fileID: 0}
-  enabledMaterial: {fileID: 0}
-  renderer: {fileID: 4000159691478143998}
   maxHealth:
     baseValue: 200
   health:
@@ -77,6 +74,7 @@ MonoBehaviour:
   isDead: 0
   healEffect: {fileID: 5836840817937991826, guid: f9cca9c5e1f673240a697914a64478cd, type: 3}
   hitEffect: {fileID: 5030025760067142075, guid: 566a92dcb0e06b746880d6fc36f4c4c5, type: 3}
+  unitSprite: {fileID: 1262454043973379550}
   aggroRange: 5
   closeRange: 2
   longRange: 4

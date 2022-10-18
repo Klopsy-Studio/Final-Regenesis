@@ -14,7 +14,6 @@ public class NextUnitState : BattleState
     {
         if(owner.currentUnit.turnEnded)
         {
-            owner.currentUnit.DisableUnit();
             unitsWithActions.Remove(owner.currentUnit);     
         }
         owner.currentUnit = null;

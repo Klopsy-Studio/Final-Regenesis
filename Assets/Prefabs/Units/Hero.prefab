@@ -612,16 +612,13 @@ MonoBehaviour:
   timelineFill: 0
   isTimelineActive: 0
   timelineIcon: {fileID: 0}
-  dir: 0
+  dir: 1
   unitSpeed: 0
   turnEnded: 0
   actionDone: 0
   currentPoint:
     x: 0
     y: 0
-  disabledMaterial: {fileID: 2100000, guid: f86f86dcaa74c6d4f801cd061de72c62, type: 2}
-  enabledMaterial: {fileID: 2100000, guid: 8588d4cdaecc3884496857907b3ee9ed, type: 2}
-  renderer: {fileID: 3737548468447247547}
   maxHealth:
     baseValue: 200
   health:
@@ -636,12 +633,12 @@ MonoBehaviour:
   isDead: 0
   healEffect: {fileID: 5836840817937991826, guid: f9cca9c5e1f673240a697914a64478cd, type: 3}
   hitEffect: {fileID: 5030025760067142075, guid: 566a92dcb0e06b746880d6fc36f4c4c5, type: 3}
-  profile: {fileID: 0}
   unitSprite: {fileID: 4824170015590987729}
+  profile: {fileID: 0}
   unitPortrait: {fileID: 0}
+  fullUnitPortrait: {fileID: 0}
   didNotMove: 0
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
-  armor: {fileID: 11400000, guid: 27ce1840e2b512f42ac7e1009ae79da1, type: 2}
   changing: 0
   status: {fileID: 0}
   playerUI: {fileID: 2133546689949067580}
