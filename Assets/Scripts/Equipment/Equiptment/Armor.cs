@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Equipment/New Armor")]
-public class Armor : Equipment
+public class Armor : weapon
 {
     [SerializeField] private float health;
     public float Health { get { return health; } }

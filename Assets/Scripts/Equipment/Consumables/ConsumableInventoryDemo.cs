@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//INVENTORY FOR BATTLE. 
 public class ConsumableInventoryDemo : MonoBehaviour
 {
     [SerializeField] List<consumableSlot> consumableList;

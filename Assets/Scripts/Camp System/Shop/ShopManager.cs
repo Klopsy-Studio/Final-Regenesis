@@ -57,6 +57,7 @@ public class ShopManager : MonoBehaviour
             coins = coins - shopItems[itemIndex].baseCost;
             coinUI.text = coins.ToString();
             CheckPurchaseable();
+            //UNLOCK ITEM;
         }
     }
     public void LoadPanels()

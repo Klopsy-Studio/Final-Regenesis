@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c29ab93eb64ec47a331be5d75c3acb, type: 3}
+  m_Name: WeaponUpgrade
+  m_EditorClassIdentifier: 
+  allWeaponsTrees:
+  - weaponUpgrade:
+    - itemName: GREAT SWORD
+      weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
+      cost: 21
+      weaponRequired: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
+      materialsRequired:
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 3
+    - itemName: BLOW GUN
+      weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
+      cost: 37
+      weaponRequired: {fileID: 0}
+      materialsRequired:
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 5
+      - monsterMaterial: {fileID: 11400000, guid: 0f60321a62da5aa4a9eed7508b82cf2a, type: 2}
+        numberOfMaterial: 5
+    - itemName: ARMA PRUEBA
+      weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
+      cost: 37
+      weaponRequired: {fileID: 0}
+      materialsRequired:
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 5
+      - monsterMaterial: {fileID: 11400000, guid: 0f60321a62da5aa4a9eed7508b82cf2a, type: 2}
+        numberOfMaterial: 5
+  - weaponUpgrade:
+    - itemName: WEAPONTEST3
+      weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
+      cost: 21
+      weaponRequired: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
+      materialsRequired:
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 3
+    - itemName: weaponteset2
+      weapon: {fileID: 11400000, guid: 7ab1b1f6d51b3c84385e8e3aae2a533c, type: 2}
+      cost: 37
+      weaponRequired: {fileID: 0}
+      materialsRequired:
+      - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
+        numberOfMaterial: 5
+      - monsterMaterial: {fileID: 11400000, guid: 0f60321a62da5aa4a9eed7508b82cf2a, type: 2}
+        numberOfMaterial: 5
