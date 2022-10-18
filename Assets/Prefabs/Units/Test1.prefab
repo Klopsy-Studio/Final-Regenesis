@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3600112416777368949}
   - component: {fileID: 1131668777620481961}
   - component: {fileID: 4641170417714014559}
+  - component: {fileID: 4154550655931685623}
   m_Layer: 6
   m_Name: Test1
   m_TagString: Untagged
@@ -141,6 +142,24 @@ MonoBehaviour:
   range: 5
   jumpHeight: 0
   moving: 0
+--- !u!114 &4154550655931685623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d438dade88657fd4c9d24ed943499afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 131185405536904068}
+  sideDir: 0
+  sideReach: 1
+  sideLength: 1
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0

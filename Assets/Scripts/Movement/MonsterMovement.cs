@@ -19,7 +19,7 @@ public class MonsterMovement : WalkMovement
             }
         }
 
-        SideAbilityRange sideRange = GetComponent<SideAbilityRange>();
+        SideAbilityRange sideRange = this.GetComponent<SideAbilityRange>();
 
         sideRange.sideDir = pushDir;
 

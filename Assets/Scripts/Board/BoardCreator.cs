@@ -7,6 +7,7 @@ using System.IO;
 
 public class BoardCreator : MonoBehaviour
 {
+    public TileSpawner spawner;
     [SerializeField] TypesOfTiles type;
     [Header("Dessert Tiles")]
     [SerializeField] GameObject dessertTile1;
@@ -14,6 +15,8 @@ public class BoardCreator : MonoBehaviour
     [SerializeField] GameObject dessertTile3;
     [SerializeField] GameObject quicksandTile;
 
+
+    [SerializeField] GameObject tileToSpawn;
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject tileSelectionIndicatorPrefab;
 
@@ -119,30 +122,33 @@ public class BoardCreator : MonoBehaviour
 
     Tile Create(TypesOfTiles chosenTile)
     {
-        switch (chosenTile)
-        {
-            case TypesOfTiles.DessertTile1:
+        GameObject instance = Instantiate(tileToSpawn) as GameObject;
+        instance.transform.parent = transform;
+        return instance.GetComponent<Tile>();
+        //switch (chosenTile)
+        //{
+        //    case TypesOfTiles.DessertTile1:
 
-                GameObject instance = Instantiate(dessertTile1) as GameObject;
-                instance.transform.parent = transform;
-                return instance.GetComponent<Tile>();
-            case TypesOfTiles.DessertTile2:
-                instance = Instantiate(dessertTile2) as GameObject;
-                instance.transform.parent = transform;
-                return instance.GetComponent<Tile>();
+        //        GameObject instance = Instantiate(dessertTile1) as GameObject;
+        //        instance.transform.parent = transform;
+        //        return instance.GetComponent<Tile>();
+        //    case TypesOfTiles.DessertTile2:
+        //        instance = Instantiate(dessertTile2) as GameObject;
+        //        instance.transform.parent = transform;
+        //        return instance.GetComponent<Tile>();
 
-            case TypesOfTiles.DessertTile3:
-                instance = Instantiate(dessertTile3) as GameObject;
-                instance.transform.parent = transform;
-                return instance.GetComponent<Tile>();
+        //    case TypesOfTiles.DessertTile3:
+        //        instance = Instantiate(dessertTile3) as GameObject;
+        //        instance.transform.parent = transform;
+        //        return instance.GetComponent<Tile>();
 
-            case TypesOfTiles.QuicksandTile:
-                instance = Instantiate(quicksandTile) as GameObject;
-                instance.transform.parent = transform;
-                return instance.GetComponent<Tile>();
-            default:
-                return null;
-        }
+        //    case TypesOfTiles.QuicksandTile:
+        //        instance = Instantiate(quicksandTile) as GameObject;
+        //        instance.transform.parent = transform;
+        //        return instance.GetComponent<Tile>();
+        //    default:
+        //        return null;
+        //}
     }
 
     Tile GetOrCreate(Point p)
@@ -182,13 +188,8 @@ public class BoardCreator : MonoBehaviour
             return;
 
         Tile t = tiles[p];
-        t.Shrink();
-
-        if (t.height <= 0)
-        {
-            tiles.Remove(p);
-            DestroyImmediate(t.gameObject);
-        }
+        tiles.Remove(p);
+        DestroyImmediate(t.gameObject);
     }
 
     public void Grow()
@@ -426,5 +427,8 @@ public class BoardCreator : MonoBehaviour
         }
     }
 
-
+    public void ChangeTileToSpawn(GameObject newTileToSpawn)
+    {
+        tileToSpawn = newTileToSpawn;
+    }
 }

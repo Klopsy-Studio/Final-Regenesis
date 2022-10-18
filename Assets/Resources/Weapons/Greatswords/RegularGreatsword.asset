@@ -18,12 +18,11 @@ MonoBehaviour:
   elements_Effectiveness: 0
   power: 0
   elementPower: 0
-  elementDefense: 0
   defense: 0
   staminaCost: 30
-  range: 5
+  originalRange: 2
+  range: 2
   Abilities:
   - {fileID: 11400000, guid: 404981b6bdc88314f9cd78516dceb7ee, type: 2}
   - {fileID: 11400000, guid: 56dfaac3ee69b0c4481822ce0ef152c3, type: 2}
   weaponIcon: {fileID: 21300000, guid: 224cf31abff4211428f1a97ec9c0652c, type: 3}
-  weaponName: Regular Greatsword

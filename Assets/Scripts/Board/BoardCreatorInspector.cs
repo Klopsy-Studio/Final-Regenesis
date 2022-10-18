@@ -6,6 +6,13 @@ using UnityEditor;
 [CustomEditor(typeof(BoardCreator))]
 public class BoardCreatorInspector : Editor
 {
+    public void AddTileSpawnButton(string buttonName, GameObject newTile)
+    {
+        if (GUILayout.Button(buttonName))
+        {
+            current.ChangeTileToSpawn(newTile);
+        }
+    }
     public BoardCreator current
     {
         get
@@ -17,6 +24,28 @@ public class BoardCreatorInspector : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
+
+        switch (current.spawner.TypeToSpawn)
+        {
+            case typeOfTiles.Placeholder:
+                AddTileSpawnButton("Choose Placeholder 1", current.spawner.placeholder1Tile);
+                AddTileSpawnButton("Choose Placeholder 2", current.spawner.placeholder2Tile);
+                AddTileSpawnButton("Choose Placeholder 3", current.spawner.placeholder3Tile);
+                break;
+            case typeOfTiles.Desert:
+                AddTileSpawnButton("Choose Desert Tile 1", current.spawner.desert1Tile);
+                AddTileSpawnButton("Choose Desert Tile 2", current.spawner.desert2Tile);
+                AddTileSpawnButton("Choose Desert Tile 3", current.spawner.desert3Tile);
+
+                break;
+            case typeOfTiles.NonPlayable:
+                AddTileSpawnButton("Choose Non Playable 1", current.spawner.nonPlayable1Tile);
+                AddTileSpawnButton("Choose Non Playable 2", current.spawner.nonPlayable2Tile);
+                AddTileSpawnButton("Choose Non Playable 3", current.spawner.nonPlayable3Tile);
+                break;
+            default:
+                break;
+        }
         if (GUILayout.Button("Clear"))
             current.Clear();
         if (GUILayout.Button("Grow"))
@@ -33,10 +62,6 @@ public class BoardCreatorInspector : Editor
             current.ClearPlayerSpawnPoints();
         if (GUILayout.Button("Clear Enemy Spawn"))
             current.ClearEnemySpawnPoints();
-        if (GUILayout.Button("Grow Area"))
-            current.GrowArea();
-        if (GUILayout.Button("Shrink Area"))
-            current.ShrinkArea();
         if (GUILayout.Button("Save"))
             current.Save();
         if (GUILayout.Button("Load"))
