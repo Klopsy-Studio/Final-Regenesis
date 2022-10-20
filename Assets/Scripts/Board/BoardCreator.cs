@@ -220,10 +220,15 @@ public class BoardCreator : MonoBehaviour
     void ShrinkSingle(Point p)
     {
         if (!tiles.ContainsKey(p))
+        {
+            Debug.Log("No key");
             return;
+        }
+            
 
         Tile t = tiles[p];
         tiles.Remove(p);
+        tilesScript.Remove(t);
         DestroyImmediate(t.gameObject);
     }
 
@@ -442,7 +447,10 @@ public class BoardCreator : MonoBehaviour
         pos += new Point(1, 0);
     }
 
-
+    public void MoveTileSelection(Vector2 mousePosition)
+    {
+        pos = new Point((int)mousePosition.x, (int)mousePosition.y);
+    }
     public void ClearPlayerSpawnPoints()
     {
         //foreach(Point p in playerSpawnPoints)

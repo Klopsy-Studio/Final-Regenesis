@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(BoardCreator))]
 public class BoardCreatorInspector : Editor
 {
+    public bool growOrShrink = true;
     public void AddTileSpawnButton(string buttonName, GameObject newTile)
     {
         if (GUILayout.Button(buttonName))
@@ -89,6 +90,7 @@ public class BoardCreatorInspector : Editor
         {
             case EventType.KeyDown:
             {
+
                     if (Event.current.keyCode == KeyCode.W)
                     {
                         current.MoveTileSelectionUpwards();
@@ -114,25 +116,53 @@ public class BoardCreatorInspector : Editor
                         e.Use();
                     }
 
-                    if(Event.current.keyCode == KeyCode.Space || Event.current.keyCode == KeyCode.Mouse0)
+                    if(Event.current.keyCode == KeyCode.Space)
                     {
-                        current.Grow();
-                        current.Grow();
-                        current.Grow();
-                        current.Grow();
-                        current.UpdateMarker();
+                        if (growOrShrink)
+                        {
+                            growOrShrink = false;
+                        }
+                        else
+                        {
+                            growOrShrink = true;
+                        }
                         e.Use();
                     }
 
-                    if (Event.current.keyCode == KeyCode.Mouse1)
-                    {
-                        current.Shrink();
-                        current.UpdateMarker();
-                        e.Use();
-                    }
 
                     break;
             }
+
+
+            case EventType.MouseDown:
+            {
+                    if (growOrShrink)
+                    {
+                        current.Grow();
+                        current.Grow();
+                        current.Grow();
+                        current.Grow();
+                        current.UpdateMarker();
+                        e.Use();
+                        break;
+                    }
+                    else
+                    {
+                        current.Shrink();
+                        e.Use();
+                        break;
+                    }
+                        
+            }
+
+            //case EventType.MouseMove:
+            //{
+            //       current.MoveTileSelection(new Vector2(Event.current.mousePosition.x, Event.current.mousePosition.y));
+            //       e.Use();
+            //       break;
+            //}
+
+
         }
     }
 }
