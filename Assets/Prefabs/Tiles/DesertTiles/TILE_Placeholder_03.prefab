@@ -69,7 +69,7 @@ MonoBehaviour:
     y: 0
   height: 0
   model: {fileID: 1042619849740964356}
-  isPlayable: 0
+  displayName: Choose Placeholder Tile 3
   occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}

@@ -19,6 +19,8 @@ public class Tile : MonoBehaviour
     public Vector3 center { get { return new Vector3(pos.x, height * stepHeight, pos.y); } } //Center of the tile. Allow the units to center themselves
 
     [SerializeField] Renderer model;
+
+    public string displayName;
     public GameObject content
     {
         get

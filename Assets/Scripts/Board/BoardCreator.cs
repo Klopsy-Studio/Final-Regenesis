@@ -4,38 +4,35 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-public enum propType
-{
-    //Here we add every single prop we have
-}
 public class BoardCreator : MonoBehaviour
 {
     public TileSpawner spawner;
-    [SerializeField] GameObject tileToSpawn;
-
-
-    [SerializeField] GameObject obstaclePrefab;
+    GameObject tileToSpawn;
+    GameObject propToSpawn;
     [SerializeField] GameObject tileSelectionIndicatorPrefab;
 
     Transform marker
     {
         get
         {
-            if(_marker == null)
+            if (_marker == null)
             {
                 GameObject instance = Instantiate(tileSelectionIndicatorPrefab) as GameObject;
                 _marker = instance.transform;
             }
             return _marker;
         }
-      
+
     }
 
     Transform _marker;
 
-    public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-    public List<Tile> tilesScript = new List<Tile>();
-    public List<GameObject> tilesObstacles = new List<GameObject>();
+    [HideInInspector] public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
+    [HideInInspector] public List<Tile> tilesScript = new List<Tile>();
+
+    [HideInInspector] public Dictionary<Point, Prop> props = new Dictionary<Point, Prop>();
+    [HideInInspector] public List<Prop> propData = new List<Prop>();
+
 
     [Header("Spawn Points")]
     [SerializeField] int howManyPlayers = 2;
@@ -48,9 +45,9 @@ public class BoardCreator : MonoBehaviour
     [Header("Tile Variables")]
     public List<Point> playerSpawnPoints = new List<Point>();
     public List<Point> enemySpawnPoints = new List<Point>();
-    [SerializeField] int width = 10;
-    [SerializeField] int depth = 10;
-    [SerializeField] int height = 8;
+    int width = 10;
+    int depth = 10;
+    int height = 8;
     [SerializeField] Point pos;
     [SerializeField] LevelData levelData;
 
@@ -73,9 +70,18 @@ public class BoardCreator : MonoBehaviour
     [SerializeField] public int money;
     [SerializeField] public List<string> items;
 
-    [Header("Tile Spawn")]
+    [Header("Board Spawn")]
+    public ThingToSpawn thingToSpawn;
     public TileType TypeOfTile;
+    public PropType TypeOfProp;
     public bool makeTilePlayable;
+    public bool doesPropOccupySpace;
+    public bool canSpawn;
+
+
+
+    #region Tiles
+
     public void GrowArea()
     {
         Rect r = RandomRect();
@@ -125,30 +131,6 @@ public class BoardCreator : MonoBehaviour
         GameObject instance = Instantiate(tileToSpawn) as GameObject;
         instance.transform.parent = transform;
         return instance.GetComponent<Tile>();
-        //switch (chosenTile)
-        //{
-        //    case TypesOfTiles.DessertTile1:
-
-        //        GameObject instance = Instantiate(dessertTile1) as GameObject;
-        //        instance.transform.parent = transform;
-        //        return instance.GetComponent<Tile>();
-        //    case TypesOfTiles.DessertTile2:
-        //        instance = Instantiate(dessertTile2) as GameObject;
-        //        instance.transform.parent = transform;
-        //        return instance.GetComponent<Tile>();
-
-        //    case TypesOfTiles.DessertTile3:
-        //        instance = Instantiate(dessertTile3) as GameObject;
-        //        instance.transform.parent = transform;
-        //        return instance.GetComponent<Tile>();
-
-        //    case TypesOfTiles.QuicksandTile:
-        //        instance = Instantiate(quicksandTile) as GameObject;
-        //        instance.transform.parent = transform;
-        //        return instance.GetComponent<Tile>();
-        //    default:
-        //        return null;
-        //}
     }
 
     Tile GetOrCreate(Point p)
@@ -162,7 +144,39 @@ public class BoardCreator : MonoBehaviour
         tilesScript.Add(t);
         return t;
     }
+    public void ChangeTileToSpawn(GameObject newTileToSpawn)
+    {
+        tileToSpawn = newTileToSpawn;
+    }
+    public Tile LoadTileBoard(int index)
+    {
+        switch (levelData.tileData.ToArray()[index].tileType)
+        {
+            case TileType.Placeholder:
+                GameObject instance = Instantiate(spawner.placeholderTiles[levelData.tileData[index].typeIndex]);
+                Tile t = instance.GetComponent<Tile>();
+                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
+                instance.transform.parent = transform;
 
+                return t;
+            case TileType.Desert:
+                instance = Instantiate(spawner.desertTiles[levelData.tileData[index].typeIndex]);
+                t = instance.GetComponent<Tile>();
+                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
+                instance.transform.parent = transform;
+
+                return t;
+            case TileType.NonPlayable:
+                instance = Instantiate(spawner.nonPlayableTiles[levelData.tileData[index].typeIndex]);
+                t = instance.GetComponent<Tile>();
+                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
+                instance.transform.parent = transform;
+
+                return t;
+            default:
+                return null;
+        }
+    }
     public void LoadTiles(Tile t)
     {
         switch (t.data.tileType)
@@ -171,7 +185,7 @@ public class BoardCreator : MonoBehaviour
                 switch (t.tileIndex)
                 {
                     case 0:
-                        
+
                         break;
                     case 1:
                         break;
@@ -191,28 +205,20 @@ public class BoardCreator : MonoBehaviour
     }
     public void AddObstacle()
     {
-        Tile t = GetOrCreate(pos);
+        //Tile t = GetOrCreate(pos);
 
-        if(t.content == null)
-        {
-            GameObject instance = Instantiate(obstaclePrefab, new Vector3(pos.x, 0, pos.y), Quaternion.identity);
-            instance.transform.parent = transform;
-            t.content = instance;
-            tilesObstacles.Add(instance);
-        }
+        //if(t.content == null)
+        //{
+        //    GameObject instance = Instantiate(obstaclePrefab, new Vector3(pos.x, 0, pos.y), Quaternion.identity);
+        //    instance.transform.parent = transform;
+        //    t.content = instance;
+        //    tilesObstacles.Add(instance);
+        //}
     }
     void GrowSingle(Point p)
     {
         Tile t = GetOrCreate(p);
-
-        if (makeTilePlayable)
-        {
-            t.data.isPlayable = true;
-        }
-        else
-        {
-            t.data.isPlayable = false;
-        }
+        t.data.isPlayable = makeTilePlayable;
         if (t.height < height)
             t.Grow();
     }
@@ -224,7 +230,7 @@ public class BoardCreator : MonoBehaviour
             Debug.Log("No key");
             return;
         }
-            
+
 
         Tile t = tiles[p];
         tiles.Remove(p);
@@ -241,22 +247,139 @@ public class BoardCreator : MonoBehaviour
         ShrinkSingle(pos);
     }
 
+
+    #endregion
+
+    #region Props
+
+    public void SpawnProp()
+    {
+        CreateProp(pos);
+    }
+    public void CreateProp(Point p)
+    {
+        Prop newProp = GetOrCreateProp(p);
+
+        newProp.data.occupiesSpace = doesPropOccupySpace;
+    }
+
+    public void ShrinkProp(Point p)
+    {
+        if (!props.ContainsKey(p))
+        {
+            Debug.Log("No hay Prop");
+            return;
+        }
+
+        Prop newProp = props[p];
+        props.Remove(p);
+        propData.Remove(newProp);
+        DestroyImmediate(newProp.gameObject);
+    }
+    public void DeleteProp()
+    {
+        ShrinkProp(pos);
+    }
+
+    public void ChangePropToSpawn(GameObject newProp)
+    {
+        propToSpawn = newProp;
+    }
+
+    public Prop LoadPropBoard(int index)
+    {
+        switch (levelData.propData[index].data.type)
+        {
+            case PropType.City:
+                GameObject instance = Instantiate(spawner.cityProps[levelData.propData[index].data.typeIndex]);
+                Prop p = instance.GetComponent<Prop>();
+                p.data.occupiesSpace = levelData.propData[index].data.occupiesSpace;
+                instance.transform.parent = transform;
+
+                return p;
+            case PropType.Desert:
+                instance = Instantiate(spawner.desertProps[levelData.propData[index].data.typeIndex]);
+                p = instance.GetComponent<Prop>();
+                p.data.occupiesSpace = levelData.propData[index].data.occupiesSpace;
+                instance.transform.parent = transform;
+
+                return p;
+            case PropType.Park:
+                instance = Instantiate(spawner.parkProps[levelData.propData[index].data.typeIndex]);
+                p = instance.GetComponent<Prop>();
+                p.data.occupiesSpace = levelData.propData[index].data.occupiesSpace;
+                instance.transform.parent = transform;
+                return p;
+            default:
+                return null;
+        }
+    }
+
+    Prop GetOrCreateProp(Point p)
+    {
+        if (props.ContainsKey(p))
+            return props[p];
+
+        Prop newProp = CreateProp();
+        newProp.Load(p, 7);
+        props.Add(p, newProp);
+        propData.Add(newProp);
+        return newProp;
+    }
+
+    Prop CreateProp()
+    {
+        GameObject instance = Instantiate(propToSpawn) as GameObject;
+        instance.transform.parent = transform;
+        return instance.GetComponent<Prop>();
+    }
+
+    #endregion
+
+    #region Marker
     public void UpdateMarker()
     {
         Tile t = tiles.ContainsKey(pos) ? tiles[pos] : null;
         marker.localPosition = t != null ? t.center : new Vector3(pos.x, 0, pos.y);
     }
 
+    public void MoveTileSelectionUpwards()
+    {
+        pos += new Point(0, 1);
+    }
+
+    public void MoveTileSelectionDownwards()
+    {
+        pos -= new Point(0, 1);
+    }
+
+    public void MoveTileSelectionLeft()
+    {
+        pos -= new Point(1, 0);
+    }
+    public void MoveTileSelectionRight()
+    {
+        pos += new Point(1, 0);
+    }
+
+    public void MoveTileSelection(Vector2 mousePosition)
+    {
+        pos = new Point((int)mousePosition.x, (int)mousePosition.y);
+    }
+
+    #endregion
+
+    #region LevelData
     public void Clear()
     {
         for (int i = transform.childCount - 1; i >= 0; --i)
             DestroyImmediate(transform.GetChild(i).gameObject);
-        for (int i = 0; i < tilesObstacles.Count; i++)
-            DestroyImmediate(tilesObstacles.ToArray()[i]);
 
-        tilesObstacles.Clear();
         tiles.Clear();
         tilesScript.Clear();
+
+        props.Clear();
+        propData.Clear();
         //ClearEnemySpawnPoints();
         ClearPlayerSpawnPoints();
 
@@ -288,6 +411,8 @@ public class BoardCreator : MonoBehaviour
         board.tileContent = new List<ObstacleType>(tilesScript.Count);
         board.playerSpawnPoints = new List<Point>(playerSpawnPoints.Count);
         board.enemySpawnPoints = new List<Point>(enemySpawnPoints.Count);
+        board.propData = new List<Prop>(propData.Count);
+        board.props = new List<Vector3>(props.Count);
 
         foreach (Tile t in tiles.Values)
         {
@@ -303,19 +428,29 @@ public class BoardCreator : MonoBehaviour
             }
         }
 
-        foreach(Point p in playerSpawnPoints)
+        foreach (Point p in playerSpawnPoints)
         {
             board.playerSpawnPoints.Add(p);
         }
 
-        foreach(Point p in enemySpawnPoints)
+        foreach (Point p in enemySpawnPoints)
         {
             board.enemySpawnPoints.Add(p);
         }
 
-        foreach(Tile t in tilesScript)
+        foreach (Tile t in tilesScript)
         {
             board.tileData.Add(t.data);
+        }
+
+        foreach(Prop p in props.Values)
+        {
+            board.props.Add(new Vector3(p.pos.x, p.height, p.pos.y));
+        }
+
+        foreach(Prop p in propData)
+        {
+            board.propData.Add(p);
         }
 
         board.rank = rank;
@@ -329,7 +464,7 @@ public class BoardCreator : MonoBehaviour
         board.items = items;
 
 
-        string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, "Mission_"+rank+"_"+position);
+        string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, "Mission_" + rank + "_" + position);
         AssetDatabase.CreateAsset(board, fileName);
     }
     void CreateSaveDirectory()
@@ -346,30 +481,32 @@ public class BoardCreator : MonoBehaviour
     public void Load()
     {
         Clear();
+
         if (levelData == null)
         {
             Debug.Log("No level data");
             return;
         }
-            
+
 
         for (int i = 0; i < levelData.tiles.Count; i++)
         {
             Tile t = LoadTileBoard(i);
             t.Load(levelData.tiles.ToArray()[i]);
 
-            if(levelData.tileContent.ToArray()[i] == ObstacleType.RegularObstacle)
-            {
-                GameObject instance = Instantiate(obstaclePrefab, new Vector3(t.pos.x, 0, t.pos.y), Quaternion.identity);
-                t.content = instance;
-                instance.transform.parent = t.transform;
-                tilesObstacles.Add(instance);
-            }
 
             tiles.Add(t.pos, t);
             tilesScript.Add(t);
         }
 
+        for (int i = 0; i < levelData.props.Count; i++)
+        {
+            Prop p = LoadPropBoard(i);
+            p.Load(levelData.props[i]);
+
+            props.Add(p.pos, p);
+            propData.Add(p);
+        }
         foreach (Point p in levelData.playerSpawnPoints)
         {
             playerSpawnPoints.Add(p);
@@ -399,58 +536,9 @@ public class BoardCreator : MonoBehaviour
         }
     }
 
-    public Tile LoadTileBoard(int index)
-    {
-        switch (levelData.tileData.ToArray()[index].tileType)
-        {
-            case TileType.Placeholder:
-                GameObject instance = Instantiate(spawner.placeholderTiles[levelData.tileData[index].typeIndex]);
-                Tile t = instance.GetComponent<Tile>();
-                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
-                instance.transform.parent = transform;
+    #endregion
 
-                return t;
-            case TileType.Desert:
-                instance = Instantiate(spawner.desertTiles[levelData.tileData[index].typeIndex]);
-                t = instance.GetComponent<Tile>();
-                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
-                instance.transform.parent = transform;
-
-                return t;
-            case TileType.NonPlayable:
-                instance = Instantiate(spawner.nonPlayableTiles[levelData.tileData[index].typeIndex]);
-                t = instance.GetComponent<Tile>();
-                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
-                instance.transform.parent = transform;
-
-                return t;
-            default:
-                return null;
-        }
-    }
-    public void MoveTileSelectionUpwards()
-    {
-        pos += new Point(0, 1);
-    }
-    
-    public void MoveTileSelectionDownwards()
-    {
-        pos -= new Point(0, 1);
-    }
-
-    public void MoveTileSelectionLeft()
-    {
-        pos -= new Point(1, 0);
-    }
-    public void MoveTileSelectionRight()
-    {
-        pos += new Point(1, 0);
-    }
-
-    public void MoveTileSelection(Vector2 mousePosition)
-    {
-        pos = new Point((int)mousePosition.x, (int)mousePosition.y);
-    }
+    #region UnitSpawn
     public void ClearPlayerSpawnPoints()
     {
         //foreach(Point p in playerSpawnPoints)
@@ -502,9 +590,8 @@ public class BoardCreator : MonoBehaviour
             Debug.Log("Warning, there aren't anymore spawn points left");
         }
     }
+    #endregion
 
-    public void ChangeTileToSpawn(GameObject newTileToSpawn)
-    {
-        tileToSpawn = newTileToSpawn;
-    }
+    
+
 }
