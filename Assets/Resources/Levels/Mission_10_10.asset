@@ -1,0 +1,808 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859c4ffc40910ec47b3eaac70ecfcfdf, type: 3}
+  m_Name: Mission_10_10
+  m_EditorClassIdentifier: 
+  id: 
+  position: 0
+  rank: 10
+  missionName: New Test
+  type: 0
+  monsterImage: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  zone: 0
+  hazard: 0
+  otherCreatures: []
+  money: 0
+  items: []
+  unitsInLevel:
+  - {fileID: 11400000, guid: 928a6010596ab514094b3b4b59ef754e, type: 2}
+  - {fileID: 11400000, guid: bdf2f419ed9883641978a87198ace31a, type: 2}
+  - {fileID: 11400000, guid: 53864a00220844448a77abb09a1ffaf7, type: 2}
+  enemyInLevel: {fileID: 118657081945532926, guid: 6c3fe94c1c37ecb4abd0073b46a3f0b7, type: 3}
+  tiles:
+  - {x: 0, y: 4, z: 0}
+  - {x: -1, y: 4, z: 0}
+  - {x: -2, y: 4, z: 0}
+  - {x: -3, y: 4, z: 0}
+  - {x: -3, y: 4, z: -1}
+  - {x: -2, y: 4, z: -1}
+  - {x: -1, y: 4, z: -1}
+  - {x: 0, y: 4, z: -1}
+  - {x: 0, y: 4, z: -2}
+  - {x: -1, y: 4, z: -2}
+  - {x: -2, y: 4, z: -2}
+  - {x: -3, y: 4, z: -2}
+  - {x: -3, y: 4, z: -3}
+  - {x: -2, y: 4, z: -3}
+  - {x: -1, y: 4, z: -3}
+  - {x: 0, y: 4, z: -3}
+  - {x: 0, y: 4, z: -4}
+  - {x: -1, y: 4, z: -4}
+  - {x: -2, y: 4, z: -4}
+  - {x: -3, y: 4, z: -4}
+  - {x: -4, y: 4, z: -4}
+  - {x: -4, y: 4, z: -5}
+  - {x: -3, y: 4, z: -5}
+  - {x: -2, y: 4, z: -5}
+  - {x: -1, y: 4, z: -5}
+  - {x: 0, y: 4, z: -5}
+  - {x: 0, y: 4, z: -6}
+  - {x: -1, y: 4, z: -6}
+  - {x: -2, y: 4, z: -6}
+  - {x: -3, y: 4, z: -6}
+  - {x: -3, y: 4, z: -7}
+  - {x: -2, y: 4, z: -7}
+  - {x: 0, y: 4, z: -7}
+  - {x: -1, y: 4, z: -7}
+  - {x: -1, y: 4, z: -8}
+  - {x: -2, y: 4, z: -8}
+  - {x: -4, y: 4, z: -3}
+  - {x: -4, y: 4, z: -2}
+  - {x: -4, y: 4, z: -1}
+  - {x: -4, y: 4, z: 0}
+  - {x: -4, y: 4, z: 1}
+  - {x: -3, y: 4, z: 1}
+  - {x: -2, y: 4, z: 1}
+  - {x: -1, y: 4, z: 1}
+  - {x: 0, y: 4, z: 1}
+  - {x: 1, y: 4, z: 1}
+  - {x: 1, y: 4, z: 2}
+  - {x: 0, y: 4, z: 2}
+  - {x: -1, y: 4, z: 2}
+  - {x: -2, y: 4, z: 2}
+  - {x: -3, y: 4, z: 2}
+  - {x: -3, y: 4, z: 3}
+  - {x: -2, y: 4, z: 3}
+  - {x: -1, y: 4, z: 3}
+  - {x: 0, y: 4, z: 3}
+  - {x: 1, y: 4, z: 3}
+  - {x: 2, y: 4, z: 3}
+  - {x: 2, y: 4, z: 2}
+  - {x: 2, y: 4, z: 1}
+  - {x: 2, y: 4, z: 0}
+  - {x: 1, y: 4, z: 0}
+  - {x: 1, y: 4, z: -1}
+  - {x: 2, y: 4, z: -1}
+  - {x: 2, y: 4, z: -2}
+  - {x: 1, y: 4, z: -2}
+  - {x: 2, y: 4, z: -3}
+  - {x: 1, y: 4, z: -3}
+  - {x: 3, y: 4, z: -3}
+  - {x: 3, y: 4, z: -2}
+  - {x: 3, y: 4, z: -1}
+  - {x: 3, y: 4, z: 0}
+  - {x: 3, y: 4, z: 2}
+  - {x: 3, y: 4, z: 1}
+  - {x: 4, y: 4, z: 1}
+  - {x: 4, y: 4, z: 0}
+  - {x: 4, y: 4, z: -1}
+  - {x: 5, y: 4, z: -1}
+  - {x: 5, y: 4, z: 0}
+  - {x: 5, y: 4, z: 1}
+  - {x: 6, y: 4, z: 1}
+  - {x: 6, y: 4, z: 0}
+  - {x: 6, y: 4, z: 2}
+  - {x: 5, y: 4, z: 2}
+  - {x: 4, y: 4, z: 2}
+  - {x: 4, y: 4, z: 3}
+  - {x: 5, y: 4, z: 3}
+  - {x: 6, y: 4, z: 3}
+  - {x: 7, y: 4, z: 3}
+  - {x: 7, y: 4, z: 2}
+  - {x: 7, y: 4, z: 1}
+  - {x: -5, y: 4, z: 1}
+  - {x: -5, y: 4, z: 0}
+  - {x: -5, y: 4, z: -1}
+  - {x: -5, y: 4, z: -2}
+  - {x: -5, y: 4, z: -3}
+  - {x: -5, y: 4, z: -4}
+  - {x: -5, y: 4, z: -5}
+  - {x: -5, y: 4, z: -6}
+  - {x: -4, y: 4, z: -6}
+  - {x: -4, y: 4, z: -7}
+  - {x: -5, y: 4, z: -7}
+  - {x: -6, y: 4, z: -7}
+  - {x: -6, y: 4, z: -6}
+  - {x: -6, y: 4, z: -5}
+  - {x: -6, y: 4, z: -4}
+  - {x: -6, y: 4, z: -3}
+  - {x: -6, y: 4, z: -2}
+  - {x: -6, y: 4, z: -1}
+  - {x: -6, y: 4, z: 0}
+  - {x: -6, y: 4, z: 1}
+  - {x: -6, y: 4, z: -8}
+  - {x: -5, y: 4, z: -8}
+  - {x: -4, y: 4, z: -8}
+  - {x: -3, y: 4, z: -8}
+  - {x: -3, y: 4, z: -9}
+  - {x: -2, y: 4, z: -9}
+  - {x: -1, y: 4, z: -9}
+  - {x: 0, y: 4, z: -9}
+  - {x: 0, y: 8, z: -8}
+  - {x: 0, y: 4, z: -10}
+  - {x: -1, y: 4, z: -10}
+  - {x: -2, y: 4, z: -10}
+  - {x: -3, y: 4, z: -10}
+  - {x: -4, y: 4, z: -10}
+  - {x: -4, y: 4, z: -9}
+  - {x: -5, y: 4, z: -9}
+  - {x: -5, y: 4, z: -10}
+  - {x: -6, y: 8, z: -10}
+  - {x: -6, y: 4, z: -9}
+  - {x: -6, y: 4, z: -11}
+  - {x: -5, y: 4, z: -11}
+  - {x: -4, y: 4, z: -11}
+  - {x: -3, y: 4, z: -11}
+  - {x: -2, y: 4, z: -11}
+  - {x: -1, y: 8, z: -11}
+  - {x: 0, y: 8, z: -11}
+  - {x: 0, y: 4, z: -12}
+  - {x: -1, y: 4, z: -12}
+  - {x: -2, y: 4, z: -12}
+  - {x: -3, y: 4, z: -12}
+  - {x: -4, y: 4, z: -12}
+  - {x: -5, y: 4, z: -12}
+  - {x: -6, y: 4, z: -12}
+  - {x: -7, y: 4, z: -11}
+  - {x: 2, y: 4, z: -4}
+  - {x: 1, y: 4, z: -4}
+  - {x: 3, y: 4, z: -4}
+  - {x: 3, y: 4, z: -5}
+  - {x: 2, y: 4, z: -5}
+  - {x: 1, y: 4, z: -5}
+  - {x: 1, y: 4, z: -6}
+  - {x: 2, y: 4, z: -6}
+  - {x: 2, y: 4, z: -7}
+  - {x: 1, y: 4, z: -7}
+  - {x: 1, y: 8, z: -8}
+  - {x: 1, y: 4, z: -10}
+  - {x: 2, y: 4, z: -10}
+  - {x: 2, y: 4, z: -8}
+  - {x: 1, y: 4, z: -9}
+  - {x: 2, y: 4, z: -9}
+  - {x: 3, y: 4, z: -9}
+  - {x: 3, y: 4, z: -8}
+  - {x: 3, y: 4, z: -7}
+  - {x: 3, y: 4, z: -6}
+  - {x: 4, y: 8, z: -3}
+  - {x: 4, y: 4, z: -2}
+  - {x: 5, y: 4, z: -2}
+  - {x: 5, y: 4, z: -3}
+  - {x: 4, y: 4, z: -4}
+  - {x: 5, y: 4, z: -4}
+  - {x: 6, y: 4, z: -4}
+  - {x: 6, y: 4, z: -3}
+  - {x: 6, y: 8, z: -2}
+  - {x: 6, y: 4, z: -1}
+  - {x: 7, y: 4, z: -1}
+  - {x: 7, y: 4, z: 0}
+  - {x: 7, y: 4, z: -2}
+  - {x: 7, y: 4, z: -4}
+  - {x: 7, y: 4, z: -3}
+  tileData:
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 0
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 2
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 1
+    typeIndex: 1
+    isPlayable: 1
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  - tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  props:
+  - {x: -2, y: 7, z: 0}
+  - {x: -3, y: 7, z: -3}
+  - {x: 0, y: 7, z: -4}
+  - {x: -2, y: 7, z: -6}
+  - {x: 1, y: 7, z: 3}
+  - {x: 3, y: 7, z: -1}
+  - {x: 1, y: 7, z: 0}
+  - {x: -2, y: 7, z: -4}
+  - {x: -1, y: 7, z: -6}
+  propData:
+  - type: 0
+    displayName: Choose Rock 1
+    typeIndex: 0
+    occupiesSpace: 0
+  - type: 0
+    displayName: Choose Rock 1
+    typeIndex: 0
+    occupiesSpace: 0
+  - type: 0
+    displayName: Choose Rock 2
+    typeIndex: 1
+    occupiesSpace: 0
+  - type: 0
+    displayName: Choose Rock 2
+    typeIndex: 1
+    occupiesSpace: 0
+  - type: 0
+    displayName: Choose Rock 2
+    typeIndex: 1
+    occupiesSpace: 0
+  - type: 0
+    displayName: Choose Rock 2
+    typeIndex: 1
+    occupiesSpace: 0
+  - type: 0
+    displayName: Choose Rock 2
+    typeIndex: 1
+    occupiesSpace: 0
+  - type: 1
+    displayName: Choose Corrupted Cactus
+    typeIndex: 1
+    occupiesSpace: 1
+  - type: 1
+    displayName: Choose Corrupted Cactus
+    typeIndex: 1
+    occupiesSpace: 1
+  tileContent: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  playerSpawnPoints:
+  - x: -2
+    y: -6
+  - x: -1
+    y: -7
+  - x: -3
+    y: -4
+  enemySpawnPoints:
+  - x: 1
+    y: -3
+  itemSpawn: []

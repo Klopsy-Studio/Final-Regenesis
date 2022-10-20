@@ -31,7 +31,7 @@ public class BoardCreator : MonoBehaviour
     [HideInInspector] public List<Tile> tilesScript = new List<Tile>();
 
     [HideInInspector] public Dictionary<Point, Prop> props = new Dictionary<Point, Prop>();
-    [HideInInspector] public List<Prop> propData = new List<Prop>();
+    [HideInInspector] public List<PropData> propData = new List<PropData>();
 
 
     [Header("Spawn Points")]
@@ -273,7 +273,7 @@ public class BoardCreator : MonoBehaviour
 
         Prop newProp = props[p];
         props.Remove(p);
-        propData.Remove(newProp);
+        propData.Remove(newProp.data);
         DestroyImmediate(newProp.gameObject);
     }
     public void DeleteProp()
@@ -288,26 +288,26 @@ public class BoardCreator : MonoBehaviour
 
     public Prop LoadPropBoard(int index)
     {
-        switch (levelData.propData[index].data.type)
+        switch (levelData.propData[index].type)
         {
             case PropType.City:
-                GameObject instance = Instantiate(spawner.cityProps[levelData.propData[index].data.typeIndex]);
+                GameObject instance = Instantiate(spawner.cityProps[levelData.propData[index].typeIndex]);
                 Prop p = instance.GetComponent<Prop>();
-                p.data.occupiesSpace = levelData.propData[index].data.occupiesSpace;
+                p.data.occupiesSpace = levelData.propData[index].occupiesSpace;
                 instance.transform.parent = transform;
 
                 return p;
             case PropType.Desert:
-                instance = Instantiate(spawner.desertProps[levelData.propData[index].data.typeIndex]);
+                instance = Instantiate(spawner.desertProps[levelData.propData[index].typeIndex]);
                 p = instance.GetComponent<Prop>();
-                p.data.occupiesSpace = levelData.propData[index].data.occupiesSpace;
+                p.data.occupiesSpace = levelData.propData[index].occupiesSpace;
                 instance.transform.parent = transform;
 
                 return p;
             case PropType.Park:
-                instance = Instantiate(spawner.parkProps[levelData.propData[index].data.typeIndex]);
+                instance = Instantiate(spawner.parkProps[levelData.propData[index].typeIndex]);
                 p = instance.GetComponent<Prop>();
-                p.data.occupiesSpace = levelData.propData[index].data.occupiesSpace;
+                p.data.occupiesSpace = levelData.propData[index].occupiesSpace;
                 instance.transform.parent = transform;
                 return p;
             default:
@@ -323,7 +323,7 @@ public class BoardCreator : MonoBehaviour
         Prop newProp = CreateProp();
         newProp.Load(p, 7);
         props.Add(p, newProp);
-        propData.Add(newProp);
+        propData.Add(newProp.data);
         return newProp;
     }
 
@@ -411,7 +411,7 @@ public class BoardCreator : MonoBehaviour
         board.tileContent = new List<ObstacleType>(tilesScript.Count);
         board.playerSpawnPoints = new List<Point>(playerSpawnPoints.Count);
         board.enemySpawnPoints = new List<Point>(enemySpawnPoints.Count);
-        board.propData = new List<Prop>(propData.Count);
+        board.propData = new List<PropData>(propData.Count);
         board.props = new List<Vector3>(props.Count);
 
         foreach (Tile t in tiles.Values)
@@ -448,7 +448,7 @@ public class BoardCreator : MonoBehaviour
             board.props.Add(new Vector3(p.pos.x, p.height, p.pos.y));
         }
 
-        foreach(Prop p in propData)
+        foreach(PropData p in propData)
         {
             board.propData.Add(p);
         }
@@ -505,7 +505,7 @@ public class BoardCreator : MonoBehaviour
             p.Load(levelData.props[i]);
 
             props.Add(p.pos, p);
-            propData.Add(p);
+            propData.Add(p.data);
         }
         foreach (Point p in levelData.playerSpawnPoints)
         {

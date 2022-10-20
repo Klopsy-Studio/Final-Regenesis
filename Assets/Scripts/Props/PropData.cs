@@ -9,5 +9,5 @@ public class PropData
     public PropType type;
     public string displayName;
     public int typeIndex;
-    [HideInInspector] public bool occupiesSpace;
+    public bool occupiesSpace;
 }

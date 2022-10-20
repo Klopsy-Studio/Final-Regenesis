@@ -9,7 +9,14 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     [SerializeField] GameObject[] desertTilesPrefab;
     [SerializeField] GameObject[] placeholderTilesPrefab;
     [SerializeField] GameObject[] nonplayableTilesPrefab;
+    [Space]
 
+    [Header("Props")]
+    [SerializeField] GameObject[] cityPropsPrefabs;
+    [SerializeField] GameObject[] desertPropsPrefabs;
+    [SerializeField] GameObject[] parkPropsPrefabs;
+
+    [Space]
     [Header("Obstacles")]
     [SerializeField] GameObject regularObstaclePrefab;
     [SerializeField] Transform battleController;
@@ -32,18 +39,61 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         for (int i = 0; i < data.tiles.Count; ++i)
         {
-            Tile t = SpawnTile(data, i);
+            SpawnTile(data, i);
+        }
 
-            if (data.tileContent.ToArray()[i] == ObstacleType.RegularObstacle)
-            {
-                GameObject instance = Instantiate(regularObstaclePrefab, new Vector3(t.pos.x, 0, t.pos.y), Quaternion.identity);
-                t.content = instance;
-                obstacles.Add(instance);
-            }
+        for (int i = 0; i < data.props.Count; i++)
+        {
+            SpawnProp(data, i);
         }
     }
 
+    Prop SpawnProp(LevelData data, int i)
+    {
+        switch (data.propData[i].type)
+        {
+            case PropType.City:
+                GameObject instance = Instantiate(cityPropsPrefabs[data.propData[i].typeIndex]) as GameObject;
+                instance.transform.parent = battleController.transform;
+                Prop p = instance.GetComponent<Prop>();
+                p.Load(data.props[i]);
 
+                if (p.data.occupiesSpace)
+                {
+                    Tile t = GetTile(p.pos);
+                    t.content = p.gameObject;
+                }
+                return p;
+            case PropType.Desert:
+                instance = Instantiate(desertPropsPrefabs[data.propData[i].typeIndex]) as GameObject;
+                instance.transform.parent = battleController.transform;
+                p = instance.GetComponent<Prop>();
+                p.data = data.propData[i];
+                p.Load(data.props[i]);
+
+                if (p.data.occupiesSpace)
+                {
+                    Tile t = GetTile(p.pos);
+                    t.content = p.gameObject;
+                }
+                return p;
+            case PropType.Park:
+                instance = Instantiate(parkPropsPrefabs[data.propData[i].typeIndex]) as GameObject;
+                instance.transform.parent = battleController.transform;
+                p = instance.GetComponent<Prop>();
+                
+                p.Load(data.props[i]);
+
+                if (p.data.occupiesSpace)
+                {
+                    Tile t = GetTile(p.pos);
+                    t.content = p.gameObject;
+                }
+                return p;
+            default:
+                return null;
+        }
+    }
     Tile SpawnTile(LevelData data, int i)
     {
         switch (data.tileData.ToArray()[i].tileType)
@@ -66,7 +116,7 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
                 return t;
 
             case TileType.Desert:
-                instance = Instantiate(placeholderTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
+                instance = Instantiate(desertTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
                 instance.transform.parent = battleController.transform;
                 t = instance.GetComponent<Tile>();
                 t.Load(data.tiles[i]);
@@ -93,7 +143,6 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
                 {
                     playableTiles.Add(t.pos, t);
                 }
-
                 else
                 {
                     nonPlayableTiles.Add(t.pos, t);
