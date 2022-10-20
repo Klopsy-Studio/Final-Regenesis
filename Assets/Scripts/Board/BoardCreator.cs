@@ -165,7 +165,7 @@ public class BoardCreator : MonoBehaviour
 
     public void LoadTiles(Tile t)
     {
-        switch (t.tileType)
+        switch (t.data.tileType)
         {
             case TileType.Placeholder:
                 switch (t.tileIndex)
@@ -207,11 +207,11 @@ public class BoardCreator : MonoBehaviour
 
         if (makeTilePlayable)
         {
-            t.isPlayable = true;
+            t.data.isPlayable = true;
         }
         else
         {
-            t.isPlayable = false;
+            t.data.isPlayable = false;
         }
         if (t.height < height)
             t.Grow();
@@ -279,7 +279,7 @@ public class BoardCreator : MonoBehaviour
 
         board.tiles = new List<Vector3>(tilesScript.Count);
 
-        board.tilesScripts = new List<TileData>(tilesScript.Count);
+        board.tileData = new List<TileData>(tilesScript.Count);
         board.tileContent = new List<ObstacleType>(tilesScript.Count);
         board.playerSpawnPoints = new List<Point>(playerSpawnPoints.Count);
         board.enemySpawnPoints = new List<Point>(enemySpawnPoints.Count);
@@ -310,7 +310,7 @@ public class BoardCreator : MonoBehaviour
 
         foreach(Tile t in tilesScript)
         {
-            board.tilesScripts.Add(t);
+            board.tileData.Add(t.data);
         }
 
         board.rank = rank;
@@ -342,11 +342,15 @@ public class BoardCreator : MonoBehaviour
     {
         Clear();
         if (levelData == null)
+        {
+            Debug.Log("No level data");
             return;
+        }
+            
 
         for (int i = 0; i < levelData.tiles.Count; i++)
         {
-            Tile t = Create(levelData.tilesScripts.ToArray()[i]);
+            Tile t = LoadTileBoard(i);
             t.Load(levelData.tiles.ToArray()[i]);
 
             if(levelData.tileContent.ToArray()[i] == ObstacleType.RegularObstacle)
@@ -390,6 +394,35 @@ public class BoardCreator : MonoBehaviour
         }
     }
 
+    public Tile LoadTileBoard(int index)
+    {
+        switch (levelData.tileData.ToArray()[index].tileType)
+        {
+            case TileType.Placeholder:
+                GameObject instance = Instantiate(spawner.placeholderTiles[levelData.tileData[index].typeIndex]);
+                Tile t = instance.GetComponent<Tile>();
+                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
+                instance.transform.parent = transform;
+
+                return t;
+            case TileType.Desert:
+                instance = Instantiate(spawner.desertTiles[levelData.tileData[index].typeIndex]);
+                t = instance.GetComponent<Tile>();
+                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
+                instance.transform.parent = transform;
+
+                return t;
+            case TileType.NonPlayable:
+                instance = Instantiate(spawner.nonPlayableTiles[levelData.tileData[index].typeIndex]);
+                t = instance.GetComponent<Tile>();
+                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
+                instance.transform.parent = transform;
+
+                return t;
+            default:
+                return null;
+        }
+    }
     public void MoveTileSelectionUpwards()
     {
         pos += new Point(0, 1);

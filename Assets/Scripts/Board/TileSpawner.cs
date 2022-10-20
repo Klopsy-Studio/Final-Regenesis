@@ -18,18 +18,13 @@ public class TileSpawner
     //public typeOfTiles TypeToSpawn;
 
     //Desert
-    public GameObject desert1Tile;
-    public GameObject desert2Tile;
-    public GameObject desert3Tile;
-    public GameObject desertQuicksandTile;
+    public GameObject[] desertTiles;
+
 
     //Placeholder
-    public GameObject placeholder1Tile;
-    public GameObject placeholder2Tile;
-    public GameObject placeholder3Tile;
+    public GameObject[] placeholderTiles;
+
 
     //Non Playable
-    public GameObject nonPlayable1Tile;
-    public GameObject nonPlayable2Tile;
-    public GameObject nonPlayable3Tile;
+    public GameObject[] nonPlayableTiles;
 }

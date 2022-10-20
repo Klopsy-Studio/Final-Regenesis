@@ -95,20 +95,20 @@ public abstract class BattleState : State
 
     protected virtual void SelectTile(Point p)
     {
-        if (pos == p || !board.tiles.ContainsKey(p))
+        if (pos == p || !board.playableTiles.ContainsKey(p))
         {
             return;
         }
 
         pos = p;
-        tileSelectionIndicator.localPosition = board.tiles[p].center;
+        tileSelectionIndicator.localPosition = board.playableTiles[p].center;
     }
 
     protected virtual bool CanReachTile(Point p, List<Tile> tiles)
     {
-        if(board.tiles[p] != null)
+        if(board.playableTiles[p] != null)
         {
-            if (tiles.Contains(board.tiles[p]))
+            if (tiles.Contains(board.playableTiles[p]))
             {
                 return true;
             }

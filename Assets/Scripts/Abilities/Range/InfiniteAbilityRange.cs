@@ -6,6 +6,6 @@ public class InfiniteAbilityRange : AbilityRange
 {
     public override List<Tile> GetTilesInRange(Board board)
     {
-        return new List<Tile>(board.tiles.Values);
+        return new List<Tile>(board.playableTiles.Values);
     }
 }

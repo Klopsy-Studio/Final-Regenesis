@@ -39,7 +39,7 @@ public class ThunderEvent : RealTimeEvents
     void SelectTiles(Board board)
     {
         //RECOGER TODAS LAS TILES
-        dic = board.tiles;
+        dic = board.playableTiles;
         //LIMPIAR LAS TILES ROJAS
 
         if(particleEffect1.Count != 0)

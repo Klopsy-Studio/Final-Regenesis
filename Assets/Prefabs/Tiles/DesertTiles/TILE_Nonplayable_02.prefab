@@ -59,12 +59,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62031934d2554174eb6acc8dea40a9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  data:
+    tileType: 2
+    typeIndex: 1
+    isPlayable: 0
+  tileIndex: 0
   pos:
     x: 0
     y: 0
   height: 0
   model: {fileID: 1042619849740964356}
+  isPlayable: 0
   occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}

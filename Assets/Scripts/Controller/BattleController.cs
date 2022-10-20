@@ -88,12 +88,12 @@ public class BattleController : StateMachine
 
     public virtual void SelectTile(Point p)
     {
-        if (pos == p || !board.tiles.ContainsKey(p))
+        if (pos == p || !board.playableTiles.ContainsKey(p))
         {
             return;
         }
 
         pos = p;
-        tileSelectionIndicator.localPosition = board.tiles[p].center;
+        tileSelectionIndicator.localPosition = board.playableTiles[p].center;
     }
 }

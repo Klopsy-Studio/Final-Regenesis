@@ -11,7 +11,7 @@ public enum ObstacleType
 [System.Serializable]
 public class Tile : MonoBehaviour
 {
-    public TileType tileType;
+    public TileData data;
     public int tileIndex;
     public const float stepHeight = 0.25f; 
     public Point pos;
@@ -19,8 +19,6 @@ public class Tile : MonoBehaviour
     public Vector3 center { get { return new Vector3(pos.x, height * stepHeight, pos.y); } } //Center of the tile. Allow the units to center themselves
 
     [SerializeField] Renderer model;
-
-    public bool isPlayable;
     public GameObject content
     {
         get

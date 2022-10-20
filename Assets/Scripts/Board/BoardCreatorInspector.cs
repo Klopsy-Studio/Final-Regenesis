@@ -29,22 +29,22 @@ public class BoardCreatorInspector : Editor
         switch (current.TypeOfTile)
         {
             case TileType.Placeholder:
-                AddTileSpawnButton("Choose Placeholder 1", current.spawner.placeholder1Tile);
-                AddTileSpawnButton("Choose Placeholder 2", current.spawner.placeholder2Tile);
-                AddTileSpawnButton("Choose Placeholder 3", current.spawner.placeholder3Tile);
+                AddTileSpawnButton("Choose Placeholder 1", current.spawner.placeholderTiles[0]);
+                AddTileSpawnButton("Choose Placeholder 2", current.spawner.placeholderTiles[1]);
+                AddTileSpawnButton("Choose Placeholder 3", current.spawner.placeholderTiles[2]);
                 break;
             case TileType.Desert:
-                AddTileSpawnButton("Choose Desert Tile 1", current.spawner.desert1Tile);
-                AddTileSpawnButton("Choose Desert Tile 2", current.spawner.desert2Tile);
-                AddTileSpawnButton("Choose Desert Tile 3", current.spawner.desert3Tile);
-                AddTileSpawnButton("Choose Quicksand Tile", current.spawner.desertQuicksandTile);
+                AddTileSpawnButton("Choose Desert Tile 1", current.spawner.desertTiles[0]);
+                AddTileSpawnButton("Choose Desert Tile 2", current.spawner.desertTiles[1]);
+                AddTileSpawnButton("Choose Desert Tile 3", current.spawner.desertTiles[2]);
+                AddTileSpawnButton("Choose Quicksand Tile", current.spawner.desertTiles[3]);
 
 
                 break;
             case TileType.NonPlayable:
-                AddTileSpawnButton("Choose Non Playable 1", current.spawner.nonPlayable1Tile);
-                AddTileSpawnButton("Choose Non Playable 2", current.spawner.nonPlayable2Tile);
-                AddTileSpawnButton("Choose Non Playable 3", current.spawner.nonPlayable3Tile);
+                AddTileSpawnButton("Choose Non Playable 1", current.spawner.nonPlayableTiles[0]);
+                AddTileSpawnButton("Choose Non Playable 2", current.spawner.nonPlayableTiles[1]);
+                AddTileSpawnButton("Choose Non Playable 3", current.spawner.nonPlayableTiles[2]);
                 break;
             default:
                 break;
@@ -114,12 +114,19 @@ public class BoardCreatorInspector : Editor
                         e.Use();
                     }
 
-                    if(Event.current.keyCode == KeyCode.Space)
+                    if(Event.current.keyCode == KeyCode.Space || Event.current.keyCode == KeyCode.Mouse0)
                     {
                         current.Grow();
                         current.Grow();
                         current.Grow();
                         current.Grow();
+                        current.UpdateMarker();
+                        e.Use();
+                    }
+
+                    if (Event.current.keyCode == KeyCode.Mouse1)
+                    {
+                        current.Shrink();
                         current.UpdateMarker();
                         e.Use();
                     }
