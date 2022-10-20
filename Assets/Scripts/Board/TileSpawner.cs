@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum typeOfTiles
+public enum TileType
 {
     Placeholder, Desert, NonPlayable
 };
+public enum DesertType
+{
+    Desert1, Desert2, Desert3, Quicksand
+}
 
 [System.Serializable]
 public class TileSpawner
 {
-    public typeOfTiles TypeToSpawn;
+    //public typeOfTiles TypeToSpawn;
 
     //Desert
     public GameObject desert1Tile;

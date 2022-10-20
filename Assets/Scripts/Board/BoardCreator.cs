@@ -4,19 +4,16 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-
+public enum propType
+{
+    //Here we add every single prop we have
+}
 public class BoardCreator : MonoBehaviour
 {
     public TileSpawner spawner;
-    [SerializeField] TypesOfTiles type;
-    [Header("Dessert Tiles")]
-    [SerializeField] GameObject dessertTile1;
-    [SerializeField] GameObject dessertTile2;
-    [SerializeField] GameObject dessertTile3;
-    [SerializeField] GameObject quicksandTile;
-
-
     [SerializeField] GameObject tileToSpawn;
+
+
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject tileSelectionIndicatorPrefab;
 
@@ -76,6 +73,9 @@ public class BoardCreator : MonoBehaviour
     [SerializeField] public int money;
     [SerializeField] public List<string> items;
 
+    [Header("Tile Spawn")]
+    public TileType TypeOfTile;
+    public bool makeTilePlayable;
     public void GrowArea()
     {
         Rect r = RandomRect();
@@ -120,7 +120,7 @@ public class BoardCreator : MonoBehaviour
         }
     }
 
-    Tile Create(TypesOfTiles chosenTile)
+    Tile Create()
     {
         GameObject instance = Instantiate(tileToSpawn) as GameObject;
         instance.transform.parent = transform;
@@ -156,13 +156,39 @@ public class BoardCreator : MonoBehaviour
         if (tiles.ContainsKey(p))
             return tiles[p];
 
-        Tile t = Create(type);
+        Tile t = Create();
         t.Load(p, 0);
         tiles.Add(p, t);
         tilesScript.Add(t);
         return t;
     }
 
+    public void LoadTiles(Tile t)
+    {
+        switch (t.tileType)
+        {
+            case TileType.Placeholder:
+                switch (t.tileIndex)
+                {
+                    case 0:
+                        
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case TileType.Desert:
+                break;
+            case TileType.NonPlayable:
+                break;
+            default:
+                break;
+        }
+    }
     public void AddObstacle()
     {
         Tile t = GetOrCreate(pos);
@@ -178,6 +204,15 @@ public class BoardCreator : MonoBehaviour
     void GrowSingle(Point p)
     {
         Tile t = GetOrCreate(p);
+
+        if (makeTilePlayable)
+        {
+            t.isPlayable = true;
+        }
+        else
+        {
+            t.isPlayable = false;
+        }
         if (t.height < height)
             t.Grow();
     }
@@ -244,7 +279,7 @@ public class BoardCreator : MonoBehaviour
 
         board.tiles = new List<Vector3>(tilesScript.Count);
 
-        board.tilesScripts = new List<TypesOfTiles>(tilesScript.Count);
+        board.tilesScripts = new List<TileData>(tilesScript.Count);
         board.tileContent = new List<ObstacleType>(tilesScript.Count);
         board.playerSpawnPoints = new List<Point>(playerSpawnPoints.Count);
         board.enemySpawnPoints = new List<Point>(enemySpawnPoints.Count);
@@ -275,7 +310,7 @@ public class BoardCreator : MonoBehaviour
 
         foreach(Tile t in tilesScript)
         {
-            board.tilesScripts.Add(t.type);
+            board.tilesScripts.Add(t);
         }
 
         board.rank = rank;

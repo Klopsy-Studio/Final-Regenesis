@@ -1,13 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum TypesOfTiles
-{
-    DessertTile1,
-    DessertTile2,
-    DessertTile3,
-    QuicksandTile
-}
+
 
 public enum ObstacleType
 {
@@ -17,7 +11,8 @@ public enum ObstacleType
 [System.Serializable]
 public class Tile : MonoBehaviour
 {
-    public TypesOfTiles type;
+    public TileType tileType;
+    public int tileIndex;
     public const float stepHeight = 0.25f; 
     public Point pos;
     public int height;
@@ -25,7 +20,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField] Renderer model;
 
-
+    public bool isPlayable;
     public GameObject content
     {
         get

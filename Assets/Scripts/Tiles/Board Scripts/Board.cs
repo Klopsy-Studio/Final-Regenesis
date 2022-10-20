@@ -48,42 +48,49 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         switch (data.tilesScripts.ToArray()[i])
         {
-            case TypesOfTiles.DessertTile1:
-                GameObject instance = Instantiate(dessertTile1) as GameObject;
-                instance.transform.parent = battleController.transform;
-                Tile t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-                tiles.Add(t.pos, t);
-                return t;
+            //case TypesOfTiles.DessertTile1:
+            //    GameObject instance = Instantiate(dessertTile1) as GameObject;
+            //    instance.transform.parent = battleController.transform;
+            //    Tile t = instance.GetComponent<Tile>();
+            //    t.Load(data.tiles[i]);
+            //    tiles.Add(t.pos, t);
+            //    return t;
 
-            case TypesOfTiles.DessertTile2:
-                instance = Instantiate(dessertTile2) as GameObject;
-                instance.transform.parent = battleController.transform;
-                t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-                tiles.Add(t.pos, t);
-                return t;
+            //case TypesOfTiles.DessertTile2:
+            //    instance = Instantiate(dessertTile2) as GameObject;
+            //    instance.transform.parent = battleController.transform;
+            //    t = instance.GetComponent<Tile>();
+            //    t.Load(data.tiles[i]);
+            //    tiles.Add(t.pos, t);
+            //    return t;
 
-            case TypesOfTiles.DessertTile3:
-                instance = Instantiate(dessertTile3) as GameObject;
-                instance.transform.parent = battleController.transform;
+            //case TypesOfTiles.DessertTile3:
+            //    instance = Instantiate(dessertTile3) as GameObject;
+            //    instance.transform.parent = battleController.transform;
 
-                t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-                tiles.Add(t.pos, t);
-                return t;
+            //    t = instance.GetComponent<Tile>();
+            //    t.Load(data.tiles[i]);
+            //    tiles.Add(t.pos, t);
+            //    return t;
 
-            case TypesOfTiles.QuicksandTile:
-                instance = Instantiate(quicksandTile) as GameObject;
-                instance.transform.parent = battleController.transform;
+            //case TypesOfTiles.QuicksandTile:
+            //    instance = Instantiate(quicksandTile) as GameObject;
+            //    instance.transform.parent = battleController.transform;
 
-                t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-                tiles.Add(t.pos, t);
-                return t;
-            default:
-                return null;
+            //    t = instance.GetComponent<Tile>();
+            //    t.Load(data.tiles[i]);
+            //    tiles.Add(t.pos, t);
+            //    return t;
+            //default:
+            //    return null;
         }
+
+        GameObject instance = Instantiate(dessertTile1) as GameObject;
+        instance.transform.parent = battleController.transform;
+        Tile t = instance.GetComponent<Tile>();
+        t.Load(data.tiles[i]);
+        tiles.Add(t.pos, t);
+        return t;
     }
     public Dictionary<Point, Tile> GetDictionary()
     {
