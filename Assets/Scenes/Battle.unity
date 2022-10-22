@@ -783,6 +783,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac2b03e4f9abf8d4e971051354157ee0, type: 3}
+--- !u!1 &904776513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5419400877334408662, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+  m_PrefabInstance: {fileID: 85011357939115778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &904776515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904776513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0b7b5932ef2ce4ab0bc056caef371a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallTileSelection: {fileID: 1365173348}
+  bigTileSelection: {fileID: 1709784806}
 --- !u!1 &1172470581
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35887d8fac8d16040b3301868163d814, type: 3}
+--- !u!1 &1365173348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7505218946784721094, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+  m_PrefabInstance: {fileID: 85011357939115778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1374194395 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5886122782810732646, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
@@ -1103,6 +1127,11 @@ MonoBehaviour:
   unit1: {fileID: 524210072}
   unit2: {fileID: 1997301502}
   duringAttack: 0
+--- !u!1 &1709784806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3683946582929799236, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+  m_PrefabInstance: {fileID: 85011357939115778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1997301500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1275,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2476724531654025598, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.8662
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476724531654025598, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.7735
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: tileSelectionToggle
+      value: 
+      objectReference: {fileID: 904776515}
     - target: {fileID: 3099776044107931977, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1361,6 +1402,10 @@ PrefabInstance:
     - target: {fileID: 3099776045740775200, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683946582929799236, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17578884795fd34fb5cc5374c73f868, type: 3}

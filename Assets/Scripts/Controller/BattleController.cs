@@ -11,6 +11,7 @@ public class BattleController : StateMachine
     public Board board;
     public LevelData levelData;
     public Transform tileSelectionIndicator;
+    public TileSelectionToggle tileSelectionToggle;
     public GameObject tileSpriteGhostImage;
     public Point pos;
     public ConsumableInventoryDemo inventory;
@@ -94,6 +95,22 @@ public class BattleController : StateMachine
         }
 
         pos = p;
+
+        if(board.tiles[p].content != null)
+        {
+            if(board.tiles[p].content.GetComponent<EnemyUnit>() != null)
+            {
+                tileSelectionToggle.MakeTileSelectionBig();
+            }
+            else
+            {
+                tileSelectionToggle.MakeTileSelectionSmall();
+            }
+        }
+        else
+        {
+            tileSelectionToggle.MakeTileSelectionSmall();
+        }
         tileSelectionIndicator.localPosition = board.tiles[p].center;
     }
 }

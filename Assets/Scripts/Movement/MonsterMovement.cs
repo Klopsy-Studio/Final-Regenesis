@@ -22,17 +22,28 @@ public class MonsterMovement : WalkMovement
         SideAbilityRange sideRange = this.GetComponent<SideAbilityRange>();
 
         sideRange.sideDir = pushDir;
+        sideRange.sideLength = 1;
+        sideRange.sideReach = pushStrength+1;
 
         List<Tile> dirT = sideRange.GetTilesInRange(board);
 
-        foreach(Tile e in dirT)
+        if(dirT != null)
         {
-            if(e.content!= null)
+            foreach (Tile e in dirT)
             {
-                canPush = false;
-                return;
+                if (e.content != null || e.CheckSurroundings(board) != null)
+                {
+                    canPush = false;
+                    return;
+                }
             }
         }
+        else
+        {
+            canPush = false;
+            return;
+        }
+        
 
         canPush = true;
 

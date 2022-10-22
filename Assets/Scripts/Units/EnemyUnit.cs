@@ -24,7 +24,7 @@ public class EnemyUnit : Unit
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite reactSprite;
 
-
+    [SerializeField] MonsterController controller;
     List<Tile> monsterSpace;
     public float StunThreshold
     {
@@ -32,6 +32,15 @@ public class EnemyUnit : Unit
         private set { stunThreshold = value; }
     }
     
+    public void BeginAnimation()
+    {
+        controller.animPlaying = true;
+    }
+
+    public void EndAnimation()
+    {
+        controller.animPlaying = false;
+    }
 
     protected override void Start()
     {

@@ -281,6 +281,6 @@ MonoBehaviour:
   - x: 4
     y: 3
   enemySpawnPoints:
-  - x: 17
-    y: 9
+  - x: 11
+    y: 8
   itemSpawn: []

@@ -27,7 +27,9 @@ public class MonsterController : MonoBehaviour
     //    currentState.UpdateState(this);
     //}
 
-
+    [Header("Animation Variables")]
+    public bool animPlaying;
+    public Animator monsterAnimations;
     public void StartMonster()
     {
         currentState.UpdateState(this);
@@ -54,7 +56,15 @@ public class MonsterController : MonoBehaviour
     }
 
 
+    public void AnimationBegin()
+    {
+        animPlaying = true;
+    }
 
+    public void AnimationEnd()
+    {
+
+    }
     public virtual T GetRange<T>() where T : AbilityRange
     {
         T target = GetComponent<T>();

@@ -21,7 +21,7 @@ public class RandomAttackAction : Action
         controller.target.React();
         controller.target.DamageEffect();
 
-        controller.currentEnemy.React();
+        controller.monsterAnimations.SetBool(ability.attackTrigger, true);
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 
@@ -29,6 +29,9 @@ public class RandomAttackAction : Action
         {
             yield return null;
         }
+
+        controller.monsterAnimations.SetBool(ability.attackTrigger, false);
+        controller.monsterAnimations.SetBool("idle", true);
 
         controller.target.Default();
         controller.currentEnemy.Default();

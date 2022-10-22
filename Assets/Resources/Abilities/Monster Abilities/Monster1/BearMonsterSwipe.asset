@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be71fa70ebb57d440b9b7c750b63ed6c, type: 3}
-  m_Name: Monster1Attack2
+  m_Name: BearMonsterSwipe
   m_EditorClassIdentifier: 
   typeOfAbility: 0
+  attackTrigger: 
   attackRange:
   - range: 7
     lineDir: 0
@@ -25,6 +26,19 @@ MonoBehaviour:
     alternateSideDir: 2
     alternateSideReach: 2
     alternateSideLength: 2
+    movementRange: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    sideDir: 2
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
   initialDamage: 20
   abilityModifier: 0
   initialHeal: 0

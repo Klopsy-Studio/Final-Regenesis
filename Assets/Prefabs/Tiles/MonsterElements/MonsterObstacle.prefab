@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4993379407655412962}
   - component: {fileID: 2265322674755068832}
-  - component: {fileID: 5875277559153657864}
+  - component: {fileID: 3005922828519192898}
   m_Layer: 0
   m_Name: MonsterObstacle
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -155754493211133949, guid: c4a27b60023b26a469791298f1d7d3ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ab80f138dba3e140a94e13ce6fce234, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5875277559153657864
+--- !u!95 &3005922828519192898
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 986858306413133845}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 698731ac581ce2243a5529601370e4cb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 87e427a91df0e104b8965b05adb33aee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

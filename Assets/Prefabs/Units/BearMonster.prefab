@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 1131668777620481961}
   - component: {fileID: 4641170417714014559}
   - component: {fileID: 4154550655931685623}
+  - component: {fileID: 8065880355718981688}
   m_Layer: 6
-  m_Name: Test1
+  m_Name: BearMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,8 +86,9 @@ MonoBehaviour:
   target: {fileID: 0}
   elements_Effectiveness: 0
   sprite: {fileID: 1262454043973379550}
-  defaultSprite: {fileID: 21300000, guid: 96acfb51729c80d4b8d4648ac8b1b5d5, type: 3}
-  reactSprite: {fileID: -2933916564714595955, guid: 857fd445f32c5ea4e8e6ff74759486b6, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 61b579e26d144ac448c7e81bc5af7340, type: 3}
+  reactSprite: {fileID: 21300000, guid: 662c4f150086c11409210e8ae2bccc6b, type: 3}
+  controller: {fileID: 0}
 --- !u!114 &3600112416777368949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +112,8 @@ MonoBehaviour:
   validAbilities: []
   validAttack: {fileID: 0}
   obstacle: {fileID: 986858306413133845, guid: 3ccb7408d54443c4eba8e9f77a2d75bc, type: 3}
+  animPlaying: 0
+  monsterAnimations: {fileID: 8065880355718981688}
 --- !u!114 &1131668777620481961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +164,25 @@ MonoBehaviour:
   sideDir: 0
   sideReach: 1
   sideLength: 1
+--- !u!95 &8065880355718981688
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9a19873ddddfcf4a8200710a5e4f682, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2516664840645378107}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.79, y: 0, z: -1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2512748260298187115}
@@ -232,7 +255,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 96acfb51729c80d4b8d4648ac8b1b5d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61b579e26d144ac448c7e81bc5af7340, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -501,8 +524,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8677347259580475711}
   m_LocalRotation: {x: 0.6532815, y: 0.27059805, z: -0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 0, y: 0.001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.04, y: 0.001, z: -0.07}
+  m_LocalScale: {x: 3.304872, y: 3.304872, z: 3.304872}
   m_Children: []
   m_Father: {fileID: 2512748260298187115}
   m_RootOrder: 2

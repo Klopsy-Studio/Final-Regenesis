@@ -40,7 +40,7 @@ public class MoveAction : Action
         }
 
         Movement range = controller.currentEnemy.GetComponent<Movement>();
-        range.range = 3;
+        range.range = 5;
 
         //MovementRange range = GetRange<MovementRange>();
 
@@ -48,8 +48,15 @@ public class MoveAction : Action
         //range.range = 3;
         //range.tile = owner.currentEnemy.tile;
 
-        List<Tile>tiles = range.GetTilesInRangeForEnemy(controller.battleController.board, false);
-
+        List<Tile> unfilteredTiles = range.GetTilesInRangeForEnemy(controller.battleController.board, false);
+        List<Tile> tiles = new List<Tile>();
+        foreach(Tile validTile in unfilteredTiles)
+        {
+            if (validTile.CheckSurroundings(controller.battleController.board) != null)
+            {
+                tiles.Add(validTile);
+            }
+        }
 
         closestDistance = 0f;
         
@@ -67,9 +74,29 @@ public class MoveAction : Action
         List<Tile> test = new List<Tile>();
         test.Add(closestTile);
       
-        controller.battleController.board.SelectMovementTiles(test);
+        //controller.battleController.board.SelectMovementTiles(test);
+        
+
+        controller.monsterAnimations.SetBool("hide", true);
+
+        yield return new WaitForSeconds(1f);
+        //while (controller.animPlaying)
+        //{
+        //    yield return null;
+        //}
+        controller.monsterAnimations.SetBool("hide", false);
+
         controller.battleController.SelectTile(closestTile.pos);
+        controller.battleController.tileSelectionToggle.MakeTileSelectionBig();
         controller.CallCoroutine(m.SimpleTraverse(closestTile));
+
+        controller.monsterAnimations.SetBool("appear", true);
+
+        yield return new WaitForSeconds(1f);
+
+        controller.monsterAnimations.SetBool("appear", false);
+        controller.monsterAnimations.SetBool("idle", true);
+        controller.monsterAnimations.SetBool("idle", false);
 
         //StartCoroutine(m.Traverse(closestTile));
 
@@ -78,8 +105,9 @@ public class MoveAction : Action
         //    yield return null;
         //}
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         controller.battleController.board.DeSelectDefaultTiles(test);
+        controller.currentEnemy.UpdateMonsterSpace(controller.battleController.board);
         //owner.ChangeState<Monster1CheckNextAction>();
         //m.isTraverseCalled = false;
 

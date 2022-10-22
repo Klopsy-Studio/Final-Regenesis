@@ -101,7 +101,22 @@ public abstract class BattleState : State
         }
 
         pos = p;
+
+
         tileSelectionIndicator.localPosition = board.tiles[p].center;
+
+
+        if (board.tiles[p].content != null)
+        {
+            if (board.tiles[p].content.GetComponent<EnemyUnit>() != null)
+            {
+                owner.tileSelectionToggle.MakeTileSelectionBig();
+            }
+            else
+            {
+                owner.tileSelectionToggle.MakeTileSelectionSmall();
+            }
+        }
     }
 
     protected virtual bool CanReachTile(Point p, List<Tile> tiles)

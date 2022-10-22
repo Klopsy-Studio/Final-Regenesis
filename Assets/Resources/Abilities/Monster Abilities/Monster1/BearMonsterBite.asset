@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be71fa70ebb57d440b9b7c750b63ed6c, type: 3}
-  m_Name: Monster1Attack1
+  m_Name: BearMonsterBite
   m_EditorClassIdentifier: 
   typeOfAbility: 0
+  attackTrigger: bite
   attackRange:
   - range: 6
     lineDir: 2
@@ -22,6 +23,10 @@ MonoBehaviour:
     sideLength: 1
     crossLength: 1
     squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
   - range: 6
     lineDir: 2
     lineLength: 2
@@ -30,6 +35,10 @@ MonoBehaviour:
     sideLength: 1
     crossLength: 1
     squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
   - range: 6
     lineDir: 2
     lineLength: 2
@@ -38,6 +47,10 @@ MonoBehaviour:
     sideLength: 1
     crossLength: 1
     squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
   - range: 6
     lineDir: 2
     lineLength: 2
@@ -46,6 +59,10 @@ MonoBehaviour:
     sideLength: 1
     crossLength: 1
     squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
   initialDamage: 20
   abilityModifier: 0.1
   initialHeal: 0

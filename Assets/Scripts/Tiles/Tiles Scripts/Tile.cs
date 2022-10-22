@@ -140,7 +140,7 @@ public class Tile : MonoBehaviour
     {
         if (board.GetTile(new Point(pos.x + offsetX, pos.y+offsetY)) != null)
         {
-            if(!board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).occupied && board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).content == null)
+            if(/*!board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).occupied && */board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).content == null)
             {
                 return true;
             }
@@ -152,6 +152,52 @@ public class Tile : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+
+    public bool CheckNextTile(Directions dir, Board board)
+    {
+        switch (dir)
+        {
+            case Directions.North:
+                if(board.GetTile(new Point(pos.x, pos.y--)) != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case Directions.East:
+                if (board.GetTile(new Point(pos.x--, pos.y)) != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case Directions.South:
+                if (board.GetTile(new Point(pos.x, pos.y++)) != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case Directions.West:
+                if (board.GetTile(new Point(pos.x++, pos.y)) != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            default:
+                return false;
         }
     }
 }

@@ -44,7 +44,7 @@ public class UseAbilityState : BattleState
     {
         if (!attacking)
         {
-            if (owner.currentTile.content != null)
+            if (owner.currentTile.occupied)
             {
                 if (owner.currentTile.content.gameObject.GetComponent<EnemyUnit>() != null && tiles.Contains(owner.currentTile))
                 {
@@ -95,8 +95,9 @@ public class UseAbilityState : BattleState
 
                     if (owner.currentTile.content != null)
                     {
-                        if (owner.currentTile.content.GetComponent<Unit>() != null)
+                        if (owner.currentTile.occupied)
                         {
+                            
                             selectTiles.Add(owner.currentTile);
                             board.SelectAttackTiles(selectTiles);
                             //EnemyUnit target = owner.currentTile.content.GetComponent<EnemyUnit>();

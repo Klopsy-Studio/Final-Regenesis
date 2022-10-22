@@ -7,7 +7,8 @@ using UnityEngine;
 public class MonsterAbility : ScriptableObject
 {
     public EffectType typeOfAbility;
-
+    [Header("Attack Animation Trigger")]
+    public string attackTrigger;
     [Header("Attack Range")]
     [SerializeField] List<RangeData> attackRange;
 
