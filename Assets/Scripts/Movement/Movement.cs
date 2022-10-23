@@ -171,6 +171,10 @@ public abstract class Movement : MonoBehaviour
 
     public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
+        if(unit.GetComponent<PlayerUnit>()!= null)
+        {
+            unit.GetComponent<PlayerUnit>().Push();
+        }
         range = pushStrength;
         List<Tile> t = GetTilesInRange(board, true);
         Tile desiredTile = null;

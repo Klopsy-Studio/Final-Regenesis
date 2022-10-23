@@ -16,6 +16,16 @@ public class PlayerUnit : Unit
     [HideInInspector] public UnitStatus status;
 
     public PlayerUnitUI playerUI;
+
+
+    //Sprites
+
+    [HideInInspector] public Sprite idleSprite;
+    [HideInInspector] public Sprite weaponSprite;
+    [HideInInspector] public Sprite combatSprite;
+    [HideInInspector] public Sprite attackSprite;
+    [HideInInspector] public Sprite damageSprite;
+    [HideInInspector] public Sprite pushSprite;
     protected override void Start()
     {
         base.Start();
@@ -68,22 +78,41 @@ public class PlayerUnit : Unit
         return false;
     }
 
-    public override void React()
+    public override void Damage()
     {
-        base.React();
-        unitSprite.sprite = profile.unitReaction;
+        base.Damage();
+        unitSprite.sprite = damageSprite;
     }
     public override void Attack()
     {
-        unitSprite.sprite = profile.unitAction;
+        unitSprite.sprite = attackSprite;
     }
 
     public override void Default()
     {
-        unitSprite.sprite = profile.unitSprite;
+        unitSprite.sprite = idleSprite;
     }
 
+    public void Push()
+    {
+        unitSprite.sprite = pushSprite;
+    }
 
+    public void WeaponOut()
+    {
+        unitSprite.sprite = weaponSprite;
+        Invoke("Combat", 0.1f);
+    }
+
+    public void WeaponIn()
+    {
+        unitSprite.sprite = weaponSprite;
+        Invoke("Default", 0.1f);
+    }
+    public void Combat()
+    {
+        unitSprite.sprite = combatSprite;
+    }
 
 
 }

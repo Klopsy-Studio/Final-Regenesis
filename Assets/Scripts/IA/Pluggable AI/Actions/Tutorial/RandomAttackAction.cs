@@ -18,7 +18,7 @@ public class RandomAttackAction : Action
         controller.battleController.board.SelectAttackTiles(tiles);
 
         controller.target.ReceiveDamage(40);
-        controller.target.React();
+        controller.target.Damage();
         controller.target.DamageEffect();
 
         controller.monsterAnimations.SetBool(ability.attackTrigger, true);

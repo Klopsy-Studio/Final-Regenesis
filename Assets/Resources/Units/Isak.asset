@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d811aa10f09014b9c77f46fbbd419e, type: 3}
   m_Name: Isak
   m_EditorClassIdentifier: 
-  unitName: Isak
-  unitSprite: {fileID: -411048612726809232, guid: c7893ba2715f16d4b8243729885726a9, type: 3}
-  unitPortrait: {fileID: 9057419444405708075, guid: c5d7e38d8f7daa849bca202a563c946a, type: 3}
-  unitFullPortrait: {fileID: 21300000, guid: 2398e9de4e8bd984d9dfff2b84d6d9f8, type: 3}
-  unitReaction: {fileID: 8097904781994404044, guid: 402858b838eacdd44b2cbcb56592dc00, type: 3}
-  unitAction: {fileID: -2392446831575325650, guid: 402858b838eacdd44b2cbcb56592dc00, type: 3}
-  unitTimelineIcon: {fileID: 21300000, guid: ab74f1bf3eb7c37428e4480d554f3a81, type: 3}
-  unitWeapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
+  unitColor: {r: 1, g: 1, b: 1, a: 1}
+  unitName: Kaeo
+  unitPortrait: {fileID: 21300000, guid: 0bb6e7b84c657ba4d91363036a5edd31, type: 3}
+  unitFullPortrait: {fileID: 21300000, guid: 4ea23bb2150e7c748a54b6246d0a3163, type: 3}
+  unitTimelineIcon: {fileID: 21300000, guid: 8f6cf65b405a90f40ac62f5775f79cc2, type: 3}
+  unitIdle: {fileID: 21300000, guid: fcb56c5d0412fca4e9fcb1ee3d73a35e, type: 3}
+  unitIdleCombat: {fileID: 21300000, guid: c3dd122609577b8468ddafb173cafa44, type: 3}
+  unitHeavyWeapon: {fileID: 21300000, guid: ece1237c1d8c0024f9510b5086e26b00, type: 3}
+  unitLightWeapon: {fileID: 21300000, guid: 71f9ff36f5fe6fb4395e27a02e146e4a, type: 3}
+  unitDamageReaction: {fileID: 21300000, guid: d71648147799d4a4c899d892a5d9b2e7, type: 3}
+  unitTakeOutWeapon: {fileID: 21300000, guid: 17978be78010863468b107d765e6a88c, type: 3}
+  unitPush: {fileID: 21300000, guid: 80f3f5ae84c40094c9365ada4331e7e6, type: 3}
+  unitWeapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}

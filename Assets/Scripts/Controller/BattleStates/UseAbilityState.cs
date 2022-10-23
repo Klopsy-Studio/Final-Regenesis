@@ -15,6 +15,7 @@ public class UseAbilityState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.currentUnit.WeaponOut();
         owner.isTimeLineActive = false;
         owner.ActivateTileSelector();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
@@ -221,6 +222,7 @@ public class UseAbilityState : BattleState
     {
         if (!attacking)
         {
+            owner.currentUnit.WeaponIn();
             owner.DeactivateTileSelector();
             SelectTile(owner.currentUnit.currentPoint);
             owner.ChangeState<SelectAbilityState>();
@@ -254,7 +256,7 @@ public class UseAbilityState : BattleState
         else
         {
             owner.currentUnit.Attack();
-            target.React();       
+            target.Damage();       
         }
 
         while (ActionEffect.instance.play)

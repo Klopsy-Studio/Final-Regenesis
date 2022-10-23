@@ -33,7 +33,7 @@ public class Monster1SpecialAbility : Monster1State
         owner.tileToPlaceObstacle.content = obstacle;
         obstacle.transform.parent = null;
 
-        owner.currentEnemy.React();
+        owner.currentEnemy.Damage();
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 

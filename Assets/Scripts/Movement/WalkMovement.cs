@@ -53,11 +53,14 @@ public class WalkMovement : Movement
             unit.GetComponent<EnemyUnit>().UpdateMonsterSpace(board);
         }
 
+        if(unit.GetComponent<PlayerUnit>()!= null)
+        {
+            unit.GetComponent<PlayerUnit>().Default();
+        }
         if(tile != null)
         {
             UpdateUnitSprite(tile);
         }
-
 
         yield return null;
     }

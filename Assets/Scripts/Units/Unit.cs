@@ -200,7 +200,7 @@ public class Unit : TimelineElements
     //}
 
 
-    public virtual void React()
+    public virtual void Damage()
     {
 
     }

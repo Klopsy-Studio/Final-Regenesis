@@ -56,7 +56,7 @@ public class BombTimeline : ItemElements
             if(t.content.TryGetComponent(out Unit unit))
             { 
                 unit.ReceiveDamage(30);
-                unit.React();
+                unit.Damage();
                 unit.DamageEffect();
             }
         }

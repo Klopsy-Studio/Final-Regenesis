@@ -39,8 +39,8 @@ public class Monster1Attack : Monster1State
         //Use attack
         currentTarget.ReceiveDamage(50);
 
-        owner.currentEnemy.React();
-        currentTarget.React();
+        owner.currentEnemy.Damage();
+        currentTarget.Damage();
         currentTarget.DamageEffect();
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
@@ -70,11 +70,11 @@ public class Monster1Attack : Monster1State
         foreach (PlayerUnit target in owner.targets)
         {
             target.ReceiveDamage(40);
-            target.React();
+            target.Damage();
             target.DamageEffect();
         }
 
-        owner.currentEnemy.React();
+        owner.currentEnemy.Damage();
 
         
 
@@ -135,8 +135,8 @@ public class Monster1Attack : Monster1State
 
         currentTarget.ReceiveDamage(50);
 
-        owner.currentEnemy.React();
-        currentTarget.React();
+        owner.currentEnemy.Damage();
+        currentTarget.Damage();
         currentTarget.DamageEffect();
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);

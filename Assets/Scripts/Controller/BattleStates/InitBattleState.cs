@@ -44,17 +44,6 @@ public class InitBattleState : BattleState
             unitsInGame.Add(unit);
 
             owner.playerUnits.Add(unit);
-
-            
-            //if (unit.UnitType == UnitType.PlayerUnit)
-            //{
-               
-            //}
-
-            //if(unit.UnitType == UnitType.EnemyUnit)
-            //{
-            //    owner.enemyUnits.Add(unit);
-            //}
         }
 
         owner.unitStatusUI.SpawnUnitStatus(playerUnits);
@@ -98,8 +87,30 @@ public class InitBattleState : BattleState
         unit.weapon = data.unitWeapon;
         unit.unitName = data.unitName;
 
-        unit.unitSprite.sprite = data.unitSprite;
+        unit.unitSprite.sprite = data.unitIdle;
+        unit.idleSprite = data.unitIdle;
+        unit.combatSprite = data.unitIdleCombat;
+
+        switch (unit.weapon.EquipmentType)
+        {
+            case EquipmentType.GreatSword:
+                unit.attackSprite = data.unitHeavyWeapon;
+                break;
+            case EquipmentType.Blowgun:
+                unit.attackSprite = data.unitLightWeapon;
+                break;
+            default:
+                break;
+        }
+
+        unit.damageSprite = data.unitDamageReaction;
+        unit.weaponSprite = data.unitTakeOutWeapon;
+        unit.pushSprite = data.unitPush;
+
         unit.timelineIcon = data.unitTimelineIcon;
+
+
+        unit.unitSprite.color = data.unitColor;
 
     }
 }

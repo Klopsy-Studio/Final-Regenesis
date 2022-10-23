@@ -41,7 +41,7 @@ public class PlaceObstacleAction : Action
         tileToPlaceObstacle.content = obstacle;
         obstacle.transform.parent = null;
 
-        controller.currentEnemy.React();
+        controller.currentEnemy.Damage();
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 

@@ -18,10 +18,10 @@ public class SpecificAttackAction : Action
         controller.battleController.board.SelectAttackTiles(tiles);
 
         controller.target.ReceiveDamage(40);
-        controller.target.React();
+        controller.target.Damage();
         controller.target.DamageEffect();
 
-        controller.currentEnemy.React();
+        controller.currentEnemy.Damage();
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 

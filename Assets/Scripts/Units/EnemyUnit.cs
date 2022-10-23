@@ -66,9 +66,9 @@ public class EnemyUnit : Unit
        
     }
 
-    public override void React()
+    public override void Damage()
     {
-        base.React();
+        base.Damage();
         sprite.sprite = reactSprite;
     }
 
