@@ -12,7 +12,9 @@ public class MoveTargetState : BattleState
     public override void Enter()
     {
         base.Enter();
-      
+        owner.ActivateTileSelector();
+        owner.tileSelectionToggle.MakeTileSelectionSmall();
+
         owner.isTimeLineActive = false;
 
         //range = GetRange<MovementRange>();
@@ -52,6 +54,7 @@ public class MoveTargetState : BattleState
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
         SelectTile(owner.currentUnit.currentPoint);
+        owner.DeactivateTileSelector();
         owner.ChangeState<SelectActionState>();
     }
     protected override void OnMove(object sender, InfoEventArgs<Point> e)

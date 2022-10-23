@@ -5,16 +5,18 @@ using UnityEngine;
 public class UseAbilityState : BattleState
 {
     List<Tile> tiles;
-    List<Tile> selectTiles;
+    List<Tile> selectTiles = new List<Tile>();
+
     public Abilities currentAbility;
 
+    bool onMonster;
     //PLACEHOLDER 
     bool attacking;
     public override void Enter()
     {
         base.Enter();
         owner.isTimeLineActive = false;
-        
+        owner.ActivateTileSelector();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
         currentAbility.SetUnitTimelineVelocityAndActionCost(owner.currentUnit);
 
@@ -65,80 +67,121 @@ public class UseAbilityState : BattleState
         {
             var a = hit.transform.gameObject;
             var t = a.GetComponent<Tile>();
+
             if (t != null)
             {
                 if (!attacking)
                 {
-                    SelectTile(e.info + t.pos);
-
-                    if (tiles.Contains(owner.currentTile))
+                    if (tiles.Contains(board.GetTile(e.info + t.pos)))
                     {
-                        if (selectTiles != null)
+                        if(t.content != null)
                         {
-                            board.DeSelectTiles(selectTiles);
-                            selectTiles.Clear();
+                            if (t.content.GetComponent<EnemyUnit>())
+                            {
+                                if (!onMonster)
+                                {
+                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
+                                }
+                            }
+                            else if (t.content.GetComponent<PlayerUnit>())
+                            {
+                                CleanSelectTiles();
+                                SelectTile(e.info + t.pos);
+                                owner.tileSelectionToggle.MakeTileSelectionSmall();
+                                selectTiles.Add(t);
+                                board.SelectAttackTiles(selectTiles);
+                                onMonster = false;
+                            }
                         }
                         else
                         {
-                            selectTiles = new List<Tile>();
+                            if (t.occupied)
+                            {
+                                if (!onMonster)
+                                {
+                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
+                                }
+                            }
+
+                            else
+                            {
+                                CleanSelectTiles();
+                                SelectTile(e.info + t.pos);
+                                owner.tileSelectionToggle.MakeTileSelectionSmall();
+                                onMonster = false;
+                            }
                         }
                     }
+                    
 
-                    else
-                    {
-                        if (selectTiles != null)
-                        {
-                            board.DeSelectTiles(selectTiles);
-                            selectTiles.Clear();
-                        }
-                    }
+                    //if (tiles.Contains(owner.currentTile))
+                    //{
+                    //    if (selectTiles != null)
+                    //    {
+                    //        board.DeSelectTiles(selectTiles);
+                    //        selectTiles.Clear();
+                    //    }
+                    //    else
+                    //    {
+                    //        selectTiles = new List<Tile>();
+                    //    }
+                    //}
 
-                    if (owner.currentTile.content != null)
-                    {
-                        if (owner.currentTile.occupied)
-                        {
-                            
-                            selectTiles.Add(owner.currentTile);
-                            board.SelectAttackTiles(selectTiles);
-                            //EnemyUnit target = owner.currentTile.content.GetComponent<EnemyUnit>();
-
-                            //Unit status code, remove when new UI
-                            //owner.unitStatusTargetUI.gameObject.SetActive(true);
-                            //owner.unitStatusTargetUI.UpdateUnit(target);
-
-
-                            //owner.unitStatusTargetUI.PreviewHealth((int)target.health.Value - currentAbility.damage);
-                        }
-                        //else
-                        //{
-                        //    if (owner.unitStatusTargetUI.gameObject.activeSelf)
-                        //    {
-                        //        owner.unitStatusTargetUI.gameObject.SetActive(false);
-                        //    }
-                        //}
-                    }
                     //else
                     //{
-                    //    if (owner.unitStatusTargetUI.gameObject.activeSelf)
+                    //    if (selectTiles != null)
                     //    {
-                    //        owner.unitStatusTargetUI.gameObject.SetActive(false);
+                    //        board.DeSelectTiles(selectTiles);
+                    //        selectTiles.Clear();
                     //    }
+                    //}
+
+                    //if (owner.currentTile.occupied)
+                    //{
+                    //    owner.SelectTile(owner.enemyUnits[0].currentPoint);
+                    //    owner.tileSelectionToggle.MakeTileSelectionBig();
+                    //    board.SelectAttackTiles(owner.enemyUnits[0].GetComponent<EnemyUnit>().GiveMonsterSpace(board));
+                    //}
+                    //else
+                    //{
+                    //    board.DeSelectTiles(owner.enemyUnits[0].GetComponent<EnemyUnit>().GiveMonsterSpace(board));
+                    //}
+                    //if (owner.currentTile.content != null)
+                    //{
+                    //    if(owner.currentTile.content.GetComponent<PlayerUnit>() != null)
+                    //    {
+                    //        owner.tileSelectionToggle.MakeTileSelectionSmall();
+                    //    }
+
                     //}
                 }
 
             }
-            //else
-            //{
-            //    if(selectTiles != null)
-            //    {
-            //        board.DeSelectTiles(selectTiles);
-            //    }
-            //}
 
         }
 
     }
 
+
+    public void SelectMonster(EnemyUnit enemy, Tile t)
+    {
+        CleanSelectTiles();
+        selectTiles = enemy.GiveMonsterSpace(board);
+        board.SelectAttackTiles(selectTiles);
+        SelectTile(enemy.currentPoint);
+        owner.tileSelectionToggle.MakeTileSelectionBig();
+        onMonster = true;
+    }
+    
+    public void CleanSelectTiles()
+    {
+        if(selectTiles != null)
+        {
+            board.DeSelectTiles(selectTiles);
+            selectTiles.Clear();
+            selectTiles = new List<Tile>();
+        }
+    }
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)
     {
         
@@ -178,6 +221,7 @@ public class UseAbilityState : BattleState
     {
         if (!attacking)
         {
+            owner.DeactivateTileSelector();
             SelectTile(owner.currentUnit.currentPoint);
             owner.ChangeState<SelectAbilityState>();
         }

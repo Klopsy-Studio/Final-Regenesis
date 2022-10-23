@@ -19,6 +19,8 @@ public class WalkMovement : Movement
 
     public override IEnumerator Traverse(Tile tile, Board board)
     {
+        unit.currentPoint = tile.pos;
+
         moving = true;
         unit.Place(tile);
 
@@ -55,6 +57,7 @@ public class WalkMovement : Movement
         {
             UpdateUnitSprite(tile);
         }
+
 
         yield return null;
     }

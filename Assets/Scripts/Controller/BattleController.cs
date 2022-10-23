@@ -96,21 +96,16 @@ public class BattleController : StateMachine
 
         pos = p;
 
-        if(board.tiles[p].content != null)
-        {
-            if(board.tiles[p].content.GetComponent<EnemyUnit>() != null)
-            {
-                tileSelectionToggle.MakeTileSelectionBig();
-            }
-            else
-            {
-                tileSelectionToggle.MakeTileSelectionSmall();
-            }
-        }
-        else
-        {
-            tileSelectionToggle.MakeTileSelectionSmall();
-        }
+        
         tileSelectionIndicator.localPosition = board.tiles[p].center;
+    }
+
+    public void ActivateTileSelector()
+    {
+        tileSelectionIndicator.gameObject.SetActive(true);
+    }
+    public void DeactivateTileSelector()
+    {
+        tileSelectionIndicator.gameObject.SetActive(false);
     }
 }

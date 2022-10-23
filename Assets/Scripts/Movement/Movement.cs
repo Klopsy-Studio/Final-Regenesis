@@ -73,7 +73,7 @@ public abstract class Movement : MonoBehaviour
             }
             else
             {
-                if (tiles[i].content != null)
+                if (tiles[i].content != null || tiles[i].occupied)
                 {
                     tiles.RemoveAt(i);
                 }

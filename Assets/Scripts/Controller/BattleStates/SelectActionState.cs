@@ -16,6 +16,10 @@ public class SelectActionState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.SelectTile(owner.currentUnit.currentPoint);
+        owner.tileSelectionToggle.MakeTileSelectionSmall();
+        owner.DeactivateTileSelector();
+
         owner.currentUnit.playerUI.unitUI.gameObject.SetActive(true);
         owner.currentUnit.playerUI.ShowActionPoints();
 

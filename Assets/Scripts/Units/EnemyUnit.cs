@@ -105,4 +105,13 @@ public class EnemyUnit : Unit
         }
     }
 
+    public List<Tile> GiveMonsterSpace(Board board)
+    {
+
+        SquareAbilityRange monsterRange = GetComponent<SquareAbilityRange>();
+        monsterRange.squareReach = 1;
+
+        return monsterRange.GetTilesInRange(board);
+    }
+
 }
