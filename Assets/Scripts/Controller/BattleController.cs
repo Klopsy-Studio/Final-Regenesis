@@ -66,15 +66,21 @@ public class BattleController : StateMachine
 
     [HideInInspector] public List<TimelineElements> timelineElements;
 
+
+    [SerializeField] GameObject placeholderCanvas;
     void Start()
     {
-        levelData = GameManager.instance.currentMission;
         
+    }
+
+    public void BeginGame()
+    {
+        Destroy(placeholderCanvas.gameObject);
+        levelData = GameManager.instance.currentMission;
+
         //environmentEvent.Board = board;
         ChangeState<InitBattleState>();
     }
-
-
     //public bool IsInMenu()
     //{
     //    return CurrentState is SelectActionState || CurrentState is SelectAbilityState || CurrentState is SelectItemState || CurrentState is SelectItemState;
