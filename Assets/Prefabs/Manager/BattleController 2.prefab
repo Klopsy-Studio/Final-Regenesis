@@ -5700,6 +5700,7 @@ MonoBehaviour:
   board: {fileID: 3099776045650747274}
   levelData: {fileID: 11400000, guid: b90eaef850f44a14781502a4bdce162b, type: 2}
   tileSelectionIndicator: {fileID: 5419400877334408663}
+  tileSelectionToggle: {fileID: 904776515}
   tileSpriteGhostImage: {fileID: 0}
   pos:
     x: 0
@@ -5733,6 +5734,7 @@ MonoBehaviour:
   moveAbilitySelector: 0
   moveItemSelector: 0
   timelineElements: []
+  placeholderCanvas: {fileID: 0}
 --- !u!1 &3099776044160166961
 GameObject:
   m_ObjectHideFlags: 0
@@ -5874,7 +5876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229, y: -187.42001}
+  m_AnchoredPosition: {x: 229, y: -222.77501}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &3099776044273738190
@@ -6725,7 +6727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229, y: -140.28}
+  m_AnchoredPosition: {x: 229, y: -163.85}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &3099776045226277716
@@ -6967,7 +6969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229, y: -93.14}
+  m_AnchoredPosition: {x: 229, y: -104.925}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &3099776045311260935
@@ -8040,7 +8042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2476724531654025598
 Transform:
   m_ObjectHideFlags: 0
@@ -8050,7 +8052,7 @@ Transform:
   m_GameObject: {fileID: 3683946582929799236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.8662, y: 1, z: 2.7735}
   m_Children:
   - {fileID: 5419400876288347790}
   - {fileID: 5419400876007390037}
@@ -9730,13 +9732,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5419400877334408663}
+  - component: {fileID: 904776515}
   m_Layer: 0
   m_Name: Tile Selection Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5419400877334408663
 Transform:
   m_ObjectHideFlags: 0
@@ -9754,6 +9757,20 @@ Transform:
   m_Father: {fileID: 3099776044107931977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904776515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5419400877334408662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0b7b5932ef2ce4ab0bc056caef371a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallTileSelection: {fileID: 7505218946784721094}
+  bigTileSelection: {fileID: 3683946582929799236}
 --- !u!1 &5612444048413889040
 GameObject:
   m_ObjectHideFlags: 0

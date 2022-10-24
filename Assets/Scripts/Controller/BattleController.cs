@@ -11,6 +11,7 @@ public class BattleController : StateMachine
     public Board board;
     public LevelData levelData;
     public Transform tileSelectionIndicator;
+    public TileSelectionToggle tileSelectionToggle;
     public GameObject tileSpriteGhostImage;
     public Point pos;
     public ConsumableInventoryDemo inventory;
@@ -95,5 +96,17 @@ public class BattleController : StateMachine
 
         pos = p;
         tileSelectionIndicator.localPosition = board.playableTiles[p].center;
+    }
+
+
+    public void ActivateTileSelector()
+    {
+        tileSelectionIndicator.gameObject.SetActive(true);
+    }
+
+    public void DeactivateTileSelector()
+    {
+        tileSelectionIndicator.gameObject.SetActive(false);
+
     }
 }
