@@ -68,12 +68,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3558f40656f48a499af8bc8b1a9ef8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  data:
+    tileType: 0
+    typeIndex: 0
+    isPlayable: 0
+  tileIndex: 0
   pos:
     x: 0
     y: 0
   height: 0
   model: {fileID: 3700586089849834124}
+  displayName: Choose Quicksand Tile
+  occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}
   distance: 0

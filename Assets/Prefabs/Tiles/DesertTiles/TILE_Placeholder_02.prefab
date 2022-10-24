@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2541125088928913060}
   - component: {fileID: -1514633128393633871}
   m_Layer: 0
-  m_Name: TILE_Test_Desert_02
+  m_Name: TILE_Placeholder_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    tileType: 1
+    tileType: 0
     typeIndex: 1
     isPlayable: 0
   tileIndex: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
     y: 0
   height: 0
   model: {fileID: 1042619849740964356}
-  displayName: Choose Desert Tile 2
+  displayName: Choose Placeholder Tile 2
   occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}
@@ -138,7 +138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b28b59a1d82d737449eb73d16cb066ae, type: 2}
+  - {fileID: 2100000, guid: a3ce5136d72fd694c925dc3abd2e0312, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

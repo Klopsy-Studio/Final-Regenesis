@@ -11,7 +11,6 @@ public class BattleController : StateMachine
     public Board board;
     public LevelData levelData;
     public Transform tileSelectionIndicator;
-    public TileSelectionToggle tileSelectionToggle;
     public GameObject tileSpriteGhostImage;
     public Point pos;
     public ConsumableInventoryDemo inventory;
@@ -66,21 +65,15 @@ public class BattleController : StateMachine
 
     [HideInInspector] public List<TimelineElements> timelineElements;
 
-
-    [SerializeField] GameObject placeholderCanvas;
     void Start()
     {
-        
-    }
-
-    public void BeginGame()
-    {
-        Destroy(placeholderCanvas.gameObject);
         levelData = GameManager.instance.currentMission;
-
+        
         //environmentEvent.Board = board;
         ChangeState<InitBattleState>();
     }
+
+
     //public bool IsInMenu()
     //{
     //    return CurrentState is SelectActionState || CurrentState is SelectAbilityState || CurrentState is SelectItemState || CurrentState is SelectItemState;
@@ -95,23 +88,12 @@ public class BattleController : StateMachine
 
     public virtual void SelectTile(Point p)
     {
-        if (pos == p || !board.tiles.ContainsKey(p))
+        if (pos == p || !board.playableTiles.ContainsKey(p))
         {
             return;
         }
 
         pos = p;
-
-        
-        tileSelectionIndicator.localPosition = board.tiles[p].center;
-    }
-
-    public void ActivateTileSelector()
-    {
-        tileSelectionIndicator.gameObject.SetActive(true);
-    }
-    public void DeactivateTileSelector()
-    {
-        tileSelectionIndicator.gameObject.SetActive(false);
+        tileSelectionIndicator.localPosition = board.playableTiles[p].center;
     }
 }

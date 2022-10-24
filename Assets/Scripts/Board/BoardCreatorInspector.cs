@@ -6,11 +6,27 @@ using UnityEditor;
 [CustomEditor(typeof(BoardCreator))]
 public class BoardCreatorInspector : Editor
 {
-    public void AddTileSpawnButton(string buttonName, GameObject newTile)
+    public bool growOrShrink = true;
+    void AddTileSpawnButton(GameObject[] newTile)
     {
-        if (GUILayout.Button(buttonName))
+        foreach(GameObject t in newTile)
         {
-            current.ChangeTileToSpawn(newTile);
+            if (GUILayout.Button(t.GetComponent<Tile>().displayName))
+            {
+                current.ChangeTileToSpawn(t);
+            }
+        }
+        
+    }
+
+    void AddPropSpawnButton(GameObject[] newProp)
+    {
+        foreach (GameObject p in newProp)
+        {
+            if (GUILayout.Button(p.GetComponent<Prop>().data.displayName))
+            {
+                current.ChangePropToSpawn(p);
+            }
         }
     }
     public BoardCreator current
@@ -24,48 +40,86 @@ public class BoardCreatorInspector : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
+        GUILayout.Space(10f);
 
-        switch (current.spawner.TypeToSpawn)
+        switch (current.thingToSpawn)
         {
-            case typeOfTiles.Placeholder:
-                AddTileSpawnButton("Choose Placeholder 1", current.spawner.placeholder1Tile);
-                AddTileSpawnButton("Choose Placeholder 2", current.spawner.placeholder2Tile);
-                AddTileSpawnButton("Choose Placeholder 3", current.spawner.placeholder3Tile);
-                break;
-            case typeOfTiles.Desert:
-                AddTileSpawnButton("Choose Desert Tile 1", current.spawner.desert1Tile);
-                AddTileSpawnButton("Choose Desert Tile 2", current.spawner.desert2Tile);
-                AddTileSpawnButton("Choose Desert Tile 3", current.spawner.desert3Tile);
+            case ThingToSpawn.Tiles:
 
+                switch (current.TypeOfTile)
+                {
+                    case TileType.Placeholder:
+                        AddTileSpawnButton(current.spawner.placeholderTiles);
+                        break;
+                    case TileType.Desert:
+                        AddTileSpawnButton(current.spawner.desertTiles);
+                        break;
+                    case TileType.NonPlayable:
+                        AddTileSpawnButton(current.spawner.nonPlayableTiles);
+                        break;
+                    default:
+                        break;
+                }
                 break;
-            case typeOfTiles.NonPlayable:
-                AddTileSpawnButton("Choose Non Playable 1", current.spawner.nonPlayable1Tile);
-                AddTileSpawnButton("Choose Non Playable 2", current.spawner.nonPlayable2Tile);
-                AddTileSpawnButton("Choose Non Playable 3", current.spawner.nonPlayable3Tile);
+            case ThingToSpawn.Props:
+                switch (current.TypeOfProp)
+                {
+                    case PropType.City:
+                        AddPropSpawnButton(current.spawner.cityProps);
+                        break;
+                    case PropType.Desert:
+                        AddPropSpawnButton(current.spawner.desertProps);
+                        break;
+                    case PropType.Park:
+                        AddPropSpawnButton(current.spawner.parkProps);
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;
         }
+        
+        GUILayout.Space(10f);
         if (GUILayout.Button("Clear"))
             current.Clear();
-        if (GUILayout.Button("Grow"))
-            current.Grow();
-        if (GUILayout.Button("Shrink"))
-            current.Shrink();
-        if (GUILayout.Button("Add Obstacle"))
-            current.AddObstacle();
-        if (GUILayout.Button("Add Player Spawn"))
-            current.AddPlayerSpawnPoint();
-        if (GUILayout.Button("Add Enemy Spawn"))
-            current.AddEnemySpawnPoint();
-        if (GUILayout.Button("Clear Player Spawn"))
-            current.ClearPlayerSpawnPoints();
-        if (GUILayout.Button("Clear Enemy Spawn"))
-            current.ClearEnemySpawnPoints();
         if (GUILayout.Button("Save"))
             current.Save();
         if (GUILayout.Button("Load"))
             current.Load();
+        GUILayout.Space(10f);
+
+        switch (current.thingToSpawn)
+        {
+            case ThingToSpawn.Tiles:
+                if (GUILayout.Button("Spawn Tile"))
+                    current.Grow();
+                if (GUILayout.Button("Delete Tile"))
+                    current.Shrink();
+                break;
+            case ThingToSpawn.Props:
+                if (GUILayout.Button("Spawn Prop"))
+                    current.SpawnProp();
+                if (GUILayout.Button("Delete Prop"))
+                    current.DeleteProp();
+                break;
+            default:
+                break;
+        }
+        
+        GUILayout.Space(10f);
+        if (GUILayout.Button("Add Player Spawn"))
+            current.AddPlayerSpawnPoint();
+        if (GUILayout.Button("Add Enemy Spawn"))
+            current.AddEnemySpawnPoint();
+        GUILayout.Space(10f);
+
+        if (GUILayout.Button("Clear Player Spawn"))
+            current.ClearPlayerSpawnPoints();
+        if (GUILayout.Button("Clear Enemy Spawn"))
+            current.ClearEnemySpawnPoints();
+        
         
         if (GUI.changed)
             current.UpdateMarker();
@@ -80,6 +134,7 @@ public class BoardCreatorInspector : Editor
         {
             case EventType.KeyDown:
             {
+
                     if (Event.current.keyCode == KeyCode.W)
                     {
                         current.MoveTileSelectionUpwards();
@@ -105,18 +160,99 @@ public class BoardCreatorInspector : Editor
                         e.Use();
                     }
 
-                    if(Event.current.keyCode == KeyCode.Space)
+                    if(Event.current.keyCode == KeyCode.Space && current.canSpawn)
                     {
-                        current.Grow();
-                        current.Grow();
-                        current.Grow();
-                        current.Grow();
-                        current.UpdateMarker();
+                        if (growOrShrink)
+                        {
+                            growOrShrink = false;
+                        }
+                        else
+                        {
+                            growOrShrink = true;
+                        }
                         e.Use();
                     }
 
+                    if (Event.current.keyCode == KeyCode.E)
+                    {
+                        if (current.canSpawn)
+                        {
+                            current.canSpawn = false;
+                        }
+                        else
+                        {
+                            current.canSpawn = true;
+                        }
+
+                        e.Use();
+                    }
+
+
                     break;
             }
+
+
+            case EventType.MouseDown:
+            {
+                    switch (current.thingToSpawn)
+                    {
+                        case ThingToSpawn.Tiles:
+                            if (growOrShrink && current.canSpawn)
+                            {
+                                current.Grow();
+                                current.Grow();
+                                current.Grow();
+                                current.Grow();
+                                current.UpdateMarker();
+                                e.Use();
+                                break;
+                            }
+                            else
+                            {
+                                if (current.canSpawn)
+                                {
+                                    current.Shrink();
+                                    e.Use();
+                                    break;
+                                }
+                            }
+                            break;
+
+                        case ThingToSpawn.Props:
+
+                            if(growOrShrink && current.canSpawn)
+                            {
+                                current.SpawnProp();
+                                e.Use();
+                                break;
+                            }
+                            else
+                            {
+                                if (current.canSpawn)
+                                {
+                                    current.DeleteProp();
+                                    e.Use();
+                                    break;
+                                }
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    
+
+                    break;
+                        
+            }
+
+            //case EventType.MouseMove:
+            //{
+            //       current.MoveTileSelection(new Vector2(Event.current.mousePosition.x, Event.current.mousePosition.y));
+            //       e.Use();
+            //       break;
+            //}
+
+
         }
     }
 }

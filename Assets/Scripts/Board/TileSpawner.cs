@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum typeOfTiles
+public enum TileType
 {
     Placeholder, Desert, NonPlayable
 };
+public enum DesertType
+{
+    Desert1, Desert2, Desert3, Quicksand
+}
 
+public enum PropType
+{
+    City, Desert, Park
+}
+public enum ThingToSpawn
+{
+    Tiles, Props
+}
 [System.Serializable]
 public class TileSpawner
 {
-    public typeOfTiles TypeToSpawn;
-
+    //public typeOfTiles TypeToSpawn;
+    [Header("Tiles")]
     //Desert
-    public GameObject desert1Tile;
-    public GameObject desert2Tile;
-    public GameObject desert3Tile;
-    public GameObject desertQuicksandTile;
+    public GameObject[] desertTiles;
+
 
     //Placeholder
-    public GameObject placeholder1Tile;
-    public GameObject placeholder2Tile;
-    public GameObject placeholder3Tile;
+    public GameObject[] placeholderTiles;
+
 
     //Non Playable
-    public GameObject nonPlayable1Tile;
-    public GameObject nonPlayable2Tile;
-    public GameObject nonPlayable3Tile;
+    public GameObject[] nonPlayableTiles;
+
+    [Space]
+    [Header("Props")]
+    public GameObject[] cityProps;
+
+    public GameObject[] desertProps;
+
+    public GameObject[] parkProps;
 }

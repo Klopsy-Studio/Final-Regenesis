@@ -58,11 +58,11 @@ public class EnemyMoveTargetState : BattleState
         for (int i = 0; i < targetDir.Length; i++)
         {
             var targetPos = targetUnit.currentPoint + targetDir[i];
-            if (!board.tiles.ContainsKey(targetPos))
+            if (!board.playableTiles.ContainsKey(targetPos))
             {
                 continue;
             }
-            Tile t = board.tiles[targetPos];
+            Tile t = board.playableTiles[targetPos];
             var d = Vector3.Distance(t.transform.position, owner.currentEnemyUnit.transform.position);
             if (d < nearestCell)
             {

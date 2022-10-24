@@ -839,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594309540125324369, guid: 0435124cfa3b71847b296a63d7fc6ad6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4594309540125324374, guid: 0435124cfa3b71847b296a63d7fc6ad6, type: 3}
       propertyPath: m_RootOrder
@@ -1111,6 +1111,10 @@ PrefabInstance:
     - target: {fileID: 1307419332375427910, guid: ac2b03e4f9abf8d4e971051354157ee0, type: 3}
       propertyPath: m_Name
       value: Cactus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307419332375427910, guid: ac2b03e4f9abf8d4e971051354157ee0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7247169233084281118, guid: ac2b03e4f9abf8d4e971051354157ee0, type: 3}
       propertyPath: m_RootOrder
@@ -2118,7 +2122,7 @@ PrefabInstance:
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
-      objectReference: {fileID: 11400000, guid: b90eaef850f44a14781502a4bdce162b, type: 2}
+      objectReference: {fileID: 11400000, guid: 8a329494ee2ac3e41ac5771dbacc109e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
 --- !u!1001 &85011357939115778
@@ -2244,6 +2248,90 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertTilesPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertPropsPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7732038718302599554, guid: 3ab514cb272026648835ce21392e39d2, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6303224187109247102, guid: 599fdfe50d3a0b047bbcde4dd097430a, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1756881707094381384, guid: d7a80b7e8c6456840afff3d73d8520f3, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertTilesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: 012430e6404eb8440be51b7f8abad3bc, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertTilesPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: 6f049c4ecf20f264fb03849da5a6e27c, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertTilesPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: 2c66ff2ca255eba4fb6ca60ce0939de3, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertTilesPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 563918711139162303, guid: 0d2a25c4e22a69c43a9e1d46248edf00, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertPropsPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: ac2b03e4f9abf8d4e971051354157ee0, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertPropsPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: f95e2401af50eaf4284ad327a7634715, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: desertPropsPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1802711942793625023, guid: 20c3e55849980084699ea3e4c7b36f3f, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: nonplayableTilesPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: placeholderTilesPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: nonplayableTilesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: e48eef5124fd4df4ea7ed2cd4c8ddf4c, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: nonplayableTilesPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: 23658278173b47042b8d70c328ba1b84, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: nonplayableTilesPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: d4a38cfee14ba23448279b8bbad7233f, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: placeholderTilesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: fe451632dff40f049acc34f33e1e7191, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: placeholderTilesPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: ae29d23768695454084e6cda8d837cc5, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: placeholderTilesPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 986858306413133845, guid: 3338e9ca4e713814b8f8e69927d5b46e, type: 3}
     - target: {fileID: 3099776045740775200, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
