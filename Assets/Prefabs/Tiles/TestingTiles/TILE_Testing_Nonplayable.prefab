@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
   height: 0
   model: {fileID: 1042619849740964356}
-  displayName: Choose Non Playable Tile 1
+  displayName: 'Choose Non Playable Tile '
   occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}

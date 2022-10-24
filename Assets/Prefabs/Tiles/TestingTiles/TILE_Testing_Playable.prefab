@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    tileType: 2
+    tileType: 0
     typeIndex: 0
     isPlayable: 0
   tileIndex: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
   height: 0
   model: {fileID: 1042619849740964356}
-  displayName: Choose Non Playable Tile 1
+  displayName: Choose Testing Placeholder Tile
   occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}

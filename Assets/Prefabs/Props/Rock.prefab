@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7732038718302599554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.3, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1309119597450891566}
@@ -47,6 +47,7 @@ MonoBehaviour:
   pos:
     x: 0
     y: 0
+  height: 0
   data:
     type: 0
     displayName: Choose Rock 1
@@ -123,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8034199350092224423, guid: b14b7a5d142bf6544a7fec12b629ebb5, type: 3}
+  m_Sprite: {fileID: 1199675357441131632, guid: 7f6bc1ffb50ee45488483bdbccb5f48c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

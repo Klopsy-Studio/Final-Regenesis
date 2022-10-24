@@ -1341,7 +1341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1015432370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,7 +2122,7 @@ PrefabInstance:
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
-      objectReference: {fileID: 11400000, guid: 8a329494ee2ac3e41ac5771dbacc109e, type: 2}
+      objectReference: {fileID: 11400000, guid: f4eb094270743374788ffd52e3f8d181, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
 --- !u!1001 &85011357939115778
@@ -2132,6 +2132,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: -4.74
+      objectReference: {fileID: 0}
     - target: {fileID: 2476724531654025598, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.8662
@@ -2302,16 +2306,16 @@ PrefabInstance:
       objectReference: {fileID: 1802711942793625023, guid: 20c3e55849980084699ea3e4c7b36f3f, type: 3}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: nonplayableTilesPrefab.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: placeholderTilesPrefab.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: nonplayableTilesPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 986858306413133845, guid: e48eef5124fd4df4ea7ed2cd4c8ddf4c, type: 3}
+      objectReference: {fileID: 986858306413133845, guid: 108c435eecfeed64e9b9bf210a08ddb3, type: 3}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: nonplayableTilesPrefab.Array.data[1]
       value: 
@@ -2323,11 +2327,11 @@ PrefabInstance:
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: placeholderTilesPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 986858306413133845, guid: fe451632dff40f049acc34f33e1e7191, type: 3}
+      objectReference: {fileID: 986858306413133845, guid: c61ccae1785480a4c910d35b66ca3801, type: 3}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: placeholderTilesPrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 986858306413133845, guid: ae29d23768695454084e6cda8d837cc5, type: 3}
+      objectReference: {fileID: 986858306413133845, guid: 3338e9ca4e713814b8f8e69927d5b46e, type: 3}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: placeholderTilesPrefab.Array.data[2]
       value: 
@@ -2355,6 +2359,10 @@ PrefabInstance:
     - target: {fileID: 5419400877334408662, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886122782810732646, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: near clip plane
+      value: -4.74
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
