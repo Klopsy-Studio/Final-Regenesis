@@ -11,6 +11,7 @@ public enum EquipmentType
 
 public abstract class Equipment : ScriptableObject
 {
+   
     [SerializeField] private string equipmentName;
     [SerializeField] private Sprite sprite;
     [SerializeField] private EquipmentType equipmentType;

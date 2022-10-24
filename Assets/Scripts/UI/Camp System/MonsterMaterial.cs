@@ -19,6 +19,7 @@ public enum TypeOfMaterial
 [CreateAssetMenu(menuName = "MonsterMaterial")]
 public class MonsterMaterial: ScriptableObject
 {
+    public Sprite sprite;
     public Monster monster;
     public TypeOfMaterial material;
 }

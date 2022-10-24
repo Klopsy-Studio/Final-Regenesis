@@ -25,6 +25,13 @@ public class ConsumableInventory : ScriptableObject
         }
     }
 
+    public void TransferConsumables(ConsumableInventory targetInventory, int consumableID)
+    {
+        var inventorySlot = consumableContainer[consumableID];
+        var inventorySlotAmount = inventorySlot.BackpackAmount();
+        targetInventory.AddConsumable(inventorySlot.consumable, inventorySlotAmount);
+    }
+
     //private void OnApplicationQuit()
     //{
     //   container.Clear();
@@ -36,6 +43,28 @@ public class ConsumableSlot
 {
     public Consumables consumable;
     public int amount;
+    
+
+    public int BackpackAmount()
+    {
+        int amountToTransfer;
+        if (amount - consumable.maxBackPackAmount < 0)
+        {
+            amountToTransfer = amount;
+            amount = 0;
+        }
+        else
+        {
+            amount -= consumable.maxBackPackAmount;
+            amountToTransfer = consumable.maxBackPackAmount;
+        }
+
+
+        return amountToTransfer;
+        //amount -= 3;
+        //return 3;
+    }
+
     public ConsumableSlot (Consumables _consumable, int _amount)
     {
         consumable = _consumable;
@@ -44,6 +73,12 @@ public class ConsumableSlot
 
     public void AddAmount(int value)
     {
+
         amount += value;
+        if(amount > 99)
+        {
+            amount = 99;
+            Debug.Log("NO PUEDE SUPERARSE DE 99 stack");
+        }
     }
 }

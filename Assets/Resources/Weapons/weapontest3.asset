@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: weapontest3
   m_EditorClassIdentifier: 
   equipmentName: 23123
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d32ca85eded33b4ca121d6655b9f8de, type: 3}
   equipmentType: 1
   elements_Effectiveness: 4
   power: 3
   elementPower: 56
   defense: 35
   staminaCost: 63
-  range: 31
+  originalRange: 0
+  range: 0
   Abilities: []
   weaponIcon: {fileID: 0}

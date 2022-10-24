@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: Bomb
   sprite: {fileID: -28278360619149978, guid: fae1e08d1c4aed74d8e5e49e1c5a881c, type: 3}
   consumableType: 1
+  maxBackPackAmount: 3
   bomb: {fileID: 3440296949756166470, guid: 0417189fd695c594d82b810ebbe9bab2, type: 3}
   range: 2

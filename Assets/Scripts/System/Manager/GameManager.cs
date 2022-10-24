@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public MaterialInventory materialInventory;
     public EquipmentInventory equipmentInventory;
     public ConsumableInventory consumableInventory;
+    public ConsumableInventory consumableBackpack;
     public static GameManager instance;
 
     public LevelData currentMission;

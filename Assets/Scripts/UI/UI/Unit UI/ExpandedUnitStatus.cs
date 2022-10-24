@@ -36,13 +36,13 @@ public class ExpandedUnitStatus : MonoBehaviour
 
             movValue.text = unit.weapon.range.ToString();
             defValue.text = unit.weapon.Defense.ToString();
-            edValue.text = unit.weapon.ElementDefense.ToString();
+            //edValue.text = unit.weapon.ElementDefense.ToString();
             powValue.text = unit.weapon.Power.ToString();
             crtValue.text = unit.weapon.CriticalPercentage.ToString();
             eleValue.text = unit.weapon.ElementPower.ToString();
 
             equipmentIcon.sprite = unit.weapon.weaponIcon;
-            equipmentName.text = unit.weapon.weaponName;
+            //equipmentName.text = unit.weapon.weaponName;
 
         }
     }

@@ -4,31 +4,41 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "InventorySystem/EquipmentInventory")]
 public class EquipmentInventory : ScriptableObject
 {
+   
     public List<WeaponSlot> container = new List<WeaponSlot>();
     public void AddItem(Weapons _equipment)
     {
-        bool hasEquipment = false;
-        for (int i = 0; i < container.Count; i++)
-        {
-            if (container[i].weapon == _equipment)
-            {
-                
-                hasEquipment = true;
-                container.Add(new WeaponSlot(_equipment));
-                break;
-            }
-        }
+     
+        //bool hasEquipment = false;
+        //for (int i = 0; i < container.Count; i++)
+        //{
+        //    if (container[i].weapon == _equipment)
+        //    {
 
-        if (!hasEquipment)
-        {
-            container.Add(new WeaponSlot(_equipment));
-        }
+        //        hasEquipment = true;
+        //        container.Add(new WeaponSlot(_equipment));
+        //        break;
+        //    }
+        //}
+
+        //if (!hasEquipment)
+        //{
+        //    container.Add(new WeaponSlot(_equipment));
+        //}
+        container.Add(new WeaponSlot(_equipment));
+     
     }
 
     //private void OnApplicationQuit()
     //{
     //   container.Clear();
     //}
+
+
+    private void OnEnable()
+    {
+        
+    }
 }
 
 [System.Serializable]
