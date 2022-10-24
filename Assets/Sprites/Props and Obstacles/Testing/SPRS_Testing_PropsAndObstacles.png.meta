@@ -1,0 +1,2424 @@
+fileFormatVersion: 2
+guid: 7f6bc1ffb50ee45488483bdbccb5f48c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5617169170324734886
+    second: SPRS_Testing_PropsAndObstacles_0
+  - first:
+      213: -405445903499636246
+    second: SPRS_Testing_PropsAndObstacles_1
+  - first:
+      213: -1639963571921658838
+    second: SPRS_Testing_PropsAndObstacles_2
+  - first:
+      213: -8769428299640494624
+    second: SPRS_Testing_PropsAndObstacles_3
+  - first:
+      213: 2641745502338597630
+    second: SPRS_Testing_PropsAndObstacles_4
+  - first:
+      213: -7317138603162544202
+    second: SPRS_Testing_PropsAndObstacles_5
+  - first:
+      213: 635369174610702186
+    second: SPRS_Testing_PropsAndObstacles_6
+  - first:
+      213: -7655172006281834700
+    second: SPRS_Testing_PropsAndObstacles_7
+  - first:
+      213: -4422698696051545353
+    second: SPRS_Testing_PropsAndObstacles_8
+  - first:
+      213: 4931399395879356244
+    second: SPRS_Testing_PropsAndObstacles_9
+  - first:
+      213: -1872172471614302306
+    second: SPRS_Testing_PropsAndObstacles_10
+  - first:
+      213: -338785229944746955
+    second: SPRS_Testing_PropsAndObstacles_11
+  - first:
+      213: -1756703798192110998
+    second: SPRS_Testing_PropsAndObstacles_12
+  - first:
+      213: -7977432081009543395
+    second: SPRS_Testing_PropsAndObstacles_13
+  - first:
+      213: -7786867355965966091
+    second: SPRS_Testing_PropsAndObstacles_14
+  - first:
+      213: 8150419980251012399
+    second: SPRS_Testing_PropsAndObstacles_15
+  - first:
+      213: 6450999071715296235
+    second: SPRS_Testing_PropsAndObstacles_16
+  - first:
+      213: 538613267309447367
+    second: SPRS_Testing_PropsAndObstacles_17
+  - first:
+      213: -7464721887399154827
+    second: SPRS_Testing_PropsAndObstacles_18
+  - first:
+      213: -2363198030696742578
+    second: SPRS_Testing_PropsAndObstacles_19
+  - first:
+      213: -727689077263311793
+    second: SPRS_Testing_PropsAndObstacles_20
+  - first:
+      213: 2526519992282404215
+    second: SPRS_Testing_PropsAndObstacles_21
+  - first:
+      213: 4984744318525250131
+    second: SPRS_Testing_PropsAndObstacles_22
+  - first:
+      213: -1020557826667292413
+    second: SPRS_Testing_PropsAndObstacles_23
+  - first:
+      213: -6898846761174204930
+    second: SPRS_Testing_PropsAndObstacles_24
+  - first:
+      213: -8748730387751293053
+    second: SPRS_Testing_PropsAndObstacles_25
+  - first:
+      213: -8543009927215332858
+    second: SPRS_Testing_PropsAndObstacles_26
+  - first:
+      213: 2422135628726764638
+    second: SPRS_Testing_PropsAndObstacles_27
+  - first:
+      213: 2196206814048484802
+    second: SPRS_Testing_PropsAndObstacles_28
+  - first:
+      213: -4087195373923628528
+    second: SPRS_Testing_PropsAndObstacles_29
+  - first:
+      213: 8134166648223893429
+    second: SPRS_Testing_PropsAndObstacles_30
+  - first:
+      213: 1199675357441131632
+    second: SPRS_Testing_PropsAndObstacles_31
+  - first:
+      213: 3115930549426448975
+    second: SPRS_Testing_PropsAndObstacles_32
+  - first:
+      213: 5886474045222907738
+    second: SPRS_Testing_PropsAndObstacles_33
+  - first:
+      213: -2888184077256044835
+    second: SPRS_Testing_PropsAndObstacles_34
+  - first:
+      213: 6735072569138173992
+    second: SPRS_Testing_PropsAndObstacles_35
+  - first:
+      213: 4719161038889053948
+    second: SPRS_Testing_PropsAndObstacles_36
+  - first:
+      213: -5539194659177890201
+    second: SPRS_Testing_PropsAndObstacles_37
+  - first:
+      213: -4558828443531769202
+    second: SPRS_Testing_PropsAndObstacles_38
+  - first:
+      213: -7509243257169296284
+    second: SPRS_Testing_PropsAndObstacles_39
+  - first:
+      213: -9124839792535783701
+    second: SPRS_Testing_PropsAndObstacles_40
+  - first:
+      213: 7960621665475404508
+    second: SPRS_Testing_PropsAndObstacles_41
+  - first:
+      213: 3519102333929936288
+    second: SPRS_Testing_PropsAndObstacles_42
+  - first:
+      213: -7761491041080047653
+    second: SPRS_Testing_PropsAndObstacles_43
+  - first:
+      213: -1749713351025110188
+    second: SPRS_Testing_PropsAndObstacles_44
+  - first:
+      213: 9131332797815315996
+    second: SPRS_Testing_PropsAndObstacles_45
+  - first:
+      213: -59721907713180305
+    second: SPRS_Testing_PropsAndObstacles_46
+  - first:
+      213: -7655098627359262213
+    second: SPRS_Testing_PropsAndObstacles_47
+  - first:
+      213: -6378291590199904658
+    second: SPRS_Testing_PropsAndObstacles_48
+  - first:
+      213: 8550711430402461954
+    second: SPRS_Testing_PropsAndObstacles_49
+  - first:
+      213: 4926432498722739851
+    second: SPRS_Testing_PropsAndObstacles_50
+  - first:
+      213: 8642144544102561915
+    second: SPRS_Testing_PropsAndObstacles_51
+  - first:
+      213: 1128113979745244854
+    second: SPRS_Testing_PropsAndObstacles_52
+  - first:
+      213: 6916687240744424483
+    second: SPRS_Testing_PropsAndObstacles_53
+  - first:
+      213: -2131204333310862389
+    second: SPRS_Testing_PropsAndObstacles_54
+  - first:
+      213: -8524550454984169440
+    second: SPRS_Testing_PropsAndObstacles_55
+  - first:
+      213: -924048042559007126
+    second: SPRS_Testing_PropsAndObstacles_56
+  - first:
+      213: 7389959451737758905
+    second: SPRS_Testing_PropsAndObstacles_57
+  - first:
+      213: 1962465658487720607
+    second: SPRS_Testing_PropsAndObstacles_58
+  - first:
+      213: -486014247720982857
+    second: SPRS_Testing_PropsAndObstacles_59
+  - first:
+      213: -8245343348202360021
+    second: SPRS_Testing_PropsAndObstacles_60
+  - first:
+      213: 5642792408689924628
+    second: SPRS_Testing_PropsAndObstacles_61
+  - first:
+      213: -7644148623252403994
+    second: SPRS_Testing_PropsAndObstacles_62
+  - first:
+      213: 1582121633432470915
+    second: SPRS_Testing_PropsAndObstacles_63
+  - first:
+      213: -5250075778929746465
+    second: SPRS_Testing_PropsAndObstacles_64
+  - first:
+      213: 7590277755041056513
+    second: SPRS_Testing_PropsAndObstacles_65
+  - first:
+      213: -8710378936983162927
+    second: SPRS_Testing_PropsAndObstacles_66
+  - first:
+      213: 3133427070513935148
+    second: SPRS_Testing_PropsAndObstacles_67
+  - first:
+      213: 8928117631212193578
+    second: SPRS_Testing_PropsAndObstacles_68
+  - first:
+      213: 7471526101016766075
+    second: SPRS_Testing_PropsAndObstacles_69
+  - first:
+      213: 2639144837484594346
+    second: SPRS_Testing_PropsAndObstacles_70
+  - first:
+      213: 8463379297118167244
+    second: SPRS_Testing_PropsAndObstacles_71
+  - first:
+      213: 6455182534050930248
+    second: SPRS_Testing_PropsAndObstacles_72
+  - first:
+      213: 38077901501703154
+    second: SPRS_Testing_PropsAndObstacles_73
+  - first:
+      213: 2705869649368636423
+    second: SPRS_Testing_PropsAndObstacles_74
+  - first:
+      213: 7696380009907745108
+    second: SPRS_Testing_PropsAndObstacles_75
+  - first:
+      213: -7618931219466526282
+    second: SPRS_Testing_PropsAndObstacles_76
+  - first:
+      213: 5076188836433582277
+    second: SPRS_Testing_PropsAndObstacles_77
+  - first:
+      213: 8756388734681947283
+    second: SPRS_Testing_PropsAndObstacles_78
+  - first:
+      213: -7961383387132278416
+    second: SPRS_Testing_PropsAndObstacles_79
+  - first:
+      213: 4056314801130272005
+    second: SPRS_Testing_PropsAndObstacles_80
+  - first:
+      213: 625722256546268235
+    second: SPRS_Testing_PropsAndObstacles_81
+  - first:
+      213: 2473427193607103421
+    second: SPRS_Testing_PropsAndObstacles_82
+  - first:
+      213: -5095676618967567821
+    second: SPRS_Testing_PropsAndObstacles_83
+  - first:
+      213: 3662059824171319083
+    second: SPRS_Testing_PropsAndObstacles_84
+  - first:
+      213: -6239662049381021845
+    second: SPRS_Testing_PropsAndObstacles_85
+  - first:
+      213: -965523670035014099
+    second: SPRS_Testing_PropsAndObstacles_86
+  - first:
+      213: 5569410767105768516
+    second: SPRS_Testing_PropsAndObstacles_87
+  - first:
+      213: -2226925536268935178
+    second: SPRS_Testing_PropsAndObstacles_88
+  - first:
+      213: 6193821799214900560
+    second: SPRS_Testing_PropsAndObstacles_89
+  - first:
+      213: -215564966837519577
+    second: SPRS_Testing_PropsAndObstacles_90
+  - first:
+      213: 4800309898711083494
+    second: SPRS_Testing_PropsAndObstacles_91
+  - first:
+      213: -780573999440539377
+    second: SPRS_Testing_PropsAndObstacles_92
+  - first:
+      213: 2777661673775690750
+    second: SPRS_Testing_PropsAndObstacles_93
+  - first:
+      213: -4466347412245122207
+    second: SPRS_Testing_PropsAndObstacles_94
+  - first:
+      213: -7266032589394263323
+    second: SPRS_Testing_PropsAndObstacles_95
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 334
+        width: 8
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cb48f866ecb02b0800000000000000
+      internalID: -5617169170324734886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 334
+        width: 12
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1544259119f5af0800000000000000
+      internalID: -405445903499636246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 334
+        width: 16
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c570bf1ddad39e0800000000000000
+      internalID: -1639963571921658838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_3
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 334
+        width: 20
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5aba48c6bbc4680800000000000000
+      internalID: -8769428299640494624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_4
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 334
+        width: 24
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2c0eda98d59a420800000000000000
+      internalID: 2641745502338597630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_5
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 334
+        width: 28
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7d232553d447a90800000000000000
+      internalID: -7317138603162544202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_6
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 334
+        width: 32
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f67e1e5e841d800800000000000000
+      internalID: 635369174610702186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 334
+        width: 36
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f8e0f7e9d53c590800000000000000
+      internalID: -7655172006281834700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 334
+        width: 8
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7faa349e7fa6f92c0800000000000000
+      internalID: -4422698696051545353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_9
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 334
+        width: 12
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45707f47f99df6440800000000000000
+      internalID: 4931399395879356244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_10
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 334
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e971a276e05b406e0800000000000000
+      internalID: -1872172471614302306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_11
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 334
+        width: 20
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c8ef9d0a46c4bf0800000000000000
+      internalID: -338785229944746955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_12
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 334
+        width: 24
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a620e25f33fee97e0800000000000000
+      internalID: -1756703798192110998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_13
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 334
+        width: 28
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17fe9fd9c77a4190800000000000000
+      internalID: -7977432081009543395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_14
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 334
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f83096756d7fe390800000000000000
+      internalID: -7786867355965966091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_15
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 334
+        width: 36
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d9b1d0acb1c1170800000000000000
+      internalID: 8150419980251012399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 269
+        width: 8
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be307f31a7d868950800000000000000
+      internalID: 6450999071715296235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_17
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 269
+        width: 12
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8ca45b9e9897700800000000000000
+      internalID: 538613267309447367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_18
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 269
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b6d724efaf76890800000000000000
+      internalID: -7464721887399154827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_19
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 269
+        width: 20
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e410b6e69eb343fd0800000000000000
+      internalID: -2363198030696742578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_20
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 269
+        width: 24
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cd9c2c3aab6e5f0800000000000000
+      internalID: -727689077263311793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_21
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 269
+        width: 28
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7755ae10c80001320800000000000000
+      internalID: 2526519992282404215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_22
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 269
+        width: 32
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a18d12c8e5d2540800000000000000
+      internalID: 4984744318525250131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_23
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 269
+        width: 36
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30950c4501046d1f0800000000000000
+      internalID: -1020557826667292413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_24
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 269
+        width: 8
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd7b502c6f5240a0800000000000000
+      internalID: -6898846761174204930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_25
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 269
+        width: 12
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f2b6aa014469680800000000000000
+      internalID: -8748730387751293053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_26
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 269
+        width: 16
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602c1b7ebb1217980800000000000000
+      internalID: -8543009927215332858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_27
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 269
+        width: 20
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54831475872d9120800000000000000
+      internalID: 2422135628726764638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_28
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 269
+        width: 24
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cdf6ac167e7a7e10800000000000000
+      internalID: 2196206814048484802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 269
+        width: 28
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a89a9567d5747c0800000000000000
+      internalID: -4087195373923628528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_30
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 269
+        width: 32
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7073b487d52e070800000000000000
+      internalID: 8134166648223893429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_31
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 269
+        width: 36
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0748116a16a16a010800000000000000
+      internalID: 1199675357441131632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 204
+        width: 8
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ae95763520e3b20800000000000000
+      internalID: 3115930549426448975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_33
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 204
+        width: 12
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f611dc4f4f0b150800000000000000
+      internalID: 5886474045222907738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_34
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 204
+        width: 16
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddec63d42eb1be7d0800000000000000
+      internalID: -2888184077256044835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_35
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 204
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82855f351d8c77d50800000000000000
+      internalID: 6735072569138173992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_36
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 204
+        width: 24
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe68d036f3dd7140800000000000000
+      internalID: 4719161038889053948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_37
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 204
+        width: 28
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ef5fd2ec3d023b0800000000000000
+      internalID: -5539194659177890201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_38
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 204
+        width: 32
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a875f2fa9cbb0c0800000000000000
+      internalID: -4558828443531769202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_39
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 204
+        width: 36
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4644d641b0fc9c790800000000000000
+      internalID: -7509243257169296284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_40
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 204
+        width: 8
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be63e8ddd8e0e5180800000000000000
+      internalID: -9124839792535783701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_41
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 204
+        width: 12
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2a0f14a3fc97e60800000000000000
+      internalID: 7960621665475404508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_42
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 204
+        width: 16
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5542e7dec56d030800000000000000
+      internalID: 3519102333929936288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_43
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 204
+        width: 20
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd70c013505a94490800000000000000
+      internalID: -7761491041080047653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_44
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 204
+        width: 24
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453d3654af4c7b7e0800000000000000
+      internalID: -1749713351025110188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_45
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 204
+        width: 28
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ed7abbcc209be70800000000000000
+      internalID: 9131332797815315996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_46
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 204
+        width: 32
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d7279cd33db2ff0800000000000000
+      internalID: -59721907713180305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_47
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 204
+        width: 36
+        height: 59
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9bbab5b50a3c590800000000000000
+      internalID: -7655098627359262213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_48
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 132
+        width: 8
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66f544a791cb77a0800000000000000
+      internalID: -6378291590199904658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_49
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 132
+        width: 12
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201d20a0eba3aa670800000000000000
+      internalID: 8550711430402461954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_50
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 132
+        width: 16
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b861f4891443e5440800000000000000
+      internalID: 4926432498722739851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_51
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 132
+        width: 20
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7830d0cca01fe770800000000000000
+      internalID: 8642144544102561915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_52
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 132
+        width: 24
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b61ed400bdd7af00800000000000000
+      internalID: 1128113979745244854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_53
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 132
+        width: 28
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3245c0736620dff50800000000000000
+      internalID: 6916687240744424483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_54
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 132
+        width: 32
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb9b3153f07c62e0800000000000000
+      internalID: -2131204333310862389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_55
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 132
+        width: 36
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02826c4b686b2b980800000000000000
+      internalID: -8524550454984169440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_56
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 132
+        width: 8
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6610eb733f1d23f0800000000000000
+      internalID: -924048042559007126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_57
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 132
+        width: 12
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc9e59b7f86e8660800000000000000
+      internalID: 7389959451737758905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_58
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 132
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a401a6e141c3b10800000000000000
+      internalID: 1962465658487720607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_59
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 132
+        width: 20
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6efc0ed945149f0800000000000000
+      internalID: -486014247720982857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_60
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 132
+        width: 24
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23b44719e7a29d80800000000000000
+      internalID: -8245343348202360021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_61
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 132
+        width: 28
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41adb358cc93f4e40800000000000000
+      internalID: 5642792408689924628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_62
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 132
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8cfbcd3578ae590800000000000000
+      internalID: -7644148623252403994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_63
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 132
+        width: 36
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38504304e33d4f510800000000000000
+      internalID: 1582121633432470915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_64
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 67
+        width: 8
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd920925ebf327b0800000000000000
+      internalID: -5250075778929746465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_65
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 67
+        width: 12
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10785c73765165960800000000000000
+      internalID: 7590277755041056513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_66
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 67
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfe212a1848e1780800000000000000
+      internalID: -8710378936983162927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_67
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 67
+        width: 20
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23739ba15b2c7b20800000000000000
+      internalID: 3133427070513935148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_68
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 67
+        width: 24
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a270e41beab07eb70800000000000000
+      internalID: 8928117631212193578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_69
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 67
+        width: 28
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b76e92d276130b760800000000000000
+      internalID: 7471526101016766075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_70
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 67
+        width: 32
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa443153f3020a420800000000000000
+      internalID: 2639144837484594346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_71
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 67
+        width: 36
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0af1c31a6f37570800000000000000
+      internalID: 8463379297118167244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_72
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 67
+        width: 8
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e596e405a659950800000000000000
+      internalID: 6455182534050930248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_73
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 67
+        width: 12
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f32dc056a7478000800000000000000
+      internalID: 38077901501703154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_74
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 67
+        width: 16
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70cd02b1c1e2d8520800000000000000
+      internalID: 2705869649368636423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_75
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 67
+        width: 20
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451f7f287d80fca60800000000000000
+      internalID: 7696380009907745108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_76
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 67
+        width: 24
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b160973c6e144690800000000000000
+      internalID: -7618931219466526282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_77
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 67
+        width: 28
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c85d681ade327640800000000000000
+      internalID: 5076188836433582277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_78
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 67
+        width: 32
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c13fd2921f48970800000000000000
+      internalID: 8756388734681947283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_79
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 67
+        width: 36
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079c8499dfb738190800000000000000
+      internalID: -7961383387132278416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_80
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 8
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505778202dcea4830800000000000000
+      internalID: 4056314801130272005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_81
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2
+        width: 12
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b440f7db3130fa800800000000000000
+      internalID: 625722256546268235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_82
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2
+        width: 16
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db32eb48de0635220800000000000000
+      internalID: 2473427193607103421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_83
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 2
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332bc24fc158849b0800000000000000
+      internalID: -5095676618967567821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_84
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 2
+        width: 24
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ff5f5f10042d230800000000000000
+      internalID: 3662059824171319083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_85
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 2
+        width: 28
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67882cdc644869a0800000000000000
+      internalID: -6239662049381021845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_86
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 2
+        width: 32
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ed4517655c992f0800000000000000
+      internalID: -965523670035014099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_87
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 2
+        width: 36
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c339da5958a4d40800000000000000
+      internalID: 5569410767105768516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_88
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2
+        width: 8
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff9175060f5811e0800000000000000
+      internalID: -2226925536268935178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_89
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2
+        width: 12
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05566403c10e4f550800000000000000
+      internalID: 6193821799214900560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_90
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 2
+        width: 16
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b71a50ec8220df0800000000000000
+      internalID: -215564966837519577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_91
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 2
+        width: 20
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e927747b602e9240800000000000000
+      internalID: 4800309898711083494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_92
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 24
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01d07a4518da25f0800000000000000
+      internalID: -780573999440539377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_93
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2
+        width: 28
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3fd9b539c3c8620800000000000000
+      internalID: 2777661673775690750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_94
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 2
+        width: 32
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163f4a931b85402c0800000000000000
+      internalID: -4466347412245122207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRS_Testing_PropsAndObstacles_95
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 2
+        width: 36
+        height: 59
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e24eb66bddd92b90800000000000000
+      internalID: -7266032589394263323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
