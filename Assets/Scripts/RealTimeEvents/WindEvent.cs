@@ -19,7 +19,7 @@ public class WindEvent : RealTimeEvents
         windEffect.SetActive(true);
         timelineFill = 10;
         units = battleController.unitsInGame;
-
+        AudioManager.instance.Play("WindEvent");
         foreach (var unit in units)
         {
             if (unit.isInAction) { continue; }

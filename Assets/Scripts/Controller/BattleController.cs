@@ -75,6 +75,7 @@ public class BattleController : StateMachine
 
     public void BeginGame()
     {
+        AudioManager.instance.Play("Music");
         Destroy(placeholderCanvas.gameObject);
         levelData = GameManager.instance.currentMission;
 
