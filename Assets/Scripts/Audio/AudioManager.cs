@@ -12,7 +12,6 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
     private float volume = 0.5f;
-
     private void Awake()
     {
         #region Singleton

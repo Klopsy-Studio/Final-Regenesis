@@ -68,6 +68,16 @@ public class BattleController : StateMachine
 
     void Start()
     {
+<<<<<<< HEAD
+=======
+        
+    }
+
+    public void BeginGame()
+    {
+        AudioManager.instance.Play("Music");
+        Destroy(placeholderCanvas.gameObject);
+>>>>>>> task/implementPlaceholderSound
         levelData = GameManager.instance.currentMission;
         
         //environmentEvent.Board = board;

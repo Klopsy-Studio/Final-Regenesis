@@ -61,25 +61,10 @@ public class MoveTargetState : BattleState
     {
         if(CanReachTile(e.info+pos, tiles))
         {
-            SelectTile(e.info + pos);
-
-
-            //Distance preview, remove next time.
-            //if (tiles.Contains(owner.currentTile))
-            //{
-            //    if (prevDistance <= owner.currentTile.distance)
-            //    {
-            //        staminaPreview -= owner.currentUnit.weapon.StaminaCost;
-            //        owner.unitStatusUI.PreviewStaminaCost(staminaPreview);
-            //    }
-            //    else
-            //    {
-            //        staminaPreview += owner.currentUnit.weapon.StaminaCost;
-            //        owner.unitStatusUI.PreviewStaminaCost(staminaPreview);
-            //    }
-
-            //    prevDistance = owner.currentTile.distance;
-            //}
+            if (tiles.Contains(board.GetTile(e.info + pos)))
+            {
+                SelectTile(e.info + pos);
+            }
         }
     }
 
@@ -93,11 +78,11 @@ public class MoveTargetState : BattleState
             var t = a.GetComponent<Tile>();
             if (t != null)
             {
-                SelectTile(e.info + t.pos);
-
                 if (tiles.Contains(t))
                 {
+                    SelectTile(e.info + t.pos);
                     owner.ghostImage.gameObject.SetActive(true);
+
                 }
                 else
                 {
@@ -105,7 +90,6 @@ public class MoveTargetState : BattleState
                 }
             }
         }
-
     }
 
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)

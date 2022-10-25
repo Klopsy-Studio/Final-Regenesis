@@ -250,11 +250,14 @@ public class UseAbilityState : BattleState
 
         if (target == owner.currentUnit)
         {
+            AudioManager.instance.Play("HunterAttack");
+
             owner.currentUnit.Attack();
         }
 
         else
         {
+            AudioManager.instance.Play("HunterAttack");
             owner.currentUnit.Attack();
             target.Damage();       
         }
@@ -268,7 +271,6 @@ public class UseAbilityState : BattleState
 
         target.Default();
         owner.currentUnit.Default();
-
 
         yield return new WaitForSeconds(0.5f);
 

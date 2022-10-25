@@ -43,4 +43,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8b955347f623d46acc849cbac6e3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: HunterAttack
+    clip: {fileID: 8300000, guid: e58e60041cf37f94c9246303d21673b3, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HunterDeath
+    clip: {fileID: 8300000, guid: e87fd1be18b4e7f4589ca7e9df372978, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HunterHeal
+    clip: {fileID: 8300000, guid: d3e8e8053241a6843b6c4dab168429c6, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HunterMovement
+    clip: {fileID: 8300000, guid: dfc3498ac5722d940bf918bd605fcd3e, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MonsterAttack
+    clip: {fileID: 8300000, guid: 614dce57d6241294b8fd73a49b22f24a, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MonsterMovement
+    clip: {fileID: 8300000, guid: dfc3498ac5722d940bf918bd605fcd3e, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MonsterObstacle
+    clip: {fileID: 8300000, guid: 62f7222ccba5fac43bf5688f8e2221af, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: TurnEnd
+    clip: {fileID: 8300000, guid: 5ece9a1c537888644bd997edef745ee1, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: TurnStart
+    clip: {fileID: 8300000, guid: 48dc9d43fcb7d3e4f80008d5df2c9333, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: WindEvent
+    clip: {fileID: 8300000, guid: 40efd45262aeaa5459494536c0088d26, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Music
+    clip: {fileID: 8300000, guid: 0d799d28c32998b4d8a76d544c6f117b, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

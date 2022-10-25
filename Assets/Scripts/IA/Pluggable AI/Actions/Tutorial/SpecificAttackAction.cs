@@ -14,10 +14,11 @@ public class SpecificAttackAction : Action
     IEnumerator Attack(MonsterController controller, MonsterAbility ability)
     {
         List<Tile> tiles = ability.GetAttackTiles(controller);
+        AudioManager.instance.Play("MonsterAttack");
 
         controller.battleController.board.SelectAttackTiles(tiles);
 
-        controller.target.ReceiveDamage(40);
+        controller.target.ReceiveDamage(ability.initialDamage);
         controller.target.Damage();
         controller.target.DamageEffect();
 

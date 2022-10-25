@@ -14,7 +14,7 @@ public class PlaceObstacleAction : Action
 
     IEnumerator PlaceObstacle(MonsterController controller)
     {
-
+        AudioManager.instance.Play("MonsterObstacle");
         List<Tile> rangeTiles = obstacleRange.GetAttackTiles(controller);
 
         List<Tile> validTiles = new List<Tile>();

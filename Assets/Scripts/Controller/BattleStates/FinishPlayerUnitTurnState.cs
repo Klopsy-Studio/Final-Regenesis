@@ -25,6 +25,7 @@ public class FinishPlayerUnitTurnState : BattleState
         owner.currentUnit.timelineFill = 0;
         owner.currentUnit.status.ChangeToSmall();
         owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+        //AudioManager.instance.Play("TurnEnd");
         yield return null;
         owner.ChangeState<TimeLineState>();
     }
