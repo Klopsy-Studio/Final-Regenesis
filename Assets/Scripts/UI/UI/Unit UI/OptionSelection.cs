@@ -194,6 +194,39 @@ public class OptionSelection : MonoBehaviour
      
     }
 
+    public void EnableActionSelection()
+    {
+        buttonMove.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonAbility.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonItem.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonWait.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonStatus.GetComponent<SelectorMovement>().canBeSelected = true;
+    }
+
+    public void DisableActionSelection()
+    {
+        buttonMove.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonAbility.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonItem.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonWait.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonStatus.GetComponent<SelectorMovement>().canBeSelected = false;
+    }
+
+    public void EnableAbilitySelection()
+    {
+        buttonSelectAbility1.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonSelectAbility2.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonSelectAbility3.GetComponent<SelectorMovement>().canBeSelected = true;
+        buttonSelectAbility4.GetComponent<SelectorMovement>().canBeSelected = true;
+    }
+
+    public void DisableAbilitySelection()
+    {
+        buttonSelectAbility1.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonSelectAbility2.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonSelectAbility3.GetComponent<SelectorMovement>().canBeSelected = false;
+        buttonSelectAbility4.GetComponent<SelectorMovement>().canBeSelected = false;
+    }
     public void MouseOverExit(SelectorMovement s)
     {
         onOption = false;    

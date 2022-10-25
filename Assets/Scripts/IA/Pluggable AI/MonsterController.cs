@@ -80,7 +80,6 @@ public class MonsterController : MonoBehaviour
     public void CallCoroutine (IEnumerator coroutine)
     {
         StartCoroutine(coroutine);
-        Debug.Log("Call");
     }
 
     public virtual MonsterAbility ChooseRandomAttack()

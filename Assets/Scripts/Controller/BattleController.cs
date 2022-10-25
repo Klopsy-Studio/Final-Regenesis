@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleController : StateMachine
 {
@@ -66,25 +67,16 @@ public class BattleController : StateMachine
 
     [HideInInspector] public List<TimelineElements> timelineElements;
 
-    void Start()
-    {
-<<<<<<< HEAD
-=======
-        
-    }
-
+    [SerializeField] GameObject placeholderCanvas;
+    public GameObject placeholderWinScreen;
     public void BeginGame()
     {
         AudioManager.instance.Play("Music");
         Destroy(placeholderCanvas.gameObject);
->>>>>>> task/implementPlaceholderSound
         levelData = GameManager.instance.currentMission;
         
-        //environmentEvent.Board = board;
         ChangeState<InitBattleState>();
     }
-
-
     //public bool IsInMenu()
     //{
     //    return CurrentState is SelectActionState || CurrentState is SelectAbilityState || CurrentState is SelectItemState || CurrentState is SelectItemState;
@@ -94,7 +86,10 @@ public class BattleController : StateMachine
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Battle");
+        }
     }
 
     public virtual void SelectTile(Point p)

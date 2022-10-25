@@ -112,6 +112,8 @@ public class UnitStatus : MonoBehaviour
         }
         s.value = targetValue;
 
+        UpdateSliderValue(bigUnitHealth, targetValue);
+        UpdateSliderValue(smallUnitHealth, targetValue);
         updatingValue = false;
     }
          

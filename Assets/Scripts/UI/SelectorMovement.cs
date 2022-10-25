@@ -18,17 +18,22 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public bool canBeSelected;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        optionSelection.MouseOverEnter(this);
-        optionSelection.currentSelection = selection;
+        if (canBeSelected)
+        {
+            optionSelection.MouseOverEnter(this);
+            optionSelection.currentSelection = selection;
 
-        textButton.color = hoverColor;
+            textButton.color = hoverColor;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        optionSelection.MouseOverExit(this);
+        if (canBeSelected)
+        {
+            optionSelection.MouseOverExit(this);
 
-        textButton.color = normalColor;
-
+            textButton.color = normalColor;
+        }
     }
 }

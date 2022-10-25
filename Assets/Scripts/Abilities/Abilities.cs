@@ -163,33 +163,12 @@ public class Abilities : ScriptableObject
     }
     void CalculateDmg(EnemyUnit enemy)
     {
-
         float criticalDmg = 1f;
         if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
         float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, enemy.Elements_Effectiveness);
 
 
         finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
-      
-        //if (weapon.planticidaPoints >= 75)
-        //{
-        //    planticidaBuffDmg = 1.5f;
-        //}
-        //else if(weapon.planticidaPoints >= 40)
-        //{
-        //    planticidaBuffDmg = 1.25f;
-        //}
-        //else if(weapon.planticidaPoints >= 0)
-        //{
-        //    planticidaBuffDmg = 1f;
-        //}
-
-        ////desgaste planticidaPoints;
-        //weapon.PlanticidaLost(planticidaCost);
-        //Debug.Log("planticidaBuff: " + planticidaBuffDmg + "initial damage es " + initialDamage);
-        ////COMPROBAR CÓMO REDONDEA
-        //finalDamage = Mathf.Round(initialDamage * planticidaBuffDmg);
-        //Debug.Log("finaldamage: " + finalDamage + "planticidaPoints es " + weapon.planticidaPoints);
     }
 
     void CalculateHeal()
@@ -198,7 +177,7 @@ public class Abilities : ScriptableObject
         finalHeal = initialHeal;
     }
 
-    public void UseAbility(Unit target)
+    public void UseAbility(Unit target, BattleController controller)
     {
         //AQUI ES DONDE SE HACE EL ACTION COST
         target.ActionsPerTurn -= ActionCost;
@@ -211,8 +190,11 @@ public class Abilities : ScriptableObject
                 if (target.GetComponent<EnemyUnit>())
                 {
                     CalculateDmg(target.GetComponent<EnemyUnit>());
-                    target.ReceiveDamageStun(finalDamage, stunDamage);
-                  
+                    if (target.ReceiveDamage(finalDamage))
+                    {
+                        target.GetComponent<EnemyUnit>().Die(controller);
+                    }
+                    Debug.Log(target.health);
                 }
                 else
                 {

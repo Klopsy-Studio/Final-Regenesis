@@ -34,8 +34,8 @@ MonoBehaviour:
   rangeScript: {fileID: 0}
   abilityName: Straight Shot
   abilityEffect: 0
-  initialDamage: 100
-  abilityModifier: 0.5
+  initialDamage: 0
+  abilityModifier: 1
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

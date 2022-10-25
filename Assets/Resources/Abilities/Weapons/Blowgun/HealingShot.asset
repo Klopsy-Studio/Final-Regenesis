@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionCost: 3
   abilityVelocityCost: 1
-  rangeType: 9
   rangeData:
     range: 9
     lineDir: 0
@@ -32,12 +31,12 @@ MonoBehaviour:
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
-  range: 2
+  rangeScript: {fileID: 0}
   abilityName: Healing Shot
   abilityEffect: 1
   initialDamage: 0
   abilityModifier: 0
-  initialHeal: 20
+  initialHeal: 40
   initialBuff: 0
   initialDebuff: 0
   stunDamage: 20

@@ -13,7 +13,6 @@ public class TimeLineState : BattleState
 
     private void Update()
     {
-
         if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse())
         {
             if(selectedUnit != null)

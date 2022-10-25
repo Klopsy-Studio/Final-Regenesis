@@ -27,6 +27,8 @@ public class SelectActionState : BattleState
         owner.isTimeLineActive = false;
         owner.moveActionSelector = true;
         owner.actionSelectionUI.gameObject.SetActive(true);
+
+        owner.actionSelectionUI.EnableActionSelection();
         owner.currentUnit.GetComponent<Movement>().ResetRange();
       
         if (!owner.currentUnit.CanMove())
@@ -57,6 +59,7 @@ public class SelectActionState : BattleState
         base.Exit();
         owner.currentUnit.unitSprite.gameObject.GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 0);
         owner.moveActionSelector = false;
+        owner.actionSelectionUI.DisableActionSelection();
     }
 
     protected override void OnEscape(object sender, InfoEventArgs<KeyCode> e)

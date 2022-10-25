@@ -15,6 +15,7 @@ public class UseAbilityState : BattleState
     public override void Enter()
     {
         base.Enter();
+        CleanSelectTiles();
         owner.currentUnit.WeaponOut();
         owner.isTimeLineActive = false;
         owner.ActivateTileSelector();
@@ -52,7 +53,6 @@ public class UseAbilityState : BattleState
                 if (owner.currentTile.content.gameObject.GetComponent<EnemyUnit>() != null && tiles.Contains(owner.currentTile))
                 {
                     owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
-                    owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
                     StartCoroutine(UseAbilitySequence(owner.currentTile.content.gameObject.GetComponent<EnemyUnit>()));
                 }
             }
@@ -113,48 +113,7 @@ public class UseAbilityState : BattleState
                             }
                         }
                     }
-                    
-
-                    //if (tiles.Contains(owner.currentTile))
-                    //{
-                    //    if (selectTiles != null)
-                    //    {
-                    //        board.DeSelectTiles(selectTiles);
-                    //        selectTiles.Clear();
-                    //    }
-                    //    else
-                    //    {
-                    //        selectTiles = new List<Tile>();
-                    //    }
-                    //}
-
-                    //else
-                    //{
-                    //    if (selectTiles != null)
-                    //    {
-                    //        board.DeSelectTiles(selectTiles);
-                    //        selectTiles.Clear();
-                    //    }
-                    //}
-
-                    //if (owner.currentTile.occupied)
-                    //{
-                    //    owner.SelectTile(owner.enemyUnits[0].currentPoint);
-                    //    owner.tileSelectionToggle.MakeTileSelectionBig();
-                    //    board.SelectAttackTiles(owner.enemyUnits[0].GetComponent<EnemyUnit>().GiveMonsterSpace(board));
-                    //}
-                    //else
-                    //{
-                    //    board.DeSelectTiles(owner.enemyUnits[0].GetComponent<EnemyUnit>().GiveMonsterSpace(board));
-                    //}
-                    //if (owner.currentTile.content != null)
-                    //{
-                    //    if(owner.currentTile.content.GetComponent<PlayerUnit>() != null)
-                    //    {
-                    //        owner.tileSelectionToggle.MakeTileSelectionSmall();
-                    //    }
-
-                    //}
+                   
                 }
 
             }
@@ -192,11 +151,12 @@ public class UseAbilityState : BattleState
             {
                 foreach (Tile t in selectTiles)
                 {
-                    if (t.content != null)
+                    if (t.content != null && !attacking)
                     {
                         if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
                         {
                             owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                            Debug.Log("Attack");
                             owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
                             StartCoroutine(UseAbilitySequence(t.content.GetComponent<Unit>()));
                         }
@@ -223,6 +183,7 @@ public class UseAbilityState : BattleState
         if (!attacking)
         {
             owner.currentUnit.WeaponIn();
+            owner.currentUnit.playerUI.ShowActionPoints();
             owner.DeactivateTileSelector();
             SelectTile(owner.currentUnit.currentPoint);
             owner.ChangeState<SelectAbilityState>();
@@ -234,8 +195,7 @@ public class UseAbilityState : BattleState
     {
         attacking = true;
 
-        currentAbility.UseAbility(target);
-
+        currentAbility.UseAbility(target, owner);
         if (target == owner.currentUnit)
         {
             owner.currentUnit.Default();
@@ -310,7 +270,6 @@ public class UseAbilityState : BattleState
     public override void Exit()
     {
         base.Exit();
-        selectTiles = null;
 
         if(tiles != null)
         {

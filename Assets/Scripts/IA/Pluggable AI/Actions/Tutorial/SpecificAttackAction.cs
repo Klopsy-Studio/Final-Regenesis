@@ -7,32 +7,42 @@ public class SpecificAttackAction : Action
 {
     public override void Act(MonsterController controller)
     {
+        Debug.Log("Acting");
+
         controller.CallCoroutine(Attack(controller, controller.ChooseSpecificAttack()));
     }
 
 
     IEnumerator Attack(MonsterController controller, MonsterAbility ability)
     {
-        List<Tile> tiles = ability.GetAttackTiles(controller);
+        List<Tile> tiles = ability.ShowAttackRange(controller.currentEnemy.tile.GetDirections(controller.target.tile), controller);
         AudioManager.instance.Play("MonsterAttack");
 
         controller.battleController.board.SelectAttackTiles(tiles);
 
-        controller.target.ReceiveDamage(ability.initialDamage);
+        ability.UseAbility(controller.target, controller.currentEnemy, controller.battleController);
         controller.target.Damage();
         controller.target.DamageEffect();
 
-        controller.currentEnemy.Damage();
-
+        controller.monsterAnimations.SetBool(ability.attackTrigger, true);
+        controller.monsterAnimations.SetBool("idle", false);
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 
         while (ActionEffect.instance.play)
         {
             yield return null;
         }
+        controller.monsterAnimations.SetBool(ability.attackTrigger, false);
+        controller.monsterAnimations.SetBool("idle", true);
+        while (ActionEffect.instance.recovery)
+        {
+            yield return null;
+        }
 
+        
+
+        controller.battleController.board.DeSelectDefaultTiles(tiles);
         controller.target.Default();
-        controller.currentEnemy.Default();
 
         controller.validAttack = null;
         OnExit(controller);

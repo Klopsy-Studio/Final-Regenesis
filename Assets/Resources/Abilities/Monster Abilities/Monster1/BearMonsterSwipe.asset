@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BearMonsterSwipe
   m_EditorClassIdentifier: 
   typeOfAbility: 0
-  attackTrigger: 
+  attackTrigger: swipe
   attackRange:
   - range: 7
     lineDir: 0
@@ -39,8 +39,117 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
-  initialDamage: 20
-  abilityModifier: 0
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 2
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 2
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 1
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    sideDir: 1
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 3
+    sideReach: 2
+    sideLength: 2
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    sideDir: 3
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 2
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 3
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 3
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  attackRangeShow:
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 3
+    alternateSideLength: 1
+    movementRange: 0
+  initialDamage: 13
+  abilityModifier: 0.9
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

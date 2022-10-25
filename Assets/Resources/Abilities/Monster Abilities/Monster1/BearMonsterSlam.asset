@@ -10,16 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be71fa70ebb57d440b9b7c750b63ed6c, type: 3}
-  m_Name: BearMonsterBite
+  m_Name: BearMonsterSlam
   m_EditorClassIdentifier: 
   typeOfAbility: 0
-  attackTrigger: bite
+  attackTrigger: slam
   attackRange:
   - range: 6
     lineDir: 2
     lineLength: 2
     sideDir: 0
     sideReach: 2
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
+    sideDir: 0
+    sideReach: 3
     sideLength: 1
     crossLength: 1
     squareReach: 0
@@ -42,6 +54,18 @@ MonoBehaviour:
   - range: 6
     lineDir: 2
     lineLength: 2
+    sideDir: 1
+    sideReach: 3
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
     sideDir: 2
     sideReach: 2
     sideLength: 1
@@ -54,8 +78,32 @@ MonoBehaviour:
   - range: 6
     lineDir: 2
     lineLength: 2
+    sideDir: 2
+    sideReach: 3
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
     sideDir: 3
     sideReach: 2
+    sideLength: 1
+    crossLength: 1
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+  - range: 6
+    lineDir: 2
+    lineLength: 2
+    sideDir: 3
+    sideReach: 3
     sideLength: 1
     crossLength: 1
     squareReach: 0
@@ -76,8 +124,20 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
-  initialDamage: 15
-  abilityModifier: 0.8
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 3
+    sideLength: 1
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+  initialDamage: 10
+  abilityModifier: 0.7
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

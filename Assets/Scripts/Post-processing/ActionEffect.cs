@@ -10,7 +10,7 @@ public class ActionEffect : MonoBehaviour
     public static ActionEffect instance;
 
     [HideInInspector] public bool play = false;
-    private bool _recovery;
+    public bool recovery;
 
     [Header("References")]
     [SerializeField] private CinemachineVirtualCamera camera;
@@ -96,7 +96,7 @@ public class ActionEffect : MonoBehaviour
             Effect();
 
         // Same thing with the "recovery" effect of the effect itself
-        if (_recovery)
+        if (recovery)
             Recovery();
     }
 
@@ -140,7 +140,7 @@ public class ActionEffect : MonoBehaviour
         {
             _currentTime = 0f;
             play = false;
-            _recovery = true;
+            recovery = true;
         }
     }
 
@@ -167,7 +167,7 @@ public class ActionEffect : MonoBehaviour
         if (_currentTime >= recoveryDuration)
         {
             _currentTime = 0f;
-            _recovery = false;
+            recovery = false;
         }
     }
 }

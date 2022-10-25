@@ -77,10 +77,9 @@ MonoBehaviour:
   healEffect: {fileID: 5836840817937991826, guid: f9cca9c5e1f673240a697914a64478cd, type: 3}
   hitEffect: {fileID: 5030025760067142075, guid: 566a92dcb0e06b746880d6fc36f4c4c5, type: 3}
   unitSprite: {fileID: 1262454043973379550}
-  aggroRange: 5
-  closeRange: 2
-  longRange: 4
-  randomRange: 3
+  criticalPercentage: 10
+  power: 80
+  elementPower: 0
   abilities:
   - {fileID: 11400000, guid: cef1499263dfaa64d99306c6c33ac9c2, type: 2}
   target: {fileID: 0}

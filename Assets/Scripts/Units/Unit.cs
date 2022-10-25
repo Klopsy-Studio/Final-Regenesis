@@ -15,6 +15,8 @@ public class Unit : TimelineElements
     public Directions dir;
     public Tile tile { get; protected set; }
     public float unitSpeed;
+
+    public TimelineElements element;
     public override TimelineVelocity TimelineVelocity
     {
         get { return timelineVelocity; }
@@ -80,7 +82,6 @@ public class Unit : TimelineElements
     public void Match()
     {
         transform.localPosition = tile.center;
-        //transform.localEulerAngles = dir.ToEuler();
         currentPoint = tile.pos;
     }
 
@@ -150,6 +151,13 @@ public class Unit : TimelineElements
         }
     }
 
+    public virtual void Die(BattleController battleController)
+    {
+        battleController.timelineElements.Remove(this);
+        battleController.unitsInGame.Remove(this);
+        
+        gameObject.SetActive(false);
+    }
     public void SetCurrentVelocity()
     {
 

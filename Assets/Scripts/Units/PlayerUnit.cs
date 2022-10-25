@@ -115,5 +115,10 @@ public class PlayerUnit : Unit
         unitSprite.sprite = combatSprite;
     }
 
-
+    public override void Die(BattleController battleController)
+    {
+        status.gameObject.SetActive(false);
+        playerUI.gameObject.SetActive(false);
+        base.Die(battleController);
+    }
 }

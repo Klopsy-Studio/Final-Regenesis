@@ -73,10 +73,6 @@ public class TimelineUI : MonoBehaviour
                 
                 offset = 45;
             }
-            else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Null)
-            {
-                temp.icon.color = Color.black;
-            }
 
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
             temp.image.SetNativeSize();

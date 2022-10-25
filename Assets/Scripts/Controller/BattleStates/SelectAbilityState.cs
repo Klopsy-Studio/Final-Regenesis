@@ -16,7 +16,7 @@ public class SelectAbilityState : BattleState
         owner.moveAbilitySelector = true;
 
         AbilitySelectionUI.gameObject.SetActive(true);
-
+        owner.abilitySelectionUI.EnableAbilitySelection();
         abilityList = owner.currentUnit.weapon.Abilities;
 
 
@@ -121,6 +121,8 @@ public class SelectAbilityState : BattleState
     public override void Exit()
     {
         base.Exit();
+        owner.abilitySelectionUI.DisableAbilitySelection();
+
         owner.moveAbilitySelector = false;
         currentActionIndex = 0;
         AbilitySelectionUI.ResetSelector();

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BearMonsterSpikes
   m_EditorClassIdentifier: 
   typeOfAbility: 0
+  attackTrigger: spike
   attackRange:
   - range: 7
     lineDir: 0
@@ -25,6 +26,7 @@ MonoBehaviour:
     alternateSideDir: 0
     alternateSideReach: 2
     alternateSideLength: 2
+    movementRange: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -36,6 +38,7 @@ MonoBehaviour:
     alternateSideDir: 1
     alternateSideReach: 2
     alternateSideLength: 2
+    movementRange: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -47,6 +50,7 @@ MonoBehaviour:
     alternateSideDir: 2
     alternateSideReach: 2
     alternateSideLength: 2
+    movementRange: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -58,8 +62,22 @@ MonoBehaviour:
     alternateSideDir: 3
     alternateSideReach: 2
     alternateSideLength: 2
+    movementRange: 0
+  attackRangeShow:
+  - range: 7
+    lineDir: 0
+    lineLength: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 2
+    alternateSideLength: 2
+    movementRange: 0
   initialDamage: 20
-  abilityModifier: 0
+  abilityModifier: 0.8
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

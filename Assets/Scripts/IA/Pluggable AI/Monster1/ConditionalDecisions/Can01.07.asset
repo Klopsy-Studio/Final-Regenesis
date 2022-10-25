@@ -17,4 +17,4 @@ MonoBehaviour:
   trueState:
   - {fileID: 11400000, guid: dfe4a2fdc9b93d04aa2bdcb1a5f1b835, type: 2}
   falseState: []
-  specificAbility: {fileID: 11400000, guid: b0da76627ac42bb4fb66591c443c8eeb, type: 2}
+  specificAbility: {fileID: 11400000, guid: 567d2ce97833e374689a3526a2571139, type: 2}

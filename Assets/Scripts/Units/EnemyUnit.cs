@@ -5,12 +5,10 @@ using UnityEngine;
 public class EnemyUnit : Unit
 {
 
-    [Header("Range Variables")]
-    public int aggroRange;
-    public int closeRange;
-    public int longRange;
-    public int randomRange;
-
+    [Header("Monster Stats")]
+    public float criticalPercentage;
+    public float power;
+    public float elementPower;
     [Header("Abilities")]
     public Abilities[] abilities;
     public Unit target;
@@ -114,4 +112,10 @@ public class EnemyUnit : Unit
         return monsterRange.GetTilesInRange(board);
     }
 
+
+    public override void Die(BattleController battleController)
+    {
+        controller.monsterAnimations.SetBool("death", true);
+        battleController.ChangeState<WinState>();
+    }
 }

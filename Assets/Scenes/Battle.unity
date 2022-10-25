@@ -905,7 +905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &755943107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,7 +1341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1015432370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,8 +1445,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e95e72878a6810449fc8db028c4d4fc, type: 3}
   - {fileID: 21300000, guid: f6b34a5927b863441aee3a01a323e609, type: 3}
   - {fileID: 21300000, guid: daba8014eb320464d8047047b2f9af66, type: 3}
-  - {fileID: 21300000, guid: ed2c872a71180ef488f2ac7c4bcd4047, type: 3}
+  - {fileID: 21300000, guid: f757c1de72d2ad54ab7d6bf914cd1a09, type: 3}
   - {fileID: 21300000, guid: c8bdfd1c83694004c92b778ca2ee85c9, type: 3}
+  - {fileID: 21300000, guid: 2dfc7130319059f45aeaaa8cc76293f9, type: 3}
   imageComponent: {fileID: 1511480294}
   nextButton: {fileID: 986026867}
   prevButton: {fileID: 1978430617}
@@ -1864,6 +1865,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2642857776655601379, guid: 819a807c29f8a6842941cc2c17d9df3b, type: 3}
+      propertyPath: sounds.Array.data[10].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642857776655601379, guid: 819a807c29f8a6842941cc2c17d9df3b, type: 3}
       propertyPath: sounds.Array.data[8].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -2183,7 +2188,7 @@ PrefabInstance:
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
-      objectReference: {fileID: 11400000, guid: f4eb094270743374788ffd52e3f8d181, type: 2}
+      objectReference: {fileID: 11400000, guid: bcc3963095638fc4692b58d256dedfa1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
 --- !u!1001 &85011357939115778
@@ -2196,6 +2201,18 @@ PrefabInstance:
     - target: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_Lens.NearClipPlane
       value: -4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 85011358877560865, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 85011358877560865, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 85011358877560865, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2476724531654025598, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_LocalScale.x
@@ -2313,6 +2330,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099776045518085931, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: eventTurnImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 634ee6ef26e1c9a4d86657ca343d0f7c, type: 3}
     - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: cityPropsPrefabs.Array.size
       value: 3
@@ -2423,7 +2444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5886122782810732646, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: near clip plane
-      value: -4.74
+      value: 0.001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
