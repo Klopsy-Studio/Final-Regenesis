@@ -80,10 +80,7 @@ public class MoveAction : Action
         controller.monsterAnimations.SetBool("hide", true);
         AudioManager.instance.Play("MonsterMovement");
         yield return new WaitForSeconds(1f);
-        //while (controller.animPlaying)
-        //{
-        //    yield return null;
-        //}
+
         controller.monsterAnimations.SetBool("hide", false);
 
         controller.battleController.SelectTile(closestTile.pos);
@@ -99,21 +96,11 @@ public class MoveAction : Action
         controller.monsterAnimations.SetBool("idle", true);
         controller.monsterAnimations.SetBool("idle", false);
 
-        //StartCoroutine(m.Traverse(closestTile));
-
-        //while (m.moving)
-        //{
-        //    yield return null;
-        //}
 
         yield return new WaitForSeconds(0.2f);
         controller.battleController.board.DeSelectDefaultTiles(test);
         controller.currentEnemy.UpdateMonsterSpace(controller.battleController.board);
-        //owner.ChangeState<Monster1CheckNextAction>();
-        //m.isTraverseCalled = false;
 
-      
-        Debug.Log("ISTRAVERSECALLED, " + m.isTraverseCalled);
 
         controller.currentEnemy.currentPoint = closestTile.pos;
         controller.currentEnemy.actionDone = true;
@@ -124,6 +111,5 @@ public class MoveAction : Action
     {
         isCalled = false;
         base.OnExit(controller);
-        //m.isTraverseCalled = false;
     }
 }

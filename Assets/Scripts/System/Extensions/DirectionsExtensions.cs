@@ -6,19 +6,61 @@ public static class DirectionsExtensions
 {
     public static Directions GetDirections(this Tile t1, Tile t2) //Compare to tiles and get the direction relative to those tiles
     {
+        Directions yDir = Directions.North;
+        bool yAssigned = false;
+        Directions xDir = Directions.North;
+        bool xAssigned = false;
+
         if (t1.pos.y < t2.pos.y)
         {
-            return Directions.North;
+            yDir = Directions.North;
+            yAssigned = true;
         }
-        if (t1.pos.x < t2.pos.x)
+        if (t1.pos.x > t2.pos.x)
         {
-            return Directions.East;
+            xDir = Directions.East;
+            xAssigned = true;
         }
         if (t1.pos.y > t2.pos.y)
         {
-            return Directions.South;
+            yDir = Directions.South;
+            yAssigned = true;
         }
-        return Directions.West;
+        if (t1.pos.x < t2.pos.x)
+        {
+            xDir = Directions.West;
+            xAssigned = true;
+        }
+
+        if(xAssigned && yAssigned)
+        {
+            int xDiff;
+            int yDiff;
+
+            xDiff = Mathf.Abs(t1.pos.x - t2.pos.x);
+            yDiff = Mathf.Abs(t1.pos.y - t2.pos.y);
+
+            if(xDiff > yDiff)
+            {
+                return xDir;
+            }
+            else
+            {
+                return yDir;
+            }
+        }
+
+        if (xAssigned)
+        {
+            return xDir;
+        }
+
+        if (yAssigned)
+        {
+            return yDir;
+        }
+
+        return Directions.North;
     }
 
     public static bool CheckSpecificDirection(this Tile t1, Tile t2, Directions directionToCheck) //Compare to tiles and get the direction relative to those tiles

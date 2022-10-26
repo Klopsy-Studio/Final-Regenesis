@@ -20,8 +20,8 @@ MonoBehaviour:
   elementPower: 0
   defense: 10
   staminaCost: 0
-  originalRange: 3
-  range: 3
+  originalRange: 40
+  range: 40
   Abilities:
   - {fileID: 11400000, guid: 552638faf7f68d742a24b53ffebef8b2, type: 2}
   - {fileID: 11400000, guid: 577af5607b1c56f49a4865d255cb48ba, type: 2}

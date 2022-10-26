@@ -29,7 +29,6 @@ public class TimelineUI : MonoBehaviour
     private void Start()
     {
         barSize = content.sizeDelta.x;
-        Debug.Log("bar size" + barSize);
     }
 
     //Not Ideal. Would be better to avoid GetComponent entirely. Simplest solution for a 45 minutes project

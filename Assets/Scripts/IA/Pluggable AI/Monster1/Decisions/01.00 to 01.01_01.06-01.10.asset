@@ -21,5 +21,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7d71fa88ae16e44794caf21f618b3ed, type: 2}
   monsterAbilities:
   - {fileID: 11400000, guid: b0da76627ac42bb4fb66591c443c8eeb, type: 2}
-  - {fileID: 11400000, guid: b0da76627ac42bb4fb66591c443c8eeb, type: 2}
+  - {fileID: 11400000, guid: 9bd54169d27d9ca438adf02a64186ae1, type: 2}
   - {fileID: 11400000, guid: beaee995e3900e4468a82f49f16359cf, type: 2}

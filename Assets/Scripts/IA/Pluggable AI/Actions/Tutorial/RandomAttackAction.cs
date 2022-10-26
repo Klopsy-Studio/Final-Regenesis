@@ -7,7 +7,6 @@ public class RandomAttackAction : Action
 {
     public override void Act(MonsterController controller)
     {
-        Debug.Log("Acting");
         controller.CallCoroutine(Attack(controller, controller.ChooseRandomAttack()));
     }
 
