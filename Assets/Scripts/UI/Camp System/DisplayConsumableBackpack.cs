@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class DisplayConsumableInventory : MonoBehaviour
+public class DisplayConsumableBackpack : MonoBehaviour
 {
     //public Consumables a;
     //public Consumables b;
@@ -16,7 +15,7 @@ public class DisplayConsumableInventory : MonoBehaviour
     //    inventory.AddConsumable(c, 3);
     //}
     public GameObject slotPrefab;
-    public ConsumableInventory inventory;
+    public ConsumableBackpack inventory;
     public List<GameObject> slotPrefabList;
     [HideInInspector] public Dictionary<ConsumableSlot, GameObject> consumableDisplayed = new Dictionary<ConsumableSlot, GameObject>();
 
@@ -40,14 +39,14 @@ public class DisplayConsumableInventory : MonoBehaviour
             var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
             slotPrefabList.Add(obj);
             obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.sprite;
-             obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
+            obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
             consumableDisplayed.Add(inventory.consumableContainer[i], obj);
-            if(obj.TryGetComponent(out ConsInventoryButton inventoryButton))
+            if (obj.TryGetComponent(out ConsBackpackButton inventoryButton))
             {
-                
+                Debug.Log("FUNCIONA TRYGETBUTTON");
                 inventoryButton.FillVariables(inventory, i, this);
             }
-           
+
         }
     }
 
@@ -59,7 +58,7 @@ public class DisplayConsumableInventory : MonoBehaviour
             if (consumableDisplayed.ContainsKey(inventory.consumableContainer[i]))
             {
 
-                consumableDisplayed[inventory.consumableContainer[i]].GetComponentInChildren<Text>().text =inventory.consumableContainer[i].amount.ToString();
+                consumableDisplayed[inventory.consumableContainer[i]].GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
             }
             else
             {
@@ -68,21 +67,12 @@ public class DisplayConsumableInventory : MonoBehaviour
                 obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.sprite;
                 obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
                 consumableDisplayed.Add(inventory.consumableContainer[i], obj);
-                //if (obj.TryGetComponent(out ConsInventoryButton inventoryButton))
-                //{
-                   
-                //    inventoryButton.FillVariables(inventory, i, this);
-                //}
             }
-
-            if (slotPrefabList[i].TryGetComponent(out ConsInventoryButton inventoryButton))
+            if (slotPrefabList[i].TryGetComponent(out ConsBackpackButton inventoryButton))
             {
 
                 inventoryButton.FillVariables(inventory, i, this);
             }
-
-
-
         }
     }
 }

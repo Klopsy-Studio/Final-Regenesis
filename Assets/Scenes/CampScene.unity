@@ -12668,6 +12668,8 @@ GameObject:
   - component: {fileID: 761896030}
   - component: {fileID: 761896032}
   - component: {fileID: 761896031}
+  - component: {fileID: 761896034}
+  - component: {fileID: 761896033}
   m_Layer: 5
   m_Name: Panel backpack
   m_TagString: Untagged
@@ -12732,6 +12734,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761896029}
   m_CullTransparentMesh: 1
+--- !u!114 &761896033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761896029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720027fa9cafe1043a60a1b05e548b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 8496352938984258246, guid: 118eed565c092af40a340cf6de0cdfb7, type: 3}
+  inventory: {fileID: 11400000, guid: fc79751ca6ca7414cb0aa2740a95d8a5, type: 2}
+  slotPrefabList: []
+--- !u!114 &761896034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761896029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 0
+    m_Top: 10
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 18, y: 18}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &771745443
 GameObject:
   m_ObjectHideFlags: 0
@@ -19912,6 +19953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 8496352938984258246, guid: f45f74141e170d5409744099a3851d0e, type: 3}
   inventory: {fileID: 11400000, guid: 972abb1e68fcc244fa956728ca86e636, type: 2}
+  slotPrefabList: []
 --- !u!114 &1261906229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23353,6 +23395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 8496352938984258246, guid: 6f397e4151a8e4b44a7dc0a68c2e3933, type: 3}
   inventory: {fileID: 11400000, guid: 972abb1e68fcc244fa956728ca86e636, type: 2}
+  slotPrefabList: []
 --- !u!114 &1441019320
 MonoBehaviour:
   m_ObjectHideFlags: 0

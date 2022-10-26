@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: ConsInventory
   m_EditorClassIdentifier: 
   consumableContainer:
-  - consumable: {fileID: 11400000, guid: cc24fb1885481b548849bb55b1d61dc1, type: 2}
-    amount: 45
-  - consumable: {fileID: 11400000, guid: 0338ae241b23c5a4890cdebe45ecbac2, type: 2}
-    amount: 61
   - consumable: {fileID: 11400000, guid: d5a509a17074bc84cb5f47e17ae8c374, type: 2}
-    amount: 20
+    amount: 4
+  - consumable: {fileID: 11400000, guid: cc24fb1885481b548849bb55b1d61dc1, type: 2}
+    amount: 1

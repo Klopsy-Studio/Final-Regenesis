@@ -6,7 +6,7 @@ using UnityEngine;
 public class ConsumableInventory : ScriptableObject
 {
     public List<ConsumableSlot> consumableContainer = new List<ConsumableSlot>();
-    public void AddConsumable(Consumables _consumable, int _amount)
+    public virtual void AddConsumable(Consumables _consumable, int _amount)
     {
         bool hasConsumable = false;
         for (int i = 0; i < consumableContainer.Count; i++)
@@ -25,11 +25,20 @@ public class ConsumableInventory : ScriptableObject
         }
     }
 
-    public void TransferConsumables(ConsumableInventory targetInventory, int consumableID)
+    public void TransferConsumablesToBackPack(ConsumableInventory targetInventory, int consumableID, DisplayConsumableInventory displayconsumableInventory)
     {
         var inventorySlot = consumableContainer[consumableID];
-        var inventorySlotAmount = inventorySlot.BackpackAmount();
-        targetInventory.AddConsumable(inventorySlot.consumable, inventorySlotAmount);
+        var amountToTransfer = inventorySlot.AmountToTransfer();
+        if(inventorySlot.amount == 0)
+        {
+            displayconsumableInventory.consumableDisplayed.Remove(inventorySlot);
+            displayconsumableInventory.slotPrefabList[consumableID].gameObject.SetActive(false);
+            displayconsumableInventory.slotPrefabList.RemoveAt(consumableID);
+            consumableContainer.Remove(inventorySlot);
+        }
+        //targetInventory.AddConsumable(inventorySlot.consumable, inventorySlotAmount);
+        targetInventory.AddConsumable(inventorySlot.consumable, amountToTransfer);
+        displayconsumableInventory.UpdateDisplay();
     }
 
     //private void OnApplicationQuit()
@@ -43,9 +52,9 @@ public class ConsumableSlot
 {
     public Consumables consumable;
     public int amount;
-    
 
-    public int BackpackAmount()
+
+    public int AmountToTransfer()
     {
         int amountToTransfer;
         if (amount - consumable.maxBackPackAmount < 0)

@@ -165,9 +165,9 @@ GameObject:
   - component: {fileID: 2908669712818297879}
   - component: {fileID: 6121275903895855826}
   - component: {fileID: 7645938695323526539}
-  - component: {fileID: 7978615760198753643}
+  - component: {fileID: 4636140758256739206}
   m_Layer: 5
-  m_Name: 'ConsumableSlot BUTTON '
+  m_Name: ConsBackpackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7978615760198753643
+--- !u!114 &4636140758256739206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,8 +241,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8496352938984258246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abdb535529c647a4382bbda65d2c1537, type: 3}
+  m_Script: {fileID: 11500000, guid: e5820c22d703ccc45b74ebc0f7ef0ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 972abb1e68fcc244fa956728ca86e636, type: 2}
+  displayConsumableBackpack: {fileID: 0}
+  inventory: {fileID: 11400000, guid: fc79751ca6ca7414cb0aa2740a95d8a5, type: 2}
   consumableID: 0
