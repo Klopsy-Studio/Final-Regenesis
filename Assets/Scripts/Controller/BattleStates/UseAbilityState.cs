@@ -208,6 +208,23 @@ public class UseAbilityState : BattleState
 
         ActionEffect.instance.Play(currentAbility.cameraSize, currentAbility.effectDuration, currentAbility.shakeIntensity, currentAbility.shakeDuration);
 
+        if(currentAbility.inAbilityEffects != null)
+        {
+            foreach(Effect e in currentAbility.inAbilityEffects)
+            {
+                switch (e.effectType)
+                {
+                    case TypeOfEffect.PushUnit:
+                        e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
+                        break;
+                    case TypeOfEffect.FallBack:
+                        e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         if (target == owner.currentUnit)
         {
             AudioManager.instance.Play("HunterAttack");
@@ -230,6 +247,20 @@ public class UseAbilityState : BattleState
         owner.currentUnit.actionDone = true;
 
         target.Default();
+        foreach (Effect e in currentAbility.postAbilityEffect)
+        {
+            switch (e.effectType)
+            {
+                case TypeOfEffect.PushUnit:
+                    e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
+                    break;
+                case TypeOfEffect.FallBack:
+                    e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
+                    break;
+                default:
+                    break;
+            }
+        }
         owner.currentUnit.Default();
 
         yield return new WaitForSeconds(0.5f);

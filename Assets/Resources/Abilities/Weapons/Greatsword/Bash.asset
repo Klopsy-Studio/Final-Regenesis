@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionCost: 3
   abilityVelocityCost: 1
-  rangeType: 6
   rangeData:
     range: 9
     lineDir: 0
@@ -32,7 +31,7 @@ MonoBehaviour:
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
-  range: 1
+  rangeScript: {fileID: 0}
   abilityName: Bash
   abilityEffect: 0
   initialDamage: 110
@@ -49,3 +48,7 @@ MonoBehaviour:
   - '3 casillas delante de la unidad. '
   - "Da\xF1o del 110% del base. "
   - "Recuperaci\xF3n media. "
+  inAbilityEffects:
+  - effectPlaying: 1
+    effectType: 0
+  postAbilityEffect: []
