@@ -8,12 +8,15 @@ public class MonsterMovement : WalkMovement
 
     public override void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
+        CrossAbilityRange crossRange = GetComponent<CrossAbilityRange>();
+        crossRange.offset = pushStrength - 1;
+        crossRange.crossLength = pushStrength;
         range = pushStrength;
-        List<Tile> t = GetTilesInRange(board, true);
+        List<Tile> t = crossRange.GetTilesInRange(board);
         Tile desiredTile = null;
         foreach (Tile dirTile in t)
         {
-            if (dirTile.GetDirections(unit.tile) == pushDir)
+            if (unit.tile.GetDirections(dirTile) == pushDir)
             {
                 desiredTile = dirTile;
             }
@@ -23,7 +26,7 @@ public class MonsterMovement : WalkMovement
 
         sideRange.sideDir = pushDir;
         sideRange.sideLength = 1;
-        sideRange.sideReach = pushStrength+1;
+        sideRange.sideReach = pushStrength;
 
         List<Tile> dirT = sideRange.GetTilesInRange(board);
 

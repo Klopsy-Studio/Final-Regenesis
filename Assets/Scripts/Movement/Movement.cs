@@ -171,16 +171,14 @@ public abstract class Movement : MonoBehaviour
 
     public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
-        if(unit.GetComponent<PlayerUnit>()!= null)
-        {
-            unit.GetComponent<PlayerUnit>().Push();
-        }
+        
+
         range = pushStrength;
         List<Tile> t = GetTilesInRange(board, true);
         Tile desiredTile = null;
         foreach(Tile dirTile in t)
         {
-            if (dirTile.GetDirections(unit.tile) == pushDir)
+            if (unit.tile.GetDirections(dirTile) == pushDir)
             {
                 desiredTile = dirTile;
             }
@@ -189,7 +187,12 @@ public abstract class Movement : MonoBehaviour
         if(desiredTile != null && desiredTile.content == null)
         {
             StartCoroutine(Traverse(desiredTile, board));
+            if (unit.GetComponent<PlayerUnit>() != null)
+            {
+                unit.GetComponent<PlayerUnit>().Push();
+            }
         }
+        
     }
 
     public void ChangeRange(int newRange)

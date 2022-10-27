@@ -141,3 +141,9 @@ MonoBehaviour:
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
+  inAbilityEffects:
+  - effectPlaying: 1
+    effectType: 0
+  postAbilityEffect:
+  - effectPlaying: 0
+    effectType: 1

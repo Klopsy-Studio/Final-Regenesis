@@ -92,6 +92,9 @@ public class Abilities : ScriptableObject
 
     public string[] description;
 
+    [Header("AbilityEffects")]
+    public List<Effect> inAbilityEffects;
+    public List<Effect> postAbilityEffect;
 
     private void Awake()
     {

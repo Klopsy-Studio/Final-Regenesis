@@ -63,6 +63,22 @@ public static class DirectionsExtensions
         return Directions.North;
     }
 
+    public static Directions GetOppositeDirection(Directions dir)
+    {
+        switch (dir)
+        {
+            case Directions.North:
+                return Directions.South;
+            case Directions.East:
+                return Directions.West;
+            case Directions.South:
+                return Directions.North;
+            case Directions.West:
+                return Directions.East;
+            default:
+                return Directions.East;
+        }
+    }
     public static bool CheckSpecificDirection(this Tile t1, Tile t2, Directions directionToCheck) //Compare to tiles and get the direction relative to those tiles
     {
         switch (directionToCheck)

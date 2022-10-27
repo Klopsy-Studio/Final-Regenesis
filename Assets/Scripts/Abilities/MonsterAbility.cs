@@ -35,6 +35,9 @@ public class MonsterAbility : ScriptableObject
     [SerializeField] public float initialDebuff;
 
 
+    [Header("Effects")]
+    public List<Effect> inAbilityEffects;
+    public List<Effect> postAbilityEffect;
     public bool CheckIfAttackIsValid(MonsterController monster)
     {
         List<Tile> attackTiles = new List<Tile>();

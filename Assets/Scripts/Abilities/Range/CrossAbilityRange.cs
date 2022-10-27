@@ -5,15 +5,14 @@ using UnityEngine;
 public class CrossAbilityRange : AbilityRange
 {
     public int crossLength;
-
-    int offset = -1;
+    public int offset = -1;
     public override List<Tile> GetTilesInRange(Board board)
     {
         Point startPos = unit.tile.pos;
         List<Tile> retValue = new List<Tile>();
         for (int i = 0; i < crossLength; i++)
         {
-            if(offset >= i)
+            if(offset > i)
             {
                 startPos += new Point(0, 1);
             }
@@ -22,6 +21,7 @@ public class CrossAbilityRange : AbilityRange
                 if (board.GetTile(startPos + new Point(0, 1)) != null)
                 {
                     startPos += new Point(0, 1);
+
                     retValue.Add(board.GetTile(startPos));
                 }
 
@@ -31,7 +31,7 @@ public class CrossAbilityRange : AbilityRange
         startPos = unit.tile.pos;
         for (int i = 0; i < crossLength; i++)
         {
-            if (offset >= i)
+            if (offset > i)
             {
                 startPos += new Point(1, 0);
             }
@@ -48,7 +48,7 @@ public class CrossAbilityRange : AbilityRange
 
         for (int i = 0; i < crossLength; i++)
         {
-            if (offset >= i)
+            if (offset > i)
             {
                 startPos += new Point(0, -1);
             }
@@ -64,7 +64,7 @@ public class CrossAbilityRange : AbilityRange
 
         for (int i = 0; i < crossLength; i++)
         {
-            if(offset >= i)
+            if(offset > i)
             {
                 startPos += new Point(-1, 0);
             }
@@ -84,6 +84,5 @@ public class CrossAbilityRange : AbilityRange
     {
         crossLength = newCrossLength;
     }
-
     
 }

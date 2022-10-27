@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4641170417714014559}
   - component: {fileID: 4154550655931685623}
   - component: {fileID: 8065880355718981688}
+  - component: {fileID: 8569566428150529451}
   m_Layer: 6
   m_Name: BearMonster
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MonoBehaviour:
   timelineIcon: {fileID: 21300000, guid: f2b3e7eb87e236b4b88cfa73e49c6d8a, type: 3}
   dir: 0
   unitSpeed: 0
+  element: {fileID: 0}
   turnEnded: 0
   actionDone: 0
   currentPoint:
@@ -78,7 +80,7 @@ MonoBehaviour:
   hitEffect: {fileID: 5030025760067142075, guid: 566a92dcb0e06b746880d6fc36f4c4c5, type: 3}
   unitSprite: {fileID: 1262454043973379550}
   criticalPercentage: 10
-  power: 80
+  power: 0
   elementPower: 0
   abilities:
   - {fileID: 11400000, guid: cef1499263dfaa64d99306c6c33ac9c2, type: 2}
@@ -182,6 +184,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8569566428150529451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9418db137347bb4fbec4f847358ebc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 131185405536904068}
+  crossLength: 0
+  offset: -1
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0
