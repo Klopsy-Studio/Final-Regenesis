@@ -21,6 +21,8 @@ public class MonsterController : MonoBehaviour
     [Space]
     [Header("Special Abilities")]
     public GameObject obstacle;
+    public List<Tile> obstaclesInGame;
+    public int obstacleLimit;
     // Update is called once per frame
     //void Update()
     //{

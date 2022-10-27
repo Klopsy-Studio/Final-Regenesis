@@ -247,6 +247,7 @@ public class UseAbilityState : BattleState
         owner.currentUnit.actionDone = true;
 
         target.Default();
+
         foreach (Effect e in currentAbility.postAbilityEffect)
         {
             switch (e.effectType)

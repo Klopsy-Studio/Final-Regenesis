@@ -113,6 +113,8 @@ MonoBehaviour:
   validAbilities: []
   validAttack: {fileID: 0}
   obstacle: {fileID: 986858306413133845, guid: 3ccb7408d54443c4eba8e9f77a2d75bc, type: 3}
+  obstaclesInGame: []
+  obstacleLimit: 4
   animPlaying: 0
   monsterAnimations: {fileID: 8065880355718981688}
 --- !u!114 &1131668777620481961

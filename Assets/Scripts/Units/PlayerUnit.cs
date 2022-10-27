@@ -82,6 +82,7 @@ public class PlayerUnit : Unit
     {
         base.Damage();
         unitSprite.sprite = damageSprite;
+        Invoke("Default", 1.5f);
     }
     public override void Attack()
     {

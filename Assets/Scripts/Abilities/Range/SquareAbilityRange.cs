@@ -25,7 +25,23 @@ public class SquareAbilityRange : AbilityRange
         return retValue;
     }
 
+    public List<Tile> GetTilesInRangeWithoutUnit(Board board, Point initialPos)
+    {
+        List<Tile> retValue = new List<Tile>();
 
+        for (int x = -squareReach; x < squareReach + 1; x++)
+        {
+            for (int y = -squareReach; y < squareReach + 1; y++)
+            {
+                if (IsTileValidWithOutUnit(initialPos, board, x, y))
+                {
+                    retValue.Add(board.GetTile(new Point(initialPos.x + x, initialPos.y + y)));
+                }
+            }
+        }
+
+        return retValue;
+    }
 
     protected Tile GetTileInPosition(Point pos, Board board)
     {
@@ -39,7 +55,17 @@ public class SquareAbilityRange : AbilityRange
         }
     }
 
-
+    public bool IsTileValidWithOutUnit(Point initialPos, Board board, int offsetX, int offsetY)
+    {
+        if (board.GetTile(new Point(initialPos.x + offsetX, initialPos.y + offsetY)) != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public bool IsTileValid(Board board, int offsetX, int offsetY)
     {
         if (board.GetTile(new Point(unit.currentPoint.x + offsetX, unit.currentPoint.y + offsetY)) != null)

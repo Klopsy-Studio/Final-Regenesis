@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4993379407655412962}
   - component: {fileID: 2265322674755068832}
   - component: {fileID: 3005922828519192898}
+  - component: {fileID: 1250418009008346394}
+  - component: {fileID: 1306439643566243199}
   m_Layer: 0
   m_Name: MonsterObstacle
   m_TagString: Untagged
@@ -103,6 +105,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1250418009008346394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986858306413133845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce001c878b983c4fa9cd018c3249d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squareRange: {fileID: 1306439643566243199}
+  obstacleDamage: 0
+--- !u!114 &1306439643566243199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986858306413133845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827fad8a48ca0824bb79f7a6b00193ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 0}
+  squareReach: 1
 --- !u!1 &5786643671974507575
 GameObject:
   m_ObjectHideFlags: 0
