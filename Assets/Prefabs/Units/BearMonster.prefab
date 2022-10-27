@@ -59,6 +59,8 @@ MonoBehaviour:
   dir: 0
   unitSpeed: 0
   element: {fileID: 0}
+  stunned: 0
+  timeStunned: 0
   turnEnded: 0
   actionDone: 0
   currentPoint:
@@ -78,6 +80,8 @@ MonoBehaviour:
   isDead: 0
   healEffect: {fileID: 5836840817937991826, guid: f9cca9c5e1f673240a697914a64478cd, type: 3}
   hitEffect: {fileID: 5030025760067142075, guid: 566a92dcb0e06b746880d6fc36f4c4c5, type: 3}
+  stunThreshold: 0
+  stunLimit: 40
   unitSprite: {fileID: 1262454043973379550}
   criticalPercentage: 10
   power: 0

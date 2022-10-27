@@ -16,7 +16,17 @@ public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public Animator iconAnimations;
 
     public TimelineElements element;
-   
+
+    public GameObject stunnedIndicator;
+    public void EnableStun()
+    {
+        stunnedIndicator.SetActive(true);
+    }
+
+    public void DisableStun()
+    {
+        stunnedIndicator.SetActive(false);
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouseOver = true;

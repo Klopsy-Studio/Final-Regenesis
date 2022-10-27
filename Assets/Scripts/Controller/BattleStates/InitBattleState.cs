@@ -79,6 +79,7 @@ public class InitBattleState : BattleState
             owner.timelineElements.Add(unit);
         }
         owner.timelineElements.Add(owner.environmentEvent);
+
     }
 
     public void AssignUnitData(UnitProfile data, PlayerUnit unit)

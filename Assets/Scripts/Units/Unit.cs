@@ -17,6 +17,14 @@ public class Unit : TimelineElements
     public float unitSpeed;
 
     public TimelineElements element;
+
+    public bool stunned;
+    public float timeStunned;
+    protected float originalTimeStunned;
+    protected TimelineVelocity previousVelocity;
+
+    [HideInInspector] public TimelineIconUI timelineIconUI;
+    
     public override TimelineVelocity TimelineVelocity
     {
         get { return timelineVelocity; }
@@ -56,6 +64,10 @@ public class Unit : TimelineElements
     [SerializeField] GameObject healEffect;
     [SerializeField] GameObject hitEffect;
 
+
+    [SerializeField] float stunThreshold;
+    [SerializeField] float stunLimit;
+
     public SpriteRenderer unitSprite;
     protected virtual void Start()
     {
@@ -63,6 +75,7 @@ public class Unit : TimelineElements
         SetInitVelocity();
         stamina = 100;
         damage.baseValue = 10;
+        originalTimeStunned = timeStunned;
     }
 
    
@@ -85,7 +98,26 @@ public class Unit : TimelineElements
         currentPoint = tile.pos;
     }
 
+    public void ApplyStunValue(float value)
+    {
+        stunThreshold += value;
 
+        if(stunThreshold >= stunLimit)
+        {
+            stunThreshold = 0;
+            FallBackOnTimeline();
+        }
+    }
+
+    public void FallBackOnTimeline()
+    {
+        timelineFill -= 50;
+
+        if(timelineFill <= 0)
+        {
+            timelineFill = 0;
+        }
+    }
     public virtual bool ReceiveDamage(float damage)
     {
         health.AddModifier(new StatsModifier(-damage, StatModType.Flat, this));
@@ -158,9 +190,15 @@ public class Unit : TimelineElements
         
         gameObject.SetActive(false);
     }
+
+    public virtual void Stun()
+    {
+        fTimelineVelocity = 0;
+        previousVelocity = timelineVelocity;
+        stunned = true;
+    }
     public void SetCurrentVelocity()
     {
-
         timelineVelocity += (int)actionsPerTurn;
         //Debug.Log("TimelineVelocitydespues " + timelineVelocity +" valor" + (int)timelineVelocity);
         switch (timelineVelocity)
@@ -192,14 +230,35 @@ public class Unit : TimelineElements
 
     public override bool UpdateTimeLine()
     {
-        if (timelineFill >= timelineFull)
+        if (!stunned)
         {
-            return true;
-        }
-        timelineFill += fTimelineVelocity * Time.deltaTime;
-        //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+            if (timelineFill >= timelineFull)
+            {
+                return true;
+            }
 
-        return false;
+            timelineFill += fTimelineVelocity * Time.deltaTime;
+            //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+
+            return false;
+        }
+
+        else
+        {
+            Debug.Log("stunned");
+            timeStunned -= Time.deltaTime;
+
+            if(timeStunned <= 0)
+            {
+                timelineVelocity = previousVelocity;
+                SetCurrentVelocity();
+                stunned = false;
+                timeStunned = originalTimeStunned;
+            }
+
+            return false;
+        }
+        
     }
 
     //public void DebugThings()

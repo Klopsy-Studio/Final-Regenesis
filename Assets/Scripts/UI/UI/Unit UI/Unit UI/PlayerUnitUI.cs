@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerUnitUI : MonoBehaviour
 {
     public Canvas unitUI;
+    [SerializeField] GameObject actionPointsObject;
+    [SerializeField] GameObject stunIndicator;
     [SerializeField] List<Image> actionPoints;
 
     [SerializeField] List<Image> originalActionPoints;
@@ -24,11 +26,14 @@ public class PlayerUnitUI : MonoBehaviour
         }
     }
 
-
+    public void HideActionPoints()
+    {
+        actionPointsObject.SetActive(false);
+    }
     public void ShowActionPoints()
     {
         previewActionPoints.Clear();
-        unitUI.gameObject.SetActive(true);
+        actionPointsObject.SetActive(true);
 
         if(actionPoints != null)
         {
@@ -50,6 +55,15 @@ public class PlayerUnitUI : MonoBehaviour
 
     }
 
+    public void EnableStun()
+    {
+        stunIndicator.SetActive(true);
+    }
+
+    public void DisableStun()
+    {
+        stunIndicator.SetActive(false);
+    }
     public void PreviewActionCost(int actionCost)
     {
         index = actionPoints.Count - 1;

@@ -20,7 +20,6 @@ public class SelectActionState : BattleState
         owner.tileSelectionToggle.MakeTileSelectionSmall();
         owner.DeactivateTileSelector();
 
-        owner.currentUnit.playerUI.unitUI.gameObject.SetActive(true);
         owner.currentUnit.playerUI.ShowActionPoints();
 
         owner.currentUnit.unitSprite.gameObject.GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 1);

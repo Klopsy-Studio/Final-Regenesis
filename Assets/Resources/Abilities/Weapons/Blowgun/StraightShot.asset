@@ -48,3 +48,7 @@ MonoBehaviour:
   - '2 de rango. '
   - "Da\xF1o del 100% del base. "
   - "Recuperaci\xF3n r\xE1pida. "
+  inAbilityEffects:
+  - effectPlaying: 0
+    effectType: 2
+  postAbilityEffect: []

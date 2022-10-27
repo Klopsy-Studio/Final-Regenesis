@@ -33,11 +33,10 @@ public class TimelineUI : MonoBehaviour
 
     //Not Ideal. Would be better to avoid GetComponent entirely. Simplest solution for a 45 minutes project
     private void Update()
-    {    
+    {
         BalanceAmountOf(iconPrefab, content, battleController.timelineElements.Count);
         TimelineIconUI temp;
 
-        
         for (int i = 0; i < battleController.timelineElements.Count; i++)
         {
             temp = content.GetChild(i).GetComponent<TimelineIconUI>();
@@ -46,8 +45,8 @@ public class TimelineUI : MonoBehaviour
             if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.PlayerUnit)
             {
                 temp.image.sprite = playerFrame;
+                temp.element.GetComponent<PlayerUnit>().timelineIconUI = temp;
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
-
                 offset = 45;
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.EnemyUnit)
@@ -69,7 +68,7 @@ public class TimelineUI : MonoBehaviour
             {
                 temp.image.sprite = itemFrame;
                 temp.icon.sprite = itemIcon;
-                
+
                 offset = 45;
             }
 

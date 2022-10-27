@@ -27,7 +27,7 @@ public class TimeLineState : BattleState
             {
                 if (t == null) { return; }
                 //if (owner.IsInMenu()) continue;
-                
+
                 bool isTimeline = t.UpdateTimeLine();
                 if (isTimeline)
                 {
@@ -70,8 +70,6 @@ public class TimeLineState : BattleState
                         owner.ChangeState<ItemActiveState>();
                         break;
                     }
-                    
-
                 }
                
             }

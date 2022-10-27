@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum TypeOfEffect
 {
-    PushUnit, FallBack
+    PushUnit, FallBack, AddStunValue,
 };
 
 [System.Serializable]
@@ -25,6 +25,10 @@ public class Effect
         m.PushUnit(dir, 1, board);
     }
 
+    public virtual void AddStunValue(Unit target, float value)
+    {
+        target.ApplyStunValue(value);
+    }
     public void FallBack(Unit target, Directions dir, Board board)
     {
         Directions oppositeDirection = dir;

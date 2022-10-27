@@ -52,7 +52,7 @@ public class UseAbilityState : BattleState
             {
                 if (owner.currentTile.content.gameObject.GetComponent<EnemyUnit>() != null && tiles.Contains(owner.currentTile))
                 {
-                    owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                    owner.currentUnit.playerUI.HideActionPoints();
                     StartCoroutine(UseAbilitySequence(owner.currentTile.content.gameObject.GetComponent<EnemyUnit>()));
                 }
             }
@@ -219,6 +219,9 @@ public class UseAbilityState : BattleState
                         break;
                     case TypeOfEffect.FallBack:
                         e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
+                        break;
+                    case TypeOfEffect.AddStunValue:
+                        e.AddStunValue(target, 5);
                         break;
                     default:
                         break;

@@ -48,3 +48,7 @@ MonoBehaviour:
   - 1 casilla de rango.
   - "Da\xF1o del 105% del base. "
   - "Recuperaci\xF3n r\xE1pida. "
+  inAbilityEffects:
+  - effectPlaying: 0
+    effectType: 2
+  postAbilityEffect: []

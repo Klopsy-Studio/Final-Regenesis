@@ -171,8 +171,6 @@ public abstract class Movement : MonoBehaviour
 
     public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
-        
-
         range = pushStrength;
         List<Tile> t = GetTilesInRange(board, true);
         Tile desiredTile = null;
@@ -191,6 +189,11 @@ public abstract class Movement : MonoBehaviour
             {
                 unit.GetComponent<PlayerUnit>().Push();
             }
+        }
+
+        else
+        {
+            unit.Stun();
         }
         
     }

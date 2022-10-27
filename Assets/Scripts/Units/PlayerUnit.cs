@@ -32,7 +32,6 @@ public class PlayerUnit : Unit
 
         playerUI.unitUI.worldCamera = Camera.main;
         playerUI.unitUI.planeDistance = 0.01f;
-        playerUI.unitUI.gameObject.SetActive(false);
 
         didNotMove = true;
         timelineFill = Random.Range(0, 50);
@@ -121,5 +120,49 @@ public class PlayerUnit : Unit
         status.gameObject.SetActive(false);
         playerUI.gameObject.SetActive(false);
         base.Die(battleController);
+    }
+
+    public override void Stun()
+    {
+        base.Stun();
+        timelineIconUI.EnableStun();
+        playerUI.EnableStun();
+        Push();
+        Invoke("Default", 1f);
+    }
+
+    public override bool UpdateTimeLine()
+    {
+        if (!stunned)
+        {
+            if (timelineFill >= timelineFull)
+            {
+                return true;
+            }
+
+            timelineFill += fTimelineVelocity * Time.deltaTime;
+            //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+
+            return false;
+        }
+
+        else
+        {
+            Debug.Log("stunned");
+            timeStunned -= Time.deltaTime;
+
+            if (timeStunned <= 0)
+            {
+                timelineVelocity = previousVelocity;
+                SetCurrentVelocity();
+                stunned = false;
+                timeStunned = originalTimeStunned;
+                playerUI.DisableStun();
+                timelineIconUI.DisableStun();
+            }
+
+            return false;
+        }
+
     }
 }
