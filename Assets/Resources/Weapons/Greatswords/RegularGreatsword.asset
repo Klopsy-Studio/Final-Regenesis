@@ -13,17 +13,16 @@ MonoBehaviour:
   m_Name: RegularGreatsword
   m_EditorClassIdentifier: 
   equipmentName: Greatsword
-  sprite: {fileID: 0}
+  sprite: {fileID: 130452656225014213, guid: b14b7a5d142bf6544a7fec12b629ebb5, type: 3}
   equipmentType: 0
-  elements_Effectiveness: 0
+  elements_Effectiveness: 1
   power: 0
   elementPower: 0
-  elementDefense: 0
   defense: 0
   staminaCost: 30
-  range: 5
+  originalRange: 0
+  range: 0
   Abilities:
   - {fileID: 11400000, guid: 404981b6bdc88314f9cd78516dceb7ee, type: 2}
   - {fileID: 11400000, guid: 56dfaac3ee69b0c4481822ce0ef152c3, type: 2}
   weaponIcon: {fileID: 21300000, guid: 224cf31abff4211428f1a97ec9c0652c, type: 3}
-  weaponName: Regular Greatsword

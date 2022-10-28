@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DisplayEquipmentInventory : MonoBehaviour
 {
     public Weapons a;
-    public Weapons b;
+    public Weapons b;           
     public Weapons c;
 
     public void AddConsumables()
@@ -24,6 +24,7 @@ public class DisplayEquipmentInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("LLAMADA DE INVENTORY");
         CreateDisplay();
     }
 
@@ -34,7 +35,7 @@ public class DisplayEquipmentInventory : MonoBehaviour
         UpdateDisplay();
     }
 
-    private void CreateDisplay()
+    void CreateDisplay()
     {
         
         
@@ -43,11 +44,12 @@ public class DisplayEquipmentInventory : MonoBehaviour
             var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
             equipmentDisplayed.Add(inventory.container[i], obj);
+          
         }
     }
 
 
-    private void UpdateDisplay()
+     void UpdateDisplay()
     {
       
         for (int i = 0; i < inventory.container.Count; i++)

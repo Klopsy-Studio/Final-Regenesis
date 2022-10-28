@@ -40,7 +40,7 @@ public class DisplayConsumableInventory : MonoBehaviour
             var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
             slotPrefabList.Add(obj);
             obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.sprite;
-             obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
+            obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
             consumableDisplayed.Add(inventory.consumableContainer[i], obj);
             if(obj.TryGetComponent(out ConsInventoryButton inventoryButton))
             {
@@ -77,7 +77,7 @@ public class DisplayConsumableInventory : MonoBehaviour
 
             if (slotPrefabList[i].TryGetComponent(out ConsInventoryButton inventoryButton))
             {
-
+                
                 inventoryButton.FillVariables(inventory, i, this);
             }
 

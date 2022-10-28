@@ -12,28 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db29653d73b9564082db6cc51966c84, type: 3}
   m_Name: EquipmentInventory
   m_EditorClassIdentifier: 
-  isDirty: 1
   container:
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
   - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 1e980cf6e30afb146af176cc5d8ad52b, type: 2}
-  - weapon: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
+  - weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
+  - weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TabGroup : MonoBehaviour
+public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES NOT HAVE ITS ORIGINAL PURPOSE
 {
     [SerializeField] public List<TabButton> tabButtons;
     [SerializeField] public TabButton selectedTabButton;
@@ -33,17 +33,40 @@ public class TabGroup : MonoBehaviour
     }
     public void OnTabSelected(TabButton button)
     {
+        
+
         selectedTabButton = button;
         ResetTabs();
         button.image.sprite = tabActive;
         int index = button.transform.GetSiblingIndex();
-        for (int i = 0; i < objectsToSwap.Count; i++)
+
+      
+        if(index == 0)
         {
-            if (i == index)
-                objectsToSwap[i].SetActive(true);
-            else
+            for (int i = 0; i < objectsToSwap.Count; i++)
+            {
                 objectsToSwap[i].SetActive(false);
+                
+            }
+            objectsToSwap[0].SetActive(true);
         }
+        else if(index >0)
+        {
+            for (int i = 0; i < objectsToSwap.Count; i++)
+            {
+                objectsToSwap[i].SetActive(false);
+
+            }
+            objectsToSwap[1].SetActive(true);
+        }
+        //for (int i = 0; i < objectsToSwap.Count; i++)
+        //{
+            
+        //    if (i == index)
+        //        objectsToSwap[i].SetActive(true);
+        //    else
+        //        objectsToSwap[i].SetActive(false);
+        //}
     }
 
     public void ResetTabs()

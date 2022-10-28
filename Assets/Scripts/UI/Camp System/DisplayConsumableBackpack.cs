@@ -43,7 +43,7 @@ public class DisplayConsumableBackpack : MonoBehaviour
             consumableDisplayed.Add(inventory.consumableContainer[i], obj);
             if (obj.TryGetComponent(out ConsBackpackButton inventoryButton))
             {
-                Debug.Log("FUNCIONA TRYGETBUTTON");
+              
                 inventoryButton.FillVariables(inventory, i, this);
             }
 

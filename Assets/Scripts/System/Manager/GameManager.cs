@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public LevelData currentMission;
 
+   /* [HideInInspector] */public UnitProfile[] unitProfilesList;
+
     private void Awake()
     {
         if(instance != null)
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
+       
         DontDestroyOnLoad(this.gameObject);
     }
 

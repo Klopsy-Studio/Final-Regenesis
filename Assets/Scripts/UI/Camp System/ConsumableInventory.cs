@@ -38,7 +38,7 @@ public class ConsumableInventory : ScriptableObject
         }
         //targetInventory.AddConsumable(inventorySlot.consumable, inventorySlotAmount);
         targetInventory.AddConsumable(inventorySlot.consumable, amountToTransfer);
-        displayconsumableInventory.UpdateDisplay();
+        //displayconsumableInventory.UpdateDisplay();
     }
 
     //private void OnApplicationQuit()

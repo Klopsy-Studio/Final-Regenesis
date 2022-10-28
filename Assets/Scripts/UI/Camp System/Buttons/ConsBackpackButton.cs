@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ConsBackpackButton : MonoBehaviour, IPointerClickHandler
+public class ConsBackpackButton : UIButtons
 {
 
     public DisplayConsumableBackpack displayConsumableBackpack;
@@ -17,7 +17,7 @@ public class ConsBackpackButton : MonoBehaviour, IPointerClickHandler
         displayConsumableBackpack = _displayConsumableBackpack;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
         //var inventorySlot = inventory.consumableContainer[consumableID];
         //GameManager.instance.consumableBackpack.AddConsumable(inventorySlot.consumable, inventorySlot.amount);

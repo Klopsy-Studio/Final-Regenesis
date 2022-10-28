@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ConsInventoryButton : MonoBehaviour, IPointerClickHandler
+public class ConsInventoryButton : UIButtons
 {
     public DisplayConsumableInventory displayconsumableInventory;
     public ConsumableInventory inventory;
-     public int consumableID;
+    public int consumableID;
 
     public void FillVariables(ConsumableInventory _inventory, int i, DisplayConsumableInventory _displayconsumableInventory)
     {
         inventory = _inventory;
         consumableID = i;
         displayconsumableInventory = _displayconsumableInventory;
-        Debug.Log("LLAMADO");
+        
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
         //var inventorySlot = inventory.consumableContainer[consumableID];
         //GameManager.instance.consumableBackpack.AddConsumable(inventorySlot.consumable, inventorySlot.amount);

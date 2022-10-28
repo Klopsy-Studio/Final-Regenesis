@@ -35,9 +35,22 @@ public class EquipmentInventory : ScriptableObject
     //}
 
 
-    private void OnEnable()
+    public void TransferEquipmentToUnit(int equipmentID, DisplayEquipmentBunkhouse displayEquipmentBunkhouse, int unitProfileID)
     {
-        
+        //Guardar referencia al viejo arma
+        //Sustituir por el neuvo arma
+        //sustituir UI de armas
+        var weaponSlot = GameManager.instance.equipmentInventory.container[equipmentID];
+        var oldWeapon = GameManager.instance.unitProfilesList[unitProfileID].unitWeapon;
+
+        GameManager.instance.unitProfilesList[unitProfileID].unitWeapon = weaponSlot.weapon;
+        container.Remove(weaponSlot);
+        displayEquipmentBunkhouse.equipmentDisplayed.Remove(weaponSlot);
+
+        displayEquipmentBunkhouse.slotPrefablist[equipmentID].gameObject.SetActive(false);
+        displayEquipmentBunkhouse.slotPrefablist.RemoveAt(equipmentID);
+        GameManager.instance.equipmentInventory.AddItem(oldWeapon);
+
     }
 }
 
