@@ -29,7 +29,7 @@ public class ForgeManager : MonoBehaviour
     public Text powerTxt;
     public Text defenseTxt;
     public Text criticTxt;
-    public Text elementalDefenseTxt;
+    public Text elementEffectiveness;
     //public MaterialRequirement[] materialRequirement;
     
    
@@ -169,7 +169,7 @@ public class ForgeManager : MonoBehaviour
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].power = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Power.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].defense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Defense.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].critic = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.CriticalPercentage.ToString();
-                weaponTreeTemplateList[i].weaponInfoTemplateList[w].elementalDefense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Elements_Effectiveness.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].elementEffectiveness = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Elements_Effectiveness.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].materialRequirement = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].materialsRequired;
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].weaponUpgradeTree = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w];
 
@@ -178,9 +178,6 @@ public class ForgeManager : MonoBehaviour
         }
     }
 
-    public void fillKitName(Text txt)
-    {
-        kitNameTxt.text = txt.text;
-    }
+  
 
 }

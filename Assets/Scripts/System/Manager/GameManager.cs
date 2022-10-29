@@ -8,9 +8,12 @@ public class GameManager : MonoBehaviour
     public MaterialInventory materialInventory;
     public EquipmentInventory equipmentInventory;
     public ConsumableInventory consumableInventory;
+    public ConsumableBackpack consumableBackpack;
     public static GameManager instance;
 
     public LevelData currentMission;
+
+   /* [HideInInspector] */public UnitProfile[] unitProfilesList;
 
     private void Awake()
     {
@@ -22,7 +25,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
+       
         DontDestroyOnLoad(this.gameObject);
     }
 

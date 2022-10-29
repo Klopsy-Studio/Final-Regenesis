@@ -20,7 +20,7 @@ public class UseItemState : BattleState
         owner.isTimeLineActive = false;
         owner.actionSelectionUI.gameObject.SetActive(false);
 
-        currentItem = owner.inventory.ConsumableList[owner.itemChosen].Consumable;
+        currentItem = owner.backpackInventory.consumableContainer[owner.itemChosen].consumable;  
      
         if(currentItem.ConsumableType == ConsumableType.NormalConsumable)
         {
@@ -54,7 +54,7 @@ public class UseItemState : BattleState
 
     IEnumerator Init()
     {
-        owner.inventory.UseConsumable(owner.itemChosen, targetUnit: owner.currentUnit);
+        owner.backpackInventory.UseConsumable(owner.itemChosen, targetUnit: owner.currentUnit);
         yield return null;
         owner.ChangeState<FinishPlayerUnitTurnState>();
     }
@@ -72,7 +72,7 @@ public class UseItemState : BattleState
 
         if (owner.currentTile.content == null)
         {
-            owner.inventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile);
+            owner.backpackInventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile);
             itemUsed = true;
             owner.ChangeState<FinishPlayerUnitTurnState>();
 
@@ -129,7 +129,7 @@ public class UseItemState : BattleState
 
         if (owner.currentTile.content == null && tiles.Contains(owner.currentTile))
         {
-            owner.inventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile, battleController: owner);
+            owner.backpackInventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile, battleController: owner);
             itemUsed = true;
             owner.ChangeState<FinishPlayerUnitTurnState>();
         }

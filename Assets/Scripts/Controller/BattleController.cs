@@ -15,7 +15,9 @@ public class BattleController : StateMachine
     public TileSelectionToggle tileSelectionToggle;
     public GameObject tileSpriteGhostImage;
     public Point pos;
-    public ConsumableInventoryDemo inventory;
+
+    public ConsumableBackpack backpackInventory;
+    //public ConsumableInventoryDemo inventory;
 
     public GameObject heroPrefab;
     public GameObject enemyPrefab;

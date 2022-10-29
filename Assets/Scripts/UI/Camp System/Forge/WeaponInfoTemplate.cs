@@ -17,7 +17,7 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
     [HideInInspector] public string power;
     [HideInInspector] public string defense;
     [HideInInspector] public string critic;
-    [HideInInspector] public string elementalDefense;
+    [HideInInspector] public string elementEffectiveness;
     [HideInInspector] public MaterialRequirement[] materialRequirement;
  
 
@@ -34,7 +34,7 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
         forgeManager.powerTxt.text = power;
         forgeManager.defenseTxt.text = defense;
         forgeManager.criticTxt.text = critic;
-        forgeManager.elementalDefenseTxt.text = elementalDefense;
+        //forgeManager.elementEffectiveness.text = elementEffectiveness;
         //forgeManager.materialRequirement = materialRequirement;
 
 
