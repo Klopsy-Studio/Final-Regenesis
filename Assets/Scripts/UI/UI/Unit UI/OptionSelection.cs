@@ -13,6 +13,8 @@ public class OptionSelection : MonoBehaviour
     
     //Reference to children in scene
     public RectTransform[] options;
+    public RectTransform[] itemAmountText;
+    public Image[] itemImage;
     public RectTransform selector;
 
     [SerializeField] Color defaultColor;
