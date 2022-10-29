@@ -18,12 +18,12 @@ public class SelectItemState : BattleState
         ItemSelectionUI.gameObject.SetActive(true);
 
         //Abilities[] a = owner.currentUnit.weapon.Abilities;
-        List<consumableSlot> a = owner.inventory.ConsumableList;
+        List<ConsumableSlot> a = owner.backpackInventory.consumableContainer;
 
         for (int i = 0; i < owner.itemSelectionUI.options.Length; i++)
         {
 
-            ItemSelectionUI.options[i].GetComponent<Text>().text = a[i].Consumable.ItemName;
+            ItemSelectionUI.options[i].GetComponent<Text>().text = a[i].consumable.ItemName;
 
             //if (owner.currentUnit.stamina < a[i].staminaCost)
             //{
@@ -64,7 +64,7 @@ public class SelectItemState : BattleState
             {
                 //???
                 //currentActionIndex = owner.currentUnit.weapon.Abilities.Length - 1;
-                currentItemIndex = owner.inventory.ConsumableList.Count - 1;
+                currentItemIndex = owner.backpackInventory.consumableContainer.Count - 1;
             }
 
         }
@@ -73,7 +73,7 @@ public class SelectItemState : BattleState
         {
             ItemSelectionUI.MoveForward();
 
-            if (currentItemIndex < owner.inventory.ConsumableList.Count - 1)
+            if (currentItemIndex < owner.backpackInventory.consumableContainer.Count - 1)
             {
                 currentItemIndex++;
             }

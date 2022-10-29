@@ -5,6 +5,37 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "InventorySystem/ConsumableBackpack")]
 public class ConsumableBackpack : ConsumableInventory
 {
+
+    public void UseConsumable(int indexItem, Unit targetUnit = null, Tile tileSpawn = null, BattleController battleController = null)
+    {
+        bool consumableUsed = false;
+        var item = consumableContainer[indexItem].consumable;
+        if (item.ConsumableType == ConsumableType.NormalConsumable)
+        {
+            consumableUsed = consumableContainer[indexItem].consumable.ApplyConsumable(targetUnit);
+        }
+        else if (item.ConsumableType == ConsumableType.TimelineConsumable)
+        {
+            consumableUsed = consumableContainer[indexItem].consumable.ApplyConsumable(tileSpawn, battleController);
+        }
+
+
+        if (consumableUsed)
+        {
+            RemoveConsumable(indexItem);
+        }
+    }
+
+    public void RemoveConsumable(int i)
+    {
+        var consumableItem = consumableContainer[i];
+        consumableItem.amount--;
+        if (consumableItem.amount == 0)
+        {
+            consumableContainer.Remove(consumableItem);
+        }
+    }
+
     public override void AddConsumable(Consumables _consumable, int _amount)
     {
         bool hasConsumable = false;
