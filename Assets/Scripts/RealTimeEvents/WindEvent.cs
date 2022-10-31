@@ -28,6 +28,24 @@ public class WindEvent : RealTimeEvents
         }
 
         fTimelineVelocity = 10;
+
+        switch (direction)
+        {
+            case Directions.North:
+                direction = Directions.East;
+                break;
+            case Directions.East:
+                direction = Directions.South;
+                break;
+            case Directions.South:
+                direction = Directions.West;
+                break;
+            case Directions.West:
+                direction = Directions.North;
+                break;
+            default:
+                break;
+        }
         Invoke("DeactivateWindEffect", 1);
     }
 
