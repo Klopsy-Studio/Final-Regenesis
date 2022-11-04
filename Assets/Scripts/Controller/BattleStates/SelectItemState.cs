@@ -18,14 +18,29 @@ public class SelectItemState : BattleState
         ItemSelectionUI.gameObject.SetActive(true);
 
         //Abilities[] a = owner.currentUnit.weapon.Abilities;
-        List<ConsumableSlot> a = owner.backpackInventory.consumableContainer;
+        List<ConsumableSlot> itemList = owner.backpackInventory.consumableContainer;
 
         for (int i = 0; i < owner.itemSelectionUI.options.Length; i++)
         {
+            var item = itemList[i];
 
-            ItemSelectionUI.options[i].GetComponent<Text>().text = a[i].consumable.ItemName;
-            ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = a[i].amount.ToString();
-            ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = a[i].consumable.sprite;
+            ItemSelectionUI.options[i].GetComponent<Text>().text = itemList[i].consumable.ItemName;
+            ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = itemList[i].amount.ToString();
+            ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = itemList[i].consumable.sprite;
+
+
+            if(item.amount == item.consumable.maxBackPackAmount)
+            {
+                ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.green;
+            }
+            else if(item.amount < item.consumable.maxBackPackAmount)
+            {
+                ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.black;
+            }
+            else if(item.amount > item.consumable.maxBackPackAmount)
+            {
+                ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.red;
+            }
             //if (owner.currentUnit.stamina < a[i].staminaCost)
             //{
             //    AbilitySelectionUI.DisableSelectAbilty(i);
@@ -36,6 +51,7 @@ public class SelectItemState : BattleState
             //}
 
         }
+        
 
         
 
