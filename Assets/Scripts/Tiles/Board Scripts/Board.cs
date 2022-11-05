@@ -225,7 +225,7 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            tiles[i].ChangeTile(tiles[i].movementMaterial);
+            tiles[i].ChangeTile(tiles[i].selectMovementObject);
             tiles[i].selected = true;
         }
     }
@@ -234,7 +234,7 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            tiles[i].ChangeTile(tiles[i].attackMaterial);
+            tiles[i].ChangeTile(tiles[i].selectAttackObject);
             tiles[i].selected = true;
         }
     }
@@ -242,7 +242,7 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            tiles[i].ChangeTile(tiles[i].prevMaterial);
+            tiles[i].ChangeTile(tiles[i].previousObject);
             tiles[i].selected = false;
         }
     }
