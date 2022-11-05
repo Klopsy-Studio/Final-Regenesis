@@ -13,8 +13,6 @@ public class ItemActiveState : BattleState
 
     IEnumerator ItemCoroutine()
     {
-        owner.turnStatusUI.ActivateEnemyTurn();
-        owner.turnStatusUI.DeactivateEnemyTurn();
 
         owner.currentItem.Apply();
 

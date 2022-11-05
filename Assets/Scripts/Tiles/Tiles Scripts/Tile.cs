@@ -117,13 +117,13 @@ public class Tile : MonoBehaviour
             if (currentObject == null)
             {
                 currentObject = newSelection;
-                newSelection.SetActive(true);
+                currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
             }
             else
             {
                 previousObject = currentObject;
-                currentObject.SetActive(false);
-                newSelection.SetActive(true);
+                currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
+                newSelection.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
                 currentObject = newSelection;
             }
         }
@@ -132,7 +132,7 @@ public class Tile : MonoBehaviour
         {
             if(currentObject != null)
             {
-                currentObject.SetActive(false);
+                currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
             }
         }
         
@@ -143,7 +143,7 @@ public class Tile : MonoBehaviour
         if(currentObject != null)
         {
             previousObject = currentObject;
-            currentObject.SetActive(false);
+            currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
             currentObject = null;
         }
     }

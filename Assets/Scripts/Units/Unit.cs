@@ -23,7 +23,6 @@ public class Unit : TimelineElements
     protected float originalTimeStunned;
     protected TimelineVelocity previousVelocity;
 
-    [HideInInspector] public TimelineIconUI timelineIconUI;
     
     public override TimelineVelocity TimelineVelocity
     {

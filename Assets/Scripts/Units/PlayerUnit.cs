@@ -125,7 +125,7 @@ public class PlayerUnit : Unit
     public override void Stun()
     {
         base.Stun();
-        timelineIconUI.EnableStun();
+        iconTimeline.EnableStun();
         playerUI.EnableStun();
         Push();
         Invoke("Default", 1f);
@@ -158,7 +158,7 @@ public class PlayerUnit : Unit
                 stunned = false;
                 timeStunned = originalTimeStunned;
                 playerUI.DisableStun();
-                timelineIconUI.DisableStun();
+                iconTimeline.DisableStun();
             }
 
             return false;

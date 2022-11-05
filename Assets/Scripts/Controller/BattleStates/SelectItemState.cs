@@ -26,6 +26,8 @@ public class SelectItemState : BattleState
             ItemSelectionUI.options[i].GetComponent<Text>().text = a[i].consumable.ItemName;
             ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = a[i].amount.ToString();
             ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = a[i].consumable.sprite;
+
+            ItemSelectionUI.itemImage[i].GetComponent<Image>().SetNativeSize();
             //if (owner.currentUnit.stamina < a[i].staminaCost)
             //{
             //    AbilitySelectionUI.DisableSelectAbilty(i);

@@ -57,6 +57,8 @@ public abstract class TimelineElements : MonoBehaviour
     public bool isTimelineActive;
 
     public Sprite timelineIcon;
+
+    public TimelineIconUI iconTimeline;
     public float GetActionBarPosition()
     {
         return Mathf.Clamp01(timelineFill / timelineFull);

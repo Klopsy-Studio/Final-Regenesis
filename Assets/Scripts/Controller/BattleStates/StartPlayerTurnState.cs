@@ -8,9 +8,7 @@ public class StartPlayerTurnState : BattleState
     {
         base.Enter();
         owner.currentUnit.status.ChangeToBig();
-        owner.turnStatusUI.ActivateBanner();
-        owner.turnStatusUI.PlayerTurn();
-        //StartCoroutine(BeginPlayerTurn());
+        owner.turnStatusUI.ActivateTurn(owner.currentUnit.unitName);
         StartCoroutine(SetStats());
     }
 
@@ -22,28 +20,4 @@ public class StartPlayerTurnState : BattleState
         yield return null;
         owner.ChangeState<SelectActionState>();
     }
-
-    //version anterior
-    //IEnumerator BeginPlayerTurn()
-    //{
-    //    foreach (Unit u in playerUnits)
-    //    {
-    //        if(u.turnEnded)
-    //        {
-    //            u.stamina += 50;
-    //        }
-    //        u.EnableUnit();
-    //        unitsWithActions.Add(u);
-    //    }
-
-    //    tileSelectionIndicator.gameObject.SetActive(true);
-
-    //    owner.turnStatusUI.ActivatePlayerTurn();
-
-    //    yield return new WaitForSeconds(2);
-
-    //    owner.turnStatusUI.DeactivatePlayerTurn();
-    //    yield return null;
-    //    owner.ChangeState<SelectUnitState>();
-    //}
 }
