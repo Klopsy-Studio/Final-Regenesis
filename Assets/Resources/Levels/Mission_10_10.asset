@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 
   position: 0
   rank: 10
-  missionName: New Test
+  missionName: mission 10 10
   type: 0
   monsterImage: {fileID: 0}
   backgroundImage: {fileID: 0}

@@ -21,7 +21,7 @@ public class BunkhouseUnitManager : MonoBehaviour
   
     public void FillUnitVariables(int id)
     {
-       
+        
        
         var unitProfile = GameManager.instance.unitProfilesList[id];
         openSelectWeaponPanel.SetUnitProfileID(id);
