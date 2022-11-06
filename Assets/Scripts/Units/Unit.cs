@@ -9,8 +9,6 @@ using UnityEngine;
 //In the future, we should add stats of the unit
 public class Unit : TimelineElements
 {
-
-
     [Space]
     public Directions dir;
     public Tile tile { get; protected set; }

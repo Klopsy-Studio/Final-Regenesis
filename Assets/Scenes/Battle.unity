@@ -9129,7 +9129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85011359087763216, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.4000244
+      value: 1.3999023
       objectReference: {fileID: 0}
     - target: {fileID: 85011359087763216, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9296,8 +9296,18 @@ PrefabInstance:
       value: -191.82
       objectReference: {fileID: 0}
     - target: {fileID: 3099776044273738177, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Text
+      value: 'Finish
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776044273738177, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776044273738179, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Name
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 3099776044579649436, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_Padding.m_Top

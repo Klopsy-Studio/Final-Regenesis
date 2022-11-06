@@ -16,6 +16,11 @@ public class PlayerUnitUI : MonoBehaviour
     List<Image> previewActionPoints = new List<Image>();
 
 
+    [Header("Sprites")]
+    [SerializeField] Sprite regularActionPointsSprite;
+    [SerializeField] Sprite previewActionPointsSprite;
+    [SerializeField] Sprite spentActionPointsSprite;
+
     int index;
 
     private void Start()
@@ -39,7 +44,7 @@ public class PlayerUnitUI : MonoBehaviour
         {
             foreach (Image i in actionPoints)
             {
-                i.color = Color.white;
+                i.sprite = regularActionPointsSprite;
             }
         }
         
@@ -48,7 +53,7 @@ public class PlayerUnitUI : MonoBehaviour
         {
             foreach (Image i in usedActionPoints)
             {
-                i.color = Color.red;
+                i.sprite = spentActionPointsSprite;
             }
         }
         
@@ -69,7 +74,7 @@ public class PlayerUnitUI : MonoBehaviour
         index = actionPoints.Count - 1;
         for (int i = actionCost; i >0; i--)
         {
-            actionPoints[index].color = Color.red;
+            actionPoints[index].sprite = previewActionPointsSprite;
             previewActionPoints.Add(actionPoints[index]);
             index--;
         }
@@ -83,7 +88,11 @@ public class PlayerUnitUI : MonoBehaviour
             actionPoints.RemoveAt(index);
             index--;
         }
-        usedActionPoints = previewActionPoints;
+
+        foreach(Image i in previewActionPoints)
+        {
+            usedActionPoints.Add(i);
+        }
     }
     public void ResetActionPoints()
     {

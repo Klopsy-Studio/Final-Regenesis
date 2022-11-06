@@ -56,19 +56,22 @@ public class PlayerUnit : Unit
 
     public bool CanMove()
     {
-       
-        return didNotMove;
-        
+        if(didNotMove && actionsPerTurn >= 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }        
     }
 
 
     public bool CanDoAbility()
     {
-       
-
         foreach (Abilities a in weapon.Abilities)
         {
-            if (actionsPerTurn >= (int)a.abilityVelocityCost)
+            if (actionsPerTurn >= a.actionCost)
             {
                 return true;
             }

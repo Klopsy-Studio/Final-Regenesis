@@ -32,7 +32,7 @@ public enum TimelineVelocity
 }
 public abstract class TimelineElements : MonoBehaviour
 {
-    protected int actionsPerTurn;
+    public int actionsPerTurn;
     public virtual int ActionsPerTurn
     {
         get { return actionsPerTurn; }

@@ -25,7 +25,15 @@ public class SelectAbilityState : BattleState
             if(owner.currentUnit.weapon.Abilities[i] != null)
             {
                 AbilitySelectionUI.options[i].gameObject.SetActive(true);
-                AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().canBeSelected = true;
+
+                if (owner.currentUnit.weapon.Abilities[i].CanDoAbility(owner.currentUnit.actionsPerTurn))
+                {
+                    AbilitySelectionUI.EnableSelectAbilty(i);
+                }
+                else
+                {
+                    AbilitySelectionUI.DisableSelectAbilty(i);
+                }
                 AbilitySelectionUI.options[i].GetComponent<Text>().text = abilityList[i].abilityName;
             }
         }
@@ -88,15 +96,16 @@ public class SelectAbilityState : BattleState
 
     protected override void OnSelectAction(object sender, InfoEventArgs<int> e)
     {
+
         owner.attackChosen = e.info;
 
-        if (owner.currentUnit.ActionsPerTurn>= (int)abilityList[e.info].abilityVelocityCost)
+        if (abilityList[owner.attackChosen].CanDoAbility(owner.currentUnit.actionsPerTurn))
         {
-           ActionSelectionUI.gameObject.SetActive(false);
-           owner.ChangeState<UseAbilityState>();
+            ActionSelectionUI.gameObject.SetActive(false);
+            owner.ChangeState<UseAbilityState>();
         }
-            
     }
+
 
     protected override void OnSelectCancelEvent(object sender, InfoEventArgs<int> e)
     {
