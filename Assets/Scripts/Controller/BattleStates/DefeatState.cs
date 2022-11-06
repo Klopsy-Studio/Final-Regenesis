@@ -10,10 +10,4 @@ public class DefeatState : BattleState
         Debug.Log("you lost");
     }
 
-    IEnumerator DefeatCor()
-    {
-        owner.turnStatusUI.ActivateGameOverTurn();
-        yield return new WaitForSeconds(2);
-        owner.turnStatusUI.DeactivateEnemyTurn();
-    }
 }

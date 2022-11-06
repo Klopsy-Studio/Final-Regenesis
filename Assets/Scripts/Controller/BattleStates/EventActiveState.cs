@@ -8,8 +8,7 @@ public class EventActiveState : BattleState
     {
         base.Enter();
         owner.isTimeLineActive = false;
-        owner.turnStatusUI.ActivateBanner();
-        owner.turnStatusUI.EventTurn();
+        owner.turnStatusUI.ActivateTurn("Event");
         StartCoroutine(EventCoroutine());
     }
 

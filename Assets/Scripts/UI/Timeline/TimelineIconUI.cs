@@ -11,6 +11,9 @@ public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public Image icon;
 
+    public Image upSupport;
+    public Image downSupport;
+
     public bool mouseOver;
 
     public Animator iconAnimations;

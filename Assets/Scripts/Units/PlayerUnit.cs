@@ -56,19 +56,22 @@ public class PlayerUnit : Unit
 
     public bool CanMove()
     {
-       
-        return didNotMove;
-        
+        if(didNotMove && actionsPerTurn >= 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }        
     }
 
 
     public bool CanDoAbility()
     {
-       
-
         foreach (Abilities a in weapon.Abilities)
         {
-            if (actionsPerTurn >= (int)a.abilityVelocityCost)
+            if (actionsPerTurn >= a.actionCost)
             {
                 return true;
             }
@@ -125,7 +128,7 @@ public class PlayerUnit : Unit
     public override void Stun()
     {
         base.Stun();
-        timelineIconUI.EnableStun();
+        iconTimeline.EnableStun();
         playerUI.EnableStun();
         Push();
         Invoke("Default", 1f);
@@ -158,7 +161,7 @@ public class PlayerUnit : Unit
                 stunned = false;
                 timeStunned = originalTimeStunned;
                 playerUI.DisableStun();
-                timelineIconUI.DisableStun();
+                iconTimeline.DisableStun();
             }
 
             return false;
