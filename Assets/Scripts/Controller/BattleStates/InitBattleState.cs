@@ -75,9 +75,9 @@ public class InitBattleState : BattleState
        
         foreach (var unit in unitsInGame)
         {
-
             owner.timelineElements.Add(unit);
         }
+
         owner.timelineElements.Add(owner.environmentEvent);
 
     }

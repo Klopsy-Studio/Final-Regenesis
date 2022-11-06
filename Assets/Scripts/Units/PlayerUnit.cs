@@ -26,6 +26,9 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite attackSprite;
     [HideInInspector] public Sprite damageSprite;
     [HideInInspector] public Sprite pushSprite;
+
+    [Header("VFX")]
+    [SerializeField] Animator movementEffect;
     protected override void Start()
     {
         base.Start();
@@ -102,6 +105,10 @@ public class PlayerUnit : Unit
         unitSprite.sprite = pushSprite;
     }
 
+    public void MovementEffect()
+    {
+        movementEffect.SetTrigger("move");
+    }
     public void WeaponOut()
     {
         unitSprite.sprite = weaponSprite;

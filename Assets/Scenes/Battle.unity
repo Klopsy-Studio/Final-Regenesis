@@ -8860,7 +8860,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 195445703, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: direction
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195445703, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: fTimelineVelocity
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 559483210, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_RootOrder
