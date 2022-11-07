@@ -9,20 +9,25 @@ public class MapManager : MonoBehaviour
     [SerializeField] DisplayMapContainers[] displayMapContainerList;
     public MissionInfoPanel missionInfoPanel;
     public AcceptMissionButton acceptMissionButton;
+
+    public Dictionary<LevelData, MissionContainer> allMissionsDictionary = new Dictionary<LevelData, MissionContainer>();
+    public List<MissionContainer> allMisionsList = new List<MissionContainer >();
+   
     private void Start()
     {
         missionInfoPanel.gameObject.SetActive(false);
+
+        //
         foreach (var button in zoneButtons)
         {
             button.FillVariables(this);
         }
 
-        foreach (var displayMapContainerList in displayMapContainerList)
-        {
-            displayMapContainerList.mapManager = this;
-            displayMapContainerList.CreateMissionContainers();
-        }
+
+        SetUpMissions();
+       
     }
+
     public void OpenMapPanelList(int mapSelectorId)
     {
         
@@ -33,6 +38,32 @@ public class MapManager : MonoBehaviour
 
         mapLists[mapSelectorId].SetActive(true);
     }
+
+    public void SetUpMissions()
+    {
+        foreach (var displayMapContainerList in displayMapContainerList)
+        {
+            displayMapContainerList.mapManager = this;
+            displayMapContainerList.CreateMissionContainers();
+        }
+
+        foreach (var mission in allMisionsList)
+        {
+            if (mission.levelData.UnlockableMissions != null && !mission.levelData.hasBeenCompleted)
+            {
+                var unlockableMissions = mission.levelData.UnlockableMissions;
+                for (int i = 0; i < unlockableMissions.Length; i++)
+                {
+                    MissionContainer missionContainer = allMissionsDictionary[unlockableMissions[i]];
+                    missionContainer.gameObject.SetActive(false);
+                    Debug.Log("hoa");
+                }
+            }
+        }
+        //foreach (var displayMapContainer in displayMapContainerList)
+    }
+
+
 
 
    

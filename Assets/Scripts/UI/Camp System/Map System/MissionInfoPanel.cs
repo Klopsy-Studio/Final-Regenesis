@@ -15,4 +15,8 @@ public class MissionInfoPanel : MonoBehaviour
 
     public Button button;
 
+    public void ClosePanel()
+    {
+        this.gameObject.SetActive(false);
+    }
 }

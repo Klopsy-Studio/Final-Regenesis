@@ -15,8 +15,10 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
     string missionName;
     MapManager mapManager;
 
+    //public MissionContainer[] UnlockableMissions;
+
     bool isNew;
-    bool isCompleted;
+   
 
     [SerializeField] string zone;
     [SerializeField] string hazard;
@@ -29,6 +31,9 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
         nameText.text = missionName;
         mapManager = _mapManager;
         missionInfoPanel = mapManager.missionInfoPanel;
+        mapManager.allMissionsDictionary.Add(levelData, this );
+        mapManager.allMisionsList.Add(this);
+
     }
 
     public void OnPointerClick(PointerEventData eventData)
