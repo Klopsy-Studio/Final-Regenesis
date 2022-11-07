@@ -30,8 +30,8 @@ public class MoveSequenceState : BattleState
         //{
         //    yield return null;
         //}
-        
 
+        owner.currentUnit.MovementEffect();
         owner.currentUnit.actionDone = true;
 
         yield return null;

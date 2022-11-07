@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d811aa10f09014b9c77f46fbbd419e, type: 3}
   m_Name: Ola
   m_EditorClassIdentifier: 
-  unitColor: {r: 0.47013897, g: 0.764151, b: 0.31286937, a: 1}
+  unitColor: {r: 1, g: 1, b: 1, a: 1}
   unitName: Ola
   unitPortrait: {fileID: 21300000, guid: 0bb6e7b84c657ba4d91363036a5edd31, type: 3}
   unitFullPortrait: {fileID: 21300000, guid: 4ea23bb2150e7c748a54b6246d0a3163, type: 3}
   unitTimelineIcon: {fileID: 21300000, guid: 8f6cf65b405a90f40ac62f5775f79cc2, type: 3}
-  unitIdle: {fileID: 21300000, guid: fcb56c5d0412fca4e9fcb1ee3d73a35e, type: 3}
-  unitIdleCombat: {fileID: 21300000, guid: c3dd122609577b8468ddafb173cafa44, type: 3}
-  unitHeavyWeapon: {fileID: 21300000, guid: ece1237c1d8c0024f9510b5086e26b00, type: 3}
-  unitLightWeapon: {fileID: 21300000, guid: 71f9ff36f5fe6fb4395e27a02e146e4a, type: 3}
-  unitDamageReaction: {fileID: 21300000, guid: d71648147799d4a4c899d892a5d9b2e7, type: 3}
-  unitTakeOutWeapon: {fileID: 21300000, guid: 17978be78010863468b107d765e6a88c, type: 3}
-  unitPush: {fileID: 21300000, guid: 80f3f5ae84c40094c9365ada4331e7e6, type: 3}
+  unitIdle: {fileID: 21300000, guid: 354c45e4729cf8f43a1008b382b7881e, type: 3}
+  unitIdleCombat: {fileID: 21300000, guid: 5808667184e4863499693dccc2673f42, type: 3}
+  unitHeavyWeapon: {fileID: 21300000, guid: c9ed6c17374f7b140a0810f8436b444d, type: 3}
+  unitLightWeapon: {fileID: 21300000, guid: 6f9e4acfd7bb4e54f9daf0c6df0d2db1, type: 3}
+  unitDamageReaction: {fileID: 21300000, guid: ffbad61e69202d646be7b5b7c1040fc8, type: 3}
+  unitTakeOutWeapon: {fileID: 21300000, guid: ffcc52f1e61a6cb41aa53e32ced10ccb, type: 3}
+  unitPush: {fileID: 21300000, guid: ffbad61e69202d646be7b5b7c1040fc8, type: 3}
   unitWeapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}

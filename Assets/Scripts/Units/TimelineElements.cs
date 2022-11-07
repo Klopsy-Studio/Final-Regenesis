@@ -32,7 +32,7 @@ public enum TimelineVelocity
 }
 public abstract class TimelineElements : MonoBehaviour
 {
-    protected int actionsPerTurn;
+    public int actionsPerTurn;
     public virtual int ActionsPerTurn
     {
         get { return actionsPerTurn; }
@@ -57,6 +57,8 @@ public abstract class TimelineElements : MonoBehaviour
     public bool isTimelineActive;
 
     public Sprite timelineIcon;
+
+    public TimelineIconUI iconTimeline;
     public float GetActionBarPosition()
     {
         return Mathf.Clamp01(timelineFill / timelineFull);

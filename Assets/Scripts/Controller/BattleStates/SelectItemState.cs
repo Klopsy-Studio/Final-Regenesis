@@ -28,7 +28,7 @@ public class SelectItemState : BattleState
             ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = itemList[i].amount.ToString();
             ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = itemList[i].consumable.sprite;
 
-
+            //Only for testing purposes
             if(item.amount == item.consumable.maxBackPackAmount)
             {
                 ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.green;
@@ -41,6 +41,12 @@ public class SelectItemState : BattleState
             {
                 ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.red;
             }
+
+            ItemSelectionUI.options[i].GetComponent<Text>().text = a[i].consumable.ItemName;
+            ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = a[i].amount.ToString();
+            ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = a[i].consumable.sprite;
+
+            ItemSelectionUI.itemImage[i].GetComponent<Image>().SetNativeSize();
             //if (owner.currentUnit.stamina < a[i].staminaCost)
             //{
             //    AbilitySelectionUI.DisableSelectAbilty(i);

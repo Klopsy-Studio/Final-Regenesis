@@ -16,15 +16,24 @@ public class TimelineUI : MonoBehaviour
     [SerializeField] Sprite playerFrame;
     [SerializeField] Sprite enemyFrame;
     [SerializeField] Sprite eventFrame;
+
     [SerializeField] Sprite eventIcon;
     [SerializeField] Sprite itemFrame;
     [SerializeField] Sprite itemIcon;
 
+    [SerializeField] Sprite upSupport;
+    [SerializeField] Sprite downSupport;
 
-    int offset;
+    [SerializeField] Sprite eventSupport;
+
+    public int offset;
+
 
     public TimelineIconUI selectedIcon;
 
+
+    public Image currentActorFrame;
+    public Image currentActorIcon;
     //The bar size. Dependant on size delta. Only works for a static scale object as delta isn't mesured the same way with different anchors.
     private void Start()
     {
@@ -45,31 +54,53 @@ public class TimelineUI : MonoBehaviour
             if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.PlayerUnit)
             {
                 temp.image.sprite = playerFrame;
-                temp.element.GetComponent<PlayerUnit>().timelineIconUI = temp;
+                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
-                offset = 45;
+
+                temp.downSupport.GetComponent<Image>().enabled = true;
+
+                temp.downSupport.sprite = downSupport;
+                offset = 90;
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.EnemyUnit)
             {
+                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+
                 temp.image.sprite = enemyFrame;
 
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
-                offset = -45;
+
+                temp.upSupport.GetComponent<Image>().enabled = true;
+                temp.upSupport.sprite = upSupport;
+
+                offset = -90;
 
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Events)
             {
+                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+
                 temp.image.sprite = eventFrame;
                 temp.icon.sprite = eventIcon;
+                temp.upSupport.GetComponent<Image>().enabled = true;
 
-                offset = 0;
+                temp.upSupport.sprite = eventSupport;
+
+
+                offset = -90;
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Items)
             {
+                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+
                 temp.image.sprite = itemFrame;
                 temp.icon.sprite = itemIcon;
+                temp.upSupport.GetComponent<Image>().enabled = true;
 
-                offset = 45;
+                temp.upSupport.sprite = eventSupport;
+
+
+                offset = -90;
             }
 
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
@@ -130,5 +161,49 @@ public class TimelineUI : MonoBehaviour
 
         selectedIcon = null;
         return false;
+    }
+
+
+    public void ShowIconActing(TimelineElements element)
+    {
+        currentActorFrame.enabled = true;
+        currentActorIcon.enabled = true;
+
+        switch (element.TimelineTypes)
+        {
+            case TimeLineTypes.Null:
+                break;
+            case TimeLineTypes.PlayerUnit:
+                currentActorFrame.sprite = playerFrame;
+                break;
+            case TimeLineTypes.EnemyUnit:
+                currentActorFrame.sprite = enemyFrame;
+                break;
+            case TimeLineTypes.Events:
+                currentActorFrame.sprite = eventFrame;
+                break;
+            case TimeLineTypes.Items:
+                currentActorFrame.sprite = eventFrame;
+                break;
+            default:
+                break;
+        }
+
+        currentActorIcon.sprite = element.timelineIcon;
+    }
+
+    public void HideIconActing()
+    {
+        currentActorFrame.enabled = false;
+        currentActorIcon.enabled = false;
+    }
+    public void HideTimelineIcon(TimelineElements element)
+    {
+        element.iconTimeline.gameObject.SetActive(false);
+    }
+
+    public void ShowTimelineIcon(TimelineElements element)
+    {
+        element.iconTimeline.gameObject.SetActive(true);
     }
 }

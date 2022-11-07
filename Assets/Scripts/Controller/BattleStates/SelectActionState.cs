@@ -20,6 +20,7 @@ public class SelectActionState : BattleState
         owner.tileSelectionToggle.MakeTileSelectionSmall();
         owner.DeactivateTileSelector();
 
+        owner.currentUnit.playerUI.unitUI.gameObject.SetActive(true);
         owner.currentUnit.playerUI.ShowActionPoints();
 
         owner.currentUnit.unitSprite.gameObject.GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 1);
@@ -36,8 +37,7 @@ public class SelectActionState : BattleState
         }
         else
         {
-            ActionSelectionUI.EnableSelectOption(typeOfAction.Move);
-           
+            ActionSelectionUI.EnableSelectOption(typeOfAction.Move);     
         }
 
      
@@ -50,6 +50,14 @@ public class SelectActionState : BattleState
             ActionSelectionUI.EnableSelectOption(typeOfAction.Ability);
         }
 
+        if(owner.currentUnit.actionsPerTurn >= 2)
+        {
+            ActionSelectionUI.EnableSelectOption(typeOfAction.Item);
+        }
+        else
+        {
+            ActionSelectionUI.DisableSelectOption(typeOfAction.Item);
+        }
         //COMPROBAR SI SE UTILIZAR LOS ITEMS, SI NO SE PUEDE, QUE ESTE FADED
     }
 
@@ -148,20 +156,21 @@ public class SelectActionState : BattleState
 
             case 1:
                 Debug.Log("CASE 1");
-                owner.ChangeState<SelectAbilityState>();
-                //if (owner.currentUnit.CanDoAbility())
-                //{
-                //    Debug.Log("CASE 1");
-                //    owner.ChangeState<SelectAbilityState>();
-                //}
-                //OpenAbilityMenu
+
+                if (owner.currentUnit.CanDoAbility())
+                {
+                    owner.ChangeState<SelectAbilityState>();
+                }
                 break;
 
             case 2:
                 Debug.Log("CASE 2");
                 //right now it will change to SelectItemState. That state will select the potion item automatically. 
                 //we should change that in the future
-                owner.ChangeState<SelectItemState>();
+                if(owner.currentUnit.actionsPerTurn >= 2)
+                {
+                    owner.ChangeState<SelectItemState>();
+                }
                 //OpenItemMenu
                 break;
 

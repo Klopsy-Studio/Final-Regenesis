@@ -5,10 +5,18 @@ using UnityEngine;
 public class TimeLineState : BattleState
 {
     [SerializeField] PlayerUnit selectedUnit;
+
+    TimelineElements currentElement;
     public override void Enter()
     {
         base.Enter();
-        owner.turnStatusUI.Disappear();
+        if(currentElement != null)
+        {
+            owner.timelineUI.ShowTimelineIcon(currentElement);
+            currentElement = null;
+        }
+        owner.timelineUI.HideIconActing();
+        owner.turnStatusUI.DeactivateTurn();
     }
 
     private void Update()
@@ -31,6 +39,10 @@ public class TimeLineState : BattleState
                 bool isTimeline = t.UpdateTimeLine();
                 if (isTimeline)
                 {
+                    
+                    currentElement = t;
+                    owner.timelineUI.ShowIconActing(t);
+                    owner.timelineUI.HideTimelineIcon(t);
                     if (t is PlayerUnit p)
                     {
                         AudioManager.instance.Play("TurnStart");
@@ -65,7 +77,7 @@ public class TimeLineState : BattleState
                     if (t is ItemElements w)
                     {
                         owner.currentItem = w;
-                        owner.turnStatusUI.EventTurn();
+                        owner.turnStatusUI.ActivateTurn("Item");
                         SelectTile(owner.currentItem.tile.pos);
                         owner.ChangeState<ItemActiveState>();
                         break;

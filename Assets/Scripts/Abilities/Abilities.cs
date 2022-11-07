@@ -108,6 +108,18 @@ public class Abilities : ScriptableObject
         Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
     }
 
+
+    public bool CanDoAbility(int actionPoints)
+    {
+        if(actionPoints < actionCost)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     public bool CheckUnitInRange(Board board)
     {
         rangeScript.AssignVariables(rangeData);

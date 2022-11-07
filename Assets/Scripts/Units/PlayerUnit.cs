@@ -26,6 +26,9 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite attackSprite;
     [HideInInspector] public Sprite damageSprite;
     [HideInInspector] public Sprite pushSprite;
+
+    [Header("VFX")]
+    [SerializeField] Animator movementEffect;
     protected override void Start()
     {
         base.Start();
@@ -56,19 +59,22 @@ public class PlayerUnit : Unit
 
     public bool CanMove()
     {
-       
-        return didNotMove;
-        
+        if(didNotMove && actionsPerTurn >= 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }        
     }
 
 
     public bool CanDoAbility()
     {
-       
-
         foreach (Abilities a in weapon.Abilities)
         {
-            if (actionsPerTurn >= (int)a.abilityVelocityCost)
+            if (actionsPerTurn >= a.actionCost)
             {
                 return true;
             }
@@ -99,6 +105,10 @@ public class PlayerUnit : Unit
         unitSprite.sprite = pushSprite;
     }
 
+    public void MovementEffect()
+    {
+        movementEffect.SetTrigger("move");
+    }
     public void WeaponOut()
     {
         unitSprite.sprite = weaponSprite;
@@ -125,7 +135,7 @@ public class PlayerUnit : Unit
     public override void Stun()
     {
         base.Stun();
-        timelineIconUI.EnableStun();
+        iconTimeline.EnableStun();
         playerUI.EnableStun();
         Push();
         Invoke("Default", 1f);
@@ -158,7 +168,7 @@ public class PlayerUnit : Unit
                 stunned = false;
                 timeStunned = originalTimeStunned;
                 playerUI.DisableStun();
-                timelineIconUI.DisableStun();
+                iconTimeline.DisableStun();
             }
 
             return false;

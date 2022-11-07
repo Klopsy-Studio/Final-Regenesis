@@ -20,7 +20,6 @@ public class UseAbilityState : BattleState
         owner.isTimeLineActive = false;
         owner.ActivateTileSelector();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
-        currentAbility.SetUnitTimelineVelocityAndActionCost(owner.currentUnit);
 
         owner.currentUnit.playerUI.PreviewActionCost(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
         //tiles = PreviewAbility();
@@ -156,8 +155,9 @@ public class UseAbilityState : BattleState
                         if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
                         {
                             owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
-                            Debug.Log("Attack");
                             owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
+                            currentAbility.SetUnitTimelineVelocityAndActionCost(owner.currentUnit);
+
                             StartCoroutine(UseAbilitySequence(t.content.GetComponent<Unit>()));
                         }
                     }
@@ -170,11 +170,11 @@ public class UseAbilityState : BattleState
 
     protected override void OnEscape(object sender, InfoEventArgs<KeyCode> e)
     {
-        if (!attacking)
-        {
-            SelectTile(owner.currentUnit.currentPoint);
-            owner.ChangeState<SelectAbilityState>();
-        }
+        //if (!attacking)
+        //{
+        //    SelectTile(owner.currentUnit.currentPoint);
+        //    owner.ChangeState<SelectAbilityState>();
+        //}
         
     }
 

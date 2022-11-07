@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField] Renderer model;
 
+    
     public string displayName;
     public GameObject content
     {
@@ -51,8 +52,12 @@ public class Tile : MonoBehaviour
 
     public bool selected;
 
-    [Header("Materials")]
-
+    [Header("Tile Selection")]
+    public GameObject emptySelection;
+    public GameObject selectMovementObject;
+    public GameObject selectAttackObject;
+    GameObject currentObject;
+    [HideInInspector] public GameObject previousObject;
     public Material defaultMaterial;
     [HideInInspector] public Material prevMaterial;
     public Material attackMaterial;
@@ -60,7 +65,10 @@ public class Tile : MonoBehaviour
 
 
 
-
+    private void Start()
+    {
+        currentObject = emptySelection;
+    }
     public void Match() //Matches the values of the variables with the gameObjects transforms values
     {
         transform.localPosition = new Vector3(pos.x, height * stepHeight / 2f, pos.y);
@@ -102,17 +110,42 @@ public class Tile : MonoBehaviour
     }
 
 
-    public void ChangeTile(Material m)
+    public void ChangeTile(GameObject newSelection)
     {
-        prevMaterial = model.material;
+        if(newSelection != null)
+        {
+            if (currentObject == null)
+            {
+                currentObject = newSelection;
+                currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
+            }
+            else
+            {
+                previousObject = currentObject;
+                currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
+                newSelection.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
+                currentObject = newSelection;
+            }
+        }
 
-        model.material = m;
+        else
+        {
+            if(currentObject != null)
+            {
+                currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
+            }
+        }
+        
     }
 
     public void ChangeTileToDefault()
     {
-        prevMaterial = defaultMaterial;
-        model.material = defaultMaterial;
+        if(currentObject != null)
+        {
+            previousObject = currentObject;
+            currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
+            currentObject = null;
+        }
     }
 
     public Tile CheckSurroundings(Board board)
