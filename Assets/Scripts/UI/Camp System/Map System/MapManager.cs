@@ -7,10 +7,11 @@ public class MapManager : MonoBehaviour
     [SerializeField] ZoneButton[] zoneButtons;
     [SerializeField] GameObject[] mapLists;
     [SerializeField] DisplayMapContainers[] displayMapContainerList;
-    [SerializeField] GameObject missionInfoPanel;
+    public MissionInfoPanel missionInfoPanel;
+    public AcceptMissionButton acceptMissionButton;
     private void Start()
     {
-        missionInfoPanel.SetActive(false);
+        missionInfoPanel.gameObject.SetActive(false);
         foreach (var button in zoneButtons)
         {
             button.FillVariables(this);

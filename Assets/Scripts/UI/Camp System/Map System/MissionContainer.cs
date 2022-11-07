@@ -9,7 +9,7 @@ using System.Security;
 //[CreateAssetMenu(menuName = "Mission/Mission Container UI")]
 public class MissionContainer : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] GameObject missionInfoPanel;
+    [SerializeField] MissionInfoPanel missionInfoPanel;
     [SerializeField] Text nameText; 
     public LevelData levelData;
     string missionName;
@@ -27,14 +27,16 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
     {
         missionName = levelData.missionName;
         nameText.text = missionName;
-        mapManager = _mapManager; 
+        mapManager = _mapManager;
+        missionInfoPanel = mapManager.missionInfoPanel;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
 
-        missionInfoPanel.SetActive(true);
-        GameManager.instance.currentMission = levelData;
+        missionInfoPanel.gameObject.SetActive(true);
+        mapManager.acceptMissionButton.missionInfoPanel = missionInfoPanel;
+        mapManager.acceptMissionButton.mission = levelData;
     }
 
     public void AcceptMission()
