@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potion2
   m_EditorClassIdentifier: 
   itemName: Mega Potion
-  sprite: {fileID: 21300000, guid: 2398e9de4e8bd984d9dfff2b84d6d9f8, type: 3}
+  sprite: {fileID: 21300000, guid: 8dbba194a75b8a74ab98b7f9659cb6c2, type: 3}
   consumableType: 0
   maxBackPackAmount: 8
   addHealth: 50
