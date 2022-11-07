@@ -18,7 +18,7 @@ public class SelectAbilityState : BattleState
         AbilitySelectionUI.gameObject.SetActive(true);
         owner.abilitySelectionUI.EnableAbilitySelection();
         abilityList = owner.currentUnit.weapon.Abilities;
-
+        AbilitySelectionUI.ChangeAllAbilitiesToDefault();
 
         for (int i = 0; i < abilityList.Length; i++)
         {

@@ -27,7 +27,7 @@ public class SelectActionState : BattleState
         owner.isTimeLineActive = false;
         owner.moveActionSelector = true;
         owner.actionSelectionUI.gameObject.SetActive(true);
-
+        owner.actionSelectionUI.ChangeAllActionsToDefault();
         owner.actionSelectionUI.EnableActionSelection();
         owner.currentUnit.GetComponent<Movement>().ResetRange();
       

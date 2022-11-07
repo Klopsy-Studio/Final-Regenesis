@@ -63,6 +63,8 @@ public class OptionSelection : MonoBehaviour
     [SerializeField] Button buttonSelectItem1;
     [SerializeField] Button buttonSelectItem2;
     [SerializeField] Button buttonSelectItem3;
+    [SerializeField] Button buttonSelectItem4;
+
 
 
 
@@ -181,6 +183,15 @@ public class OptionSelection : MonoBehaviour
             });
         }
 
+        if (buttonSelectItem4 != null)
+        {
+            buttonSelectItem4.onClick.AddListener(() =>
+            {
+                UIController.instance.ClickConfirm(3);
+            });
+        }
+
+
 
     }
 
@@ -275,7 +286,7 @@ public class OptionSelection : MonoBehaviour
     }
     void MoveSelector(float newPosition)
     {
-        selector.position = new Vector3(selector.position.x, newPosition + +offset, selector.position.z);
+        //selector.position = new Vector3(selector.position.x, newPosition + +offset, selector.position.z);
     }
 
 
@@ -383,5 +394,32 @@ public class OptionSelection : MonoBehaviour
                 ability4.GetComponent<SelectorMovement>().canBeSelected = true;
                 break;
         }
+    }
+
+
+    public void ChangeAllActionsToDefault()
+    {
+        buttonMove.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonAbility.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonItem.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonWait.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonStatus.GetComponent<SelectorMovement>().ChangeToDefault();
+    }
+
+    public void ChangeAllAbilitiesToDefault()
+    {
+        buttonSelectAbility1.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonSelectAbility2.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonSelectAbility3.GetComponent<SelectorMovement>().ChangeToDefault();
+        buttonSelectAbility4.GetComponent<SelectorMovement>().ChangeToDefault();
+    }
+
+    public void ChangeAllItemsToDefault()
+    {
+        item1.GetComponent<SelectorMovement>().ChangeToDefault();
+        item2.GetComponent<SelectorMovement>().ChangeToDefault();
+        item3.GetComponent<SelectorMovement>().ChangeToDefault();
+        item4.GetComponent<SelectorMovement>().ChangeToDefault();
+
     }
 }

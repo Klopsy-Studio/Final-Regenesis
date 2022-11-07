@@ -36,4 +36,12 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
             textButton.color = normalColor;
         }
     }
+
+
+    public void ChangeToDefault()
+    {
+        textButton.color = normalColor;
+
+    }
+
 }

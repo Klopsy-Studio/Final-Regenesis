@@ -15,52 +15,44 @@ public class SelectItemState : BattleState
         {
             ActionSelectionUI.gameObject.SetActive(true);
         }
-        ItemSelectionUI.gameObject.SetActive(true);
 
+        owner.itemSelectionUI.gameObject.SetActive(true);
+        ItemSelectionUI.ChangeAllItemsToDefault();
         //Abilities[] a = owner.currentUnit.weapon.Abilities;
         List<ConsumableSlot> itemList = owner.backpackInventory.consumableContainer;
 
-        for (int i = 0; i < owner.itemSelectionUI.options.Length; i++)
+        for (int i = 0; i < itemList.Count; i++)
         {
             var item = itemList[i];
-
-            ItemSelectionUI.options[i].GetComponent<Text>().text = itemList[i].consumable.ItemName;
-            ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = itemList[i].amount.ToString();
-            ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = itemList[i].consumable.sprite;
+            owner.itemSelectionUI.options[i].gameObject.SetActive(true);
+            owner.itemSelectionUI.options[i].GetComponent<Text>().text = itemList[i].consumable.ItemName;
+            owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().text = itemList[i].amount.ToString();
+            owner.itemSelectionUI.itemImage[i].GetComponent<Image>().sprite = itemList[i].consumable.sprite;
 
             //Only for testing purposes
             if(item.amount == item.consumable.maxBackPackAmount)
             {
-                ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.green;
+                owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.green;
             }
             else if(item.amount < item.consumable.maxBackPackAmount)
             {
-                ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.black;
+                owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.black;
             }
             else if(item.amount > item.consumable.maxBackPackAmount)
             {
-                ItemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.red;
+                owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().color = Color.red;
             }
 
-            ItemSelectionUI.options[i].GetComponent<Text>().text = a[i].consumable.ItemName;
-            ItemSelectionUI.itemAmountText[i].GetComponent<Text>().text = a[i].amount.ToString();
-            ItemSelectionUI.itemImage[i].GetComponent<Image>().sprite = a[i].consumable.sprite;
+            owner.itemSelectionUI.options[i].GetComponent<Text>().text = item.consumable.ItemName;
+            owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().text = item.amount.ToString();
+            owner.itemSelectionUI.itemImage[i].sprite = item.consumable.sprite;
 
-            ItemSelectionUI.itemImage[i].GetComponent<Image>().SetNativeSize();
-            //if (owner.currentUnit.stamina < a[i].staminaCost)
-            //{
-            //    AbilitySelectionUI.DisableSelectAbilty(i);
-            //}
-            //else
-            //{
-            //    AbilitySelectionUI.EnableSelectAbilty(i);
-            //}
+            owner.itemSelectionUI.itemImage[i].SetNativeSize();
+            owner.itemSelectionUI.options[i].GetComponent<SelectorMovement>().canBeSelected = true;
+
 
         }
         
-
-        
-
 
         owner.itemSelectionUI.ResetSelector();
         //Meter ActivarUI
@@ -79,7 +71,7 @@ public class SelectItemState : BattleState
     {
         if (e.info.y >= 1)
         {
-            ItemSelectionUI.MoveBackwards();
+            owner.itemSelectionUI.MoveBackwards();
 
             if (currentItemIndex > 0)
             {
@@ -96,7 +88,7 @@ public class SelectItemState : BattleState
 
         if (e.info.y <= -1)
         {
-            ItemSelectionUI.MoveForward();
+            owner.itemSelectionUI.MoveForward();
 
             if (currentItemIndex < owner.backpackInventory.consumableContainer.Count - 1)
             {
@@ -141,8 +133,8 @@ public class SelectItemState : BattleState
         base.Exit();
         owner.moveItemSelector = false;
         currentItemIndex = 0;
-        ItemSelectionUI.ResetSelector();
-        ItemSelectionUI.gameObject.SetActive(false);
+        owner.itemSelectionUI.ResetSelector();
+        owner.itemSelectionUI.gameObject.SetActive(false);
     }
 
    
