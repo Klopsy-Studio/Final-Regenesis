@@ -17,7 +17,7 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
 
     //public MissionContainer[] UnlockableMissions;
 
-    bool isNew;
+    public bool isNew = true;
    
 
     [SerializeField] string zone;
@@ -25,8 +25,13 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
     [SerializeField] string otherCreature;
     [SerializeField] string money;
     [SerializeField] string items;
+
+    public Image completedIMG;
+    public Image uncompletedIMG;
+    public Image notificationIMG;
     public void FillVariables(MapManager _mapManager)
     {
+        
         missionName = levelData.missionName;
         nameText.text = missionName;
         mapManager = _mapManager;
@@ -38,10 +43,11 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        isNew = false;
         missionInfoPanel.gameObject.SetActive(true);
         mapManager.acceptMissionButton.missionInfoPanel = missionInfoPanel;
         mapManager.acceptMissionButton.mission = levelData;
+        mapManager.UpdateMapManager();
     }
 
     public void AcceptMission()

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DisplayMapContainers : MonoBehaviour
 {
-    [SerializeField] MissionList missionList;
+    public MissionList missionList;
     [SerializeField] GameObject missionPrefab;
     [HideInInspector] public MapManager mapManager;
-    public List<MissionContainer> missionContainerList = new List<MissionContainer>();
- 
+  
+
     public void CreateMissionContainers()
     {
         for (int i = 0; i < missionList.missions.Count; i++)
@@ -19,8 +19,33 @@ public class DisplayMapContainers : MonoBehaviour
             var missionContainer = obj.GetComponent<MissionContainer>();
             missionContainer.levelData = mission;
             missionContainer.FillVariables(mapManager);
-         
-            missionContainerList.Add(missionContainer);
+
+            if (missionContainer.levelData.hasBeenCompleted)
+            {
+                Debug.Log("HAS BEEN COMPLETED");
+                missionContainer.completedIMG.gameObject.SetActive(true);
+                missionContainer.uncompletedIMG.gameObject.SetActive(false);
+            }
+            else
+            {
+                missionContainer.completedIMG.gameObject.SetActive(false);
+                missionContainer.uncompletedIMG.gameObject.SetActive(true);
+            }
+
+            if(missionContainer.isNew)
+            {
+               missionContainer.notificationIMG.gameObject.SetActive(true);
+            }
+            else
+            {
+                missionContainer.notificationIMG.gameObject.SetActive(false);
+            }
+            //missionContainerList.Add(missionContainer);
         }
+    }
+
+    public void UpdateMissionContainers()
+    {
+
     }
 }

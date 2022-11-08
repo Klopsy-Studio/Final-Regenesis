@@ -6,7 +6,7 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] ZoneButton[] zoneButtons;
     [SerializeField] GameObject[] mapLists;
-    [SerializeField] DisplayMapContainers[] displayMapContainerList;
+    public DisplayMapContainers[] displayMapContainerList;
     public MissionInfoPanel missionInfoPanel;
     public AcceptMissionButton acceptMissionButton;
 
@@ -25,8 +25,13 @@ public class MapManager : MonoBehaviour
 
 
         SetUpMissions();
-       
+        foreach (var button in zoneButtons)
+        {
+            button.UpdateNotifications();
+        }
     }
+
+
 
     public void OpenMapPanelList(int mapSelectorId)
     {
@@ -64,7 +69,27 @@ public class MapManager : MonoBehaviour
     }
 
 
-
-
    
+
+    public void UpdateMapManager()
+    {
+        foreach (var mission in allMisionsList)
+        {
+            if (mission.isNew)
+            {
+                mission.notificationIMG.gameObject.SetActive(true);
+            }
+            else
+            {
+                mission.notificationIMG.gameObject.SetActive(false);
+            }
+        }
+
+        foreach (var button in zoneButtons)
+        {
+            button.UpdateNotifications();
+        }
+    }
+
+
 }
