@@ -20,6 +20,8 @@ public class Tile : MonoBehaviour
 
     [SerializeField] Renderer model;
 
+    public SpriteRenderer tileSprite;
+
     
     public string displayName;
     public GameObject content

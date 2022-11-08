@@ -7,15 +7,25 @@ using UnityEditor;
 public class BoardCreatorInspector : Editor
 {
     public bool growOrShrink = true;
-    void AddTileSpawnButton(GameObject[] newTile)
+    void AddTileSpawnButton(TileSpriteData[] data, TileClass tileSpriteType)
     {
-        foreach(GameObject t in newTile)
+        foreach(TileSpriteData d in data)
         {
-            if (GUILayout.Button(t.GetComponent<Tile>().displayName))
+            foreach (SpriteTile S in d.sprites)
             {
-                current.ChangeTileToSpawn(t);
+                if (S.type == tileSpriteType)
+                {
+                    foreach (Sprite s in S.Sprites)
+                    {
+                        if (GUILayout.Button("Choose " + d.name + " " + s.name))
+                        {
+                            current.ChangeTileToSpawn(s);
+                        }
+                    }
+                }
             }
         }
+        
         
     }
 
@@ -49,13 +59,14 @@ public class BoardCreatorInspector : Editor
                 switch (current.TypeOfTile)
                 {
                     case TileType.Placeholder:
-                        AddTileSpawnButton(current.spawner.placeholderTiles);
+                        
                         break;
                     case TileType.Desert:
-                        AddTileSpawnButton(current.spawner.desertTiles);
                         break;
                     case TileType.NonPlayable:
-                        AddTileSpawnButton(current.spawner.nonPlayableTiles);
+                        break;
+                    case TileType.City:
+                        AddTileSpawnButton(current.spawner.cityTiles, current.classOfSprite);
                         break;
                     default:
                         break;
@@ -134,7 +145,6 @@ public class BoardCreatorInspector : Editor
         {
             case EventType.KeyDown:
             {
-
                     if (Event.current.keyCode == KeyCode.W)
                     {
                         current.MoveTileSelectionUpwards();

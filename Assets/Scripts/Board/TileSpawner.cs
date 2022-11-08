@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum TileType
 {
-    Placeholder, Desert, NonPlayable
+    Placeholder, Desert, NonPlayable, City
 };
 public enum DesertType
 {
@@ -20,21 +20,25 @@ public enum ThingToSpawn
 {
     Tiles, Props
 }
+
+
 [System.Serializable]
-public class TileSpawner
+[CreateAssetMenu(menuName = "Tiles/New Tile Spawner")]
+public class TileSpawner : ScriptableObject
+
 {
     //public typeOfTiles TypeToSpawn;
     [Header("Tiles")]
     //Desert
-    public GameObject[] desertTiles;
-
-
+    public Sprite[] desertTiles;
     //Placeholder
-    public GameObject[] placeholderTiles;
+    public Sprite[] placeholderTiles;
 
+    public Sprite[] test;
 
+    public TileSpriteData[] cityTiles;
     //Non Playable
-    public GameObject[] nonPlayableTiles;
+    public Sprite[] nonPlayableTiles;
 
     [Space]
     [Header("Props")]
@@ -43,4 +47,24 @@ public class TileSpawner
     public GameObject[] desertProps;
 
     public GameObject[] parkProps;
+}
+
+[System.Serializable]
+public class TileSpriteData
+{
+    public string name;
+    public TileType type;   
+    public SpriteTile[] sprites;
+}
+
+public enum TileClass
+{
+    Corner, InnerCorner, Sides, Fillers, Misc
+}
+
+[System.Serializable]
+public class SpriteTile
+{
+    public TileClass type;
+    public Sprite[] Sprites;
 }

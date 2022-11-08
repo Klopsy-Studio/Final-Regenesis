@@ -5,6 +5,7 @@ using System;
 
 public class Board : MonoBehaviour //Adjust to new level creation system. Examples: Load our level design, illumination 
 {
+    [SerializeField] GameObject tilePrefab;
     [Header("Tiles")]
     [SerializeField] GameObject[] desertTilesPrefab;
     [SerializeField] GameObject[] placeholderTilesPrefab;
@@ -96,62 +97,79 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     }
     Tile SpawnTile(LevelData data, int i)
     {
-        switch (data.tileData.ToArray()[i].tileType)
+        GameObject instance = Instantiate(tilePrefab) as GameObject;
+        instance.transform.parent = battleController.transform;
+        Tile t = instance.GetComponent<Tile>();
+        t.Load(data.tiles[i]);
+        t.tileSprite.sprite = data.sprites[i];
+
+        if (data.tileData.ToArray()[i].isPlayable)
         {
-            case TileType.Placeholder:
-                GameObject instance = Instantiate(placeholderTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
-                instance.transform.parent = battleController.transform;
-                Tile t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-
-                if (data.tileData.ToArray()[i].isPlayable)
-                {
-                    playableTiles.Add(t.pos, t);
-                }
-
-                else
-                {
-                    nonPlayableTiles.Add(t.pos, t);
-                }
-                return t;
-
-            case TileType.Desert:
-                instance = Instantiate(desertTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
-                instance.transform.parent = battleController.transform;
-                t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-
-                if (data.tileData.ToArray()[i].isPlayable)
-                {
-                    playableTiles.Add(t.pos, t);
-                }
-
-                else
-                {
-                    nonPlayableTiles.Add(t.pos, t);
-                }
-
-                return t;
-
-            case TileType.NonPlayable:
-                instance = Instantiate(nonplayableTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
-                instance.transform.parent = battleController.transform;
-                t = instance.GetComponent<Tile>();
-                t.Load(data.tiles[i]);
-
-                if (data.tileData.ToArray()[i].isPlayable)
-                {
-                    playableTiles.Add(t.pos, t);
-                }
-                else
-                {
-                    nonPlayableTiles.Add(t.pos, t);
-                }
-
-                return t;
-            default:
-                return null;
+            playableTiles.Add(t.pos, t);
         }
+
+        else
+        {
+            nonPlayableTiles.Add(t.pos, t);
+        }
+        return t;
+
+        //switch (data.tileData.ToArray()[i].tileType)
+        //{
+        //    case TileType.Placeholder:
+        //        GameObject instance = Instantiate(placeholderTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
+        //        instance.transform.parent = battleController.transform;
+        //        Tile t = instance.GetComponent<Tile>();
+        //        t.Load(data.tiles[i]);
+
+        //        if (data.tileData.ToArray()[i].isPlayable)
+        //        {
+        //            playableTiles.Add(t.pos, t);
+        //        }
+
+        //        else
+        //        {
+        //            nonPlayableTiles.Add(t.pos, t);
+        //        }
+        //        return t;
+
+        //    case TileType.Desert:
+        //        instance = Instantiate(desertTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
+        //        instance.transform.parent = battleController.transform;
+        //        t = instance.GetComponent<Tile>();
+        //        t.Load(data.tiles[i]);
+
+        //        if (data.tileData.ToArray()[i].isPlayable)
+        //        {
+        //            playableTiles.Add(t.pos, t);
+        //        }
+
+        //        else
+        //        {
+        //            nonPlayableTiles.Add(t.pos, t);
+        //        }
+
+        //        return t;
+
+        //    case TileType.NonPlayable:
+        //        instance = Instantiate(nonplayableTilesPrefab[data.tileData.ToArray()[i].typeIndex]) as GameObject;
+        //        instance.transform.parent = battleController.transform;
+        //        t = instance.GetComponent<Tile>();
+        //        t.Load(data.tiles[i]);
+
+        //        if (data.tileData.ToArray()[i].isPlayable)
+        //        {
+        //            playableTiles.Add(t.pos, t);
+        //        }
+        //        else
+        //        {
+        //            nonPlayableTiles.Add(t.pos, t);
+        //        }
+
+        //        return t;
+        //    default:
+        //        return null;
+        //}
     }
 
     public Dictionary<Point, Tile> GetPlayableDictionary()
