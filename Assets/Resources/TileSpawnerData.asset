@@ -123,6 +123,17 @@ MonoBehaviour:
       - {fileID: 21300000, guid: bce72a8a931b266489b98b15ff000174, type: 3}
       - {fileID: 21300000, guid: 8220f90ffecb44740a624c98156c2cf4, type: 3}
   nonPlayableTiles: []
-  cityProps: []
+  cityProps:
+  - {fileID: 1307419332375427910, guid: 9685b429da347734684dd57a1114764a, type: 3}
+  - {fileID: 1307419332375427910, guid: c8c063caa395ef9488f96ae011ad9d55, type: 3}
+  - {fileID: 1307419332375427910, guid: c8e5069709fc7434bb18da8d1b6f07c5, type: 3}
+  - {fileID: 1307419332375427910, guid: 15c093cb1ae94ae4287ebe86aca3a019, type: 3}
+  - {fileID: 1307419332375427910, guid: 60c5c6e53b5e8f04aa71d0a8659879c1, type: 3}
+  - {fileID: 1307419332375427910, guid: ef0de51d8e377aa42bba7dce7fb820bf, type: 3}
+  - {fileID: 1307419332375427910, guid: 186e8fdfbeb9b214a8262a68b1600931, type: 3}
+  - {fileID: 1307419332375427910, guid: f3082168b9240704caac06d56e376891, type: 3}
+  - {fileID: 1307419332375427910, guid: 447617f2556439e468af8c2b98b46683, type: 3}
+  - {fileID: 1307419332375427910, guid: d4adb659409e2fc49925109cb3ace1ef, type: 3}
+  - {fileID: 1307419332375427910, guid: 1a9bb8337656f7949b96a9066ae2b98e, type: 3}
   desertProps: []
   parkProps: []
