@@ -105,7 +105,7 @@ public class TimelineUI : MonoBehaviour
 
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
             temp.image.SetNativeSize();
-            temp.icon.SetNativeSize();
+            //temp.icon.SetNativeSize();
 
             temp.rectTransform.anchoredPosition = new Vector2(-barSize / 2 + battleController.timelineElements[i].GetActionBarPosition() * barSize, offset);
         }
