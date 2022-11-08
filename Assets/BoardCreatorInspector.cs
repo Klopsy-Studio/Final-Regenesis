@@ -70,7 +70,7 @@ public class BoardCreatorInspector : Editor
         switch (current.thingToSpawn)
         {
             case ThingToSpawn.Tiles:
-                if (current.spriteToSpawn != null)
+                if (current.spriteToSpawn != null && current.canSpawn)
                 {
                     GUI.DrawTexture(current.texturePosition, current.spriteToSpawn.texture);
                     if (!current.makeTilePlayable)
@@ -95,7 +95,7 @@ public class BoardCreatorInspector : Editor
                 }
                 break;
             case ThingToSpawn.Props:
-                if (current.propToSpawn != null)
+                if (current.propToSpawn != null && current.canSpawn)
                 {
                     GUI.DrawTexture(current.texturePosition, current.propToSpawn.GetComponent<Prop>().sprite.sprite.texture);
                     if (!current.doesPropOccupySpace)
