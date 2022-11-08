@@ -17,10 +17,20 @@ public class BoardCreatorInspector : Editor
                 {
                     foreach (Sprite s in S.Sprites)
                     {
-                        if (GUILayout.Button("Choose " + d.name + " " + s.name))
+                        GUILayout.BeginHorizontal();
+                        GUILayout.Space(100f);
+                        if (GUILayout.Button("Choose " + d.name + " " + s.name, GUILayout.MaxHeight(20f), GUILayout.MaxWidth(200f)))
                         {
                             current.ChangeTileToSpawn(s);
                         }
+                        GUILayout.Space(50f);
+
+                        GUILayout.Box(s.texture);
+
+
+                        GUILayout.EndHorizontal();
+                        GUILayout.Space(20f);
+
                     }
                 }
             }
@@ -33,10 +43,15 @@ public class BoardCreatorInspector : Editor
     {
         foreach (GameObject p in newProp)
         {
-            if (GUILayout.Button(p.GetComponent<Prop>().data.displayName))
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button(p.GetComponent<Prop>().data.displayName, GUILayout.MaxHeight(20f), GUILayout.MaxWidth(200f)))
             {
                 current.ChangePropToSpawn(p);
             }
+            GUILayout.Box(p.GetComponent<Prop>().sprite.sprite.texture, GUILayout.MaxHeight(80f), GUILayout.Width(80f));
+
+            GUILayout.EndHorizontal();
+
         }
     }
     public BoardCreator current
@@ -55,7 +70,14 @@ public class BoardCreatorInspector : Editor
         switch (current.thingToSpawn)
         {
             case ThingToSpawn.Tiles:
-
+                if (current.spriteToSpawn != null)
+                {
+                    GUI.DrawTexture(current.texturePosition, current.spriteToSpawn.texture);
+                    if (!current.makeTilePlayable)
+                    {
+                        GUI.DrawTexture(current.texturePosition, current.notPlayableTexture);
+                    }
+                }
                 switch (current.TypeOfTile)
                 {
                     case TileType.Placeholder:
@@ -73,6 +95,14 @@ public class BoardCreatorInspector : Editor
                 }
                 break;
             case ThingToSpawn.Props:
+                if (current.propToSpawn != null)
+                {
+                    GUI.DrawTexture(current.texturePosition, current.propToSpawn.GetComponent<Prop>().sprite.sprite.texture);
+                    if (!current.doesPropOccupySpace)
+                    {
+                        GUI.DrawTexture(current.texturePosition, current.notPlayableTexture);
+                    }
+                }
                 switch (current.TypeOfProp)
                 {
                     case PropType.City:

@@ -135,3 +135,4 @@ MonoBehaviour:
     displayName: Choose Closed Carnivorous Plant
     typeIndex: 1
     occupiesSpace: 0
+  sprite: {fileID: 7925183312028857097}

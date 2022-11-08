@@ -135,3 +135,4 @@ MonoBehaviour:
     displayName: Choose Destroyed Building
     typeIndex: 2
     occupiesSpace: 0
+  sprite: {fileID: 7925183312028857097}

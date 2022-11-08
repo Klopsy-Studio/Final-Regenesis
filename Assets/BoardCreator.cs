@@ -7,9 +7,11 @@ using System.IO;
 public class BoardCreator : MonoBehaviour
 {
     public TileSpawner spawner;
-    Sprite spriteToSpawn;
+    public Rect texturePosition;
+    public Texture notPlayableTexture;
+    [HideInInspector] public Sprite spriteToSpawn;
     public GameObject tilePrefab;
-    GameObject propToSpawn;
+    public GameObject propToSpawn;
     [SerializeField] GameObject tileSelectionIndicatorPrefab;
 
     Transform marker
@@ -34,7 +36,6 @@ public class BoardCreator : MonoBehaviour
     [HideInInspector] public Dictionary<Point, Prop> props = new Dictionary<Point, Prop>();
     [HideInInspector] public List<PropData> propData = new List<PropData>();
 
-
     [Header("Spawn Points")]
     [SerializeField] int howManyPlayers = 2;
     [SerializeField] int howManyEnemies = 1;
@@ -56,7 +57,6 @@ public class BoardCreator : MonoBehaviour
     //WE HAVE TO ADD A NEW METHOD TO UPDATE THE DICTIONARY TILES WHEN WE MOVE A TILE, TO SAVE IT LATER.
 
     [Header("Mission Data Variables")]
-
     [SerializeField] private int position;
     [SerializeField] public int rank;
     [SerializeField] public string missionName;
