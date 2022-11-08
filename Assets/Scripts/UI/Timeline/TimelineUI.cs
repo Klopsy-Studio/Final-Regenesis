@@ -59,8 +59,8 @@ public class TimelineUI : MonoBehaviour
 
                 temp.downSupport.GetComponent<Image>().enabled = true;
 
-                temp.downSupport.sprite = downSupport;
-                offset = 90;
+                temp.downSupport.sprite = upSupport;
+                offset = 70;
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.EnemyUnit)
             {
@@ -71,9 +71,9 @@ public class TimelineUI : MonoBehaviour
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
 
                 temp.upSupport.GetComponent<Image>().enabled = true;
-                temp.upSupport.sprite = upSupport;
+                temp.upSupport.sprite = downSupport;
 
-                offset = -90;
+                offset = -70;
 
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Events)
@@ -82,12 +82,12 @@ public class TimelineUI : MonoBehaviour
 
                 temp.image.sprite = eventFrame;
                 temp.icon.sprite = eventIcon;
-                temp.upSupport.GetComponent<Image>().enabled = true;
+                //temp.upSupport.GetComponent<Image>().enabled = true;
 
-                temp.upSupport.sprite = eventSupport;
+                //temp.upSupport.sprite = eventSupport;
 
 
-                offset = -90;
+                offset = 0;
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Items)
             {
@@ -95,12 +95,12 @@ public class TimelineUI : MonoBehaviour
 
                 temp.image.sprite = itemFrame;
                 temp.icon.sprite = itemIcon;
-                temp.upSupport.GetComponent<Image>().enabled = true;
+                //temp.upSupport.GetComponent<Image>().enabled = true;
 
-                temp.upSupport.sprite = eventSupport;
+                //temp.upSupport.sprite = eventSupport;
 
 
-                offset = -90;
+                offset = 0;
             }
 
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
