@@ -122,6 +122,66 @@ MonoBehaviour:
       - {fileID: 21300000, guid: b8fa365f0ac11214aa0a75b2ec8b837a, type: 3}
       - {fileID: 21300000, guid: bce72a8a931b266489b98b15ff000174, type: 3}
       - {fileID: 21300000, guid: 8220f90ffecb44740a624c98156c2cf4, type: 3}
+  - name: Asphal To Grass
+    type: 3
+    sprites:
+    - type: 0
+      Sprites:
+      - {fileID: 21300000, guid: 63f2d08800e8c434e973c0a406b07d10, type: 3}
+      - {fileID: 21300000, guid: fc85cfdd36d90924cb8b8a2a5b75b55d, type: 3}
+      - {fileID: 21300000, guid: bbc45f3a9f94410499ad1d9d0d056f01, type: 3}
+      - {fileID: 21300000, guid: 02164fa6cb4fb05438b7cf30dc272310, type: 3}
+    - type: 1
+      Sprites:
+      - {fileID: 21300000, guid: b0fa00293fef9f34baec2fdc4916c7f0, type: 3}
+      - {fileID: 21300000, guid: 0544340ada25ac04992913888d65614d, type: 3}
+      - {fileID: 21300000, guid: bddff3881bdfe494b9a70ecebb9ed4be, type: 3}
+      - {fileID: 21300000, guid: 5a7a85cddf64b794ea95a24b1520a5a7, type: 3}
+      - {fileID: 21300000, guid: 0976e57b9fd1b944ab2f9a4d95acc36e, type: 3}
+      - {fileID: 21300000, guid: 9495a8823f9a9ad43b3c2e63cfb02b1e, type: 3}
+      - {fileID: 21300000, guid: 52a3ad9e51fefc045b442a1001fa3b2b, type: 3}
+      - {fileID: 21300000, guid: cd7e57d9034ae6a4299d934c520efcd9, type: 3}
+    - type: 2
+      Sprites:
+      - {fileID: 21300000, guid: 953600164b8f2c84896aa42540e76581, type: 3}
+      - {fileID: 21300000, guid: 9e6e1eb6de37a3c42aea69713e41b4fe, type: 3}
+      - {fileID: 21300000, guid: abbe6afaf5d692f41b4d143597ba0e8f, type: 3}
+      - {fileID: 21300000, guid: 6099f53c0bd1cf0469a549f2c7e0723a, type: 3}
+  - name: Grass To Asphalt
+    type: 3
+    sprites:
+    - type: 0
+      Sprites:
+      - {fileID: 21300000, guid: 297722ac2eff7454796efc733c8286fb, type: 3}
+      - {fileID: 21300000, guid: 99f18e500db914042b3474400ad2e80f, type: 3}
+      - {fileID: 21300000, guid: 7f9128cb4de943847a98c184bfb37da0, type: 3}
+      - {fileID: 21300000, guid: 2baf811d1c8cb6245b9bb81278be3064, type: 3}
+    - type: 1
+      Sprites:
+      - {fileID: 21300000, guid: e80bded94f587944ca1a325a0e4805ee, type: 3}
+      - {fileID: 21300000, guid: d80a7744168de5941b92d1d4b6a31c9c, type: 3}
+      - {fileID: 21300000, guid: 8a2d13a8b35e2404e81939e2a659d22e, type: 3}
+      - {fileID: 21300000, guid: 147105eed51931246983771aff4ffd4d, type: 3}
+      - {fileID: 21300000, guid: f19d0fa7d3f4cdb4caeedb02b3494a34, type: 3}
+      - {fileID: 21300000, guid: 9c87c27367325a54abb228fcf0da12d5, type: 3}
+      - {fileID: 21300000, guid: 706bab09e01f4af45892f0bfcc156ba6, type: 3}
+      - {fileID: 21300000, guid: 3f24dbdf4c778844d96bf0c317aa081d, type: 3}
+    - type: 1
+      Sprites:
+      - {fileID: 21300000, guid: 53f38f858fc56da428fe7c01e4139000, type: 3}
+      - {fileID: 21300000, guid: 6315b3e6d04359640af28793b830b52a, type: 3}
+      - {fileID: 21300000, guid: a8725aadbe2e81b4b9c08d8644999b3a, type: 3}
+      - {fileID: 21300000, guid: 5a7b48a78b2c2a5438fb008f3d54f79b, type: 3}
+      - {fileID: 21300000, guid: 154308e37f8f7424aaadb699fa348719, type: 3}
+      - {fileID: 21300000, guid: 7d94c14179f6b884e99c5a5fc2f0bdd5, type: 3}
+      - {fileID: 21300000, guid: 54c24e0fbfad0754e8b55cdf910ca4af, type: 3}
+      - {fileID: 21300000, guid: e155da7c085b6264da3b3c2c5f86dde6, type: 3}
+    - type: 2
+      Sprites:
+      - {fileID: 21300000, guid: 07cec67054da45c4d8398de54727d6db, type: 3}
+      - {fileID: 21300000, guid: f0c8207d567d48047ad7b76be21b24e0, type: 3}
+      - {fileID: 21300000, guid: 4deb9058a1ce44d4c9edc56be0ed657b, type: 3}
+      - {fileID: 21300000, guid: 239844debd6b5304899972b77eb54bec, type: 3}
   nonPlayableTiles: []
   cityProps:
   - {fileID: 1307419332375427910, guid: 9685b429da347734684dd57a1114764a, type: 3}
