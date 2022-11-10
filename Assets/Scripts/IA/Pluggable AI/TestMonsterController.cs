@@ -31,18 +31,18 @@ public class TestMonsterController : MonsterController
                         lowestHealthUnit = unit;
                     }
                 }
-
-                target = lowestHealthUnit;
+                target.Clear();
+                target.Add(lowestHealthUnit);
             }
 
             else if(random == 1)
             {
-                target = possibleTargets[Random.Range(0, possibleTargets.Count)];
+                target.Add(possibleTargets[Random.Range(0, possibleTargets.Count)]);
             }
         }
         else
         {
-            target = possibleTargets[0];
+            target.Add(possibleTargets[0]);
         }
 
         return attack;
@@ -76,17 +76,17 @@ public class TestMonsterController : MonsterController
                     }
                 }
 
-                target = lowestHealthUnit;
+                target.Add(lowestHealthUnit);
             }
 
             else if (random == 1)
             {
-                target = possibleTargets[Random.Range(0, possibleTargets.Count)];
+                target.Add(possibleTargets[Random.Range(0, possibleTargets.Count)]);
             }
         }
         else
         {
-            target = possibleTargets[0];
+            target.Add(possibleTargets[0]);
         }
 
         return attack;

@@ -13,17 +13,29 @@ public class RandomAttackAction : Action
 
     IEnumerator Attack(MonsterController controller, MonsterAbility ability)
     {
-        Directions dir = controller.currentEnemy.tile.GetDirections(controller.target.tile);
+        Directions dir = controller.currentEnemy.tile.GetDirections(controller.target[0].tile);
         List<Tile> tiles = ability.ShowAttackRange(dir, controller);
+        controller.target.Clear();
+
+        foreach(Tile t in tiles)
+        {
+            if (t.content != null)
+            {
+                if (t.content.GetComponent<PlayerUnit>() != null)
+                {
+                    controller.target.Add(t.content.GetComponent<PlayerUnit>());
+                }
+            }
+        }
         AudioManager.instance.Play("MonsterAttack");
         controller.battleController.board.SelectAttackTiles(tiles);
 
-
-        ability.UseAbility(controller.target, controller.currentEnemy, controller.battleController);
-
-        
-        controller.target.Damage();
-        controller.target.DamageEffect();
+        foreach(PlayerUnit u in controller.target)
+        {
+            ability.UseAbility(u, controller.currentEnemy, controller.battleController);
+            u.Damage();
+            u.DamageEffect();
+        }
 
         controller.monsterAnimations.SetBool(ability.attackTrigger, true);
 
@@ -31,14 +43,18 @@ public class RandomAttackAction : Action
         {
             foreach (Effect e in ability.inAbilityEffects)
             {
-                switch (e.effectType)
+                foreach(PlayerUnit u in controller.target)
                 {
-                    case TypeOfEffect.PushUnit:
-                        e.PushUnit(controller.target, dir, controller.battleController.board);
-                        break;
-                    default:
-                        break;
+                    switch (e.effectType)
+                    {
+                        case TypeOfEffect.PushUnit:
+                            e.PushUnit(u, dir, controller.battleController.board);
+                            break;
+                        default:
+                            break;
+                    }
                 }
+                
             }
         }
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
@@ -57,9 +73,6 @@ public class RandomAttackAction : Action
             {
                 switch (e.effectType)
                 {
-                    case TypeOfEffect.PushUnit:
-                        e.PushUnit(controller.target, dir, controller.battleController.board);
-                        break;
                     case TypeOfEffect.FallBack:
                         e.FallBack(controller.currentEnemy, dir, controller.battleController.board);
                         break;
@@ -75,7 +88,11 @@ public class RandomAttackAction : Action
 
         
         controller.battleController.board.DeSelectDefaultTiles(tiles);
-        controller.target.Default();
+
+        foreach(PlayerUnit u in controller.target)
+        {
+            u.Default();
+        }
 
         controller.validAbilities.Clear();
         OnExit(controller);
