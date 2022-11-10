@@ -31,7 +31,7 @@ public class BoardCreator : MonoBehaviour
     Transform _marker;
 
     [HideInInspector] public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-    [HideInInspector] public List<Tile> tilesScript = new List<Tile>();
+    public List<Tile> tilesScript = new List<Tile>();
 
     [HideInInspector] public Dictionary<Point, Prop> props = new Dictionary<Point, Prop>();
     [HideInInspector] public List<PropData> propData = new List<PropData>();
