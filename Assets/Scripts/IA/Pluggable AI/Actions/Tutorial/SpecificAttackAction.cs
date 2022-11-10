@@ -15,17 +15,17 @@ public class SpecificAttackAction : Action
 
     IEnumerator Attack(MonsterController controller, MonsterAbility ability)
     {
-        Directions dir = controller.currentEnemy.tile.GetDirections(controller.target[Random.Range(0, controller.target.Count)].tile);
+        Directions dir = controller.currentEnemy.tile.GetDirections(controller.target.tile);
         List<Tile> tiles = ability.ShowAttackRange(dir, controller);
 
-        controller.target.Clear();
+        controller.targetsInRange.Clear();
         foreach(Tile t in tiles)
         {
             if(t.content != null)
             {
                 if(t.content.GetComponent<PlayerUnit>() != null)
                 {
-                    controller.target.Add(t.content.GetComponent<PlayerUnit>());
+                    controller.targetsInRange.Add(t.content.GetComponent<PlayerUnit>());
                 }
             }
         }
@@ -33,7 +33,7 @@ public class SpecificAttackAction : Action
 
         controller.battleController.board.SelectAttackTiles(tiles);
 
-        foreach(PlayerUnit u in controller.target)
+        foreach(PlayerUnit u in controller.targetsInRange)
         {
             ability.UseAbility(u, controller.currentEnemy, controller.battleController);
             u.Damage();
@@ -50,7 +50,7 @@ public class SpecificAttackAction : Action
         {
             foreach(Effect e in ability.inAbilityEffects)
             {
-                foreach(PlayerUnit u in controller.target)
+                foreach(PlayerUnit u in controller.targetsInRange)
                 {
                     switch (e.effectType)
                     {
@@ -96,7 +96,7 @@ public class SpecificAttackAction : Action
 
         controller.battleController.board.DeSelectDefaultTiles(tiles);
 
-        foreach(PlayerUnit u in controller.target)
+        foreach(PlayerUnit u in controller.targetsInRange)
         {
             u.Default();
         }

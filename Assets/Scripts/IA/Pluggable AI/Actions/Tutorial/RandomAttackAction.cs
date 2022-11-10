@@ -13,9 +13,9 @@ public class RandomAttackAction : Action
 
     IEnumerator Attack(MonsterController controller, MonsterAbility ability)
     {
-        Directions dir = controller.currentEnemy.tile.GetDirections(controller.target[0].tile);
+        Directions dir = controller.currentEnemy.tile.GetDirections(controller.target.tile);
         List<Tile> tiles = ability.ShowAttackRange(dir, controller);
-        controller.target.Clear();
+        controller.targetsInRange.Clear();
 
         foreach(Tile t in tiles)
         {
@@ -23,14 +23,14 @@ public class RandomAttackAction : Action
             {
                 if (t.content.GetComponent<PlayerUnit>() != null)
                 {
-                    controller.target.Add(t.content.GetComponent<PlayerUnit>());
+                    controller.targetsInRange.Add(t.content.GetComponent<PlayerUnit>());
                 }
             }
         }
         AudioManager.instance.Play("MonsterAttack");
         controller.battleController.board.SelectAttackTiles(tiles);
 
-        foreach(PlayerUnit u in controller.target)
+        foreach(PlayerUnit u in controller.targetsInRange)
         {
             ability.UseAbility(u, controller.currentEnemy, controller.battleController);
             u.Damage();
@@ -43,7 +43,7 @@ public class RandomAttackAction : Action
         {
             foreach (Effect e in ability.inAbilityEffects)
             {
-                foreach(PlayerUnit u in controller.target)
+                foreach(PlayerUnit u in controller.targetsInRange)
                 {
                     switch (e.effectType)
                     {
@@ -89,7 +89,7 @@ public class RandomAttackAction : Action
         
         controller.battleController.board.DeSelectDefaultTiles(tiles);
 
-        foreach(PlayerUnit u in controller.target)
+        foreach(PlayerUnit u in controller.targetsInRange)
         {
             u.Default();
         }

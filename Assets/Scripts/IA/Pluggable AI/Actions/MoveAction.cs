@@ -39,6 +39,7 @@ public class MoveAction : Action
             }
         }
 
+        controller.target = t.GetComponent<PlayerUnit>();
         Movement range = controller.currentEnemy.GetComponent<Movement>();
         range.range = 5;
 
