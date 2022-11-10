@@ -182,6 +182,56 @@ MonoBehaviour:
       - {fileID: 21300000, guid: f0c8207d567d48047ad7b76be21b24e0, type: 3}
       - {fileID: 21300000, guid: 4deb9058a1ce44d4c9edc56be0ed657b, type: 3}
       - {fileID: 21300000, guid: 239844debd6b5304899972b77eb54bec, type: 3}
+  - name: Grass To Stone
+    type: 3
+    sprites:
+    - type: 0
+      Sprites:
+      - {fileID: 3570940443873441829, guid: 7bf38d23172f20f489e4ff2d09d9b3b3, type: 3}
+      - {fileID: -8097042804903481803, guid: 7bf38d23172f20f489e4ff2d09d9b3b3, type: 3}
+      - {fileID: 8309656203732642416, guid: 7bf38d23172f20f489e4ff2d09d9b3b3, type: 3}
+      - {fileID: 414374760042840389, guid: 7bf38d23172f20f489e4ff2d09d9b3b3, type: 3}
+    - type: 1
+      Sprites:
+      - {fileID: 88472312412980094, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: -4460101800821388078, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: -4824694071447950646, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: 3940773916486229764, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: 7165709841074178952, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: -8046224071372672340, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: 4592130927340994034, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+      - {fileID: -8813048190164467874, guid: cbfc64d16373c1d4b9990c11f2ecfbfa, type: 3}
+    - type: 2
+      Sprites:
+      - {fileID: -7352058425436103691, guid: cf6f39739e0233e4ba34bb0d56662fae, type: 3}
+      - {fileID: 6606322139528942633, guid: cf6f39739e0233e4ba34bb0d56662fae, type: 3}
+      - {fileID: -4068507581213998402, guid: cf6f39739e0233e4ba34bb0d56662fae, type: 3}
+      - {fileID: 349215927496739504, guid: cf6f39739e0233e4ba34bb0d56662fae, type: 3}
+  - name: Stone To Grass
+    type: 3
+    sprites:
+    - type: 0
+      Sprites:
+      - {fileID: 3570940443873441829, guid: be037f9f6ca75c94ca1bce6b5602ddc7, type: 3}
+      - {fileID: -8097042804903481803, guid: be037f9f6ca75c94ca1bce6b5602ddc7, type: 3}
+      - {fileID: 8309656203732642416, guid: be037f9f6ca75c94ca1bce6b5602ddc7, type: 3}
+      - {fileID: 414374760042840389, guid: be037f9f6ca75c94ca1bce6b5602ddc7, type: 3}
+    - type: 1
+      Sprites:
+      - {fileID: 88472312412980094, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: -4460101800821388078, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: -4824694071447950646, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: 3940773916486229764, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: 7165709841074178952, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: -8046224071372672340, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: 4592130927340994034, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+      - {fileID: -8813048190164467874, guid: cf6b9aa9314c79047803ec4ee1b624ca, type: 3}
+    - type: 2
+      Sprites:
+      - {fileID: -7352058425436103691, guid: 1eb7b96e8a133644baf56f1b5c08a956, type: 3}
+      - {fileID: 6606322139528942633, guid: 1eb7b96e8a133644baf56f1b5c08a956, type: 3}
+      - {fileID: -4068507581213998402, guid: 1eb7b96e8a133644baf56f1b5c08a956, type: 3}
+      - {fileID: 349215927496739504, guid: 1eb7b96e8a133644baf56f1b5c08a956, type: 3}
   nonPlayableTiles: []
   cityProps:
   - {fileID: 1307419332375427910, guid: 9685b429da347734684dd57a1114764a, type: 3}
