@@ -76,7 +76,7 @@ public class BattleController : StateMachine
     public CinemachineVirtualCamera cinemachineCamera;
     public void BeginGame()
     {
-        cinemachineCamera.m_Lens.NearClipPlane = -1000f;
+        cinemachineCamera.m_Lens.NearClipPlane = -1f;
         AudioManager.instance.Play("Music");
         Destroy(placeholderCanvas.gameObject);
         levelData = GameManager.instance.currentMission;
