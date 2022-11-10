@@ -13,6 +13,11 @@ public class ItemActiveState : BattleState
 
     IEnumerator ItemCoroutine()
     {
+        owner.isTimeLineActive = false;
+        owner.turnStatusUI.IndicateTurnStatus(owner.turnStatusUI.eventTurn);
+        yield return new WaitForSeconds(1f);
+        owner.turnStatusUI.StopTurnStatus();
+        yield return new WaitForSeconds(1f);
 
         owner.currentItem.Apply();
 

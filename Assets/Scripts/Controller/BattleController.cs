@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class BattleController : StateMachine
 {
@@ -71,8 +72,11 @@ public class BattleController : StateMachine
 
     [SerializeField] GameObject placeholderCanvas;
     public GameObject placeholderWinScreen;
+
+    public CinemachineVirtualCamera cinemachineCamera;
     public void BeginGame()
     {
+        cinemachineCamera.m_Lens.NearClipPlane = -1000f;
         AudioManager.instance.Play("Music");
         Destroy(placeholderCanvas.gameObject);
         levelData = GameManager.instance.currentMission;

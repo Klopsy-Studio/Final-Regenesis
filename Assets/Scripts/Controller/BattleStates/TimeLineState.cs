@@ -7,6 +7,9 @@ public class TimeLineState : BattleState
     [SerializeField] PlayerUnit selectedUnit;
 
     TimelineElements currentElement;
+
+    float timer = 2f;
+    bool timerCheck;
     public override void Enter()
     {
         base.Enter();

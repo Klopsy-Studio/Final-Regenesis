@@ -28,7 +28,12 @@ public class StartEnemyTurnState : BattleState
 
     IEnumerator StartEnemyTurnCoroutine()
     {
-        yield return null;
+        owner.isTimeLineActive = false;
+        owner.turnStatusUI.IndicateTurnStatus(owner.turnStatusUI.monsterTurn);
+        yield return new WaitForSeconds(1f);
+        owner.turnStatusUI.StopTurnStatus();
+        yield return new WaitForSeconds(1f);
+
         owner.monsterController.StartMonster(); 
     }
 
