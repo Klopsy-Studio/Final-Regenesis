@@ -12,7 +12,13 @@ public class TurnStatusUI : MonoBehaviour
 
     [SerializeField] Animator turnStatusAnim;
 
+    [SerializeField] Image turn;
+    [SerializeField] Animator turnTypeAnim;
 
+    [Header("Turn Images")]
+    public Sprite playerTurn;
+    public Sprite eventTurn;
+    public Sprite monsterTurn;
     public void ActivateTurn(string turn)
     {
         turnStatusAnim.SetBool("inScreen", true);
@@ -25,4 +31,16 @@ public class TurnStatusUI : MonoBehaviour
 
     }
 
+    public void IndicateTurnStatus(Sprite sprite)
+    {
+        turnTypeAnim.SetTrigger("appear");
+
+        turn.sprite = sprite;
+    }
+    
+    public void StopTurnStatus()
+    {
+        turnTypeAnim.SetTrigger("disappear");
+        turnTypeAnim.SetTrigger("idle");
+    }
 }
