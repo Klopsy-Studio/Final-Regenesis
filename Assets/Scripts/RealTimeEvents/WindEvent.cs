@@ -16,6 +16,9 @@ public class WindEvent : RealTimeEvents
 
     public override void ApplyEffect()
     {
+        direction = Directions.North;
+
+
         windEffect.SetActive(true);
         timelineFill = 10;
         units = battleController.unitsInGame;
@@ -27,25 +30,25 @@ public class WindEvent : RealTimeEvents
             mover.PushUnit(direction, 1, Board);
         }
 
-        fTimelineVelocity = 10;
+        fTimelineVelocity = 60;
 
-        switch (direction)
-        {
-            case Directions.North:
-                direction = Directions.East;
-                break;
-            case Directions.East:
-                direction = Directions.South;
-                break;
-            case Directions.South:
-                direction = Directions.West;
-                break;
-            case Directions.West:
-                direction = Directions.North;
-                break;
-            default:
-                break;
-        }
+        //switch (direction)
+        //{
+        //    case Directions.North:
+        //        direction = Directions.East;
+        //        break;
+        //    case Directions.East:
+        //        direction = Directions.South;
+        //        break;
+        //    case Directions.South:
+        //        direction = Directions.West;
+        //        break;
+        //    case Directions.West:
+        //        direction = Directions.North;
+        //        break;
+        //    default:
+        //        break;
+        //}
         Invoke("DeactivateWindEffect", 1);
     }
 
