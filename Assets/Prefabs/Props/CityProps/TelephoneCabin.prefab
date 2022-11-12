@@ -133,6 +133,6 @@ MonoBehaviour:
   data:
     type: 0
     displayName: Choose Telephone Cabin
-    typeIndex: 7
+    typeIndex: 8
     occupiesSpace: 0
   sprite: {fileID: 7925183312028857097}

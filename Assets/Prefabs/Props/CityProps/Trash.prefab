@@ -133,6 +133,6 @@ MonoBehaviour:
   data:
     type: 0
     displayName: Choose Trash
-    typeIndex: 8
+    typeIndex: 9
     occupiesSpace: 0
   sprite: {fileID: 7925183312028857097}

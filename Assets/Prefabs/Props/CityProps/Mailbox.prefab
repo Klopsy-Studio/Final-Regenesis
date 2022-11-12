@@ -133,6 +133,6 @@ MonoBehaviour:
   data:
     type: 0
     displayName: Choose Mailbox
-    typeIndex: 5
+    typeIndex: 6
     occupiesSpace: 0
   sprite: {fileID: 7925183312028857097}

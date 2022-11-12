@@ -133,6 +133,6 @@ MonoBehaviour:
   data:
     type: 0
     displayName: Choose Bicicle
-    typeIndex: 11
+    typeIndex: 13
     occupiesSpace: 0
   sprite: {fileID: 7925183312028857097}
