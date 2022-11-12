@@ -89,7 +89,7 @@ public class MoveAction : Action
         controller.CallCoroutine(m.SimpleTraverse(closestTile));
 
         controller.monsterAnimations.SetBool("appear", true);
-        AudioManager.instance.Play("MonsterMovement");
+        //AudioManager.instance.Play("MonsterMovement");
 
         yield return new WaitForSeconds(1f);
 

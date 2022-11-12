@@ -15,13 +15,10 @@ public class UnitStatus : MonoBehaviour
     [Space]
     [Header("Unit Status References")]
     
-    [SerializeField] Text bigUnitName;
-    [SerializeField] Slider smallUnitHealth;
-    [SerializeField] Slider bigUnitHealth;
-    [SerializeField] Image smallUnitPortrait;
-    [SerializeField] Image bigUnitPortrait;
-    [SerializeField] Image smallUnitWeapon;
-    [SerializeField] Image bigUnitWeapon;
+    [SerializeField] Text unitName;
+    [SerializeField] Slider unitHealth;
+    [SerializeField] Image unitPortrait;
+    [SerializeField] Image unitWeapon;
 
 
     [Header("Titles")]
@@ -34,22 +31,16 @@ public class UnitStatus : MonoBehaviour
     public void SetUnit(PlayerUnit unit)
     {
         //unitName.text = unit.unitName;
-        smallUnitHealth.maxValue = unit.health.baseValue;
-        smallUnitHealth.value = unit.health.baseValue;
+        unitHealth.maxValue = unit.health.baseValue;
+        unitHealth.value = unit.health.baseValue;
 
-        bigUnitHealth.maxValue = unit.health.baseValue;
-        bigUnitHealth.value = unit.health.baseValue;
 
-        smallUnitPortrait.sprite = unit.unitPortrait;
-        bigUnitPortrait.sprite = unit.unitPortrait;
 
-        //unitSharpness.maxValue = unit.weapon.planticidaPoints;
-        //unitSharpness.value = unit.weapon.planticidaPoints;
+        unitPortrait.sprite = unit.timelineIcon;
 
-        smallUnitWeapon.sprite = unit.weapon.weaponIcon;
-        bigUnitWeapon.sprite = unit.weapon.weaponIcon;
+        unitWeapon.sprite = unit.weapon.weaponIcon;
 
-        bigUnitName.text = unit.unitName;
+        unitName.text = unit.unitName;
 
         unit.status = this;
     }
@@ -62,17 +53,8 @@ public class UnitStatus : MonoBehaviour
 
     public void HealthAnimation(int target)
     {
-        switch (uiStatus)
-        {
-            case StatusMode.Big:
-                StartCoroutine(SliderValueAnimation(bigUnitHealth, target));
-                break;
-            case StatusMode.Small:
-                StartCoroutine(SliderValueAnimation(smallUnitHealth, target));
-                break;
-            default:
-                break;
-        }
+        ChangeToBig();
+        StartCoroutine(SliderValueAnimation(unitHealth, target));
     }
 
     //public void SharpnessAnimation(int target)
@@ -112,8 +94,8 @@ public class UnitStatus : MonoBehaviour
         }
         s.value = targetValue;
 
-        UpdateSliderValue(bigUnitHealth, targetValue);
-        UpdateSliderValue(smallUnitHealth, targetValue);
+        UpdateSliderValue(unitHealth, targetValue);
+        Invoke("ChangeToSmall", 1f);
         updatingValue = false;
     }
          
@@ -122,7 +104,6 @@ public class UnitStatus : MonoBehaviour
         if(uiStatus != StatusMode.Big)
         {
             uiStatus = StatusMode.Big;
-            smallUnitUI.SetActive(false);
             bigUnitUI.SetActive(true);
         }
     }
@@ -132,7 +113,6 @@ public class UnitStatus : MonoBehaviour
         if (uiStatus != StatusMode.Small)
         {
             uiStatus = StatusMode.Small;
-            smallUnitUI.SetActive(true);
             bigUnitUI.SetActive(false);
         }
     }

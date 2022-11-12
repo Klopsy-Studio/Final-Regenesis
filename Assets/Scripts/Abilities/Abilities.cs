@@ -176,16 +176,25 @@ public class Abilities : ScriptableObject
                 break;
         }
     }
-    void CalculateDmg(EnemyUnit enemy)
+    void CalculateDmg(EnemyUnit target)
     {
         float criticalDmg = 1f;
         if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, enemy.Elements_Effectiveness);
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, target.Elements_Effectiveness);
 
 
         finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
     }
 
+    void CalculateDmg(PlayerUnit target)
+    {
+        float criticalDmg = 1f;
+        if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, target.weapon.Elements_Effectiveness);
+
+
+        finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
+    }
     void CalculateHeal()
     {
         //Fill with calculate heal code
@@ -213,7 +222,7 @@ public class Abilities : ScriptableObject
                 }
                 else
                 {
-                    //CalculateDmg();
+                    CalculateDmg(target.GetComponent<PlayerUnit>());
                     target.ReceiveDamage(finalDamage);
 
                     if(target.GetComponent<PlayerUnit>() != null)

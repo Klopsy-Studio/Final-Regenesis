@@ -626,9 +626,9 @@ MonoBehaviour:
     x: 0
     y: 0
   maxHealth:
-    baseValue: 200
+    baseValue: 100
   health:
-    baseValue: 200
+    baseValue: 100
   damage:
     baseValue: 0
   stamina: 100
