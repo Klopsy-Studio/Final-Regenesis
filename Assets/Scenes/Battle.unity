@@ -1783,7 +1783,7 @@ PrefabInstance:
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
-      objectReference: {fileID: 11400000, guid: bcc3963095638fc4692b58d256dedfa1, type: 2}
+      objectReference: {fileID: 11400000, guid: 386e1e3ec37dae140813d2d9514cd07c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
 --- !u!1001 &85011357939115778
@@ -1925,6 +1925,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleController
       objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: tilePrefab
+      value: 
+      objectReference: {fileID: 45075749238876833, guid: 3ae9bf79e0658b248bad5617c9486138, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: 15c093cb1ae94ae4287ebe86aca3a019, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: 60c5c6e53b5e8f04aa71d0a8659879c1, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: ef0de51d8e377aa42bba7dce7fb820bf, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: 186e8fdfbeb9b214a8262a68b1600931, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: f3082168b9240704caac06d56e376891, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: 447617f2556439e468af8c2b98b46683, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: d4adb659409e2fc49925109cb3ace1ef, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: 1a9bb8337656f7949b96a9066ae2b98e, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: a607a0dc86c64d94db32cdcf761663b9, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: 11d8ed7ec66689a4592d455145e879a3, type: 3}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: cityPropsPrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 1307419332375427910, guid: d07b8cd9795c5c04599a7f25ee9f38de, type: 3}
     - target: {fileID: 3895654349311829749, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_IsActive
       value: 0
