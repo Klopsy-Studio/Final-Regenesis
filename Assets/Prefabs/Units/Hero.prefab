@@ -656,7 +656,10 @@ MonoBehaviour:
   attackSprite: {fileID: 0}
   damageSprite: {fileID: 0}
   pushSprite: {fileID: 0}
+  nearDeathSprite: {fileID: 0}
+  deathSprite: {fileID: 0}
   movementEffect: {fileID: 2246286409456321014}
+  nearDeathElement: {fileID: 3939858003233122212, guid: a861d1a67cc412440a66419a54589b01, type: 3}
 --- !u!114 &1364770249159690893
 MonoBehaviour:
   m_ObjectHideFlags: 0

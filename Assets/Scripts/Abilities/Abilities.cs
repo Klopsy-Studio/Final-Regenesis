@@ -222,14 +222,15 @@ public class Abilities : ScriptableObject
                 }
                 else
                 {
-                    CalculateDmg(target.GetComponent<PlayerUnit>());
-                    target.ReceiveDamage(finalDamage);
+                    PlayerUnit u = target.GetComponent<PlayerUnit>();
 
-                    if(target.GetComponent<PlayerUnit>() != null)
+                    CalculateDmg(u);
+                    if (u.ReceiveDamage(finalDamage))
                     {
-                        PlayerUnit u = target.GetComponent<PlayerUnit>();
-                        u.status.HealthAnimation((int)target.health.Value);
+                        u.NearDeath(controller);
                     }
+
+                    u.status.HealthAnimation((int)target.health.Value);
                 }
 
                 break;

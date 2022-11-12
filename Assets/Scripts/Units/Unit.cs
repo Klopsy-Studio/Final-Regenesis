@@ -66,6 +66,8 @@ public class Unit : TimelineElements
     [SerializeField] float stunLimit;
 
     public SpriteRenderer unitSprite;
+
+    
     protected virtual void Start()
     {
         Match();
@@ -180,9 +182,12 @@ public class Unit : TimelineElements
         }
     }
 
+    public virtual void NearDeath(BattleController battleController)
+    {
+
+    }
     public virtual void Die(BattleController battleController)
     {
-        battleController.timelineElements.Remove(this);
         battleController.unitsInGame.Remove(this);
         
         gameObject.SetActive(false);

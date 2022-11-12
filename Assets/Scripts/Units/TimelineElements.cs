@@ -9,6 +9,7 @@ public enum TimeLineTypes
     EnemyUnit,
     Events,
     Items,
+    PlayerDeath
 }
 public enum TimelineVelocity
 {
