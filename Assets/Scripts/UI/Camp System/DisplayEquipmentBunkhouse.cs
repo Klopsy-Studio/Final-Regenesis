@@ -38,7 +38,7 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
         {
             var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
             slotPrefablist.Add(obj);
-            obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
+            obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
             equipmentDisplayed.Add(inventory.container[i], obj);
             if (obj.TryGetComponent(out EquipmentBunkhouseButton button))
             {
@@ -57,7 +57,7 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
             {
                 var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
                 slotPrefablist.Add(obj);
-                obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
+                obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
                 equipmentDisplayed.Add(inventory.container[i], obj);
             }
 
