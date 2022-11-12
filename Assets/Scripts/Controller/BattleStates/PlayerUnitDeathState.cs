@@ -7,6 +7,7 @@ public class PlayerUnitDeathState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.isTimeLineActive = false;
         StartCoroutine(DeathSequence());
     }
 

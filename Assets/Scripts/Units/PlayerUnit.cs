@@ -166,8 +166,10 @@ public class PlayerUnit : Unit
     }
     public override void Die(BattleController battleController)
     {
-        status.gameObject.SetActive(false);
         base.Die(battleController);
+        DeathSprite();
+        status.gameObject.SetActive(false);
+        Destroy(this);
     }
 
     public override void Stun()

@@ -20,6 +20,7 @@ public class TimeLineState : BattleState
         }
         owner.timelineUI.HideIconActing();
         owner.turnStatusUI.DeactivateTurn();
+        owner.isTimeLineActive = true;
     }
 
     private void Update()
