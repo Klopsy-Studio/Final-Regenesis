@@ -85,6 +85,15 @@ public class TimeLineState : BattleState
                         owner.ChangeState<ItemActiveState>();
                         break;
                     }
+
+                    if(t is PlayerUnitDeath r)
+                    {
+                        SelectTile(r.unit.currentPoint);
+                        owner.currentUnit = r.unit;
+                        r.Death(owner);
+                        owner.ChangeState<PlayerUnitDeathState>();
+                        break;
+                    }
                 }
                
             }

@@ -190,7 +190,6 @@ public class Unit : TimelineElements
     {
         battleController.unitsInGame.Remove(this);
         
-        gameObject.SetActive(false);
     }
 
     public virtual void Stun()

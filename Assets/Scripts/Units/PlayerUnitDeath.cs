@@ -6,9 +6,12 @@ public class PlayerUnitDeath : TimelineElements
 {
     public PlayerUnit unit;
 
+    private void Start()
+    {
+        timelineTypes = TimeLineTypes.PlayerDeath;
+    }
     public void Death(BattleController controller)
     {
-        unit.Die(controller);
         controller.timelineElements.Remove(this);
         gameObject.SetActive(false);
     }

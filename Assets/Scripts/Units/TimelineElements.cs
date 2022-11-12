@@ -27,9 +27,6 @@ public enum TimelineVelocity
     Quick,
     VeryQuick,
     TurboFast,
-   
-    
-
 }
 public abstract class TimelineElements : MonoBehaviour
 {
