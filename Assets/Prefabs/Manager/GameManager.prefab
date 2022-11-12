@@ -43,4 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08395d4436bbf43b5bfa2e02ffadfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialInventory: {fileID: 0}
+  equipmentInventory: {fileID: 0}
+  consumableInventory: {fileID: 0}
+  consumableBackpack: {fileID: 0}
   currentMission: {fileID: 0}
+  unitProfilesList:
+  - {fileID: 11400000, guid: 3609f0e1a50e98047b59b4bde7eb0835, type: 2}
+  - {fileID: 11400000, guid: bdf2f419ed9883641978a87198ace31a, type: 2}
+  - {fileID: 11400000, guid: 5d81cf013bfa7a043a0a51e4eb1ad5b8, type: 2}

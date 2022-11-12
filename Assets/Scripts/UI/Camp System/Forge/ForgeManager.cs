@@ -119,6 +119,11 @@ public class ForgeManager : MonoBehaviour
         
     }
 
+    public void CloseForgeManager()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     public void SelectCurrentWeaponInfo(WeaponInfoTemplate value)
     {
         currentWeaponInfoSelected = value;

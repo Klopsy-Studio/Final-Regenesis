@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class EquipmentBunkhouseButton : UIButtons
 {
@@ -9,13 +10,14 @@ public class EquipmentBunkhouseButton : UIButtons
     public EquipmentInventory inventory;
     public int equipmentID;
     private int unitProfileID;
-
+    public Image weaponImage;
   
     public void FillVariables(EquipmentInventory _inventory, int i, DisplayEquipmentBunkhouse _displayEquipmentBunkhouse)
     {
         inventory = _inventory;
         equipmentID = i;
         displayEquipmentBunkhouse = _displayEquipmentBunkhouse;
+        weaponImage.sprite = inventory.container[equipmentID].weapon.Sprite;
 
     }
     public void SetUnitProfileID(int id)
