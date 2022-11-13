@@ -26,4 +26,18 @@ MonoBehaviour:
   unitPush: {fileID: 21300000, guid: 80f3f5ae84c40094c9365ada4331e7e6, type: 3}
   nearDeath: {fileID: -287292731475943535, guid: 1e67c88e7a803c54396cc659fcdbf629, type: 3}
   death: {fileID: 6933943989856913738, guid: 5be8a8a67b416a54f98890c58ce8e696, type: 3}
+  hammerPositions:
+    savedPosition: {x: 0.179, y: 0.444, z: 0.03}
+    savedRotation: {x: 37.678, y: 37.678, z: -58.396}
+    idlePosition: {x: 0, y: 0, z: 0}
+    idleRotation: {x: 0, y: 0, z: 0}
+    attackPosition: {x: 0, y: 0, z: 0}
+    attackRotation: {x: 0, y: 0, z: 0}
+  slingshotPositions:
+    savedPosition: {x: 0, y: 0, z: 0}
+    savedRotation: {x: 0, y: 0, z: 0}
+    idlePosition: {x: 0, y: 0, z: 0}
+    idleRotation: {x: 0, y: 0, z: 0}
+    attackPosition: {x: 0, y: 0, z: 0}
+    attackRotation: {x: 0, y: 0, z: 0}
   unitWeapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}

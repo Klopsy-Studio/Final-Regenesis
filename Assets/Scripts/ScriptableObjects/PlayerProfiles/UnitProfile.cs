@@ -27,6 +27,26 @@ public class UnitProfile : ScriptableObject
     public Sprite death;
 
 
+    [Header("Weapon Sprites Data")]
+
+    public WeaponSpriteData hammerPositions;
+    public WeaponSpriteData slingshotPositions;
+
     [Header("Equipment")]
     public Weapons unitWeapon;
+}
+
+[System.Serializable]
+public class WeaponSpriteData
+{
+    public Vector3 savedPosition;
+    public Vector3 savedRotation;
+    [Space]
+    public Vector3 idlePosition;
+    public Vector3 idleRotation;
+    [Space]
+
+    public Vector3 attackPosition;
+    public Vector3 attackRotation;
+
 }

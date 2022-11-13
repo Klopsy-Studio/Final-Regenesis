@@ -27,19 +27,14 @@ public class Weapons : Equipment
     public int originalRange;
     [HideInInspector] public int range;
 
-
-
-
-
-
-
-
     public Abilities[] Abilities;
 
+    public Sprite weaponSprite;
+
+    
     public Sprite weaponIcon;
     public override void EquipItem(Unit c)
     {
-
         c.damage = power;
     }
 

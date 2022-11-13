@@ -29,6 +29,8 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite nearDeathSprite;
     [HideInInspector] public Sprite deathSprite;
 
+
+    
     [Header("VFX")]
     [SerializeField] Animator movementEffect;
 
