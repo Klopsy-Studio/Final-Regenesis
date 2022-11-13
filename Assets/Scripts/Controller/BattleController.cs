@@ -68,7 +68,7 @@ public class BattleController : StateMachine
     [HideInInspector] public bool moveAbilitySelector = false;
     [HideInInspector] public bool moveItemSelector = false;
 
-    [HideInInspector] public List<TimelineElements> timelineElements;
+    public List<TimelineElements> timelineElements;
 
     [SerializeField] GameObject placeholderCanvas;
     public GameObject placeholderWinScreen;

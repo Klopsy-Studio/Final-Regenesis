@@ -22,7 +22,9 @@ public class UnitProfile : ScriptableObject
     public Sprite unitLightWeapon;
     public Sprite unitDamageReaction;
     public Sprite unitTakeOutWeapon;
-    public Sprite unitPush; 
+    public Sprite unitPush;
+    public Sprite nearDeath;
+    public Sprite death;
 
 
     [Header("Equipment")]

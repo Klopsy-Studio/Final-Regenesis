@@ -40,7 +40,6 @@ public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         mouseOver = false;
         Return();
     }
-
     public void Grow()
     {
         iconAnimations.SetBool("isGrow", true);

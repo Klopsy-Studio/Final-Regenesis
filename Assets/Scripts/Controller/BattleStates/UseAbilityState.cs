@@ -196,15 +196,7 @@ public class UseAbilityState : BattleState
         attacking = true;
 
         currentAbility.UseAbility(target, owner);
-        if (target == owner.currentUnit)
-        {
-            owner.currentUnit.Default();
-        }
-        else
-        {
-            owner.currentUnit.Default();
-            target.Default();
-        }
+
 
         ActionEffect.instance.Play(currentAbility.cameraSize, currentAbility.effectDuration, currentAbility.shakeIntensity, currentAbility.shakeDuration);
 
@@ -239,7 +231,14 @@ public class UseAbilityState : BattleState
         {
             AudioManager.instance.Play("HunterAttack");
             owner.currentUnit.Attack();
-            target.Damage();       
+
+            if(target.GetComponent<PlayerUnit>()!= null)
+            {
+                if (!target.GetComponent<PlayerUnit>().isNearDeath)
+                {
+                    target.Damage();
+                }
+            }
         }
 
         while (ActionEffect.instance.play)
@@ -249,7 +248,13 @@ public class UseAbilityState : BattleState
 
         owner.currentUnit.actionDone = true;
 
-        target.Default();
+        if (target.GetComponent<PlayerUnit>() != null)
+        {
+            if (!target.GetComponent<PlayerUnit>().isNearDeath)
+            {
+                target.Default();
+            }
+        }
 
         foreach (Effect e in currentAbility.postAbilityEffect)
         {
@@ -283,15 +288,6 @@ public class UseAbilityState : BattleState
                 }
             }
 
-            else if(target.GetComponent<PlayerUnit>() != null)
-            {
-                owner.playerUnits.Remove(target);
-
-                if(owner.playerUnits == null)
-                {
-                    //Change to lose state
-                }
-            }
         }
 
         else

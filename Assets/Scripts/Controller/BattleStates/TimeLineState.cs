@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeLineState : BattleState
 {
@@ -20,13 +21,16 @@ public class TimeLineState : BattleState
         }
         owner.timelineUI.HideIconActing();
         owner.turnStatusUI.DeactivateTurn();
+        owner.isTimeLineActive = true;
     }
 
     private void Update()
     {
         if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse())
         {
-            if(selectedUnit != null)
+            Debug.Log("in timeline");
+
+            if (selectedUnit != null)
             {
                 selectedUnit.status.ChangeToSmall();
                 selectedUnit = null;
@@ -40,9 +44,9 @@ public class TimeLineState : BattleState
                 //if (owner.IsInMenu()) continue;
 
                 bool isTimeline = t.UpdateTimeLine();
+
                 if (isTimeline)
                 {
-                    
                     currentElement = t;
                     owner.timelineUI.ShowIconActing(t);
                     owner.timelineUI.HideTimelineIcon(t);
@@ -83,6 +87,14 @@ public class TimeLineState : BattleState
                         owner.turnStatusUI.ActivateTurn("Item");
                         SelectTile(owner.currentItem.tile.pos);
                         owner.ChangeState<ItemActiveState>();
+                        break;
+                    }
+
+                    if(t is PlayerUnitDeath r)
+                    {
+                        SelectTile(r.unit.currentPoint);
+                        owner.currentUnit = r.unit;
+                        owner.ChangeState<PlayerUnitDeathState>();
                         break;
                     }
                 }

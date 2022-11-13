@@ -176,16 +176,25 @@ public class Abilities : ScriptableObject
                 break;
         }
     }
-    void CalculateDmg(EnemyUnit enemy)
+    void CalculateDmg(EnemyUnit target)
     {
         float criticalDmg = 1f;
         if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, enemy.Elements_Effectiveness);
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, target.Elements_Effectiveness);
 
 
         finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
     }
 
+    void CalculateDmg(PlayerUnit target)
+    {
+        float criticalDmg = 1f;
+        if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, target.weapon.Elements_Effectiveness);
+
+
+        finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
+    }
     void CalculateHeal()
     {
         //Fill with calculate heal code
@@ -213,14 +222,15 @@ public class Abilities : ScriptableObject
                 }
                 else
                 {
-                    //CalculateDmg();
-                    target.ReceiveDamage(finalDamage);
+                    PlayerUnit u = target.GetComponent<PlayerUnit>();
 
-                    if(target.GetComponent<PlayerUnit>() != null)
+                    CalculateDmg(u);
+                    if (u.ReceiveDamage(finalDamage))
                     {
-                        PlayerUnit u = target.GetComponent<PlayerUnit>();
-                        u.status.HealthAnimation((int)target.health.Value);
+                        u.NearDeath(controller);
                     }
+
+                    u.status.HealthAnimation((int)target.health);
                 }
 
                 break;
@@ -233,7 +243,13 @@ public class Abilities : ScriptableObject
                 if (target.GetComponent<PlayerUnit>() != null)
                 {
                     PlayerUnit u = target.GetComponent<PlayerUnit>();
-                    u.status.HealthAnimation((int)target.health.Value);
+
+                    if (u.isNearDeath)
+                    {
+                        u.Revive(controller);
+                        u.Default();
+                    }
+                    u.status.HealthAnimation((int)target.health);
                 }
                 break;
             case EffectType.Buff:

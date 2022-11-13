@@ -214,13 +214,10 @@ public class MonsterAbility : ScriptableObject
         CalculateDmg(enemy, target);
         if (target.ReceiveDamage(finalDamage))
         {
-            target.Die(controller);
+            target.NearDeath(controller);
         }
 
-        else
-        {
-            target.status.HealthAnimation((int)target.health.Value);
-        }
+        target.status.HealthAnimation((int)target.health);
     }
 
     void CalculateDmg(EnemyUnit enemy, PlayerUnit target)

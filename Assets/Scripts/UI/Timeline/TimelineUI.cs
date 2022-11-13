@@ -103,6 +103,20 @@ public class TimelineUI : MonoBehaviour
                 offset = 0;
             }
 
+            else if(battleController.timelineElements[i].TimelineTypes == TimeLineTypes.PlayerDeath)
+            {
+                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+
+                temp.image.sprite = itemFrame;
+                temp.icon.sprite = itemIcon;
+                //temp.upSupport.GetComponent<Image>().enabled = true;
+
+                //temp.upSupport.sprite = eventSupport;
+
+
+                offset = 0;
+            }
+
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
             temp.image.SetNativeSize();
             //temp.icon.SetNativeSize();

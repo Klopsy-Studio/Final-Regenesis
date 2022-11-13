@@ -16,7 +16,7 @@ MonoBehaviour:
   unitName: Ola
   unitPortrait: {fileID: 21300000, guid: 0bb6e7b84c657ba4d91363036a5edd31, type: 3}
   unitFullPortrait: {fileID: 21300000, guid: 4ea23bb2150e7c748a54b6246d0a3163, type: 3}
-  unitTimelineIcon: {fileID: 21300000, guid: 8f6cf65b405a90f40ac62f5775f79cc2, type: 3}
+  unitTimelineIcon: {fileID: 21300000, guid: ec298b3feb897684496df21b7b202aee, type: 3}
   unitIdle: {fileID: 21300000, guid: 354c45e4729cf8f43a1008b382b7881e, type: 3}
   unitIdleCombat: {fileID: 21300000, guid: 5808667184e4863499693dccc2673f42, type: 3}
   unitHeavyWeapon: {fileID: 21300000, guid: c9ed6c17374f7b140a0810f8436b444d, type: 3}
@@ -24,4 +24,6 @@ MonoBehaviour:
   unitDamageReaction: {fileID: 21300000, guid: ffbad61e69202d646be7b5b7c1040fc8, type: 3}
   unitTakeOutWeapon: {fileID: 21300000, guid: ffcc52f1e61a6cb41aa53e32ced10ccb, type: 3}
   unitPush: {fileID: 21300000, guid: ffbad61e69202d646be7b5b7c1040fc8, type: 3}
+  nearDeath: {fileID: -7286005377156774248, guid: 04fcb15a6ed4fa847837fd8369eb3119, type: 3}
+  death: {fileID: 862411406684824922, guid: 9ec9dcb434f977e468ea9f5e9b43ef39, type: 3}
   unitWeapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}

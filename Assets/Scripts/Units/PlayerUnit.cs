@@ -26,9 +26,17 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite attackSprite;
     [HideInInspector] public Sprite damageSprite;
     [HideInInspector] public Sprite pushSprite;
+    [HideInInspector] public Sprite nearDeathSprite;
+    [HideInInspector] public Sprite deathSprite;
 
     [Header("VFX")]
     [SerializeField] Animator movementEffect;
+
+    [Header("Unit Death")]
+    public PlayerUnitDeath nearDeathElement;
+    public PlayerUnitDeath deathElement;
+
+    [HideInInspector] public bool isNearDeath;
     protected override void Start()
     {
         base.Start();
@@ -49,11 +57,10 @@ public class PlayerUnit : Unit
     public void EquipAllItems()
     {
         if (weapon == null) { return; }
-        health.baseValue = 100;
+        health = 100;
 
         
         weapon.EquipItem(this);
-        maxHealth.baseValue = health.Value;
 
     }
 
@@ -83,6 +90,15 @@ public class PlayerUnit : Unit
         return false;
     }
 
+    public void NearDeathSprite()
+    {
+        unitSprite.sprite = nearDeathSprite;
+    }
+
+    public void DeathSprite()
+    {
+        unitSprite.sprite = deathSprite;
+    }
     public override void Damage()
     {
         base.Damage();
@@ -114,7 +130,10 @@ public class PlayerUnit : Unit
         unitSprite.sprite = weaponSprite;
         Invoke("Combat", 0.1f);
     }
-
+    public void DeathsDoor()
+    {
+        unitSprite.sprite = nearDeathSprite;
+    }
     public void WeaponIn()
     {
         unitSprite.sprite = weaponSprite;
@@ -125,11 +144,33 @@ public class PlayerUnit : Unit
         unitSprite.sprite = combatSprite;
     }
 
+    public override void NearDeath(BattleController battleController)
+    {
+        NearDeathSprite();
+        PlayerUnitDeath element = Instantiate(nearDeathElement);
+        isNearDeath = true;
+        deathElement = element;
+        deathElement.unit = this;
+        battleController.timelineElements.Add(element);
+        iconTimeline.gameObject.SetActive(false);
+        timelineTypes = TimeLineTypes.Null;
+    }
+
+    public void Revive(BattleController battleController)
+    {
+        deathElement.DisableDeath(battleController);
+        playerUI.gameObject.SetActive(true);
+        timelineFill = 0;
+        iconTimeline.gameObject.SetActive(true);
+        isNearDeath = false;
+        timelineTypes = TimeLineTypes.PlayerUnit;
+    }
     public override void Die(BattleController battleController)
     {
-        status.gameObject.SetActive(false);
-        playerUI.gameObject.SetActive(false);
         base.Die(battleController);
+        DeathSprite();
+        status.gameObject.SetActive(false);
+        isDead = true;
     }
 
     public override void Stun()
@@ -143,36 +184,45 @@ public class PlayerUnit : Unit
 
     public override bool UpdateTimeLine()
     {
-        if (!stunned)
+        if (!isNearDeath)
         {
-            if (timelineFill >= timelineFull)
+            if (!stunned)
             {
-                return true;
+                if (timelineFill >= timelineFull)
+                {
+                    return true;
+                }
+
+                timelineFill += fTimelineVelocity * Time.deltaTime;
+                //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+
+                return false;
             }
 
-            timelineFill += fTimelineVelocity * Time.deltaTime;
-            //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+            else
+            {
+                Debug.Log("stunned");
+                timeStunned -= Time.deltaTime;
 
-            return false;
+                if (timeStunned <= 0)
+                {
+                    timelineVelocity = previousVelocity;
+                    SetCurrentVelocity();
+                    stunned = false;
+                    timeStunned = originalTimeStunned;
+                    playerUI.DisableStun();
+                    iconTimeline.DisableStun();
+                }
+
+                return false;
+            }
         }
 
         else
         {
-            Debug.Log("stunned");
-            timeStunned -= Time.deltaTime;
-
-            if (timeStunned <= 0)
-            {
-                timelineVelocity = previousVelocity;
-                SetCurrentVelocity();
-                stunned = false;
-                timeStunned = originalTimeStunned;
-                playerUI.DisableStun();
-                iconTimeline.DisableStun();
-            }
-
             return false;
         }
+        
 
     }
 }

@@ -21,7 +21,7 @@ public class TestMonsterController : MonsterController
                 {
                     if(lowestHealthUnit != null)
                     {
-                        if(unit.health.Value < lowestHealthUnit.health.Value)
+                        if(unit.health < lowestHealthUnit.health)
                         {
                             lowestHealthUnit = unit;
                         }
@@ -65,7 +65,7 @@ public class TestMonsterController : MonsterController
                 {
                     if (lowestHealthUnit != null)
                     {
-                        if (unit.health.Value < lowestHealthUnit.health.Value)
+                        if (unit.health < lowestHealthUnit.health)
                         {
                             lowestHealthUnit = unit;
                         }

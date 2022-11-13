@@ -114,5 +114,8 @@ public class InitBattleState : BattleState
 
         unit.unitSprite.color = data.unitColor;
 
+        unit.deathSprite = data.death;
+        unit.nearDeathSprite = data.nearDeath;
+
     }
 }

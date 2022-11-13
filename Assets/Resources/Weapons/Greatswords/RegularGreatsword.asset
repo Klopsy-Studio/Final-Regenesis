@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 550b6eb41dda3244f95fe1114dffbf8f, type: 3}
   equipmentType: 0
   elements_Effectiveness: 0
-  power: 88
+  power: 80
   elementPower: 0
   defense: 0
   staminaCost: 30

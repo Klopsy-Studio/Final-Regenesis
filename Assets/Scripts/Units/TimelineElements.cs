@@ -9,6 +9,7 @@ public enum TimeLineTypes
     EnemyUnit,
     Events,
     Items,
+    PlayerDeath
 }
 public enum TimelineVelocity
 {
@@ -26,9 +27,6 @@ public enum TimelineVelocity
     Quick,
     VeryQuick,
     TurboFast,
-   
-    
-
 }
 public abstract class TimelineElements : MonoBehaviour
 {
