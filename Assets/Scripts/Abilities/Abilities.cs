@@ -243,6 +243,12 @@ public class Abilities : ScriptableObject
                 if (target.GetComponent<PlayerUnit>() != null)
                 {
                     PlayerUnit u = target.GetComponent<PlayerUnit>();
+
+                    if (u.isNearDeath)
+                    {
+                        u.Revive(controller);
+                        u.Default();
+                    }
                     u.status.HealthAnimation((int)target.health.Value);
                 }
                 break;

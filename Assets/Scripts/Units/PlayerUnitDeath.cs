@@ -15,7 +15,13 @@ public class PlayerUnitDeath : TimelineElements
         controller.timelineElements.Remove(this);
         gameObject.SetActive(false);
     }
+    
 
+    public void DisableDeath(BattleController controller)
+    {
+        controller.timelineElements.Remove(this);
+        gameObject.SetActive(false);
+    }
     public override bool UpdateTimeLine()
     {
         if (timelineFill >= timelineFull)
