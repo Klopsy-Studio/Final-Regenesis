@@ -1084,8 +1084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -12.6}
-  m_SizeDelta: {x: 74, y: 98}
+  m_AnchoredPosition: {x: -1.4, y: 1.5}
+  m_SizeDelta: {x: 33.96, y: 33.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &249596525
 CanvasRenderer:
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8f6cf65b405a90f40ac62f5775f79cc2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64563ae2bc0a14445b406cfa19561c2d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3411,7 +3411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b05e0bbc96fb0bf45851b9e7c502e97f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23bd1a5d4e9cf854191372ec799115f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10280,7 +10280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 1.4000244, y: 130}
+  m_AnchoredPosition: {x: 1.3999023, y: 130}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85011359087763217
@@ -12817,7 +12817,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &85011359170528442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13438,7 +13438,7 @@ MonoBehaviour:
   name: Wind Event
   battleController: {fileID: 3099776044107931976}
   windEffect: {fileID: 1837719084505955002}
-  direction: 0
+  direction: 2
 --- !u!1 &3099776044916343897
 GameObject:
   m_ObjectHideFlags: 0
@@ -14611,6 +14611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e044fd13315d2e40ac8c8825ad2fe4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 45075749238876833, guid: 3ae9bf79e0658b248bad5617c9486138, type: 3}
   desertTilesPrefab:
   - {fileID: 986858306413133845, guid: 012430e6404eb8440be51b7f8abad3bc, type: 3}
   - {fileID: 986858306413133845, guid: 6f049c4ecf20f264fb03849da5a6e27c, type: 3}
@@ -14624,6 +14625,7 @@ MonoBehaviour:
   - {fileID: 1307419332375427910, guid: 9685b429da347734684dd57a1114764a, type: 3}
   - {fileID: 1307419332375427910, guid: c8c063caa395ef9488f96ae011ad9d55, type: 3}
   - {fileID: 1307419332375427910, guid: c8e5069709fc7434bb18da8d1b6f07c5, type: 3}
+  - {fileID: 1307419332375427910, guid: 15c093cb1ae94ae4287ebe86aca3a019, type: 3}
   - {fileID: 1307419332375427910, guid: 60c5c6e53b5e8f04aa71d0a8659879c1, type: 3}
   - {fileID: 1307419332375427910, guid: ef0de51d8e377aa42bba7dce7fb820bf, type: 3}
   - {fileID: 1307419332375427910, guid: 186e8fdfbeb9b214a8262a68b1600931, type: 3}
@@ -14631,7 +14633,8 @@ MonoBehaviour:
   - {fileID: 1307419332375427910, guid: 447617f2556439e468af8c2b98b46683, type: 3}
   - {fileID: 1307419332375427910, guid: d4adb659409e2fc49925109cb3ace1ef, type: 3}
   - {fileID: 1307419332375427910, guid: 1a9bb8337656f7949b96a9066ae2b98e, type: 3}
-  - {fileID: 1307419332375427910, guid: 15c093cb1ae94ae4287ebe86aca3a019, type: 3}
+  - {fileID: 1307419332375427910, guid: a607a0dc86c64d94db32cdcf761663b9, type: 3}
+  - {fileID: 1307419332375427910, guid: 11d8ed7ec66689a4592d455145e879a3, type: 3}
   - {fileID: 1307419332375427910, guid: d07b8cd9795c5c04599a7f25ee9f38de, type: 3}
   desertPropsPrefabs:
   - {fileID: 1307419332375427910, guid: ac2b03e4f9abf8d4e971051354157ee0, type: 3}
@@ -20956,6 +20959,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 9204945480926726843, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
   m_PrefabInstance: {fileID: 9119943469132740058}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &85011357643407203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9204945480926726841, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
+  m_PrefabInstance: {fileID: 9119943469132740058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &85011358205098498 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9204945481455423448, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
@@ -20967,3 +20975,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &921966357
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85011357643407203}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
