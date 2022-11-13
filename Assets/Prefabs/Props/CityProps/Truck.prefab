@@ -133,5 +133,6 @@ MonoBehaviour:
   data:
     type: 0
     displayName: Choose Truck
-    typeIndex: 9
+    typeIndex: 10
     occupiesSpace: 0
+  sprite: {fileID: 7925183312028857097}

@@ -7,8 +7,11 @@ using System.IO;
 public class BoardCreator : MonoBehaviour
 {
     public TileSpawner spawner;
-    GameObject tileToSpawn;
-    GameObject propToSpawn;
+    public Rect texturePosition;
+    public Texture notPlayableTexture;
+    [HideInInspector] public Sprite spriteToSpawn;
+    public GameObject tilePrefab;
+    public GameObject propToSpawn;
     [SerializeField] GameObject tileSelectionIndicatorPrefab;
 
     Transform marker
@@ -28,11 +31,10 @@ public class BoardCreator : MonoBehaviour
     Transform _marker;
 
     [HideInInspector] public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-    [HideInInspector] public List<Tile> tilesScript = new List<Tile>();
+    public List<Tile> tilesScript = new List<Tile>();
 
     [HideInInspector] public Dictionary<Point, Prop> props = new Dictionary<Point, Prop>();
     [HideInInspector] public List<PropData> propData = new List<PropData>();
-
 
     [Header("Spawn Points")]
     [SerializeField] int howManyPlayers = 2;
@@ -55,7 +57,6 @@ public class BoardCreator : MonoBehaviour
     //WE HAVE TO ADD A NEW METHOD TO UPDATE THE DICTIONARY TILES WHEN WE MOVE A TILE, TO SAVE IT LATER.
 
     [Header("Mission Data Variables")]
-
     [SerializeField] private int position;
     [SerializeField] public int rank;
     [SerializeField] public string missionName;
@@ -73,7 +74,9 @@ public class BoardCreator : MonoBehaviour
     [Header("Board Spawn")]
     public ThingToSpawn thingToSpawn;
     public TileType TypeOfTile;
+    public TileClass classOfSprite;
     public PropType TypeOfProp;
+    
     public bool makeTilePlayable;
     public bool doesPropOccupySpace;
     public bool canSpawn;
@@ -128,9 +131,11 @@ public class BoardCreator : MonoBehaviour
 
     Tile Create()
     {
-        GameObject instance = Instantiate(tileToSpawn) as GameObject;
+        GameObject instance = Instantiate(tilePrefab) as GameObject;
         instance.transform.parent = transform;
-        return instance.GetComponent<Tile>();
+        Tile t = instance.GetComponent<Tile>();
+        t.tileSprite.sprite = spriteToSpawn;
+        return t;
     }
 
     Tile GetOrCreate(Point p)
@@ -144,64 +149,36 @@ public class BoardCreator : MonoBehaviour
         tilesScript.Add(t);
         return t;
     }
-    public void ChangeTileToSpawn(GameObject newTileToSpawn)
+    public void ChangeTileToSpawn(Sprite sprite)
     {
-        tileToSpawn = newTileToSpawn;
+        spriteToSpawn = sprite;
     }
     public Tile LoadTileBoard(int index)
     {
         switch (levelData.tileData.ToArray()[index].tileType)
         {
             case TileType.Placeholder:
-                GameObject instance = Instantiate(spawner.placeholderTiles[levelData.tileData[index].typeIndex]);
-                Tile t = instance.GetComponent<Tile>();
-                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
-                instance.transform.parent = transform;
-
-                return t;
+                return LoadTile(spawner.placeholderTiles, index);
             case TileType.Desert:
-                instance = Instantiate(spawner.desertTiles[levelData.tileData[index].typeIndex]);
-                t = instance.GetComponent<Tile>();
-                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
-                instance.transform.parent = transform;
-
-                return t;
+                return LoadTile(spawner.desertTiles, index);
             case TileType.NonPlayable:
-                instance = Instantiate(spawner.nonPlayableTiles[levelData.tileData[index].typeIndex]);
-                t = instance.GetComponent<Tile>();
-                t.data.isPlayable = levelData.tileData.ToArray()[index].isPlayable;
-                instance.transform.parent = transform;
-
-                return t;
+                return LoadTile(spawner.nonPlayableTiles, index);
+            case TileType.City:
+                return LoadTile(spawner.test, index);
             default:
                 return null;
         }
     }
-    public void LoadTiles(Tile t)
-    {
-        switch (t.data.tileType)
-        {
-            case TileType.Placeholder:
-                switch (t.tileIndex)
-                {
-                    case 0:
 
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case TileType.Desert:
-                break;
-            case TileType.NonPlayable:
-                break;
-            default:
-                break;
-        }
+    public Tile LoadTile(Sprite[] sprites, int index)
+    {
+        GameObject instance = Instantiate(tilePrefab);
+        Tile t = instance.GetComponent<Tile>();
+        t.tileSprite.sprite = levelData.sprites[index];
+        t.data.isPlayable = levelData.tileData[index].isPlayable;
+        instance.transform.parent = transform;
+
+        return t;
     }
     public void AddObstacle()
     {
@@ -408,6 +385,7 @@ public class BoardCreator : MonoBehaviour
         board.tiles = new List<Vector3>(tilesScript.Count);
 
         board.tileData = new List<TileData>(tilesScript.Count);
+        board.sprites = new List<Sprite>(tilesScript.Count);
         board.tileContent = new List<ObstacleType>(tilesScript.Count);
         board.playerSpawnPoints = new List<Point>(playerSpawnPoints.Count);
         board.enemySpawnPoints = new List<Point>(enemySpawnPoints.Count);
@@ -416,6 +394,8 @@ public class BoardCreator : MonoBehaviour
 
         foreach (Tile t in tiles.Values)
         {
+            board.sprites.Add(t.tileSprite.sprite);
+
             board.tiles.Add(new Vector3(t.pos.x, t.height, t.pos.y));
 
             if (t.content != null)

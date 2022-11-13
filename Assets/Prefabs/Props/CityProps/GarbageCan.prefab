@@ -133,5 +133,6 @@ MonoBehaviour:
   data:
     type: 0
     displayName: Choose Garbage Can
-    typeIndex: 4
+    typeIndex: 5
     occupiesSpace: 0
+  sprite: {fileID: 7925183312028857097}

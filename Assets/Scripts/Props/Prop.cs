@@ -7,7 +7,7 @@ public class Prop : MonoBehaviour
     public Point pos;
     public int height;
     public PropData data;
-
+    public SpriteRenderer sprite;
     [HideInInspector] public const float stepHeight = 0.25f;
     [HideInInspector] public Vector3 center { get { return new Vector3(pos.x, height * stepHeight, pos.y); } }
     public void Match()
