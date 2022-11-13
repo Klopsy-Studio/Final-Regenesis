@@ -42,9 +42,9 @@ public class Unit : TimelineElements
 
 
     //Variables que se comparten entre unidades del jugador y del enemigo
-    public Stats maxHealth;
-    public Stats health;
-    public Stats damage;
+    public int maxHealth;
+    public int health;
+    public int damage;
     public int stamina;
 
     public AnimationClip hurtAnimation;
@@ -73,7 +73,7 @@ public class Unit : TimelineElements
         Match();
         SetInitVelocity();
         stamina = 100;
-        damage.baseValue = 10;
+        damage = 10;
         originalTimeStunned = timeStunned;
     }
 
@@ -119,10 +119,11 @@ public class Unit : TimelineElements
     }
     public virtual bool ReceiveDamage(float damage)
     {
-        health.AddModifier(new StatsModifier(-damage, StatModType.Flat, this));
+        health -= (int)damage;
 
-        if (health.Value <= 0)
+        if (health <= 0)
         {
+            health = 0;
             return true;
         }
         else
@@ -133,10 +134,11 @@ public class Unit : TimelineElements
 
     public virtual bool ReceiveDamageStun(float damage, float StunDMG)
     {
-        health.AddModifier(new StatsModifier(-damage, StatModType.Flat, this));
+        health-=(int)damage;
 
-        if (health.Value <= 0)
+        if (health <= 0)
         {
+            health = 0;
             return true;
         }
         else
@@ -147,11 +149,11 @@ public class Unit : TimelineElements
 
     public virtual void Heal(float heal)
     {
-        health.AddModifier(new StatsModifier(heal, StatModType.Flat, this));
+        health += (int)heal;
 
-        if(health.Value >= maxHealth.Value)
+        if(health >= maxHealth)
         {
-            health.baseValue = maxHealth.Value;
+            health = maxHealth;
         }
     }
 

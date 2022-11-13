@@ -230,7 +230,7 @@ public class Abilities : ScriptableObject
                         u.NearDeath(controller);
                     }
 
-                    u.status.HealthAnimation((int)target.health.Value);
+                    u.status.HealthAnimation((int)target.health);
                 }
 
                 break;
@@ -249,7 +249,7 @@ public class Abilities : ScriptableObject
                         u.Revive(controller);
                         u.Default();
                     }
-                    u.status.HealthAnimation((int)target.health.Value);
+                    u.status.HealthAnimation((int)target.health);
                 }
                 break;
             case EffectType.Buff:

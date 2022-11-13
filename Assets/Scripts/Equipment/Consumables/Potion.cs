@@ -9,18 +9,15 @@ public class Potion : Consumables
    
     public override bool ApplyConsumable(Unit unit)
     {
-        
-    
-        //if(unit.health.Value == unit.maxHealth.Value || unit.health.Value <0)
-        //{
-        //    Debug.Log("can't use item because unit has max health");
-        //    return false;
-        //}
 
-        unit.health.AddModifier(new StatsModifier(addHealth, StatModType.Flat, this));
-        Debug.Log("unit se ha sanado. Su vida actual es " + unit.health.Value);
-        return true ;
-        //unit.health.AddModifier(new StatsModifier(addHealth, StatModType.Flat, this));
+        unit.health += addHealth;
+
+        if(unit.health> unit.maxHealth)
+        {
+            unit.health = unit.maxHealth;
+        }
+
+        return true;
 
     }
 

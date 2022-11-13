@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   equipmentType: 1
   elements_Effectiveness: 0
-  power: 300
+  power: 30
   elementPower: 0
   defense: 10
   staminaCost: 0

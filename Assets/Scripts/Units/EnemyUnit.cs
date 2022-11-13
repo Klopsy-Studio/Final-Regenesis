@@ -47,7 +47,7 @@ public class EnemyUnit : Unit
 
         timelineFill = 70;
         timelineTypes = TimeLineTypes.EnemyUnit;
-        health.baseValue = maxHealth.baseValue;
+        health = maxHealth;
     }
 
     

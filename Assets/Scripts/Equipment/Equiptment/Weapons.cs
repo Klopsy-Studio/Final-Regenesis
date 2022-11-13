@@ -39,8 +39,8 @@ public class Weapons : Equipment
     public Sprite weaponIcon;
     public override void EquipItem(Unit c)
     {
-       
-        c.damage.AddModifier(new StatsModifier(power, StatModType.Flat, this));
+
+        c.damage = power;
     }
 
     private void OnEnable()

@@ -15,9 +15,14 @@ public class PlayerUnitDeathState : BattleState
     IEnumerator DeathSequence()
     {
         SelectTile(owner.currentUnit.currentPoint);
+        yield return new WaitForSeconds(2f);
+        owner.currentUnit.deathElement.DisableDeath(owner);
+
         owner.currentUnit.Die(owner);
 
-        yield return new WaitForSeconds(1f);
+        yield return null;
+        
+        owner.isTimeLineActive = true;
         owner.ChangeState<TimeLineState>();
     }
 }

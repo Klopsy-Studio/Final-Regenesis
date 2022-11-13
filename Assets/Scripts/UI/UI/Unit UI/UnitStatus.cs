@@ -31,8 +31,8 @@ public class UnitStatus : MonoBehaviour
     public void SetUnit(PlayerUnit unit)
     {
         //unitName.text = unit.unitName;
-        unitHealth.maxValue = unit.health.baseValue;
-        unitHealth.value = unit.health.baseValue;
+        unitHealth.maxValue = unit.maxHealth;
+        unitHealth.value = unit.health;
 
 
 

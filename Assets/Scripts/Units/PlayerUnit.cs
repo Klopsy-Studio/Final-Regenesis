@@ -34,7 +34,7 @@ public class PlayerUnit : Unit
 
     [Header("Unit Death")]
     public PlayerUnitDeath nearDeathElement;
-    PlayerUnitDeath deathElement;
+    public PlayerUnitDeath deathElement;
 
     [HideInInspector] public bool isNearDeath;
     protected override void Start()
@@ -57,11 +57,10 @@ public class PlayerUnit : Unit
     public void EquipAllItems()
     {
         if (weapon == null) { return; }
-        health.baseValue = 100;
+        health = 100;
 
         
         weapon.EquipItem(this);
-        maxHealth.baseValue = health.Value;
 
     }
 
@@ -153,23 +152,25 @@ public class PlayerUnit : Unit
         deathElement = element;
         deathElement.unit = this;
         battleController.timelineElements.Add(element);
-        battleController.timelineElements.Remove(this);
+        iconTimeline.gameObject.SetActive(false);
+        timelineTypes = TimeLineTypes.Null;
     }
 
     public void Revive(BattleController battleController)
     {
-        battleController.timelineElements.Add(this);
-        battleController.timelineElements.Remove(deathElement);
-        Destroy(deathElement);
+        deathElement.DisableDeath(battleController);
         playerUI.gameObject.SetActive(true);
-
+        timelineFill = 0;
+        iconTimeline.gameObject.SetActive(true);
+        isNearDeath = false;
+        timelineTypes = TimeLineTypes.PlayerUnit;
     }
     public override void Die(BattleController battleController)
     {
         base.Die(battleController);
         DeathSprite();
         status.gameObject.SetActive(false);
-        Destroy(this);
+        isDead = true;
     }
 
     public override void Stun()
@@ -183,36 +184,45 @@ public class PlayerUnit : Unit
 
     public override bool UpdateTimeLine()
     {
-        if (!stunned)
+        if (!isNearDeath)
         {
-            if (timelineFill >= timelineFull)
+            if (!stunned)
             {
-                return true;
+                if (timelineFill >= timelineFull)
+                {
+                    return true;
+                }
+
+                timelineFill += fTimelineVelocity * Time.deltaTime;
+                //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+
+                return false;
             }
 
-            timelineFill += fTimelineVelocity * Time.deltaTime;
-            //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
+            else
+            {
+                Debug.Log("stunned");
+                timeStunned -= Time.deltaTime;
 
-            return false;
+                if (timeStunned <= 0)
+                {
+                    timelineVelocity = previousVelocity;
+                    SetCurrentVelocity();
+                    stunned = false;
+                    timeStunned = originalTimeStunned;
+                    playerUI.DisableStun();
+                    iconTimeline.DisableStun();
+                }
+
+                return false;
+            }
         }
 
         else
         {
-            Debug.Log("stunned");
-            timeStunned -= Time.deltaTime;
-
-            if (timeStunned <= 0)
-            {
-                timelineVelocity = previousVelocity;
-                SetCurrentVelocity();
-                stunned = false;
-                timeStunned = originalTimeStunned;
-                playerUI.DisableStun();
-                iconTimeline.DisableStun();
-            }
-
             return false;
         }
+        
 
     }
 }

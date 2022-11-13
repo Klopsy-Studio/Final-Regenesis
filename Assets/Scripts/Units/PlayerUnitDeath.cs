@@ -5,32 +5,45 @@ using UnityEngine;
 public class PlayerUnitDeath : TimelineElements
 {
     public PlayerUnit unit;
+    public bool disabled = false;
 
+    bool placeholderSolution;
     private void Start()
     {
         timelineTypes = TimeLineTypes.PlayerDeath;
     }
-    public void Death(BattleController controller)
-    {
-        controller.timelineElements.Remove(this);
-        gameObject.SetActive(false);
-    }
-    
+
 
     public void DisableDeath(BattleController controller)
     {
-        controller.timelineElements.Remove(this);
-        gameObject.SetActive(false);
+        disabled = true;
+        timelineTypes = TimeLineTypes.Null;
+        timelineFill = 0;
     }
     public override bool UpdateTimeLine()
     {
-        if (timelineFill >= timelineFull)
+        if (!disabled)
         {
-            return true;
+            if (timelineFill >= timelineFull)
+            {
+                return true;
+            }
+
+            timelineFill += fTimelineVelocity * Time.deltaTime;
+            return false;
+
         }
-
-        timelineFill += fTimelineVelocity * Time.deltaTime;
-
-        return false;
+        else
+        {
+            if (!placeholderSolution)
+            {
+                if(iconTimeline != null)
+                {
+                    iconTimeline.gameObject.SetActive(false);
+                    placeholderSolution = true;
+                }
+            }
+            return false;
+        }
     }
 }

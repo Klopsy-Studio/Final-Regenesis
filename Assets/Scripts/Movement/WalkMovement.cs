@@ -55,7 +55,14 @@ public class WalkMovement : Movement
 
         if(unit.GetComponent<PlayerUnit>()!= null)
         {
-            unit.GetComponent<PlayerUnit>().Default();
+            if (!unit.GetComponent<PlayerUnit>().isNearDeath)
+            {
+                unit.GetComponent<PlayerUnit>().Default();
+            }
+            else
+            {
+                unit.GetComponent<PlayerUnit>().NearDeathSprite();
+            }
         }
         if(tile != null)
         {

@@ -217,7 +217,7 @@ public class MonsterAbility : ScriptableObject
             target.NearDeath(controller);
         }
 
-        target.status.HealthAnimation((int)target.health.Value);
+        target.status.HealthAnimation((int)target.health);
     }
 
     void CalculateDmg(EnemyUnit enemy, PlayerUnit target)

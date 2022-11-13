@@ -625,12 +625,9 @@ MonoBehaviour:
   currentPoint:
     x: 0
     y: 0
-  maxHealth:
-    baseValue: 100
-  health:
-    baseValue: 100
-  damage:
-    baseValue: 0
+  maxHealth: 100
+  health: 100
+  damage: 10
   stamina: 100
   hurtAnimation: {fileID: 0}
   unitName: Hero
@@ -660,6 +657,8 @@ MonoBehaviour:
   deathSprite: {fileID: 0}
   movementEffect: {fileID: 2246286409456321014}
   nearDeathElement: {fileID: 3939858003233122212, guid: a861d1a67cc412440a66419a54589b01, type: 3}
+  deathElement: {fileID: 0}
+  isNearDeath: 0
 --- !u!114 &1364770249159690893
 MonoBehaviour:
   m_ObjectHideFlags: 0

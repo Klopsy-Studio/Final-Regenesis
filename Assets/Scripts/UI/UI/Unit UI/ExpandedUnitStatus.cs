@@ -31,8 +31,8 @@ public class ExpandedUnitStatus : MonoBehaviour
 
             unitPortrait.sprite = unit.fullUnitPortrait;
 
-            vitValue.maxValue = unit.health.baseValue;
-            vitValue.value = unit.health.Value;
+            vitValue.maxValue = unit.health;
+            vitValue.value = unit.health;
 
             movValue.text = unit.weapon.range.ToString();
             defValue.text = unit.weapon.Defense.ToString();

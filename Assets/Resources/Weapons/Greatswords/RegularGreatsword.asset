@@ -16,12 +16,12 @@ MonoBehaviour:
   sprite: {fileID: 0}
   equipmentType: 0
   elements_Effectiveness: 0
-  power: 88
+  power: 80
   elementPower: 0
   defense: 0
   staminaCost: 30
   originalRange: 3
-  range: 30
+  range: 3
   Abilities:
   - {fileID: 11400000, guid: 404981b6bdc88314f9cd78516dceb7ee, type: 2}
   - {fileID: 11400000, guid: 56dfaac3ee69b0c4481822ce0ef152c3, type: 2}
