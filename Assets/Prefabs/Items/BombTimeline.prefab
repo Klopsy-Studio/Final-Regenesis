@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6333561981072176335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.348, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3704523542285939759}
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -28278360619149978, guid: fae1e08d1c4aed74d8e5e49e1c5a881c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1dac2c9d25614c409ee2639d84d9da5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,14 +230,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e23ef0575ec7446bf7d6b9c4d80312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionsPerTurn: 0
   fTimelineVelocity: 0
   timelineFill: 0
   isTimelineActive: 0
   timelineIcon: {fileID: 21300000, guid: 9d35fa384b448854aaa492b9417bb0bc, type: 3}
-  itemRange: {fileID: -5727988422277683294}
+  iconTimeline: {fileID: 0}
   currentPoint:
     x: 0
     y: 0
+  tile: {fileID: 0}
+  itemRange: {fileID: -5727988422277683294}
   bombAnimator: {fileID: 6412955533562659246}
 --- !u!114 &-5727988422277683294
 MonoBehaviour:
