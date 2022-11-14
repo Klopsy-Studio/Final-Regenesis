@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RegularGreatsword
   m_EditorClassIdentifier: 
   equipmentName: Greatsword
-  sprite: {fileID: 21300000, guid: 95584c101c2f6f84883db678b932303f, type: 3}
+  sprite: {fileID: 21300000, guid: fab8aa472ee570f40a54459ee23bcea2, type: 3}
   equipmentType: 0
   elements_Effectiveness: 0
   power: 80

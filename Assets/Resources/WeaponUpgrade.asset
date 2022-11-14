@@ -21,7 +21,7 @@ MonoBehaviour:
       materialsRequired:
       - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
         numberOfMaterial: 3
-    - itemName: BLOW GUN
+    - itemName: Great Hammer
       weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
       cost: 37
       weaponRequired: {fileID: 0}

@@ -30,15 +30,15 @@ public class OpenNewTab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (animator = null) return;
-        Debug.Log("AAAAAAA");
-        animator.SetInteger("ToIdle", 1);
+        if (animator == null) return;
+      
+        animator.SetInteger("State", 1);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (animator = null) return;
-        animator.SetInteger("ToIdle", 0);
+        if (animator == null) return;
+        animator.SetInteger("State", 0);
     }
 
  
