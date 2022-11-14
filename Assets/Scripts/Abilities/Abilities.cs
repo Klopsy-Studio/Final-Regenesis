@@ -96,6 +96,9 @@ public class Abilities : ScriptableObject
     public List<Effect> inAbilityEffects;
     public List<Effect> postAbilityEffect;
 
+    [Header("Sound Parameters")]
+    public string soundString;
+
     private void Awake()
     {
         GetRangeScript();
@@ -209,7 +212,7 @@ public class Abilities : ScriptableObject
         switch (abilityEffect)
         {
             case EffectType.Damage:
-
+                AudioManager.instance.Play(soundString);
                 target.DamageEffect();
                 if (target.GetComponent<EnemyUnit>())
                 {

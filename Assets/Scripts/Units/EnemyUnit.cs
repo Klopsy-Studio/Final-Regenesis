@@ -116,6 +116,7 @@ public class EnemyUnit : Unit
     public override void Die(BattleController battleController)
     {
         controller.monsterAnimations.SetBool("death", true);
+        AudioManager.instance.Play("MonsterDeath");
         battleController.ChangeState<WinState>();
     }
 }

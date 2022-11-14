@@ -29,7 +29,7 @@ MonoBehaviour:
   unitWeapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
   hammerOffset:
     savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
-    idleCombatSpriteOffset: {x: 300, y: 0.512, z: 0.337}
+    idleCombatSpriteOffset: {x: 299.65, y: 0.512, z: 0.337}
     attackSpriteOffset: {x: 0, y: 0, z: 0}
   slingShotOffset:
     savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}

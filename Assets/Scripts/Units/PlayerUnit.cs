@@ -262,6 +262,7 @@ public class PlayerUnit : Unit
     {
         base.Die(battleController);
         DeathSprite();
+        AudioManager.instance.Play("HunterDeath");
         status.gameObject.SetActive(false);
         isDead = true;
     }

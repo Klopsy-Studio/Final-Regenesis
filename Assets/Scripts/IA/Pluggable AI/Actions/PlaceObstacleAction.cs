@@ -17,7 +17,6 @@ public class PlaceObstacleAction : Action
         if(controller.obstaclesInGame.Count >= controller.obstacleLimit)
         {
             AudioManager.instance.Play("MonsterObstacle");
-
             foreach(Tile t in controller.obstaclesInGame)
             {
                 BearObstacleScript o = t.content.GetComponent<BearObstacleScript>();
@@ -25,7 +24,7 @@ public class PlaceObstacleAction : Action
 
                 controller.battleController.SelectTile(t.pos);
                 ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
-
+                AudioManager.instance.Play("ObstacleExplosion");
                 while (ActionEffect.instance.play)
                 {
                     yield return null;
@@ -80,8 +79,9 @@ public class PlaceObstacleAction : Action
             tileToPlaceObstacle.content = obstacle;
             obstacle.transform.parent = null;
 
-            controller.currentEnemy.Damage();
-
+            controller.monsterAnimations.SetBool("idle", false);
+            controller.monsterAnimations.SetBool("roar", true);
+            AudioManager.instance.Play("MonsterRoar");
             ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 
             while (ActionEffect.instance.play)
@@ -89,6 +89,8 @@ public class PlaceObstacleAction : Action
                 yield return null;
             }
 
+            controller.monsterAnimations.SetBool("idle", true);
+            controller.monsterAnimations.SetBool("roar", false);
             controller.battleController.board.DeSelectTiles(singleTile);
             controller.currentEnemy.Default();
 

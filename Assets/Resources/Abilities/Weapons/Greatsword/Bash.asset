@@ -54,3 +54,4 @@ MonoBehaviour:
   - effectPlaying: 1
     effectType: 2
   postAbilityEffect: []
+  soundString: HammerAttack
