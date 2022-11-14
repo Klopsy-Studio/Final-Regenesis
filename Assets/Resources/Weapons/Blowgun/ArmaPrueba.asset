@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92293337c2721b7438af83a935bcd548, type: 3}
   m_Name: ArmaPrueba
   m_EditorClassIdentifier: 
-  equipmentName: Regular Blowgun
-  sprite: {fileID: 21300000, guid: ac7d8ff23c250854689900e84d6a6217, type: 3}
+  equipmentName: Arma prueba
+  sprite: {fileID: 21300000, guid: fab8aa472ee570f40a54459ee23bcea2, type: 3}
   equipmentType: 1
   elements_Effectiveness: 2
   power: 30
@@ -27,4 +27,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 577af5607b1c56f49a4865d255cb48ba, type: 2}
   - {fileID: 11400000, guid: f9ea88ec4bcb1b142ae6c4f3d0d633b5, type: 2}
   - {fileID: 11400000, guid: 28fa620a8b3c8be4b9165aad166b6b53, type: 2}
+  weaponSprite: {fileID: 0}
   weaponIcon: {fileID: 21300000, guid: 22b45b8c7fe365947820a9429e4b3913, type: 3}

@@ -10,6 +10,7 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
     [HideInInspector] public PurchaseForge purchaseForge;
     [HideInInspector] public Weapons weaponToPurchase;
     [HideInInspector] public string kitName;
+    [HideInInspector] public Sprite weaponImg;
     [HideInInspector] public int cost;
     [HideInInspector] public WeaponUpgradeTree weaponUpgradeTree;
     [HideInInspector] public string moveRange;
@@ -28,6 +29,7 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
         purchaseForge.weaponToPurchase = weaponToPurchase;
 
         forgeManager.kitNameTxt.text = kitName;
+        forgeManager.weaponImage.sprite = weaponImg;
         forgeManager.costTxt.text = cost.ToString();
         forgeManager.moveRangeTxt.text = moveRange;
         forgeManager.elementTxt.text = element;

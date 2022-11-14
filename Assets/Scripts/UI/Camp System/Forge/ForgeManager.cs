@@ -23,6 +23,7 @@ public class ForgeManager : MonoBehaviour
     public WeaponInfoTemplate currentWeaponInfoSelected;
 
     public Text kitNameTxt;
+    public Image weaponImage;
     public Text costTxt;
     public Text moveRangeTxt;
     public Text elementTxt;
@@ -168,6 +169,7 @@ public class ForgeManager : MonoBehaviour
             {
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].weaponToPurchase = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon;
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].kitName = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].itemName;
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].weaponImg = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Sprite;
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].cost =  weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].cost;
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].moveRange = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.range.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].element = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.ElementPower.ToString();
