@@ -95,11 +95,27 @@ public class InitBattleState : BattleState
 
         switch (unit.weapon.EquipmentType)
         {
-            case EquipmentType.GreatSword:
+            case EquipmentType.Hammer:
                 unit.attackSprite = data.unitHeavyWeapon;
+                unit.hammerOffset = data.hammerOffset;
+                if(data.unitWeapon.weaponSprite != null)
+                {
+                    unit.hammerData.attackSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.hammerData.idleCombatSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.hammerData.savedWeaponSprite.sprite = data.unitWeapon.weaponSprite;
+                }
+                
                 break;
-            case EquipmentType.Blowgun:
+            case EquipmentType.Slingshot:
                 unit.attackSprite = data.unitLightWeapon;
+                unit.slingshotOffset = data.slingShotOffset;
+                if (data.unitWeapon.weaponSprite != null)
+                {
+                    unit.slingShotData.attackSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.slingShotData.idleCombatSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.slingShotData.savedWeaponSprite.sprite = data.unitWeapon.weaponSprite;
+                }
+
                 break;
             default:
                 break;

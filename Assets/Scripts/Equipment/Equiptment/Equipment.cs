@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum EquipmentType
 {
-    GreatSword,
-    Blowgun,
+    Hammer,
+    Slingshot,
 }
 
 

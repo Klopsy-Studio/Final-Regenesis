@@ -27,3 +27,11 @@ MonoBehaviour:
   nearDeath: {fileID: -8050809605421139530, guid: d7b908281d447ee45bb264f5e2579cad, type: 3}
   death: {fileID: 6359637064781320375, guid: f4fd7ce7d2a5d3b4d94aa39b95e89b17, type: 3}
   unitWeapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
+  hammerOffset:
+    savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
+    idleCombatSpriteOffset: {x: 300, y: 0.512, z: 0.337}
+    attackSpriteOffset: {x: 0, y: 0, z: 0}
+  slingShotOffset:
+    savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
+    idleCombatSpriteOffset: {x: 0, y: 0, z: 0}
+    attackSpriteOffset: {x: 0, y: 0, z: 0}

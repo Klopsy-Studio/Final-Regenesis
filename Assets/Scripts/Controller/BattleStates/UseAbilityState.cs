@@ -31,7 +31,7 @@ public class UseAbilityState : BattleState
             Debug.Log("?");
         }
 
-        board.SelectMovementTiles(tiles);
+        board.SelectAbilityTiles(tiles);
     }
 
     protected override void OnMove(object sender, InfoEventArgs<Point> e)

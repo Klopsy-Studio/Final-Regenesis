@@ -33,6 +33,7 @@ public class Weapons : Equipment
 
     
     public Sprite weaponIcon;
+
     public override void EquipItem(Unit c)
     {
         c.damage = power;

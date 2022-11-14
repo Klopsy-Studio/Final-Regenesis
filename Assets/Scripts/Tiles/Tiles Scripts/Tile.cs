@@ -55,15 +55,20 @@ public class Tile : MonoBehaviour
     public bool selected;
 
     [Header("Tile Selection")]
+    public Color emptyColor;
+    public Color movementColor;
+    public Color attackColor;
+    public Color abilityColor;
+
+    public SpriteRenderer selection;
+
     public GameObject emptySelection;
     public GameObject selectMovementObject;
     public GameObject selectAttackObject;
     GameObject currentObject;
     [HideInInspector] public GameObject previousObject;
-    public Material defaultMaterial;
-    [HideInInspector] public Material prevMaterial;
-    public Material attackMaterial;
-    public Material movementMaterial;
+    public Color previousColor;
+    Color currentColor;
 
 
 
@@ -112,41 +117,58 @@ public class Tile : MonoBehaviour
     }
 
 
-    public void ChangeTile(GameObject newSelection)
+    public void ChangeTile(Color newColorSelection)
     {
-        if(newSelection != null)
-        {
-            if (currentObject == null)
-            {
-                currentObject = newSelection;
-                currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
-            }
-            else
-            {
-                previousObject = currentObject;
-                currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
-                newSelection.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
-                currentObject = newSelection;
-            }
-        }
+        //if(newSelection != null)
+        //{
+        //    if (currentObject == null)
+        //    {
+        //        currentObject = newSelection;
+        //        currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
+        //    }
+        //    else
+        //    {
+        //        previousObject = currentObject;
+        //        currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
+        //        newSelection.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
+        //        currentObject = newSelection;
+        //    }
+        //}
 
+        //else
+        //{
+        //    if(currentObject != null)
+        //    {
+        //        currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
+        //    }
+        //}
+
+
+        if(currentColor == null)
+        {
+            currentColor = newColorSelection;
+            selection.transform.localPosition = new Vector3(selection.transform.localPosition.x, 0.505f, selection.transform.localPosition.z);
+            selection.color = newColorSelection;
+        }
         else
         {
-            if(currentObject != null)
-            {
-                currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
-            }
+            previousColor = currentColor;
+            selection.transform.localPosition = new Vector3(selection.transform.localPosition.x, 0.505f, selection.transform.localPosition.z);
+            currentColor = newColorSelection;
+            selection.color = currentColor;
         }
-        
+
+
     }
 
     public void ChangeTileToDefault()
     {
-        if(currentObject != null)
+        if(currentColor != null)
         {
-            previousObject = currentObject;
-            currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
-            currentObject = null;
+            previousColor = currentColor;
+            currentObject.transform.localPosition = new Vector3(selection.transform.localPosition.x, 0, selection.transform.localPosition.z);
+            selection.color = emptyColor;
+            currentColor = emptyColor;
         }
     }
 

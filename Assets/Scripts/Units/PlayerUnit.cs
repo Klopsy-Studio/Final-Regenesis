@@ -39,6 +39,12 @@ public class PlayerUnit : Unit
     public PlayerUnitDeath deathElement;
 
     [HideInInspector] public bool isNearDeath;
+
+    [Header("Weapons")]
+    public WeaponSpriteData hammerData;
+    public WeaponOffset hammerOffset;
+    public WeaponSpriteData slingShotData;
+    public WeaponOffset slingshotOffset;
     protected override void Start()
     {
         base.Start();
@@ -51,10 +57,50 @@ public class PlayerUnit : Unit
         //ESTO DEBERÍA DE ESTAR EN UNIT
 
         timelineTypes = TimeLineTypes.PlayerUnit;
+
+        switch (weapon.EquipmentType)
+        {
+            case EquipmentType.Hammer:
+                hammerData.savedWeaponSprite.gameObject.SetActive(true);
+                hammerData.idleCombatSprite.gameObject.SetActive(true);
+                hammerData.attackSprite.gameObject.SetActive(true);
+                ApplyOffSetToWeapon(hammerData, hammerOffset);
+                hammerData.savedWeaponSprite.gameObject.SetActive(true);
+                hammerData.idleCombatSprite.gameObject.SetActive(false);
+                hammerData.attackSprite.gameObject.SetActive(false);
+                break;
+            case EquipmentType.Slingshot:
+                slingShotData.savedWeaponSprite.gameObject.SetActive(true);
+                slingShotData.idleCombatSprite.gameObject.SetActive(true);
+                slingShotData.attackSprite.gameObject.SetActive(true);
+
+                ApplyOffSetToWeapon(slingShotData, slingshotOffset);
+
+                slingShotData.savedWeaponSprite.gameObject.SetActive(true);
+                slingShotData.idleCombatSprite.gameObject.SetActive(false);
+                slingShotData.attackSprite.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
         EquipAllItems();
     }
 
+    public void ApplyOffset(GameObject data, Vector3 offset)
+    {
+        if(offset != Vector3.zero)
+        {
+            data.transform.localPosition = new Vector3(offset.x, offset.y, offset.z);
+        }
+    }
 
+    public void ApplyOffSetToWeapon(WeaponSpriteData data, WeaponOffset offset)
+    {
+        ApplyOffset(data.savedWeaponSprite.gameObject, offset.savedWeaponSpriteOffset);
+        ApplyOffset(data.idleCombatSprite.gameObject, offset.idleCombatSpriteOffset);
+        ApplyOffset(data.attackSprite.gameObject, offset.attackSpriteOffset);
+    }
+    
     //ESTA FUNCION HAY QUE REVISARLA
     public void EquipAllItems()
     {
@@ -109,10 +155,41 @@ public class PlayerUnit : Unit
     }
     public override void Attack()
     {
+        switch (weapon.EquipmentType)
+        {
+            case EquipmentType.Hammer:
+                hammerData.idleCombatSprite.gameObject.SetActive(false);
+                hammerData.attackSprite.gameObject.SetActive(true);
 
+                break;
+            case EquipmentType.Slingshot:
+                slingShotData.idleCombatSprite.gameObject.SetActive(false);
+                slingShotData.attackSprite.gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
         unitSprite.sprite = attackSprite;
     }
 
+    public void DefaultCombat()
+    {
+        switch (weapon.EquipmentType)
+        {
+            case EquipmentType.Hammer:
+                hammerData.savedWeaponSprite.gameObject.SetActive(true);
+                hammerData.idleCombatSprite.gameObject.SetActive(false);
+                break;
+            case EquipmentType.Slingshot:
+                slingShotData.savedWeaponSprite.gameObject.SetActive(true);
+                slingShotData.idleCombatSprite.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
+        unitSprite.sprite = idleSprite;
+    }
     public override void Default()
     {
         unitSprite.sprite = idleSprite;
@@ -139,10 +216,24 @@ public class PlayerUnit : Unit
     public void WeaponIn()
     {
         unitSprite.sprite = weaponSprite;
-        Invoke("Default", 0.1f);
+        Invoke("DefaultCombat", 0.1f);
     }
     public void Combat()
     {
+        switch (weapon.EquipmentType)
+        {
+            case EquipmentType.Hammer:
+                hammerData.savedWeaponSprite.gameObject.SetActive(false);
+                hammerData.idleCombatSprite.gameObject.SetActive(true);
+                break;
+            case EquipmentType.Slingshot:
+                slingShotData.savedWeaponSprite.gameObject.SetActive(false);
+                slingShotData.idleCombatSprite.gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+
         unitSprite.sprite = combatSprite;
     }
 

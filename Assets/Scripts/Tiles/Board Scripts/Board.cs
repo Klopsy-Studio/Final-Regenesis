@@ -212,16 +212,24 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            tiles[i].ChangeTile(tiles[i].selectMovementObject);
+            tiles[i].ChangeTile(tiles[i].movementColor);
             tiles[i].selected = true;
         }
     }
 
+    public void SelectAbilityTiles(List<Tile> tiles)
+    {
+        for (int i = tiles.Count - 1; i >= 0; --i)
+        {
+            tiles[i].ChangeTile(tiles[i].abilityColor);
+            tiles[i].selected = true;
+        }
+    }
     public void SelectAttackTiles(List<Tile> tiles)
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            tiles[i].ChangeTile(tiles[i].selectAttackObject);
+            tiles[i].ChangeTile(tiles[i].attackColor);
             tiles[i].selected = true;
         }
     }
@@ -229,11 +237,10 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
         {
-            tiles[i].ChangeTile(tiles[i].previousObject);
+            tiles[i].ChangeTile(tiles[i].previousColor);
             tiles[i].selected = false;
         }
     }
-
     public void DeSelectDefaultTiles(List<Tile> tiles)
     {
         //for (int i = tiles.Count - 1; i >= 0; --i)
