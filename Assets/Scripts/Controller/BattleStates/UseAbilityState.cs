@@ -26,11 +26,6 @@ public class UseAbilityState : BattleState
 
         tiles = PreviewAbility(currentAbility.rangeData);
 
-        if(tiles == null)
-        {
-            Debug.Log("?");
-        }
-
         board.SelectAbilityTiles(tiles);
     }
 
