@@ -30,7 +30,7 @@ public class Weapons : Equipment
     public Abilities[] Abilities;
 
     public Sprite weaponSprite;
-
+    public Sprite weaponCombat;
     
     public Sprite weaponIcon;
 

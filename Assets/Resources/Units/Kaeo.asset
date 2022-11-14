@@ -20,24 +20,18 @@ MonoBehaviour:
   unitIdle: {fileID: 21300000, guid: fcb56c5d0412fca4e9fcb1ee3d73a35e, type: 3}
   unitIdleCombat: {fileID: 21300000, guid: c3dd122609577b8468ddafb173cafa44, type: 3}
   unitHeavyWeapon: {fileID: 21300000, guid: ece1237c1d8c0024f9510b5086e26b00, type: 3}
-  unitLightWeapon: {fileID: 21300000, guid: 71f9ff36f5fe6fb4395e27a02e146e4a, type: 3}
+  unitLightWeapon: {fileID: 21300000, guid: ace9cfd8da4a8d846b404b114e0a1563, type: 3}
   unitDamageReaction: {fileID: 21300000, guid: d71648147799d4a4c899d892a5d9b2e7, type: 3}
   unitTakeOutWeapon: {fileID: 21300000, guid: 17978be78010863468b107d765e6a88c, type: 3}
   unitPush: {fileID: 21300000, guid: 80f3f5ae84c40094c9365ada4331e7e6, type: 3}
   nearDeath: {fileID: -287292731475943535, guid: 1e67c88e7a803c54396cc659fcdbf629, type: 3}
   death: {fileID: 6933943989856913738, guid: 5be8a8a67b416a54f98890c58ce8e696, type: 3}
-  hammerPositions:
-    savedPosition: {x: 0.179, y: 0.444, z: 0.03}
-    savedRotation: {x: 37.678, y: 37.678, z: -58.396}
-    idlePosition: {x: 0, y: 0, z: 0}
-    idleRotation: {x: 0, y: 0, z: 0}
-    attackPosition: {x: 0, y: 0, z: 0}
-    attackRotation: {x: 0, y: 0, z: 0}
-  slingshotPositions:
-    savedPosition: {x: 0, y: 0, z: 0}
-    savedRotation: {x: 0, y: 0, z: 0}
-    idlePosition: {x: 0, y: 0, z: 0}
-    idleRotation: {x: 0, y: 0, z: 0}
-    attackPosition: {x: 0, y: 0, z: 0}
-    attackRotation: {x: 0, y: 0, z: 0}
-  unitWeapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
+  unitWeapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
+  hammerOffset:
+    savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
+    idleCombatSpriteOffset: {x: 0, y: 0, z: 0}
+    attackSpriteOffset: {x: 0, y: 0, z: 0}
+  slingShotOffset:
+    savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
+    idleCombatSpriteOffset: {x: 0, y: 0, z: 0}
+    attackSpriteOffset: {x: 0, y: 0, z: 0}

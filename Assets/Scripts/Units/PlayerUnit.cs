@@ -61,9 +61,10 @@ public class PlayerUnit : Unit
         switch (weapon.EquipmentType)
         {
             case EquipmentType.Hammer:
+                
                 hammerData.savedWeaponSprite.gameObject.SetActive(true);
                 hammerData.idleCombatSprite.gameObject.SetActive(true);
-                hammerData.attackSprite.gameObject.SetActive(true);
+                hammerData.attackSprite.gameObject.SetActive(false);
                 ApplyOffSetToWeapon(hammerData, hammerOffset);
                 hammerData.savedWeaponSprite.gameObject.SetActive(true);
                 hammerData.idleCombatSprite.gameObject.SetActive(false);
@@ -169,6 +170,7 @@ public class PlayerUnit : Unit
             default:
                 break;
         }
+
         unitSprite.sprite = attackSprite;
     }
 
@@ -179,10 +181,13 @@ public class PlayerUnit : Unit
             case EquipmentType.Hammer:
                 hammerData.savedWeaponSprite.gameObject.SetActive(true);
                 hammerData.idleCombatSprite.gameObject.SetActive(false);
+                hammerData.attackSprite.gameObject.SetActive(false);
+
                 break;
             case EquipmentType.Slingshot:
                 slingShotData.savedWeaponSprite.gameObject.SetActive(true);
                 slingShotData.idleCombatSprite.gameObject.SetActive(false);
+                slingShotData.attackSprite.gameObject.SetActive(false);
                 break;
             default:
                 break;
@@ -193,6 +198,8 @@ public class PlayerUnit : Unit
     public override void Default()
     {
         unitSprite.sprite = idleSprite;
+
+        
     }
 
     public void Push()

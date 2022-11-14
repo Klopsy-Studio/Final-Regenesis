@@ -30,7 +30,7 @@ public class WindEvent : RealTimeEvents
             mover.PushUnit(direction, 1, Board);
         }
 
-        fTimelineVelocity = 60;
+        fTimelineVelocity = 10;
 
         //switch (direction)
         //{

@@ -68,12 +68,9 @@ MonoBehaviour:
   currentPoint:
     x: 0
     y: 0
-  maxHealth:
-    baseValue: 200
-  health:
-    baseValue: 200
-  damage:
-    baseValue: 0
+  maxHealth: 300
+  health: 300
+  damage: 0
   stamina: 0
   hurtAnimation: {fileID: 0}
   unitName: Monstruo

@@ -265,7 +265,7 @@ public class UseAbilityState : BattleState
                     break;
             }
         }
-        owner.currentUnit.Default();
+        owner.currentUnit.DefaultCombat();
 
         yield return new WaitForSeconds(0.5f);
 

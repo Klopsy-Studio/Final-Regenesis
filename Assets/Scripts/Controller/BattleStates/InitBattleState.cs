@@ -102,7 +102,7 @@ public class InitBattleState : BattleState
                 unit.hammerOffset = data.hammerOffset;
                 if(data.unitWeapon.weaponSprite != null)
                 {
-                    unit.hammerData.attackSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.hammerData.attackSprite.sprite = data.unitWeapon.weaponCombat;
                     unit.hammerData.idleCombatSprite.sprite = data.unitWeapon.weaponSprite;
                     unit.hammerData.savedWeaponSprite.sprite = data.unitWeapon.weaponSprite;
                 }
@@ -113,7 +113,7 @@ public class InitBattleState : BattleState
                 unit.slingshotOffset = data.slingShotOffset;
                 if (data.unitWeapon.weaponSprite != null)
                 {
-                    unit.slingShotData.attackSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.slingShotData.attackSprite.sprite = data.unitWeapon.weaponCombat;
                     unit.slingShotData.idleCombatSprite.sprite = data.unitWeapon.weaponSprite;
                     unit.slingShotData.savedWeaponSprite.sprite = data.unitWeapon.weaponSprite;
                 }
