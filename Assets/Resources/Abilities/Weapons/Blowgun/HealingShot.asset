@@ -48,3 +48,6 @@ MonoBehaviour:
   - '2 de rango. '
   - 'Cura a un aliado 70 puntos de vida. '
   - "Recuperaci\xF3n media. "
+  inAbilityEffects: []
+  postAbilityEffect: []
+  soundString: 

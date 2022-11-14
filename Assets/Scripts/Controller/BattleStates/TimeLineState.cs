@@ -47,12 +47,13 @@ public class TimeLineState : BattleState
 
                 if (isTimeline)
                 {
+                    AudioManager.instance.Play("TurnTransition");
+
                     currentElement = t;
                     owner.timelineUI.ShowIconActing(t);
                     owner.timelineUI.HideTimelineIcon(t);
                     if (t is PlayerUnit p)
                     {
-                        AudioManager.instance.Play("TurnStart");
 
                         owner.currentUnit = p;
                         owner.currentUnit.playerUI.ResetActionPoints();
@@ -62,8 +63,6 @@ public class TimeLineState : BattleState
 
                     if (t is EnemyUnit e)
                     {
-                        AudioManager.instance.Play("TurnStart");
-
                         owner.currentEnemyUnit = e;
                         SelectTile(owner.currentEnemyUnit.tile.pos);
                         //owner.currentEnemyController = e.GetComponent<EnemyController>();
