@@ -17,7 +17,9 @@ public class InitBattleState : BattleState
         yield return null;
         //owner.ChangeState<StartPlayerTurnState>();
         SelectTile(new Point(1, 5));
-        owner.ChangeState<TimeLineState>();
+        owner.timelineUI.gameObject.SetActive(false);
+        owner.unitStatusUI.gameObject.SetActive(false);
+        owner.ChangeState<MonsterRoarState>();
     }
 
     void SpawnUnits()

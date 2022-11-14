@@ -43,7 +43,6 @@ public class Monster1Attack : Monster1State
         currentTarget.Damage();
         currentTarget.DamageEffect();
 
-        ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 
         while (ActionEffect.instance.play)
         {
