@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allWeaponsTrees:
   - weaponUpgrade:
-    - itemName: GREAT SWORD
+    - itemName: Normal Hammer
       weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
       cost: 21
       weaponRequired: {fileID: 11400000, guid: afd2c3713b7eceb489ffe7a9be6a6254, type: 2}
