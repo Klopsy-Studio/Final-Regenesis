@@ -16,6 +16,7 @@ public class WinState : BattleState
     IEnumerator Win()
     {
         owner.placeholderWinScreen.SetActive(true);
+        owner.levelData.hasBeenCompleted = true; 
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Battle");
     }

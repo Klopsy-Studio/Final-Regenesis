@@ -49,7 +49,7 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
 
      void UpdateDisplay()
     {
-        Debug.Log("llamarrrr");
+        
         for (int i = 0; i < inventory.container.Count; i++)
         {
 

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,15 +16,14 @@ public class BunkhouseUnitManager : MonoBehaviour
     public Text poder;
     public Text critico;
     public Text elemento;
-    public Image unitDisplay;
+
 
   
     public void FillUnitVariables(int id)
     {
-
-
-        var unitProfile = GameManager.instance.unitProfilesList[id];
+        
        
+        var unitProfile = GameManager.instance.unitProfilesList[id];
         openSelectWeaponPanel.SetUnitProfileID(id);
         if (changeUnitWeaponID != null) changeUnitWeaponID();
         movimiento.text = unitProfile.unitWeapon.originalRange.ToString();
@@ -34,7 +32,7 @@ public class BunkhouseUnitManager : MonoBehaviour
         poder.text = unitProfile.unitWeapon.Power.ToString();
         critico.text = unitProfile.unitWeapon.CriticalPercentage.ToString();
         elemento.text = unitProfile.unitWeapon.ElementPower.ToString();
-        unitDisplay.sprite = unitProfile.unitFullPortrait;
+
     }
 
     public void OpenSelectWeapon()
