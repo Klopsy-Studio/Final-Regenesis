@@ -18154,7 +18154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6830464552629700038, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
       propertyPath: m_Name
-      value: CampCanvasPlaceholder
+      value: CampCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6830464552636739693, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
       propertyPath: coinUI
