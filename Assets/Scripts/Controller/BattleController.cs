@@ -119,4 +119,12 @@ public class BattleController : StateMachine
         tileSelectionIndicator.gameObject.SetActive(false);
 
     }
+
+    public void CheckAllUnits()
+    {
+        if(playerUnits.Count == 0)
+        {
+            ChangeState<DefeatState>();
+        }
+    }
 }

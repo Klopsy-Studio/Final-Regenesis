@@ -57,9 +57,6 @@ public class EnemyAttackState : BattleState
         {
             owner.ChangeState<FinishEnemyUnitTurnState>();
         }
-       
-      
-
     }
 
     public override void Exit()
