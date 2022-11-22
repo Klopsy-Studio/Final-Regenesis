@@ -9,7 +9,12 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite fullUnitPortrait;
     public bool didNotMove;
     public Weapons weapon;
-
+    [Header("PlayerStats")]
+    public int playerPower;
+    public int playerCriticalPercentage;
+    public WeaponElement playerElement;
+    public int playerElementPower;
+    public int playerDefense;
 
     public bool changing;
 
@@ -105,7 +110,7 @@ public class PlayerUnit : Unit
     //ESTA FUNCION HAY QUE REVISARLA
     public void EquipAllItems()
     {
-        if (weapon == null) { return; }
+        if (weapon == null) { Debug.Log("No hay weapon"); return; }
         health = 100;
 
         

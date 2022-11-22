@@ -36,7 +36,7 @@ public class ExpandedUnitStatus : MonoBehaviour
 
             movValue.text = unit.weapon.range.ToString();
             defValue.text = unit.weapon.Defense.ToString();
-            edValue.text = unit.weapon.Elements_Effectiveness.ToString();
+            edValue.text = unit.weapon.WeaponElement.ToString();
             powValue.text = unit.weapon.Power.ToString();
             crtValue.text = unit.weapon.CriticalPercentage.ToString();
             eleValue.text = unit.weapon.ElementPower.ToString();

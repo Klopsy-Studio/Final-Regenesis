@@ -20,6 +20,6 @@ public abstract class Equipment : ScriptableObject
     public Sprite Sprite { get { return sprite; } }
     public EquipmentType EquipmentType { get {return equipmentType;}}
 
-    public abstract void EquipItem(Unit c);
+    public abstract void EquipItem(PlayerUnit c);
   
 }

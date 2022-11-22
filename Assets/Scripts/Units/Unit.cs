@@ -44,9 +44,8 @@ public class Unit : TimelineElements
     //Variables que se comparten entre unidades del jugador y del enemigo
     public int maxHealth;
     public int health;
-    public int damage;
-    public int stamina;
-
+ 
+  
     public AnimationClip hurtAnimation;
 
     public string unitName;
@@ -72,8 +71,8 @@ public class Unit : TimelineElements
     {
         Match();
         SetInitVelocity();
-        stamina = 100;
-        damage = 10;
+       
+       
         originalTimeStunned = timeStunned;
     }
 
@@ -119,8 +118,9 @@ public class Unit : TimelineElements
     }
     public virtual bool ReceiveDamage(float damage)
     {
+        
         health -= (int)damage;
-
+        Debug.Log("RECEIVE DMG " + damage + "Current health " + health);
         if (health <= 0)
         {
             health = 0;
@@ -130,6 +130,7 @@ public class Unit : TimelineElements
         {
             return false;
         }
+      
     }
 
     public virtual bool ReceiveDamageStun(float damage, float StunDMG)

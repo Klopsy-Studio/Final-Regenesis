@@ -12,7 +12,7 @@ public class RestUnitState : BattleState
 
     IEnumerator RestSequence()
     {
-        owner.currentUnit.stamina = 100;
+       
         owner.currentUnit.turnEnded = true;
 
         owner.actionSelectionUI.ResetSelector();

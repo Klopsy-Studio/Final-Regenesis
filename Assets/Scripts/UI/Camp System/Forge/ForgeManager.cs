@@ -176,7 +176,7 @@ public class ForgeManager : MonoBehaviour
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].power = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Power.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].defense = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Defense.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].critic = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.CriticalPercentage.ToString();
-                weaponTreeTemplateList[i].weaponInfoTemplateList[w].elementEffectiveness = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.Elements_Effectiveness.ToString();
+                weaponTreeTemplateList[i].weaponInfoTemplateList[w].elementEffectiveness = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].weapon.WeaponElement.ToString();
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].materialRequirement = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w].materialsRequired;
                 weaponTreeTemplateList[i].weaponInfoTemplateList[w].weaponUpgradeTree = weaponUpgradeSystem.allWeaponsTrees[i].weaponUpgrade[w];
 

@@ -12,8 +12,8 @@ public class EnemyUnit : Unit
     [Header("Abilities")]
     public Abilities[] abilities;
     public Unit target;
-    [SerializeField] E_Effectiveness elements_Effectiveness;
-    public E_Effectiveness Elements_Effectiveness { get { return elements_Effectiveness; } }
+    [SerializeField] WeaponElement elements_Effectiveness;
+    public WeaponElement monsterElement { get { return elements_Effectiveness; } }
 
     //Enemy Stats
     float stunThreshold = 100;

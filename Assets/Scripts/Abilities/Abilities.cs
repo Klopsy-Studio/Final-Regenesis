@@ -179,24 +179,28 @@ public class Abilities : ScriptableObject
                 break;
         }
     }
-    void CalculateDmg(EnemyUnit target)
+    void CalculateDmg(PlayerUnit player, EnemyUnit target)
     {
         float criticalDmg = 1f;
-        if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, target.Elements_Effectiveness);
+        if (Random.value * 100 <= player.playerCriticalPercentage) criticalDmg = 1.5f;
+        float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(player.playerElement, target.monsterElement);
 
 
-        finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
+        finalDamage = (((player.playerPower * criticalDmg) + (player.playerPower * player.playerElementPower) * elementEffectivenessNumber) * abilityModifier);
+        
     }
 
-    void CalculateDmg(PlayerUnit target)
+
+    //When playerUnit does dmg to another playerUnit
+    void CalculateDmg(PlayerUnit player,PlayerUnit target)
     {
         float criticalDmg = 1f;
-        if (Random.value * 100 <= weapon.CriticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(weapon.Elements_Effectiveness, target.weapon.Elements_Effectiveness);
+        if (Random.value * 100 <= player.playerCriticalPercentage) criticalDmg = 1.5f;
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(player.playerElement, target.playerElement);
 
 
-        finalDamage = (((weapon.Power * criticalDmg) + (weapon.Power * weapon.ElementPower) * elementDmg) * abilityModifier) - weapon.Defense;
+        finalDamage = (((player.playerPower * criticalDmg) + (player.playerPower * player.playerElementPower) * elementDmg) * abilityModifier) - target.playerDefense;
+        
     }
     void CalculateHeal()
     {
@@ -207,7 +211,8 @@ public class Abilities : ScriptableObject
     public void UseAbility(Unit target, BattleController controller)
     {
         //AQUI ES DONDE SE HACE EL ACTION COST
-        target.ActionsPerTurn -= ActionCost;
+        //target.ActionsPerTurn -= ActionCost;
+        controller.currentUnit.actionsPerTurn -= ActionCost;
 
         switch (abilityEffect)
         {
@@ -216,7 +221,7 @@ public class Abilities : ScriptableObject
                 target.DamageEffect();
                 if (target.GetComponent<EnemyUnit>())
                 {
-                    CalculateDmg(target.GetComponent<EnemyUnit>());
+                    CalculateDmg(controller.currentUnit,target.GetComponent<EnemyUnit>());
                     if (target.ReceiveDamage(finalDamage))
                     {
                         target.GetComponent<EnemyUnit>().Die(controller);
@@ -227,7 +232,7 @@ public class Abilities : ScriptableObject
                 {
                     PlayerUnit u = target.GetComponent<PlayerUnit>();
 
-                    CalculateDmg(u);
+                    CalculateDmg(controller.currentUnit,u);
                     if (u.ReceiveDamage(finalDamage))
                     {
                         u.NearDeath(controller);

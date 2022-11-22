@@ -8,8 +8,8 @@ public class Weapons : Equipment
     int criticalPercentage;
     public int CriticalPercentage { get { return criticalPercentage; } }
 
-    [SerializeField] E_Effectiveness elements_Effectiveness;
-    public E_Effectiveness Elements_Effectiveness { get { return elements_Effectiveness; } }
+    [SerializeField] WeaponElement weaponElement;
+    public WeaponElement WeaponElement { get { return weaponElement; } }
 
     [SerializeField] private int power;
     public int Power { get { return power; } }
@@ -20,8 +20,7 @@ public class Weapons : Equipment
     [SerializeField] private int defense;
     public int Defense { get { return defense; } }
 
-    [SerializeField] private int staminaCost;
-    public int StaminaCost { get { return staminaCost; } }
+
 
 
     public int originalRange;
@@ -34,9 +33,14 @@ public class Weapons : Equipment
     
     public Sprite weaponIcon;
 
-    public override void EquipItem(Unit c)
+    public override void EquipItem(PlayerUnit c)
     {
-        c.damage = power;
+        c.playerPower = power;
+        c.playerCriticalPercentage = criticalPercentage;
+        c.playerElement = WeaponElement;
+        c.playerElementPower = elementPower;
+        c.playerDefense = defense;
+
     }
 
     private void OnEnable()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum E_Effectiveness
+public enum WeaponElement
 {
    None,
    Neutral,
@@ -24,9 +24,9 @@ public class ElementsEffectiveness
        /*GRA*/ new float[]{1f, 0.5f, 1.5f, 1f},
     };
 
-    public static float GetEffectiveness(E_Effectiveness attacker, E_Effectiveness defender)
+    public static float GetEffectiveness(WeaponElement attacker, WeaponElement defender)
     {
-        if (attacker == E_Effectiveness.None || defender == E_Effectiveness.None) return 1;
+        if (attacker == WeaponElement.None || defender == WeaponElement.None) return 1;
 
         int row = (int)attacker - 1;
         int col = (int)defender - 1;
