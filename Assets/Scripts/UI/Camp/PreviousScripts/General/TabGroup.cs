@@ -33,7 +33,7 @@ public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES N
     }
     public void OnTabSelected(TabButton button)
     {
-        
+        //THIS SCRIPT HAS BEEN MODIFIED. IT DOES NOT HAVE ITS ORIGINAL PURPOSE
 
         selectedTabButton = button;
         ResetTabs();

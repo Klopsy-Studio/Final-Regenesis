@@ -36,6 +36,9 @@ public class LevelData : ScriptableObject
     public UnitProfile[] unitsInLevel;
     public GameObject enemyInLevel;
 
+    //Variables to unlock new missions
+    public bool hasBeenCompleted;
+    public LevelData[] UnlockableMissions;
     public string GenerateId()
     {
         id = name.Substring(0, 3) + type.ToString().Substring(0,1) + rank.ToString() + position.ToString();

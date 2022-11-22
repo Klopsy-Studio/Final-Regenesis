@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Mission/New Mission list")]
 public class MissionList : ScriptableObject
 {
-    [SerializeField] public List<LevelData> missions;
+     public List<LevelData> missions;
 }
