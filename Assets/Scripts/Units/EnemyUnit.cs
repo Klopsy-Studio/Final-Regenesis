@@ -81,7 +81,6 @@ public class EnemyUnit : Unit
 
         if(monsterSpace != null)
         {
-
             foreach(Tile t in monsterSpace)
             {
                 t.occupied = false;
@@ -90,7 +89,6 @@ public class EnemyUnit : Unit
             monsterSpace.Clear();
         }
 
-        Match();
         //Place(board.GetTile(currentPoint));
 
         SquareAbilityRange monsterRange = GetComponent<SquareAbilityRange>();

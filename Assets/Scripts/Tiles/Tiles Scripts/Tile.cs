@@ -119,31 +119,6 @@ public class Tile : MonoBehaviour
 
     public void ChangeTile(Color newColorSelection)
     {
-        //if(newSelection != null)
-        //{
-        //    if (currentObject == null)
-        //    {
-        //        currentObject = newSelection;
-        //        currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
-        //    }
-        //    else
-        //    {
-        //        previousObject = currentObject;
-        //        currentObject.transform.localPosition = new Vector3(currentObject.transform.localPosition.x, 0, currentObject.transform.localPosition.z);
-        //        newSelection.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
-        //        currentObject = newSelection;
-        //    }
-        //}
-
-        //else
-        //{
-        //    if(currentObject != null)
-        //    {
-        //        currentObject.transform.localPosition = new Vector3(newSelection.transform.localPosition.x, 0.505f, newSelection.transform.localPosition.z);
-        //    }
-        //}
-
-
         if(currentColor == null)
         {
             currentColor = newColorSelection;
@@ -157,8 +132,6 @@ public class Tile : MonoBehaviour
             currentColor = newColorSelection;
             selection.color = currentColor;
         }
-
-
     }
 
     public void ChangeTileToDefault()
@@ -192,13 +165,20 @@ public class Tile : MonoBehaviour
     {
         if (board.GetTile(new Point(pos.x + offsetX, pos.y+offsetY)) != null)
         {
-            if(/*!board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).occupied && */board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).content == null)
+            if(board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).content == null)
             {
                 return true;
             }
             else
             {
-                return false;
+                if(board.GetTile(new Point(pos.x + offsetX, pos.y + offsetY)).content.GetComponent<EnemyUnit>() == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
         else

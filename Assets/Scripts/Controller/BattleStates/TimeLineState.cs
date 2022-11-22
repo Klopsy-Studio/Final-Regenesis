@@ -28,7 +28,6 @@ public class TimeLineState : BattleState
     {
         if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse())
         {
-            Debug.Log("in timeline");
 
             if (selectedUnit != null)
             {

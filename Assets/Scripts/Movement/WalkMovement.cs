@@ -20,7 +20,6 @@ public class WalkMovement : Movement
     public override IEnumerator Traverse(Tile tile, Board board)
     {
         unit.currentPoint = tile.pos;
-
         moving = true;
         unit.Place(tile);
 
@@ -64,11 +63,13 @@ public class WalkMovement : Movement
                 unit.GetComponent<PlayerUnit>().NearDeathSprite();
             }
         }
-        if(tile != null)
+
+        if (tile != null)
         {
             UpdateUnitSprite(tile);
         }
 
+        unit.Match();
         yield return null;
     }
 

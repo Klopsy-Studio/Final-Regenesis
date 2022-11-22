@@ -5534,5 +5534,5 @@ MonoBehaviour:
     y: -2
   enemySpawnPoints:
   - x: -7
-    y: 2
+    y: 5
   itemSpawn: []

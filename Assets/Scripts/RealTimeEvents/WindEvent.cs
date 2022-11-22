@@ -16,7 +16,6 @@ public class WindEvent : RealTimeEvents
 
     public override void ApplyEffect()
     {
-        direction = Directions.North;
 
 
         windEffect.SetActive(true);

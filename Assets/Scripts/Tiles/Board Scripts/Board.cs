@@ -106,18 +106,6 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
 
         t.data = data.tileData[i];
         t.tileSprite.sprite = data.sprites[i];
-        index++;
-
-        test(new Point(-4, 2), t, i);
-        test(new Point(-3, 2), t, i);
-        test(new Point(1, 0), t, i);
-        test(new Point(1,1), t, i);
-        test(new Point(2, 0), t, i);
-        test(new Point(2, 1), t, i);
-        test(new Point(3, 0), t, i);
-        test(new Point(3, 1), t, i);
-        test(new Point(6, -2), t, i);
-        test(new Point(1, -4), t, i);
 
 
         if (t.data.isPlayable)
@@ -134,13 +122,6 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
 
     }
 
-    public void test(Point pos, Tile t, int i)
-    {
-        if(pos == t.pos)
-        {
-            Debug.Log("Number in list: " + i);
-        }
-    }
     public Dictionary<Point, Tile> GetPlayableDictionary()
     {
         return playableTiles;
