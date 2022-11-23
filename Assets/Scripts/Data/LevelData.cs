@@ -48,7 +48,9 @@ public class LevelData : ScriptableObject
     #region Board parameters
      public List<Vector3> tiles;
      public List<TileData> tileData;
-    public List<Sprite> sprites;
+
+    public GameObject levelModel;
+     public List<Sprite> sprites;
      public List<Vector3> props;
      public List<PropData> propData;
      public List<ObstacleType> tileContent;
