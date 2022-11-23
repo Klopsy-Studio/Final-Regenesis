@@ -1903,6 +1903,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleController
       objectReference: {fileID: 0}
+    - target: {fileID: 3099776045518085931, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: winTurn
+      value: 
+      objectReference: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
+    - target: {fileID: 3099776045518085931, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: loseTurn
+      value: 
+      objectReference: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
     - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4918947
