@@ -8,6 +8,11 @@ public class DefeatState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.unitStatusUI.gameObject.SetActive(false);
+        owner.turnStatusUI.gameObject.SetActive(false);
+        owner.timelineUI.gameObject.SetActive(false);
+        tileSelectionIndicator.gameObject.SetActive(false);
+
         owner.isTimeLineActive = false;
         StartCoroutine(LoseState());
     }

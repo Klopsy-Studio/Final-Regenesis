@@ -51,7 +51,7 @@ public class BattleController : StateMachine
     public SpriteRenderer ghostImage;
     public TimelineUI timelineUI;
     public ExpandedUnitStatus expandedUnitStatus;
-
+    public UIController uiController;
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
     public Tile currentTile { get { return board.GetTile(pos); } }
@@ -67,6 +67,8 @@ public class BattleController : StateMachine
     [HideInInspector] public bool moveActionSelector = false;
     [HideInInspector] public bool moveAbilitySelector = false;
     [HideInInspector] public bool moveItemSelector = false;
+    [HideInInspector] public bool win;
+    [HideInInspector] public bool lose;
 
     public List<TimelineElements> timelineElements;
 

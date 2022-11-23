@@ -8,6 +8,10 @@ public class WinState : BattleState
     public override void Enter()
     {
         base.Enter();
+        owner.unitStatusUI.gameObject.SetActive(false);
+        owner.turnStatusUI.gameObject.SetActive(false);
+        owner.timelineUI.gameObject.SetActive(false);
+        tileSelectionIndicator.gameObject.SetActive(false);
         owner.isTimeLineActive = false;
         StartCoroutine(Win());
     }
@@ -15,6 +19,11 @@ public class WinState : BattleState
 
     IEnumerator Win()
     {
+        while (ActionEffect.instance.play || ActionEffect.instance.recovery)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
         owner.turnStatusUI.IndicateTurnStatus(owner.turnStatusUI.winTurn);
         yield return new WaitForSeconds(1);
         owner.turnStatusUI.DeactivateTurn();

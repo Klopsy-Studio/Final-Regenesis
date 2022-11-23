@@ -193,7 +193,6 @@ public class UseAbilityState : BattleState
         currentAbility.UseAbility(target, owner);
 
 
-        ActionEffect.instance.Play(currentAbility.cameraSize, currentAbility.effectDuration, currentAbility.shakeIntensity, currentAbility.shakeDuration);
 
         if(currentAbility.inAbilityEffects != null)
         {
@@ -271,18 +270,15 @@ public class UseAbilityState : BattleState
 
         if (target.isDead)
         {
-            target.gameObject.SetActive(false);
-
             if(target.GetComponent<EnemyUnit>() != null)
             {
                 owner.enemyUnits.Remove(target);
 
-                if (owner.enemyUnits == null)
+                if (owner.enemyUnits.Count == 0)
                 {
                     owner.ChangeState<WinState>();
                 }
             }
-
         }
 
         else

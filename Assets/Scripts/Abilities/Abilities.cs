@@ -214,18 +214,25 @@ public class Abilities : ScriptableObject
             case EffectType.Damage:
                 AudioManager.instance.Play(soundString);
                 target.DamageEffect();
+
                 if (target.GetComponent<EnemyUnit>())
                 {
                     CalculateDmg(target.GetComponent<EnemyUnit>());
                     if (target.ReceiveDamage(finalDamage))
                     {
+                        ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
                         target.GetComponent<EnemyUnit>().Die(controller);
+                    }
+                    else
+                    {
+                        ActionEffect.instance.Play(cameraSize, 2f, 0f, 0f);
                     }
                     Debug.Log(target.health);
                 }
                 else
                 {
                     PlayerUnit u = target.GetComponent<PlayerUnit>();
+                    ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
 
                     CalculateDmg(u);
                     if (u.ReceiveDamage(finalDamage))
@@ -242,6 +249,7 @@ public class Abilities : ScriptableObject
                 CalculateHeal();
                 target.HealEffect();
                 target.Heal(finalHeal);
+                ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
 
                 if (target.GetComponent<PlayerUnit>() != null)
                 {
