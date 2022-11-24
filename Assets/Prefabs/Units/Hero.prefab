@@ -984,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5b4a0340e759f4aa4b8cb7e093c9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpText: {fileID: 3058184175537077074, guid: 30dd75ad56442b1439fb30ac915768e2, type: 3}
   unitUI: {fileID: 136718486075401811}
   actionPointsObject: {fileID: 1321777289758811747}
   stunIndicator: {fileID: 3818055158232388540}

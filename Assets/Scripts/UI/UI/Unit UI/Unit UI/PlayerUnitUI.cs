@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUnitUI : MonoBehaviour
+public class PlayerUnitUI : UnitUI
 {
+    
     public Canvas unitUI;
     [SerializeField] GameObject actionPointsObject;
     [SerializeField] GameObject stunIndicator;
@@ -105,4 +106,6 @@ public class PlayerUnitUI : MonoBehaviour
             actionPoints.Add(i);
         }
     }
+
+ 
 }

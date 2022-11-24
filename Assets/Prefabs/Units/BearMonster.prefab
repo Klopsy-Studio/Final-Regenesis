@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4154550655931685623}
   - component: {fileID: 8065880355718981688}
   - component: {fileID: 8569566428150529451}
+  - component: {fileID: 8579801364242190014}
   m_Layer: 6
   m_Name: BearMonster
   m_TagString: Untagged
@@ -207,6 +208,19 @@ MonoBehaviour:
   unit: {fileID: 131185405536904068}
   crossLength: 0
   offset: -1
+--- !u!114 &8579801364242190014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273cf65b98c65ec45a0246fadf01d355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpText: {fileID: 3058184175537077074, guid: 30dd75ad56442b1439fb30ac915768e2, type: 3}
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0

@@ -222,6 +222,8 @@ public class Abilities : ScriptableObject
                         target.GetComponent<EnemyUnit>().Die(controller);
                     }
                     Debug.Log(target.health);
+                    target.GetComponent<UnitUI>().CreatePopUpText(target.transform.position, (int)finalDamage);
+
                 }
                 else
                 {
