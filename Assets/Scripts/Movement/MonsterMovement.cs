@@ -29,5 +29,9 @@ public class MonsterMovement : WalkMovement
             desiredTile.prev = unit.tile;
             StartCoroutine(Traverse(desiredTile, board));
         }
+        else
+        {
+            unit.Stun();
+        }
     }
 }

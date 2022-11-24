@@ -60,8 +60,7 @@ public class EnemyUnit : Unit
             StunThreshold = 100;
 
         }
-        return base.ReceiveDamageStun(damage, StunDMG);
-       
+        return base.ReceiveDamageStun(damage, StunDMG);     
     }
 
     public override void Damage()
@@ -116,5 +115,35 @@ public class EnemyUnit : Unit
         controller.monsterAnimations.SetBool("death", true);
         AudioManager.instance.Play("MonsterDeath");
         battleController.ChangeState<WinState>();
+    }
+
+    public override bool UpdateTimeLine()
+    {
+        if (!stunned)
+        {
+            if (timelineFill >= timelineFull)
+            {
+                return true;
+            }
+
+            timelineFill += fTimelineVelocity * Time.deltaTime;
+            return false;
+        }
+
+        else
+        {
+            timeStunned -= Time.deltaTime;
+
+            if (timeStunned <= 0)
+            {
+                timelineVelocity = previousVelocity;
+                SetCurrentVelocity();
+                stunned = false;
+                timeStunned = originalTimeStunned;
+                iconTimeline.DisableStun();
+            }
+
+            return false;
+        }
     }
 }

@@ -62,7 +62,7 @@ MonoBehaviour:
   unitSpeed: 0
   element: {fileID: 0}
   stunned: 0
-  timeStunned: 0
+  timeStunned: 2
   turnEnded: 0
   actionDone: 0
   currentPoint:
@@ -70,8 +70,6 @@ MonoBehaviour:
     y: 0
   maxHealth: 300
   health: 300
-  damage: 0
-  stamina: 0
   hurtAnimation: {fileID: 0}
   unitName: Monstruo
   particleHitPrefab: {fileID: 9195261423928058443, guid: db77acff450030546aa4b9db9dbeda8a, type: 3}
