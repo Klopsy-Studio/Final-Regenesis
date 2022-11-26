@@ -206,7 +206,7 @@ public class Unit : TimelineElements
     public void SetCurrentVelocity()
     {
         timelineVelocity += (int)actionsPerTurn;
-        //Debug.Log("TimelineVelocitydespues " + timelineVelocity +" valor" + (int)timelineVelocity);
+
         switch (timelineVelocity)
         {
             case TimelineVelocity.VerySlow:
@@ -230,7 +230,6 @@ public class Unit : TimelineElements
             default:
                 break;
         }
-        //Debug.Log("CURRENT VELOCITY TYPE " + currentVelocity);
 
     }
 

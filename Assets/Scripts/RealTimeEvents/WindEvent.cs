@@ -18,13 +18,10 @@ public class WindEvent : RealTimeEvents
 
     public override void ApplyEffect()
     {
-       
-
         windEffect.SetActive(true);
 
-        //int i = new System.Random().Next(0, 4);
-        int i = 0;
-        Debug.Log("Int i es " + i);
+        int i = new System.Random().Next(0, 4);
+
         if (i == 0)
         {
             direction = Directions.East;
@@ -32,7 +29,6 @@ public class WindEvent : RealTimeEvents
         }
         else if (i == 1)
         {
-            Debug.Log("Hola");
             direction = Directions.South;
             windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 12));
         }
@@ -54,33 +50,16 @@ public class WindEvent : RealTimeEvents
         timelineFill = 0;
         units = battleController.unitsInGame;
         AudioManager.instance.Play("WindEvent");
+
         foreach (var unit in units)
         {
             if (unit.isInAction) { continue; }
             Movement mover = unit.GetComponent<Movement>();
             mover.PushUnit(direction, 1, Board);
         }
-
       
-        fTimelineVelocity = 500;
+        fTimelineVelocity = 10;
       
-        //switch (direction)
-        //{
-        //    case Directions.North:
-        //        direction = Directions.East;
-        //        break;
-        //    case Directions.East:
-        //        direction = Directions.South;
-        //        break;
-        //    case Directions.South:
-        //        direction = Directions.West;
-        //        break;
-        //    case Directions.West:
-        //        direction = Directions.North;
-        //        break;
-        //    default:
-        //        break;
-        //}
         Invoke("DeactivateWindEffect", 1);
     }
 
@@ -88,6 +67,4 @@ public class WindEvent : RealTimeEvents
     {
         windEffect.SetActive(false);
     }
-
-   
 }
