@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitUI : MonoBehaviour
+public class UnitStatusList : MonoBehaviour
 {
     [SerializeField] GameObject unitStatusPrefab;
 
