@@ -9,6 +9,7 @@ public class UseItemState : BattleState
     Consumables currentItem;
 
     ItemRange range;
+    
     bool isTimelineItem = false;
 
     bool itemUsed;
@@ -29,6 +30,7 @@ public class UseItemState : BattleState
         else if (currentItem.ConsumableType == ConsumableType.TimelineConsumable)
         {
             isTimelineItem = true;
+
             if(currentItem is Bomb b)
             {
                 //itemChosen.SetUnitTimelineVelocity(owner.currentUnit);
@@ -44,10 +46,27 @@ public class UseItemState : BattleState
                     t.selected = false;
                 }
                 range.removeContent = false;
-                owner.ghostImage.sprite = currentItem.sprite;
+                owner.ghostImage.sprite = currentItem.sprite;              
+            }
+            
+            if(currentItem is SmokeBomb s)
+            {
+                //itemChosen.SetUnitTimelineVelocity(owner.currentUnit);
+                range = GetRange<ItemRange>();
+                range.range = s.smokeBombRange;
+                range.tile = owner.currentUnit.tile;
+                tiles = range.GetTilesInRange(board);
 
-                
-            }          
+                board.SelectMovementTiles(tiles);
+
+                foreach (Tile t in tiles)
+                {
+                    t.selected = false;
+                }
+
+                range.removeContent = false;
+                owner.ghostImage.sprite = currentItem.sprite;
+            }
         }
        
     }
@@ -55,7 +74,14 @@ public class UseItemState : BattleState
     IEnumerator Init()
     {
         owner.backpackInventory.UseConsumable(owner.itemChosen, targetUnit: owner.currentUnit);
-        yield return null;
+
+        ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
+        
+        while(ActionEffect.instance.play || ActionEffect.instance.recovery)
+        {
+            yield return null;
+        }
+        
         owner.ChangeState<FinishPlayerUnitTurnState>();
     }
 

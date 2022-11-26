@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fccd5963326a83478ff8e97dff7ce7e, type: 3}
-  m_Name: Potion2
+  m_Script: {fileID: 11500000, guid: 1e41dd582cf748544aee0060d38bc14c, type: 3}
+  m_Name: SmokeBomb
   m_EditorClassIdentifier: 
-  itemName: Mega Potion
-  sprite: {fileID: 21300000, guid: 8dbba194a75b8a74ab98b7f9659cb6c2, type: 3}
+  itemName: 
+  sprite: {fileID: 0}
   consumableType: 0
-  maxBackPackAmount: 8
-  addHealth: 50
+  maxBackPackAmount: 0

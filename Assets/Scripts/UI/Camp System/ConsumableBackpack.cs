@@ -19,7 +19,6 @@ public class ConsumableBackpack : ConsumableInventory
             consumableUsed = consumableContainer[indexItem].consumable.ApplyConsumable(tileSpawn, battleController);
         }
 
-
         if (consumableUsed)
         {
             RemoveConsumable(indexItem);

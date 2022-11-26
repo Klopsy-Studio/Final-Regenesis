@@ -87,8 +87,6 @@ public class BombTimeline : ItemElements
 
     }
 
-    
-
     public void Place(Tile target)
     {
         // Make sure old tile location is not still pointing to this unit

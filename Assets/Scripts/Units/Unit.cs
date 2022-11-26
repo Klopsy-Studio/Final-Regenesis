@@ -230,9 +230,36 @@ public class Unit : TimelineElements
             default:
                 break;
         }
-
     }
 
+    public void DecreaseTimelineVelocity(int decrease)
+    {
+        timelineVelocity -= decrease;
+
+        switch (timelineVelocity)
+        {
+            case TimelineVelocity.VerySlow:
+                fTimelineVelocity = 5;
+                break;
+            case TimelineVelocity.Slow:
+                fTimelineVelocity = 10f;
+                break;
+            case TimelineVelocity.Normal:
+                fTimelineVelocity = 15;
+                break;
+            case TimelineVelocity.Quick:
+                fTimelineVelocity = 20f;
+                break;
+            case TimelineVelocity.VeryQuick:
+                fTimelineVelocity = 25;
+                break;
+            case TimelineVelocity.TurboFast:
+                fTimelineVelocity = 30f;
+                break;
+            default:
+                break;
+        }
+    }
     public override bool UpdateTimeLine()
     {
         if (!stunned)

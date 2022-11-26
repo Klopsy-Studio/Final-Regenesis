@@ -17,6 +17,13 @@ public class Potion : Consumables
             unit.health = unit.maxHealth;
         }
 
+        unit.HealEffect();
+        
+        if(unit.GetComponent<PlayerUnit>() != null)
+        {
+            PlayerUnit p = unit.GetComponent<PlayerUnit>();
+            p.status.HealthAnimation(p.health);
+        }
         return true;
 
     }
