@@ -15,14 +15,15 @@ public class UseItemState : BattleState
     bool itemUsed;
     public override void Enter()
     {
-
         base.Enter();
         itemUsed = false;
         owner.isTimeLineActive = false;
         owner.actionSelectionUI.gameObject.SetActive(false);
 
-        currentItem = owner.backpackInventory.consumableContainer[owner.itemChosen].consumable;  
-     
+        currentItem = owner.backpackInventory.consumableContainer[owner.itemChosen].consumable;
+
+        owner.currentUnit.playerUI.PreviewActionCost(2);
+
         if(currentItem.ConsumableType == ConsumableType.NormalConsumable)
         {
             StartCoroutine(Init());
@@ -31,49 +32,60 @@ public class UseItemState : BattleState
         {
             isTimelineItem = true;
 
-            if(currentItem is Bomb b)
-            {
-                //itemChosen.SetUnitTimelineVelocity(owner.currentUnit);
-                range = GetRange<ItemRange>();
-                range.range = b.range;
-                range.tile = owner.currentUnit.tile;
-                tiles = range.GetTilesInRange(board);
-
-                board.SelectMovementTiles(tiles);
-
-                foreach(Tile t in tiles)
-                {
-                    t.selected = false;
-                }
-                range.removeContent = false;
-                owner.ghostImage.sprite = currentItem.sprite;              
-            }
-            
-            if(currentItem is SmokeBomb s)
-            {
-                //itemChosen.SetUnitTimelineVelocity(owner.currentUnit);
-                range = GetRange<ItemRange>();
-                range.range = s.smokeBombRange;
-                range.tile = owner.currentUnit.tile;
-                tiles = range.GetTilesInRange(board);
-
-                board.SelectMovementTiles(tiles);
-
-                foreach (Tile t in tiles)
-                {
-                    t.selected = false;
-                }
-
-                range.removeContent = false;
-                owner.ghostImage.sprite = currentItem.sprite;
-            }
+            tiles = GetRangeOnItems(currentItem.itemRange);
+            board.SelectMovementTiles(tiles);
+            owner.ghostImage.sprite = currentItem.sprite;
         }
        
     }
 
+    public List<Tile> GetRangeOnItems(RangeData data)
+    {
+        switch (data.range)
+        {
+            case TypeOfAbilityRange.Cone:
+                return null;
+            case TypeOfAbilityRange.Constant:
+                return null;
+            case TypeOfAbilityRange.Infinite:
+                return null;
+            case TypeOfAbilityRange.LineAbility:
+                LineAbilityRange line = GetRange<LineAbilityRange>();
+                line.AssignVariables(data);
+                return line.GetTilesInRange(board);
+            case TypeOfAbilityRange.SelfAbility:
+                return null;
+            case TypeOfAbilityRange.SquareAbility:
+                SquareAbilityRange square = GetRange<SquareAbilityRange>();
+                square.AssignVariables(data);
+                return square.GetTilesInRangeWithoutUnit(board, owner.currentTile.pos);
+            case TypeOfAbilityRange.Side:
+                SideAbilityRange side = GetRange<SideAbilityRange>();
+                side.AssignVariables(data);
+                return side.GetTilesInRange(board);
+            case TypeOfAbilityRange.AlternateSide:
+                AlternateSideRange altSide = GetRange<AlternateSideRange>();
+                altSide.AssignVariables(data);
+                return altSide.GetTilesInRange(board);
+            case TypeOfAbilityRange.Cross:
+                CrossAbilityRange cross = GetRange<CrossAbilityRange>();
+                cross.AssignVariables(data);
+                return cross.GetTilesInRange(board);
+            case TypeOfAbilityRange.Normal:
+                return null;
+            case TypeOfAbilityRange.Item:
+                ItemRange item = GetRange<ItemRange>();
+                item.AssignVariables(data);
+                item.tile = owner.currentTile;
+                return item.GetTilesInRange(board);
+            default:
+                return null;
+        }
+    }
     IEnumerator Init()
     {
         owner.backpackInventory.UseConsumable(owner.itemChosen, targetUnit: owner.currentUnit);
+        owner.currentUnit.playerUI.gameObject.SetActive(false);
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
         
@@ -81,13 +93,15 @@ public class UseItemState : BattleState
         {
             yield return null;
         }
-        
+
+        owner.currentUnit.playerUI.SpendActionPoints(2);
+        owner.currentUnit.ActionsPerTurn -= 2;
+
         owner.ChangeState<FinishPlayerUnitTurnState>();
     }
 
     protected override void OnMove(object sender, InfoEventArgs<Point> e)
     {
-
         if (!isTimelineItem) return;
         SelectTile(e.info + pos);
     }
@@ -101,13 +115,12 @@ public class UseItemState : BattleState
             owner.backpackInventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile);
             itemUsed = true;
             owner.ChangeState<FinishPlayerUnitTurnState>();
-
         }
     }
 
     protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
     {
-        if (!isTimelineItem) return;
+        if (!isTimelineItem || itemUsed) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
@@ -116,18 +129,17 @@ public class UseItemState : BattleState
             var t = a.GetComponent<Tile>();
             if (t != null)
             {
-                SelectTile(e.info + t.pos);
-
                 if (tiles.Contains(t))
                 {
+                    SelectTile(e.info + t.pos);
+                    owner.ActivateTileSelector();
                     if (selectTiles != null)
                     {
                         board.DeSelectTiles(selectTiles);
                         selectTiles.Clear();
                     }
                     owner.ghostImage.gameObject.SetActive(true);
-                    range.tile = owner.currentTile;
-                    selectTiles = range.GetTilesInRange(board);
+                    selectTiles = GetRangeOnItems(currentItem.effectRange);
                     board.SelectAttackTiles(selectTiles);
                 }
 
@@ -139,9 +151,7 @@ public class UseItemState : BattleState
                         selectTiles.Clear();
                     }
 
-                    owner.ghostImage.gameObject.SetActive(false);
-
-
+                    owner.DeactivateTileSelector();
                 }
             }
 
@@ -150,17 +160,30 @@ public class UseItemState : BattleState
 
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)
     {
-
-        if (!isTimelineItem) return;
+        if (!isTimelineItem || itemUsed) return;
 
         if (owner.currentTile.content == null && tiles.Contains(owner.currentTile))
         {
-            owner.backpackInventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile, battleController: owner);
-            itemUsed = true;
-            owner.ChangeState<FinishPlayerUnitTurnState>();
+            StartCoroutine(UseItemSpace());
         }
     }
+    IEnumerator UseItemSpace()
+    {
+        itemUsed = true;
 
+        owner.backpackInventory.UseConsumable(owner.itemChosen, tileSpawn: owner.currentTile, battleController: owner);
+        //Unit item pose
+        ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
+
+        while (ActionEffect.instance.play || ActionEffect.instance.recovery)
+        {
+            yield return null;
+        }
+        owner.currentUnit.playerUI.SpendActionPoints(2);
+        owner.currentUnit.ActionsPerTurn -= 2;
+
+        owner.ChangeState<SelectActionState>();
+    }
     protected override void OnEscape(object sender, InfoEventArgs<KeyCode> e)
     {
         if (!isTimelineItem) return;
@@ -197,7 +220,7 @@ public class UseItemState : BattleState
             board.DeSelectDefaultTiles(tiles);
         }
 
-        if(selectTiles != null && !itemUsed)
+        if(selectTiles != null)
         {
             board.DeSelectDefaultTiles(selectTiles);
             selectTiles = null;
@@ -205,6 +228,7 @@ public class UseItemState : BattleState
 
         tiles = null;
 
+        
         owner.ghostImage.gameObject.SetActive(false);
 
     }

@@ -22,6 +22,7 @@ public enum TypeOfAbilityRange
     AlternateSide,
     Cross,
     Normal,
+    Item,
 };
 
 public enum EffectType

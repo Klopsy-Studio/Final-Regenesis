@@ -120,7 +120,7 @@ public class Unit : TimelineElements
     {
         
         health -= (int)damage;
-        Debug.Log("RECEIVE DMG " + damage + "Current health " + health);
+        
         if (health <= 0)
         {
             health = 0;

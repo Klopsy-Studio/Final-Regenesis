@@ -7,7 +7,6 @@ using UnityEngine;
 public class SmokeBomb : Consumables
 {
     [SerializeField] SmokeBombTimeline smokeBomb;
-    public int smokeBombRange;
     public override bool ApplyConsumable(Tile t, BattleController battleController)
     {
         Instantiate(smokeBomb);

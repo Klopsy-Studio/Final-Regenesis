@@ -10,6 +10,7 @@ public class CrossAbilityRange : AbilityRange
     {
         Point startPos = unit.tile.pos;
         List<Tile> retValue = new List<Tile>();
+
         for (int i = 0; i < crossLength; i++)
         {
             if(offset > i)

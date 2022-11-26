@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BombTimeline : ItemElements
 {
-    public ItemRange itemRange;
+    public SquareAbilityRange itemRange;
     List<Tile> tiles;
 
 
@@ -22,14 +22,10 @@ public class BombTimeline : ItemElements
         battleController = bController;
         bController.timelineElements.Add(this);
         timelineTypes = TimeLineTypes.Items;
-        fTimelineVelocity = 70;
-        itemRange.removeContent = false;
-        itemRange.tile = t;
+        fTimelineVelocity = 30;
         tile = t;
         currentPoint = t.pos;
-        tiles = itemRange.GetTilesInRange(battleController.board);
-
-        battleController.board.SelectAttackTiles(tiles);
+        tiles = itemRange.GetTilesInRangeWithoutUnit(battleController.board, tile.pos);
     }
 
 
@@ -58,6 +54,13 @@ public class BombTimeline : ItemElements
                 unit.ReceiveDamage(30);
                 unit.Damage();
                 unit.DamageEffect();
+
+                if (unit.GetComponent<PlayerUnit>() != null)
+                {
+                    PlayerUnit u = unit.GetComponent<PlayerUnit>();
+                    u.status.HealthAnimation(u.health);
+
+                }
             }
         }
         bombAnimator.SetTrigger("explode");
@@ -81,7 +84,7 @@ public class BombTimeline : ItemElements
         battleController.board.DeSelectDefaultTiles(tiles);
         battleController.itemIndexToRemove = battleController.timelineElements.IndexOf(this);
         battleController.timelineElements.Remove(this);
-        itemRange.tile.content = null; 
+        tile.content = null;
         gameObject.SetActive(false);
 
 
