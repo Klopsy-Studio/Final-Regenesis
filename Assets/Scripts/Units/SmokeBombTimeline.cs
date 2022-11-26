@@ -6,9 +6,10 @@ public class SmokeBombTimeline : MonoBehaviour
 {
     public ItemRange range;
     [SerializeField] int decreaseAmmount;
-    public void ApplyEffect(Board board)
+    bool monsterAdded;
+    public void ApplyEffect(BattleController controller)
     {
-        List<Tile> tiles = range.GetTilesInRange(board);
+        List<Tile> tiles = range.GetTilesInRange(controller.board);
         List<Unit> units = new List<Unit>();
 
         foreach(Tile t in tiles)
@@ -20,6 +21,12 @@ public class SmokeBombTimeline : MonoBehaviour
                     units.Add(t.content.GetComponent<Unit>());
                 }
             }
+
+            if (t.occupied && !monsterAdded)
+            {
+                units.Add(controller.enemyUnits[0]);
+                monsterAdded = true;
+            }
         }
 
         foreach(Unit u in units)
@@ -30,8 +37,6 @@ public class SmokeBombTimeline : MonoBehaviour
             }
 
             u.DecreaseTimelineVelocity(decreaseAmmount);
-
-            
         }
     }
 }

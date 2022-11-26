@@ -24,6 +24,8 @@ public class Tile : MonoBehaviour
 
     
     public string displayName;
+
+    public List<TileModifier> modifiers = new List<TileModifier>();
     public GameObject content
     {
         get
@@ -108,14 +110,26 @@ public class Tile : MonoBehaviour
 
     public virtual void OnUnitArrive()
     {
-        
+        if(content.GetComponent<Unit>() != null)
+        {
+            foreach(TileModifier m in modifiers)
+            {
+                m.Effect(content.GetComponent<Unit>());
+            }
+        }
     }
 
+    public void OnUnitArriveMonster(EnemyUnit unit)
+    {
+        foreach (TileModifier m in modifiers)
+        {
+            m.Effect(unit);
+        }
+    }
     public virtual void OnUnitLeave()
     {
-      
+        
     }
-
 
     public void ChangeTile(Color newColorSelection)
     {

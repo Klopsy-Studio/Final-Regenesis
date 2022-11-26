@@ -11,7 +11,7 @@ public class SmokeBomb : Consumables
     {
         Instantiate(smokeBomb);
         smokeBomb.range.tile = t;
-        smokeBomb.ApplyEffect(battleController.board);
+        smokeBomb.ApplyEffect(battleController);
         return true;
     }
 
