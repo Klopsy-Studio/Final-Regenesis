@@ -1797,6 +1797,10 @@ PrefabInstance:
       propertyPath: fTimelineVelocity
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 85011358645062137, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 85011359272121196, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_IsActive
       value: 1

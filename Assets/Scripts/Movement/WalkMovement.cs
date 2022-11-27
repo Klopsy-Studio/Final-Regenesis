@@ -9,7 +9,6 @@ public class WalkMovement : Movement
         moving = true;
         unit.Place(tile);
 
-
         UpdateUnitSprite(tile);
 
         moving = false;

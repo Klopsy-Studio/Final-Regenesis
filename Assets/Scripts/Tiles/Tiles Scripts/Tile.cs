@@ -116,7 +116,11 @@ public class Tile : MonoBehaviour
             {
                 m.Effect(content.GetComponent<Unit>());
             }
+
+            modifiers.Clear();
         }
+
+        
     }
 
     public void OnUnitArriveMonster(EnemyUnit unit)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileModifier : MonoBehaviour
+public class TileModifier 
 {
     public Tile t;
 
