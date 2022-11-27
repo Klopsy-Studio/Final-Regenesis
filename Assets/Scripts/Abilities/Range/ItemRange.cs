@@ -7,6 +7,8 @@ public class ItemRange : AbilityRange
     public Tile tile;
     public int range;
 
+    Point pos;
+
     public bool removeContent = true;
     public override List<Tile> GetTilesInRange(Board board)
     {
@@ -24,12 +26,19 @@ public class ItemRange : AbilityRange
                 }
             }
         }
-        
+
         return retValue;
     }
 
+
+    public override void AssignVariables(RangeData rangeData)
+    {
+        range = rangeData.itemRange;
+        removeContent = rangeData.itemRemoveContent;
+    }
     protected virtual bool ExpandSearch(Tile from, Tile to)
     {
         return (from.distance + 1) <= range;
     }
 }
+

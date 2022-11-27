@@ -11,11 +11,11 @@ public abstract class ItemElements : TimelineElements
         throw new System.NotImplementedException();
     }
 
-    public abstract IEnumerator ApplyEffect();
+    public abstract IEnumerator ApplyEffect( BattleController controller);
 
-    public void Apply()
+    public void Apply(BattleController controller)
     {
-        StartCoroutine(ApplyEffect());
+        StartCoroutine(ApplyEffect(controller));
     }
 
 

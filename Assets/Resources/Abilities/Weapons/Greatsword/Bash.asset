@@ -27,6 +27,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 1
+    itemRange: 0
+    itemRemoveContent: 0
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
@@ -43,11 +45,7 @@ MonoBehaviour:
   animationName: 
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
-  description:
-  - "Corte amplio y potente que golpea en el \xE1rea de delante. "
-  - '3 casillas delante de la unidad. '
-  - "Da\xF1o del 110% del base. "
-  - "Recuperaci\xF3n media. "
+  description: Deals damage to the selected unit and pushes it.
   inAbilityEffects:
   - effectPlaying: 1
     effectType: 0

@@ -22,6 +22,7 @@ public enum TypeOfAbilityRange
     AlternateSide,
     Cross,
     Normal,
+    Item,
 };
 
 public enum EffectType
@@ -90,7 +91,7 @@ public class Abilities : ScriptableObject
     [HideInInspector] public Unit lastTarget;
     public Weapons weapon;
 
-    public string[] description;
+    public string description;
 
     [Header("AbilityEffects")]
     public List<Effect> inAbilityEffects;
@@ -227,6 +228,8 @@ public class Abilities : ScriptableObject
                         target.GetComponent<EnemyUnit>().Die(controller);
                     }
                     Debug.Log(target.health);
+                    target.GetComponent<UnitUI>().CreatePopUpText(target.transform.position, (int)finalDamage);
+
                 }
                 else
                 {

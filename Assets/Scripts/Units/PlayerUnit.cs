@@ -307,7 +307,6 @@ public class PlayerUnit : Unit
 
             else
             {
-                Debug.Log("stunned");
                 timeStunned -= Time.deltaTime;
 
                 if (timeStunned <= 0)

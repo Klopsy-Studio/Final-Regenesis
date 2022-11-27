@@ -15,11 +15,17 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     [SerializeField] int selection;
 
+    public AbilityDescription abilityDescription;
+
     public bool canBeSelected;
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (canBeSelected)
         {
+            if(abilityDescription!= null)
+            {
+                abilityDescription.gameObject.SetActive(true);
+            }
             optionSelection.MouseOverEnter(this);
             optionSelection.currentSelection = selection;
 
@@ -31,6 +37,11 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         if (canBeSelected)
         {
+            if(abilityDescription != null)
+            {
+                abilityDescription.gameObject.SetActive(false);
+            }
+
             optionSelection.MouseOverExit(this);
 
             textButton.color = normalColor;

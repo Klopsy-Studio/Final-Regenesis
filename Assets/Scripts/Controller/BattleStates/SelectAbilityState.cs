@@ -29,12 +29,16 @@ public class SelectAbilityState : BattleState
                 if (owner.currentUnit.weapon.Abilities[i].CanDoAbility(owner.currentUnit.actionsPerTurn))
                 {
                     AbilitySelectionUI.EnableSelectAbilty(i);
+                    
                 }
                 else
                 {
                     AbilitySelectionUI.DisableSelectAbilty(i);
                 }
+
                 AbilitySelectionUI.options[i].GetComponent<Text>().text = abilityList[i].abilityName;
+                AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().abilityDescription.AssignData(abilityList[i]);
+
             }
         }
 

@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3704523542285939759}
   - component: {fileID: 3440296949756166470}
-  - component: {fileID: -5727988422277683294}
+  - component: {fileID: 3874772626538279074}
   m_Layer: 6
   m_Name: BombTimeline
   m_TagString: Untagged
@@ -240,9 +240,9 @@ MonoBehaviour:
     x: 0
     y: 0
   tile: {fileID: 0}
-  itemRange: {fileID: -5727988422277683294}
+  itemRange: {fileID: 3874772626538279074}
   bombAnimator: {fileID: 6412955533562659246}
---- !u!114 &-5727988422277683294
+--- !u!114 &3874772626538279074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,12 +251,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8363863624928149793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e2b5a098f0a1b429357174f26d9a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 827fad8a48ca0824bb79f7a6b00193ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horizontal: 1
   vertical: 2147483647
   unit: {fileID: 0}
-  tile: {fileID: 0}
-  range: 2
-  removeContent: 1
+  squareReach: 1

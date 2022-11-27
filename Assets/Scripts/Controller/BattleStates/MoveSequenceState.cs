@@ -26,11 +26,6 @@ public class MoveSequenceState : BattleState
         owner.currentUnit.currentPoint = owner.currentTile.pos;
         StartCoroutine(m.SimpleTraverse(owner.currentTile));
 
-        //while (m.moving)
-        //{
-        //    yield return null;
-        //}
-
         owner.currentUnit.MovementEffect();
         owner.currentUnit.actionDone = true;
 

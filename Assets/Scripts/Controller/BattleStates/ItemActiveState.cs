@@ -19,7 +19,7 @@ public class ItemActiveState : BattleState
         owner.turnStatusUI.StopTurnStatus();
         yield return new WaitForSeconds(1f);
 
-        owner.currentItem.Apply();
+        owner.currentItem.Apply(owner);
 
         yield return new WaitForSeconds(2);
         owner.ChangeState<TimeLineState>();

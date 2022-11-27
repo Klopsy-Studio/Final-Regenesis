@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BombTimeline : ItemElements
 {
-    public ItemRange itemRange;
+    public SquareAbilityRange itemRange;
     List<Tile> tiles;
 
 
@@ -13,23 +13,16 @@ public class BombTimeline : ItemElements
 
     [SerializeField] Animator bombAnimator;
 
-    private void Start()
-    {
-
-    }
+    bool monsterDamaged;
     public void Init(BattleController bController, Tile t)
     {
         battleController = bController;
         bController.timelineElements.Add(this);
         timelineTypes = TimeLineTypes.Items;
-        fTimelineVelocity = 70;
-        itemRange.removeContent = false;
-        itemRange.tile = t;
+        fTimelineVelocity = 30;
         tile = t;
         currentPoint = t.pos;
-        tiles = itemRange.GetTilesInRange(battleController.board);
-
-        battleController.board.SelectAttackTiles(tiles);
+        tiles = itemRange.GetTilesInRangeWithoutUnit(battleController.board, tile.pos);
     }
 
 
@@ -44,21 +37,44 @@ public class BombTimeline : ItemElements
         return false;
     }
 
-    public override IEnumerator ApplyEffect()
+    public override IEnumerator ApplyEffect(BattleController controller)
     {
-
         yield return new WaitForSeconds(1);
         timelineFill = 0;
 
         foreach (var t in tiles)
         {
-            if (t.content == null) continue;
-            if(t.content.TryGetComponent(out Unit unit))
-            { 
-                unit.ReceiveDamage(30);
-                unit.Damage();
-                unit.DamageEffect();
+            if(t.content != null)
+            {
+                if (t.content.TryGetComponent(out Unit unit))
+                {
+                    unit.ReceiveDamage(30);
+                    unit.Damage();
+                    unit.DamageEffect();
+
+                    if (unit.GetComponent<PlayerUnit>() != null)
+                    {
+                        PlayerUnit u = unit.GetComponent<PlayerUnit>();
+                        u.status.HealthAnimation(u.health);
+
+                    }
+
+                    if(unit.GetComponent<EnemyUnit>() != null)
+                    {
+                        monsterDamaged = true;
+                    }
+                }
+
+                if(t.occupied && !monsterDamaged)
+                {
+                    Unit monster = controller.enemyUnits[0];
+                    monster.ReceiveDamage(30);
+                    monster.Damage();
+                    monster.DamageEffect();
+                    monsterDamaged = true;
+                }
             }
+            
         }
         bombAnimator.SetTrigger("explode");
 
@@ -81,13 +97,11 @@ public class BombTimeline : ItemElements
         battleController.board.DeSelectDefaultTiles(tiles);
         battleController.itemIndexToRemove = battleController.timelineElements.IndexOf(this);
         battleController.timelineElements.Remove(this);
-        itemRange.tile.content = null; 
+        tile.content = null;
         gameObject.SetActive(false);
 
 
     }
-
-    
 
     public void Place(Tile target)
     {

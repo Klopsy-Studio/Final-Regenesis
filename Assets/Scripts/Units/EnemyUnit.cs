@@ -83,6 +83,7 @@ public class EnemyUnit : Unit
             foreach(Tile t in monsterSpace)
             {
                 t.occupied = false;
+                t.OnUnitLeave();
             }
 
             monsterSpace.Clear();
@@ -97,6 +98,7 @@ public class EnemyUnit : Unit
         foreach (Tile t in monsterSpace)
         {
             t.occupied = true;
+            t.OnUnitArriveMonster(this);
         }
     }
 

@@ -44,7 +44,7 @@ public class BattleController : StateMachine
     public OptionSelection actionSelectionUI;
     public OptionSelection abilitySelectionUI;
     public OptionSelection itemSelectionUI;
-    public UnitUI unitStatusUI;
+    public UnitStatusList unitStatusUI;
     public TurnStatusUI turnStatusUI;
     public AbilityDetailsUI abilityDetailsUI;
     public AttackUI attackUI;

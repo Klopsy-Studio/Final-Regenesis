@@ -120,7 +120,7 @@ public class Unit : TimelineElements
     {
         
         health -= (int)damage;
-        Debug.Log("RECEIVE DMG " + damage + "Current health " + health);
+        
         if (health <= 0)
         {
             health = 0;
@@ -206,7 +206,7 @@ public class Unit : TimelineElements
     public void SetCurrentVelocity()
     {
         timelineVelocity += (int)actionsPerTurn;
-        //Debug.Log("TimelineVelocitydespues " + timelineVelocity +" valor" + (int)timelineVelocity);
+
         switch (timelineVelocity)
         {
             case TimelineVelocity.VerySlow:
@@ -230,10 +230,36 @@ public class Unit : TimelineElements
             default:
                 break;
         }
-        //Debug.Log("CURRENT VELOCITY TYPE " + currentVelocity);
-
     }
 
+    public void DecreaseTimelineVelocity(int decrease)
+    {
+        timelineVelocity -= decrease;
+
+        switch (timelineVelocity)
+        {
+            case TimelineVelocity.VerySlow:
+                fTimelineVelocity = 5;
+                break;
+            case TimelineVelocity.Slow:
+                fTimelineVelocity = 10f;
+                break;
+            case TimelineVelocity.Normal:
+                fTimelineVelocity = 15;
+                break;
+            case TimelineVelocity.Quick:
+                fTimelineVelocity = 20f;
+                break;
+            case TimelineVelocity.VeryQuick:
+                fTimelineVelocity = 25;
+                break;
+            case TimelineVelocity.TurboFast:
+                fTimelineVelocity = 30f;
+                break;
+            default:
+                break;
+        }
+    }
     public override bool UpdateTimeLine()
     {
         if (!stunned)
@@ -297,7 +323,8 @@ public class Unit : TimelineElements
 
     public void HealEffect()
     {
-        GameObject temp = Instantiate(healEffect, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), healEffect.transform.rotation);
+        Debug.Log("Heal");
+        GameObject temp = Instantiate(healEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), healEffect.transform.rotation);
         Destroy(temp, 0.8f);
     }
 

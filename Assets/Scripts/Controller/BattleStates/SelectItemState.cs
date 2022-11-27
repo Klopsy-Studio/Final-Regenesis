@@ -46,13 +46,12 @@ public class SelectItemState : BattleState
             owner.itemSelectionUI.options[i].GetComponent<Text>().text = item.consumable.ItemName;
             owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().text = item.amount.ToString();
             owner.itemSelectionUI.itemImage[i].sprite = item.consumable.sprite;
-
+            
             owner.itemSelectionUI.itemImage[i].SetNativeSize();
             owner.itemSelectionUI.options[i].GetComponent<SelectorMovement>().canBeSelected = true;
-
-
+            owner.itemSelectionUI.options[i].GetComponent<SelectorMovement>().abilityDescription.AssignData(itemList[i].consumable);
         }
-        
+
 
         owner.itemSelectionUI.ResetSelector();
         //Meter ActivarUI

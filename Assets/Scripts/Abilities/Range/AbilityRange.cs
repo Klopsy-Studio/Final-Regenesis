@@ -25,7 +25,7 @@ public abstract class AbilityRange : MonoBehaviour
 
     public virtual void AssignVariables(RangeData rangeData)
     {
-
+        
     }
 
 }

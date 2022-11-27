@@ -17,5 +17,7 @@ public class RangeData
     [SerializeField] public int alternateSideReach;
     [SerializeField] public int alternateSideLength;
     [SerializeField] public int movementRange;
+    [SerializeField] public int itemRange;
+    [SerializeField] public bool itemRemoveContent;
 }
 

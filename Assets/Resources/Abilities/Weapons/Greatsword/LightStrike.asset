@@ -27,6 +27,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 2
+    itemRange: 0
+    itemRemoveContent: 0
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
@@ -43,11 +45,7 @@ MonoBehaviour:
   animationName: 
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
-  description:
-  - 'Un corte simple pero efectivo con la gran espada. '
-  - 1 casilla de rango.
-  - "Da\xF1o del 105% del base. "
-  - "Recuperaci\xF3n r\xE1pida. "
+  description: Deals damage to the selected unit.
   inAbilityEffects:
   - effectPlaying: 0
     effectType: 2
