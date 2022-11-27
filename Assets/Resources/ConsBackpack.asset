@@ -19,3 +19,5 @@ MonoBehaviour:
     amount: 10
   - consumable: {fileID: 11400000, guid: 898ee9adef8099b46951c700a419c570, type: 2}
     amount: 10
+  - consumable: {fileID: 11400000, guid: bd9ed1f77b64bd14eb25fc46d103ad1b, type: 2}
+    amount: 8

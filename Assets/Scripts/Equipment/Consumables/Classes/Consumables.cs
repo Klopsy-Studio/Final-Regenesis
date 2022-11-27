@@ -6,6 +6,7 @@ public enum ConsumableType
 {
     NormalConsumable,
     TimelineConsumable,
+    TargetConsumable,
 }
 public abstract class Consumables : ScriptableObject
 {
@@ -20,6 +21,11 @@ public abstract class Consumables : ScriptableObject
 
     public string ItemName { get { return itemName; } }
     public abstract bool ApplyConsumable(Unit unit);
-    public abstract bool ApplyConsumable(Tile t, BattleController battleController);    
+    public abstract bool ApplyConsumable(Tile t, BattleController battleController);
+
+    public virtual bool CanUseItem()
+    {
+        return true;
+    }
 
 }

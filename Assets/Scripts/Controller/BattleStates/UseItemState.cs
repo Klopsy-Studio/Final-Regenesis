@@ -13,6 +13,8 @@ public class UseItemState : BattleState
     bool isTimelineItem = false;
 
     bool itemUsed;
+
+    bool firstClick = false;
     public override void Enter()
     {
         base.Enter();
@@ -28,7 +30,7 @@ public class UseItemState : BattleState
         {
             StartCoroutine(Init());
         }
-        else if (currentItem.ConsumableType == ConsumableType.TimelineConsumable)
+        else if (currentItem.ConsumableType == ConsumableType.TimelineConsumable || currentItem.ConsumableType == ConsumableType.TargetConsumable)
         {
             isTimelineItem = true;
 
@@ -36,7 +38,7 @@ public class UseItemState : BattleState
             board.SelectMovementTiles(tiles);
             owner.ghostImage.sprite = currentItem.sprite;
         }
-       
+
     }
 
     public List<Tile> GetRangeOnItems(RangeData data)
@@ -162,9 +164,31 @@ public class UseItemState : BattleState
     {
         if (!isTimelineItem || itemUsed) return;
 
-        if (owner.currentTile.content == null && tiles.Contains(owner.currentTile))
+        if (!firstClick)
         {
-            StartCoroutine(UseItemSpace());
+            firstClick = true;
+        }
+        else
+        {
+            switch (currentItem.ConsumableType)
+            {
+                case ConsumableType.NormalConsumable:
+                    break;
+                case ConsumableType.TimelineConsumable:
+                    if (owner.currentTile.content == null && tiles.Contains(owner.currentTile))
+                    {
+                        StartCoroutine(UseItemSpace());
+                    }
+                    break;
+                case ConsumableType.TargetConsumable:
+                    if (owner.currentTile.content != null && tiles.Contains(owner.currentTile))
+                    {
+                        StartCoroutine(UseItemSpace());
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
     IEnumerator UseItemSpace()
@@ -179,6 +203,7 @@ public class UseItemState : BattleState
         {
             yield return null;
         }
+
         owner.currentUnit.playerUI.SpendActionPoints(2);
         owner.currentUnit.ActionsPerTurn -= 2;
 
@@ -207,29 +232,18 @@ public class UseItemState : BattleState
 
         if (tiles != null)
         {
-            List<Tile> trash = new List<Tile>(tiles);
-
-            foreach (Tile t in trash)
-            {
-                if (t.selected)
-                {
-                    tiles.Remove(t);
-                }
-            }
-
             board.DeSelectDefaultTiles(tiles);
+            tiles.Clear();
         }
 
-        if(selectTiles != null)
+        if (selectTiles != null)
         {
             board.DeSelectDefaultTiles(selectTiles);
-            selectTiles = null;
+            selectTiles.Clear();
         }
-
-        tiles = null;
-
         
         owner.ghostImage.gameObject.SetActive(false);
 
+        firstClick = false;
     }
 }
