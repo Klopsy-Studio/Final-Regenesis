@@ -272,11 +272,13 @@ public class PlayerUnit : Unit
     }
     public override void Die(BattleController battleController)
     {
-        base.Die(battleController);
+        battleController.playerUnits.Remove(this);
+        
         DeathSprite();
         AudioManager.instance.Play("HunterDeath");
         status.gameObject.SetActive(false);
         isDead = true;
+        battleController.CheckAllUnits();
     }
 
     public override void Stun()

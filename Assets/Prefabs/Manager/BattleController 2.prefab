@@ -12918,12 +12918,15 @@ MonoBehaviour:
   ghostImage: {fileID: 85011358645062138}
   timelineUI: {fileID: 85011359087763217}
   expandedUnitStatus: {fileID: 41029818}
+  uiController: {fileID: 0}
   attackChosen: 0
   environmentEvent: {fileID: 195445703}
   itemChosen: 0
   moveActionSelector: 0
   moveAbilitySelector: 0
   moveItemSelector: 0
+  win: 0
+  lose: 0
   timelineElements: []
   placeholderCanvas: {fileID: 0}
   placeholderWinScreen: {fileID: 0}
@@ -14481,6 +14484,8 @@ MonoBehaviour:
   playerTurn: {fileID: 21300000, guid: 817093847b4c8884fa18f09cd9f847e9, type: 3}
   eventTurn: {fileID: 21300000, guid: 1fcf2f7188d6e1c43aa14c1c1b51559d, type: 3}
   monsterTurn: {fileID: 21300000, guid: 877fb0d6ac2276b4cbae089006a2ccc8, type: 3}
+  winTurn: {fileID: 0}
+  loseTurn: {fileID: 0}
 --- !u!222 &1078757296
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20917,15 +20922,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204945480926726842, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9204945480926726842, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9204945480926726842, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9204945480926726842, guid: ea5da1285ba3aee4fa55b872f5a3ba69, type: 3}
       propertyPath: m_AnchoredPosition.x

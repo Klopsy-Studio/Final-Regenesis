@@ -19,6 +19,9 @@ public class TurnStatusUI : MonoBehaviour
     public Sprite playerTurn;
     public Sprite eventTurn;
     public Sprite monsterTurn;
+
+    public Sprite winTurn;
+    public Sprite loseTurn;
     public void ActivateTurn(string turn)
     {
         turnStatusAnim.SetBool("inScreen", true);
@@ -28,13 +31,11 @@ public class TurnStatusUI : MonoBehaviour
     public void DeactivateTurn()
     {
         turnStatusAnim.SetBool("inScreen", false);
-
     }
 
     public void IndicateTurnStatus(Sprite sprite)
     {
         turnTypeAnim.SetTrigger("appear");
-
         turn.sprite = sprite;
     }
     
