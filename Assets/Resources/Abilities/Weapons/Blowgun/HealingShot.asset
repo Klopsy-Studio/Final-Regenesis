@@ -27,6 +27,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 3
+    itemRange: 0
+    itemRemoveContent: 0
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
@@ -43,11 +45,7 @@ MonoBehaviour:
   animationName: 
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
-  description:
-  - "Cura a tus aliados del da\xF1o sufrido por los peligrosos monstruos."
-  - '2 de rango. '
-  - 'Cura a un aliado 70 puntos de vida. '
-  - "Recuperaci\xF3n media. "
+  description: Restores some health to the selected hunter.
   inAbilityEffects: []
   postAbilityEffect: []
   soundString: 

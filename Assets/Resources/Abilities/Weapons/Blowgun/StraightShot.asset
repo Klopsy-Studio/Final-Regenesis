@@ -27,6 +27,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 3
+    itemRange: 0
+    itemRemoveContent: 0
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
@@ -43,11 +45,7 @@ MonoBehaviour:
   animationName: 
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
-  description:
-  - "Disparo simple con una cerbatana, peque\xF1o pero letal. "
-  - '2 de rango. '
-  - "Da\xF1o del 100% del base. "
-  - "Recuperaci\xF3n r\xE1pida. "
+  description: Deals light damage to the selected unit.
   inAbilityEffects:
   - effectPlaying: 0
     effectType: 2

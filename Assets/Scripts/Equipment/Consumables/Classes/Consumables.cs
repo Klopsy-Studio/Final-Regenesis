@@ -17,6 +17,7 @@ public abstract class Consumables : ScriptableObject
     public RangeData itemRange;
     public RangeData effectRange;
     public int maxBackPackAmount;
+    public string description;
     public ConsumableType ConsumableType { get { return consumableType; } }
 
     public string ItemName { get { return itemName; } }

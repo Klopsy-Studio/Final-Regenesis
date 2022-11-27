@@ -20,11 +20,6 @@ public class AbilityDetailsUI : MonoBehaviour
         weaponIcon.sprite = ability.weapon.weaponIcon;
         //Un-comment when the icons are applied
         //weaponIcon.sprite = ability.weapon.weaponIcon;
-
-        for (int i = 0; i < abilityDescription.Length; i++)
-        {
-            abilityDescription[i].text = ability.description[i];
-        }
         
     }
 }

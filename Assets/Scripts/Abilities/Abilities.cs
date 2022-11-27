@@ -91,7 +91,7 @@ public class Abilities : ScriptableObject
     [HideInInspector] public Unit lastTarget;
     public Weapons weapon;
 
-    public string[] description;
+    public string description;
 
     [Header("AbilityEffects")]
     public List<Effect> inAbilityEffects;
