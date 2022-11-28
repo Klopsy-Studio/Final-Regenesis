@@ -96,6 +96,7 @@ public class BattleController : StateMachine
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Battle");
+            backpackInventory.RefillBackpack();
         }
     }
 

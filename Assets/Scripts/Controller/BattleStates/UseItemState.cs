@@ -36,7 +36,11 @@ public class UseItemState : BattleState
 
             tiles = GetRangeOnItems(currentItem.itemRange);
             board.SelectMovementTiles(tiles);
-            owner.ghostImage.sprite = currentItem.sprite;
+
+            if(currentItem.itemRange != null)
+            {
+                owner.ghostImage.sprite = currentItem.itemSprite;
+            }
         }
 
     }

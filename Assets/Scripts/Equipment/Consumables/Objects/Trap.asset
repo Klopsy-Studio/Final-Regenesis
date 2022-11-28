@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Trap
   m_EditorClassIdentifier: 
   itemName: Trap
-  sprite: {fileID: 21300000, guid: f53449c53ba038042be1330ce97b73d6, type: 3}
+  iconSprite: {fileID: 21300000, guid: f53449c53ba038042be1330ce97b73d6, type: 3}
+  itemSprite: {fileID: 21300000, guid: 41918971606139a4b949afa5474bcff4, type: 3}
   consumableType: 1
   itemRange:
     range: 10
@@ -46,4 +47,5 @@ MonoBehaviour:
     itemRange: 0
     itemRemoveContent: 0
   maxBackPackAmount: 3
+  description: 
   trap: {fileID: 2589902739651250839, guid: c34b71086729d9f49886a170c698ebeb, type: 3}

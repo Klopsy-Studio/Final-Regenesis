@@ -27,7 +27,7 @@ public class SelectItemState : BattleState
             owner.itemSelectionUI.options[i].gameObject.SetActive(true);
             owner.itemSelectionUI.options[i].GetComponent<Text>().text = itemList[i].consumable.ItemName;
             owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().text = itemList[i].amount.ToString();
-            owner.itemSelectionUI.itemImage[i].GetComponent<Image>().sprite = itemList[i].consumable.sprite;
+            owner.itemSelectionUI.itemImage[i].GetComponent<Image>().sprite = itemList[i].consumable.iconSprite;
 
             //Only for testing purposes
             if(item.amount == item.consumable.maxBackPackAmount)
@@ -45,7 +45,7 @@ public class SelectItemState : BattleState
 
             owner.itemSelectionUI.options[i].GetComponent<Text>().text = item.consumable.ItemName;
             owner.itemSelectionUI.itemAmountText[i].GetComponent<Text>().text = item.amount.ToString();
-            owner.itemSelectionUI.itemImage[i].sprite = item.consumable.sprite;
+            owner.itemSelectionUI.itemImage[i].sprite = item.consumable.iconSprite;
             
             owner.itemSelectionUI.itemImage[i].SetNativeSize();
             owner.itemSelectionUI.options[i].GetComponent<SelectorMovement>().canBeSelected = true;

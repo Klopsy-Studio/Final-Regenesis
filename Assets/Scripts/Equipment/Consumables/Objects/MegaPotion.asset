@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MegaPotion
   m_EditorClassIdentifier: 
   itemName: Mega Potion
-  sprite: {fileID: 21300000, guid: 8dbba194a75b8a74ab98b7f9659cb6c2, type: 3}
+  iconSprite: {fileID: 21300000, guid: 8dbba194a75b8a74ab98b7f9659cb6c2, type: 3}
+  itemSprite: {fileID: 0}
   consumableType: 2
   itemRange:
     range: 10
@@ -46,4 +47,5 @@ MonoBehaviour:
     itemRange: 0
     itemRemoveContent: 0
   maxBackPackAmount: 3
+  description: 'Heals the selected unit a great amount of hp. '
   addHealth: 50
