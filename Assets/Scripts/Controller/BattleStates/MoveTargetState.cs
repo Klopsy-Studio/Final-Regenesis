@@ -9,6 +9,8 @@ public class MoveTargetState : BattleState
     Tile originPoint;
     int staminaPreview;
     MovementRange range;
+
+    bool test;
     public override void Enter()
     {
         base.Enter();
@@ -42,6 +44,7 @@ public class MoveTargetState : BattleState
         base.Exit();
         owner.ghostImage.gameObject.SetActive(false);
         board.DeSelectDefaultTiles(tiles);
+        test = false;
         tiles = null;
     }
 
@@ -70,6 +73,7 @@ public class MoveTargetState : BattleState
 
     protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
     {
+       
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
@@ -94,6 +98,11 @@ public class MoveTargetState : BattleState
 
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)
     {
+        if (!test)
+        {
+            test = true;
+            return;
+        }
         if (tiles.Contains(owner.currentTile) && owner.currentTile != originPoint)
         {
             owner.currentUnit.playerUI.SpendActionPoints(2);
