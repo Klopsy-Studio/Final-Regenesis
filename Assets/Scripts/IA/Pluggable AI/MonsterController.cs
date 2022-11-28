@@ -36,7 +36,6 @@ public class MonsterController : MonoBehaviour
     public void StartMonster()
     {
         currentState.UpdateState(this);
-        
     }
 
 

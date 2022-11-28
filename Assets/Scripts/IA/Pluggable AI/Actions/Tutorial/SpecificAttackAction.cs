@@ -7,8 +7,6 @@ public class SpecificAttackAction : Action
 {
     public override void Act(MonsterController controller)
     {
-        Debug.Log("Acting");
-
         controller.CallCoroutine(Attack(controller, controller.ChooseSpecificAttack()));
     }
 
@@ -29,6 +27,7 @@ public class SpecificAttackAction : Action
                 }
             }
         }
+
         AudioManager.instance.Play("MonsterAttack");
 
         controller.battleController.board.SelectAttackTiles(tiles);
@@ -39,8 +38,6 @@ public class SpecificAttackAction : Action
             u.Damage();
             u.DamageEffect();
         }
-        
-
 
         controller.monsterAnimations.SetBool(ability.attackTrigger, true);
         controller.monsterAnimations.SetBool("idle", false);

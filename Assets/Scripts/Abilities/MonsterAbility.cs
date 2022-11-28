@@ -49,7 +49,7 @@ public class MonsterAbility : ScriptableObject
                 case TypeOfAbilityRange.LineAbility:
                     LineAbilityRange lineRange = monster.GetRange<LineAbilityRange>();
                     lineRange.AssignVariables(r);
-                    if (CheckForUnits(lineRange.GetTilesInRange(monster.battleController.board)))
+                    if (CheckForUnits(lineRange.GetTilesInRange(monster.battleController.board), monster))
                     {
                         return true;
                     }
@@ -57,20 +57,28 @@ public class MonsterAbility : ScriptableObject
                 case TypeOfAbilityRange.Side:
                     SideAbilityRange sideRange = monster.GetRange<SideAbilityRange>();
                     sideRange.AssignVariables(r);
-                    if (CheckForUnits(sideRange.GetTilesInRange(monster.battleController.board)))
+                    if (CheckForUnits(sideRange.GetTilesInRange(monster.battleController.board), monster))
                     {
                         return true;
                     }
                     break;
                 case TypeOfAbilityRange.Cross:
-
                     CrossAbilityRange crossRange = monster.GetRange<CrossAbilityRange>();
                     crossRange.AssignVariables(r.crossLength);
-                    if (CheckForUnits(crossRange.GetTilesInRange(monster.battleController.board)))
+                    if (CheckForUnits(crossRange.GetTilesInRange(monster.battleController.board), monster))
                     {
                         return true;
                     }
                     break;
+                case TypeOfAbilityRange.AlternateSide:
+                    AlternateSideRange alternateSide = monster.GetRange<AlternateSideRange>();
+                    alternateSide.AssignVariables(r);
+                    if (CheckForUnits(alternateSide.GetTilesInRange(monster.battleController.board), monster))
+                    {
+                        return true;
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -119,7 +127,7 @@ public class MonsterAbility : ScriptableObject
 
         return retValue;
     }
-    public bool CheckForUnits(List<Tile> tileList)
+    public bool CheckForUnits(List<Tile> tileList, MonsterController placeholder)
     {
         foreach(Tile t in tileList)
         {
@@ -127,7 +135,12 @@ public class MonsterAbility : ScriptableObject
             {
                 if(t.content.GetComponent<PlayerUnit>() != null)
                 {
-                    return true;
+                    if (!t.content.GetComponent<PlayerUnit>().isNearDeath)
+                    {
+                        placeholder.target = t.content.GetComponent<PlayerUnit>();
+                        return true;
+
+                    }
                 }
             }
         }
@@ -137,7 +150,6 @@ public class MonsterAbility : ScriptableObject
 
     public List<Tile> ShowAttackRange(Directions dir, MonsterController monster)
     {
-        Debug.Log(dir);
         List<Tile> retValue = new List<Tile>();
         foreach (RangeData r in attackRange)
         {
