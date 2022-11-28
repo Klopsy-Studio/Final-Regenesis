@@ -134,6 +134,7 @@ public class InitBattleState : BattleState
 
         unit.deathSprite = data.death;
         unit.nearDeathSprite = data.nearDeath;
+        unit.deathTimelineSprite = data.deathTimeline;
 
     }
 }

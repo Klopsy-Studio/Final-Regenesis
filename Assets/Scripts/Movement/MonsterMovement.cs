@@ -22,7 +22,6 @@ public class MonsterMovement : WalkMovement
                 desiredTile = dirTile;
             }
         }
-       
 
         if (desiredTile != null && desiredTile.content == null && desiredTile.CheckSurroundings(board) != null)
         {

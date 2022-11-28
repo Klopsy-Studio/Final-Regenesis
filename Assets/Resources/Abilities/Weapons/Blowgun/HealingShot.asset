@@ -36,8 +36,7 @@ MonoBehaviour:
   rangeScript: {fileID: 0}
   abilityName: Healing Shot
   abilityEffect: 1
-  initialDamage: 0
-  abilityModifier: 0
+  abilityModifier: 0.1
   initialHeal: 40
   initialBuff: 0
   initialDebuff: 0

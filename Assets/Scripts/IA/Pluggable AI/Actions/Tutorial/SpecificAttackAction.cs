@@ -7,8 +7,6 @@ public class SpecificAttackAction : Action
 {
     public override void Act(MonsterController controller)
     {
-        Debug.Log("Acting");
-
         controller.CallCoroutine(Attack(controller, controller.ChooseSpecificAttack()));
     }
 
@@ -29,6 +27,7 @@ public class SpecificAttackAction : Action
                 }
             }
         }
+
         AudioManager.instance.Play("MonsterAttack");
 
         controller.battleController.board.SelectAttackTiles(tiles);
@@ -36,11 +35,9 @@ public class SpecificAttackAction : Action
         foreach(PlayerUnit u in controller.targetsInRange)
         {
             ability.UseAbility(u, controller.currentEnemy, controller.battleController);
-            u.Damage();
+            
             u.DamageEffect();
         }
-        
-
 
         controller.monsterAnimations.SetBool(ability.attackTrigger, true);
         controller.monsterAnimations.SetBool("idle", false);
@@ -98,7 +95,10 @@ public class SpecificAttackAction : Action
 
         foreach(PlayerUnit u in controller.targetsInRange)
         {
-            u.Default();
+            if (!u.isNearDeath)
+            {
+                u.Default();
+            }
         }
 
         controller.validAttack = null;

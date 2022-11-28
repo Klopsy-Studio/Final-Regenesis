@@ -100,10 +100,11 @@ public class MoveAction : Action
 
         yield return new WaitForSeconds(0.2f);
         controller.battleController.board.DeSelectDefaultTiles(test);
-        controller.currentEnemy.UpdateMonsterSpace(controller.battleController.board);
 
 
         controller.currentEnemy.currentPoint = closestTile.pos;
+        controller.currentEnemy.UpdateMonsterSpace(controller.battleController.board);
+
         controller.currentEnemy.actionDone = true;
         OnExit(controller);
     }

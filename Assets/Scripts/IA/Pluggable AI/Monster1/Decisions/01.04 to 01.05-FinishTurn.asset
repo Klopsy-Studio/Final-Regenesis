@@ -15,6 +15,9 @@ MonoBehaviour:
   multipleStates: 1
   conditionalStates:
   - {fileID: 11400000, guid: 33427f7e46ceb1645bc76f3d63c75217, type: 2}
+  originalTrueState:
+  - {fileID: 11400000, guid: 1543238be42443e4eb4f1f81b86f1799, type: 2}
   trueState:
   - {fileID: 11400000, guid: 1543238be42443e4eb4f1f81b86f1799, type: 2}
+  originalFalseState: []
   falseState: []

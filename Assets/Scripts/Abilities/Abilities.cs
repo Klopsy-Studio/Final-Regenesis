@@ -56,7 +56,6 @@ public class Abilities : ScriptableObject
 
     [Header("Damage")]
     //Variables relacionado con daño
-    public float initialDamage;
     float finalDamage;
     
     [Range(0.1f, 1f)]
@@ -200,7 +199,7 @@ public class Abilities : ScriptableObject
     {
         //AQUI ES DONDE SE HACE EL ACTION COST
         //target.ActionsPerTurn -= ActionCost;
-        controller.currentUnit.actionsPerTurn -= ActionCost;
+        //controller.currentUnit.actionsPerTurn -= ActionCost;
 
         switch (abilityEffect)
         {
@@ -218,8 +217,9 @@ public class Abilities : ScriptableObject
                     }
                     else
                     {
-                        ActionEffect.instance.Play(cameraSize, 2f, 0f, 0f);
+                        ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
                     }
+
                     Debug.Log(target.health);
                     target.GetComponent<UnitUI>().CreatePopUpText(target.transform.position, (int)finalDamage);
 

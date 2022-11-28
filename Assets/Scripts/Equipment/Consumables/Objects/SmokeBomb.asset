@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SmokeBomb
   m_EditorClassIdentifier: 
   itemName: Smoke Bomb
-  sprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: 2d3188c8a18db114b9f53d6228147896, type: 3}
+  itemSprite: {fileID: 0}
   consumableType: 1
   itemRange:
     range: 10
@@ -46,4 +47,5 @@ MonoBehaviour:
     itemRange: 2
     itemRemoveContent: 0
   maxBackPackAmount: 2
+  description: 'Slows the units inside the area. '
   smokeBomb: {fileID: 8210305786149782341, guid: 0bdef58f0f3033a40a7855d80ff6af16, type: 3}

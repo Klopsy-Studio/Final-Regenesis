@@ -66,7 +66,8 @@ public class Unit : TimelineElements
 
     public SpriteRenderer unitSprite;
 
-    
+    [Header("Testing")]
+    [SerializeField] bool thisIsMyFuckingTurn;
     protected virtual void Start()
     {
         Match();
@@ -76,8 +77,15 @@ public class Unit : TimelineElements
         originalTimeStunned = timeStunned;
     }
 
-  
 
+    private void Update()
+    {
+        if (thisIsMyFuckingTurn)
+        {
+            fTimelineVelocity = 100000f;
+        }
+        
+    }
     public void Place(Tile target)
     {
         // Make sure old tile location is not still pointing to this unit

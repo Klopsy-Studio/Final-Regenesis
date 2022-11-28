@@ -38,7 +38,7 @@ public class DisplayConsumableBackpack : MonoBehaviour
         {
             var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
             slotPrefabList.Add(obj);
-            obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.sprite;
+            obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.iconSprite;
             obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
             consumableDisplayed.Add(inventory.consumableContainer[i], obj);
             if (obj.TryGetComponent(out ConsBackpackButton inventoryButton))
@@ -64,7 +64,7 @@ public class DisplayConsumableBackpack : MonoBehaviour
             {
                 var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
                 slotPrefabList.Add(obj);
-                obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.sprite;
+                obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.consumableContainer[i].consumable.iconSprite;
                 obj.GetComponentInChildren<Text>().text = inventory.consumableContainer[i].amount.ToString();
                 consumableDisplayed.Add(inventory.consumableContainer[i], obj);
             }

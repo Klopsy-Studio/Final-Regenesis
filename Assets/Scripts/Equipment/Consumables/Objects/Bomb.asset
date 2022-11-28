@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   itemName: Bomb
-  sprite: {fileID: 21300000, guid: 7290712167ffb0745a266bd0a6d0ec67, type: 3}
+  iconSprite: {fileID: 21300000, guid: 7290712167ffb0745a266bd0a6d0ec67, type: 3}
+  itemSprite: {fileID: 21300000, guid: a1dac2c9d25614c409ee2639d84d9da5, type: 3}
   consumableType: 1
   itemRange:
     range: 10
@@ -46,5 +47,6 @@ MonoBehaviour:
     itemRange: 0
     itemRemoveContent: 0
   maxBackPackAmount: 3
+  description: 'Plant a bomb that will cause a powerfull explotion. '
   bomb: {fileID: 3440296949756166470, guid: 0417189fd695c594d82b810ebbe9bab2, type: 3}
   range: 2

@@ -113,7 +113,7 @@ public class TimelineUI : MonoBehaviour
                 temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
 
                 temp.image.sprite = itemFrame;
-                temp.icon.sprite = itemIcon;
+                
                 //temp.upSupport.GetComponent<Image>().enabled = true;
 
                 //temp.upSupport.sprite = eventSupport;
@@ -203,6 +203,9 @@ public class TimelineUI : MonoBehaviour
                 break;
             case TimeLineTypes.Items:
                 currentActorFrame.sprite = eventFrame;
+                break;
+            case TimeLineTypes.PlayerDeath:
+                currentActorFrame.sprite = itemFrame;
                 break;
             default:
                 break;

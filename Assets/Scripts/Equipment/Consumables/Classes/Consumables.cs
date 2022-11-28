@@ -12,7 +12,8 @@ public abstract class Consumables : ScriptableObject
 {
     
     [SerializeField] protected string itemName;
-    [SerializeField] public Sprite sprite;
+    [SerializeField] public Sprite iconSprite;
+    public Sprite itemSprite;
     [SerializeField] private ConsumableType consumableType;
     public RangeData itemRange;
     public RangeData effectRange;
