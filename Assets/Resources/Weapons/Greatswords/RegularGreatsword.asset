@@ -19,7 +19,7 @@ MonoBehaviour:
   power: 80
   elementPower: 0
   defense: 0
-  originalRange: 3
+  originalRange: 50
   range: 50
   Abilities:
   - {fileID: 11400000, guid: 404981b6bdc88314f9cd78516dceb7ee, type: 2}

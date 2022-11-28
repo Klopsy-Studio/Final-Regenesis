@@ -47,7 +47,7 @@ public class UseAbilityState : BattleState
                 if (owner.currentTile.content.gameObject.GetComponent<EnemyUnit>() != null && tiles.Contains(owner.currentTile))
                 {
                     owner.currentUnit.playerUI.HideActionPoints();
-                    StartCoroutine(UseAbilitySequence(owner.currentTile.content.gameObject.GetComponent<EnemyUnit>()));
+                    //StartCoroutine(UseAbilitySequence(owner.currentTile.content.gameObject.GetComponent<EnemyUnit>()));
                 }
             }
         }
@@ -192,8 +192,6 @@ public class UseAbilityState : BattleState
 
         currentAbility.UseAbility(target, owner);
 
-
-
         if(currentAbility.inAbilityEffects != null)
         {
             foreach(Effect e in currentAbility.inAbilityEffects)
@@ -214,6 +212,7 @@ public class UseAbilityState : BattleState
                 }
             }
         }
+
         if (target == owner.currentUnit)
         {
             AudioManager.instance.Play("HunterAttack");
@@ -264,6 +263,7 @@ public class UseAbilityState : BattleState
                     break;
             }
         }
+
         owner.currentUnit.DefaultCombat();
 
         yield return new WaitForSeconds(0.5f);
@@ -286,9 +286,8 @@ public class UseAbilityState : BattleState
             yield return null;
             owner.ChangeState<SelectActionState>();
         }
-
-
     }
+
     public override void Exit()
     {
         base.Exit();
