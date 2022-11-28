@@ -48,19 +48,21 @@ public abstract class TimelineElements : MonoBehaviour
     public virtual TimelineVelocity TimelineVelocity
     {
         get { return timelineVelocity; }
-        set {
-            Debug.Log("AA");
-            SetTimelineVelocityText(); 
-            timelineVelocity = value; 
-            }
+        set { timelineVelocity = value;}
     }
 
 
     public void SetTimelineVelocityText()
     {
-        iconTimeline.velocityText.text = 3.ToString();
+        Debug.Log("b");
+        if (iconTimeline.velocityText == null)
+        {
+            Debug.Log("a");
+        }
+        
         Debug.Log("entra");
     }
+    
     
 
     public float fTimelineVelocity;

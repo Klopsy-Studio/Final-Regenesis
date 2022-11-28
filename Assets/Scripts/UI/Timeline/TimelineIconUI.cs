@@ -27,7 +27,10 @@ public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         stunnedIndicator.SetActive(true);
     }
-
+    //private void Start()
+    //{
+    //    velocityText.SetText("a");
+    //}
     public void DisableStun()
     {
         stunnedIndicator.SetActive(false);

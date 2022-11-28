@@ -162,25 +162,26 @@ public class Unit : TimelineElements
 
     public void SetInitVelocity()
     {
+        //SetTimelineVelocityText();
         switch (timelineVelocity)
         {
             case TimelineVelocity.VerySlow:
-                fTimelineVelocity = 5;
+                fTimelineVelocity = 9;
                 break;
             case TimelineVelocity.Slow:
-                fTimelineVelocity = 10f;
+                fTimelineVelocity = 12f;
                 break;
             case TimelineVelocity.Normal:
                 fTimelineVelocity = 15;
                 break;
             case TimelineVelocity.Quick:
-                fTimelineVelocity = 20f;
+                fTimelineVelocity = 18f;
                 break;
             case TimelineVelocity.VeryQuick:
-                fTimelineVelocity = 25;
+                fTimelineVelocity = 21;
                 break;
             case TimelineVelocity.TurboFast:
-                fTimelineVelocity = 30f;
+                fTimelineVelocity = 24f;
                 break;
             default:
                 break;
@@ -210,22 +211,22 @@ public class Unit : TimelineElements
         switch (timelineVelocity)
         {
             case TimelineVelocity.VerySlow:
-                fTimelineVelocity = 5;
+                fTimelineVelocity = 9;
                 break;
             case TimelineVelocity.Slow:
-                fTimelineVelocity = 10f;
+                fTimelineVelocity = 12f;
                 break;
             case TimelineVelocity.Normal:
                 fTimelineVelocity = 15;
                 break;
             case TimelineVelocity.Quick:
-                fTimelineVelocity = 20f;
+                fTimelineVelocity = 18f;
                 break;
             case TimelineVelocity.VeryQuick:
-                fTimelineVelocity = 25;
+                fTimelineVelocity = 21;
                 break;
             case TimelineVelocity.TurboFast:
-                fTimelineVelocity = 30f;
+                fTimelineVelocity = 24f;
                 break;
             default:
                 break;
@@ -239,22 +240,22 @@ public class Unit : TimelineElements
         switch (timelineVelocity)
         {
             case TimelineVelocity.VerySlow:
-                fTimelineVelocity = 5;
+                fTimelineVelocity = 9;
                 break;
             case TimelineVelocity.Slow:
-                fTimelineVelocity = 10f;
+                fTimelineVelocity = 12f;
                 break;
             case TimelineVelocity.Normal:
                 fTimelineVelocity = 15;
                 break;
             case TimelineVelocity.Quick:
-                fTimelineVelocity = 20f;
+                fTimelineVelocity = 18f;
                 break;
             case TimelineVelocity.VeryQuick:
-                fTimelineVelocity = 25;
+                fTimelineVelocity = 21;
                 break;
             case TimelineVelocity.TurboFast:
-                fTimelineVelocity = 30f;
+                fTimelineVelocity = 24f;
                 break;
             default:
                 break;

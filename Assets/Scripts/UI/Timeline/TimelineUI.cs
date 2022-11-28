@@ -53,18 +53,23 @@ public class TimelineUI : MonoBehaviour
 
             if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.PlayerUnit)
             {
+                
                 temp.image.sprite = playerFrame;
-                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+                temp.element.iconTimeline = temp;
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
 
                 temp.downSupport.GetComponent<Image>().enabled = true;
 
                 temp.downSupport.sprite = upSupport;
                 offset = 70;
+
+                temp.velocityText.gameObject.SetActive(true);
+                var a = (int)temp.element.TimelineVelocity;
+                temp.velocityText.SetText(a.ToString());
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.EnemyUnit)
             {
-                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+                temp.element.iconTimeline = temp;
 
                 temp.image.sprite = enemyFrame;
 
