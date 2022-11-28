@@ -31,20 +31,25 @@ public abstract class Decision : ScriptableObject
 
     public void OnEnable()
     {
+        ResetDecision();
+    }
+
+
+    public void ResetDecision()
+    {
         trueState.Clear();
-        foreach(MState state in originalTrueState)
+        foreach (MState state in originalTrueState)
         {
             trueState.Add(state);
         }
 
         falseState.Clear();
 
-        foreach(MState state in originalFalseState)
+        foreach (MState state in originalFalseState)
         {
             falseState.Add(state);
         }
     }
-
     public void OnDisable()
     {
         

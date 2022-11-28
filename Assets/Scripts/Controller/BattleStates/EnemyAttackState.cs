@@ -29,7 +29,7 @@ public class EnemyAttackState : BattleState
         bool isDead;
         if (tiles.Contains(target.tile))
         {
-            isDead = target.ReceiveDamage(ability.initialDamage);
+            isDead = false;
 
             Debug.Log(owner.currentEnemyUnit.tile.GetDirections(target.tile));
             target.GetComponent<Movement>().PushUnit(target.tile.GetDirections(owner.currentEnemyUnit.tile), 1, board);

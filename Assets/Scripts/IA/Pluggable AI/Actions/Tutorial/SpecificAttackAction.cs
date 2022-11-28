@@ -35,7 +35,7 @@ public class SpecificAttackAction : Action
         foreach(PlayerUnit u in controller.targetsInRange)
         {
             ability.UseAbility(u, controller.currentEnemy, controller.battleController);
-            u.Damage();
+            
             u.DamageEffect();
         }
 
@@ -95,7 +95,10 @@ public class SpecificAttackAction : Action
 
         foreach(PlayerUnit u in controller.targetsInRange)
         {
-            u.Default();
+            if (!u.isNearDeath)
+            {
+                u.Default();
+            }
         }
 
         controller.validAttack = null;

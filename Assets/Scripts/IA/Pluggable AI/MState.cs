@@ -34,6 +34,7 @@ public class MState : ScriptableObject
         {
             d.CheckConditionalStates(controller);
         }
+
         if (!isDecisionRandom)
         {
             if(transition.decision.Length > 1)
@@ -89,27 +90,6 @@ public class MState : ScriptableObject
 
         else
         {
-            //This pack of code is random in a way that chooses randomly between all the decisions, not random in a random state way
-
-            //List<Decision> validDecisions = new List<Decision>();
-
-            //for (int i = 0; i < transition.decision.Length; i++)
-            //{
-            //    bool decisionSucceeded = transition.decision[i].Decide(controller);
-
-            //    if (decisionSucceeded)
-            //    {
-            //        validDecisions.Add(transition.decision[i]);
-            //    }
-            //}
-
-            
-            //int randomNumber = Random.Range(0, validDecisions.Count);
-            //controller.TransitionToState(transition.decision[randomNumber].trueState);
-
-
-            //Version with actually random transitions to different States
-            //Only use one true and false state with this version if possible
             if(transition.decision.Length > 1)
             {
                 int random = Random.Range(0, 2);
@@ -124,5 +104,11 @@ public class MState : ScriptableObject
                 }
             }
         }
+
+        for (int i = 0; i < transition.decision.Length; i++)
+        {
+            transition.decision[i].ResetDecision();
+        }
+
     }
 }

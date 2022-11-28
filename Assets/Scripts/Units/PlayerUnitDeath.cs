@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUnitDeath : TimelineElements
 {
@@ -12,7 +13,6 @@ public class PlayerUnitDeath : TimelineElements
     {
         timelineTypes = TimeLineTypes.PlayerDeath;
     }
-
 
     public void DisableDeath(BattleController controller)
     {

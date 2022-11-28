@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multipleStates: 0
   conditionalStates: []
+  originalTrueState:
+  - {fileID: 11400000, guid: 830483c08bf48e440a8ebdfaf4713d58, type: 2}
   trueState:
   - {fileID: 11400000, guid: 830483c08bf48e440a8ebdfaf4713d58, type: 2}
+  originalFalseState: []
   falseState: []
   monsterAbilities:
   - {fileID: 11400000, guid: 9bd54169d27d9ca438adf02a64186ae1, type: 2}

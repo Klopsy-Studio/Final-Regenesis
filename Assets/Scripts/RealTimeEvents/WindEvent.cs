@@ -53,8 +53,9 @@ public class WindEvent : RealTimeEvents
 
         foreach (var unit in units)
         {
-            if (unit.isInAction) { continue; }
+            if (unit.isInAction ||unit.isDead) { continue; }
             Movement mover = unit.GetComponent<Movement>();
+
             mover.PushUnit(direction, 1, Board);
         }
       

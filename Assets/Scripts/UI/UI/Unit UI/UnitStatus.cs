@@ -17,7 +17,7 @@ public class UnitStatus : MonoBehaviour
     
     [SerializeField] Text unitName;
     [SerializeField] Slider unitHealth;
-    [SerializeField] Image unitPortrait;
+    public Image unitPortrait;
     [SerializeField] Image unitWeapon;
 
 

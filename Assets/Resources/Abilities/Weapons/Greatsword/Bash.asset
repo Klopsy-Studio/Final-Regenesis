@@ -36,8 +36,7 @@ MonoBehaviour:
   rangeScript: {fileID: 0}
   abilityName: Bash
   abilityEffect: 0
-  initialDamage: 110
-  abilityModifier: 0
+  abilityModifier: 0.2
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

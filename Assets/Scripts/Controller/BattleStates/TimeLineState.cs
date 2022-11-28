@@ -111,7 +111,17 @@ public class TimeLineState : BattleState
                         selectedUnit = owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>();
                         selectedUnit.status.ChangeToBig();
                     }
+
                     SelectTile(owner.timelineUI.selectedIcon.element.GetComponent<Unit>().tile.pos);
+                }
+
+                if(owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnitDeath>()!= null)
+                {
+                    selectedUnit = owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnitDeath>().unit;
+                    selectedUnit.status.ChangeToBig();
+
+                    SelectTile(selectedUnit.currentPoint);
+
                 }
 
                 owner.timelineUI.selectedIcon.Grow();

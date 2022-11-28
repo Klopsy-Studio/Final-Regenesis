@@ -9,6 +9,7 @@ public class Potion : Consumables
    
     public override bool ApplyConsumable(Unit unit)
     {
+        
         unit.health += addHealth;
 
         if(unit.health> unit.maxHealth)
@@ -47,6 +48,12 @@ public class Potion : Consumables
                 if (unit.GetComponent<PlayerUnit>() != null)
                 {
                     PlayerUnit p = unit.GetComponent<PlayerUnit>();
+
+                    if (p.isNearDeath)
+                    {
+                        p.Revive(battleController);
+                    }
+
                     p.status.HealthAnimation(p.health);
                 }
                 return true;

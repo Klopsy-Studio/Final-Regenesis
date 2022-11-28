@@ -228,6 +228,10 @@ public class MonsterAbility : ScriptableObject
         {
             target.NearDeath(controller);
         }
+        else
+        {
+            target.Damage();
+        }
 
         target.status.HealthAnimation((int)target.health);
     }

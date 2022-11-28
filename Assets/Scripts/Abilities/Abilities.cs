@@ -63,7 +63,6 @@ public class Abilities : ScriptableObject
 
     [Header("Damage")]
     //Variables relacionado con daño
-    public float initialDamage;
     float finalDamage;
     
     [Range(0.1f, 1f)]
