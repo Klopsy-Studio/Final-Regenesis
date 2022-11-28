@@ -11,7 +11,7 @@ public class UnitUI : MonoBehaviour
     {
         var textPopUpGameobject = Instantiate(popUpText, position, Quaternion.identity);
         PopUpText textPopUp = textPopUpGameobject.GetComponentInChildren<PopUpText>();
-        Debug.Log("hello");
+      
         textPopUp.SetUp(dmgAmount);
 
 

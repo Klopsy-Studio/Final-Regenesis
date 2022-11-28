@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using TMPro;
 public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public TextMeshProUGUI velocityText;
     public RectTransform rectTransform;
     public Image image;
 
@@ -20,6 +21,7 @@ public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public TimelineElements element;
 
+   
     public GameObject stunnedIndicator;
     public void EnableStun()
     {

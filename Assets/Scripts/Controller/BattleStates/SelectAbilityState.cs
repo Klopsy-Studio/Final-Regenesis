@@ -124,7 +124,7 @@ public class SelectAbilityState : BattleState
         //ActionSelectionUI.gameObject.SetActive(false);
         //owner.ChangeState<UseAbilityState>();
 
-        if (owner.currentUnit.ActionsPerTurn >= (int)abilityList[currentActionIndex].abilityVelocityCost)
+        if (owner.currentUnit.ActionsPerTurn >= abilityList[currentActionIndex].ActionCost)
         {
             ActionSelectionUI.gameObject.SetActive(false);
             owner.ChangeState<UseAbilityState>();
