@@ -27,6 +27,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
@@ -39,6 +41,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
@@ -51,6 +55,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
@@ -63,6 +69,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   attackRangeShow:
   - range: 6
     lineDir: 0
@@ -76,8 +84,12 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
-  initialDamage: 15
-  abilityModifier: 0.8
+    itemRange: 0
+    itemRemoveContent: 0
+  initialDamage: 5
+  abilityModifier: 0.5
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
+  inAbilityEffects: []
+  postAbilityEffect: []

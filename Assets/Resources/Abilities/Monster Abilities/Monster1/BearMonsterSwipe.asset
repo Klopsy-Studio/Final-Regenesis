@@ -27,6 +27,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
@@ -39,6 +41,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -51,6 +55,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
@@ -63,6 +69,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -75,6 +83,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
@@ -87,6 +97,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -99,6 +111,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
@@ -111,6 +125,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 7
     lineDir: 0
     lineLength: 0
@@ -123,6 +139,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   attackRangeShow:
   - range: 7
     lineDir: 0
@@ -136,6 +154,8 @@ MonoBehaviour:
     alternateSideReach: 2
     alternateSideLength: 2
     movementRange: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
@@ -148,8 +168,12 @@ MonoBehaviour:
     alternateSideReach: 3
     alternateSideLength: 1
     movementRange: 0
-  initialDamage: 13
-  abilityModifier: 0.9
+    itemRange: 0
+    itemRemoveContent: 0
+  initialDamage: 5
+  abilityModifier: 0.5
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
+  inAbilityEffects: []
+  postAbilityEffect: []
