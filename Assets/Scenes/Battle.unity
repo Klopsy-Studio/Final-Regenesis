@@ -1120,10 +1120,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c37b0535fe23bee47ae96f394c079322, type: 3}
   - {fileID: 21300000, guid: 3e95e72878a6810449fc8db028c4d4fc, type: 3}
   - {fileID: 21300000, guid: f6b34a5927b863441aee3a01a323e609, type: 3}
+  - {fileID: 21300000, guid: 9d8f60856e36cf34c93cd0c656fcfb63, type: 3}
   - {fileID: 21300000, guid: daba8014eb320464d8047047b2f9af66, type: 3}
   - {fileID: 21300000, guid: f757c1de72d2ad54ab7d6bf914cd1a09, type: 3}
   - {fileID: 21300000, guid: c8bdfd1c83694004c92b778ca2ee85c9, type: 3}
-  - {fileID: 21300000, guid: 2dfc7130319059f45aeaaa8cc76293f9, type: 3}
+  - {fileID: 21300000, guid: a0923445e661f7c4e9b9d956eef06db9, type: 3}
   imageComponent: {fileID: 1511480294}
   nextButton: {fileID: 986026867}
   prevButton: {fileID: 1978430617}

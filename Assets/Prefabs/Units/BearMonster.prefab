@@ -79,7 +79,7 @@ MonoBehaviour:
   healEffect: {fileID: 5836840817937991826, guid: f9cca9c5e1f673240a697914a64478cd, type: 3}
   hitEffect: {fileID: 5030025760067142075, guid: 566a92dcb0e06b746880d6fc36f4c4c5, type: 3}
   stunThreshold: 0
-  stunLimit: 40
+  stunLimit: 30
   unitSprite: {fileID: 1262454043973379550}
   thisIsMyFuckingTurn: 0
   criticalPercentage: 10
