@@ -33,7 +33,7 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite pushSprite;
     [HideInInspector] public Sprite nearDeathSprite;
     [HideInInspector] public Sprite deathSprite;
-
+    [HideInInspector] public Sprite deathTimelineSprite;
 
     
     [Header("VFX")]
@@ -135,7 +135,7 @@ public class PlayerUnit : Unit
     {
         foreach (Abilities a in weapon.Abilities)
         {
-            if (actionsPerTurn >= a.actionCost)
+            if (actionsPerTurn >= a.ActionCost)
             {
                 return true;
             }
@@ -253,6 +253,8 @@ public class PlayerUnit : Unit
     {
         NearDeathSprite();
         PlayerUnitDeath element = Instantiate(nearDeathElement);
+        element.timelineIcon = deathTimelineSprite;
+        status.unitPortrait.sprite = deathTimelineSprite;
         isNearDeath = true;
         deathElement = element;
         deathElement.unit = this;
@@ -264,6 +266,8 @@ public class PlayerUnit : Unit
     public void Revive(BattleController battleController)
     {
         deathElement.DisableDeath(battleController);
+        status.unitPortrait.sprite = timelineIcon;
+        Default();
         playerUI.gameObject.SetActive(true);
         timelineFill = 0;
         iconTimeline.gameObject.SetActive(true);
@@ -284,6 +288,7 @@ public class PlayerUnit : Unit
     public override void Stun()
     {
         base.Stun();
+        
         iconTimeline.EnableStun();
         playerUI.EnableStun();
         Push();

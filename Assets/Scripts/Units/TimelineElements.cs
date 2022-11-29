@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public enum TimeLineTypes
@@ -46,8 +47,22 @@ public abstract class TimelineElements : MonoBehaviour
     public virtual TimelineVelocity TimelineVelocity
     {
         get { return timelineVelocity; }
-        set { timelineVelocity = value; }
+        set { timelineVelocity = value;}
     }
+
+
+    public void SetTimelineVelocityText()
+    {
+        Debug.Log("b");
+        if (iconTimeline.velocityText == null)
+        {
+            Debug.Log("a");
+        }
+        
+        Debug.Log("entra");
+    }
+    
+    
 
     public float fTimelineVelocity;
     public float timelineFill;
@@ -57,6 +72,8 @@ public abstract class TimelineElements : MonoBehaviour
     public Sprite timelineIcon;
 
     public TimelineIconUI iconTimeline;
+
+
     public float GetActionBarPosition()
     {
         return Mathf.Clamp01(timelineFill / timelineFull);

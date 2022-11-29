@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multipleStates: 0
   conditionalStates: []
+  originalTrueState:
+  - {fileID: 11400000, guid: dfe4a2fdc9b93d04aa2bdcb1a5f1b835, type: 2}
   trueState:
   - {fileID: 11400000, guid: dfe4a2fdc9b93d04aa2bdcb1a5f1b835, type: 2}
+  originalFalseState: []
   falseState: []
   specificAbility: {fileID: 11400000, guid: 567d2ce97833e374689a3526a2571139, type: 2}

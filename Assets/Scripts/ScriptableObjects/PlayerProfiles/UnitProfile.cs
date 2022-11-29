@@ -25,6 +25,7 @@ public class UnitProfile : ScriptableObject
     public Sprite unitPush;
     public Sprite nearDeath;
     public Sprite death;
+    public Sprite deathTimeline;
 
 
     [Header("Equipment")]

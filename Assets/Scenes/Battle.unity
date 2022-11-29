@@ -669,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &755943107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,10 +1120,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c37b0535fe23bee47ae96f394c079322, type: 3}
   - {fileID: 21300000, guid: 3e95e72878a6810449fc8db028c4d4fc, type: 3}
   - {fileID: 21300000, guid: f6b34a5927b863441aee3a01a323e609, type: 3}
+  - {fileID: 21300000, guid: 9d8f60856e36cf34c93cd0c656fcfb63, type: 3}
   - {fileID: 21300000, guid: daba8014eb320464d8047047b2f9af66, type: 3}
   - {fileID: 21300000, guid: f757c1de72d2ad54ab7d6bf914cd1a09, type: 3}
   - {fileID: 21300000, guid: c8bdfd1c83694004c92b778ca2ee85c9, type: 3}
-  - {fileID: 21300000, guid: 2dfc7130319059f45aeaaa8cc76293f9, type: 3}
+  - {fileID: 21300000, guid: a0923445e661f7c4e9b9d956eef06db9, type: 3}
   imageComponent: {fileID: 1511480294}
   nextButton: {fileID: 986026867}
   prevButton: {fileID: 1978430617}
@@ -1779,7 +1780,7 @@ PrefabInstance:
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
-      objectReference: {fileID: 11400000, guid: 0c52f0ccaaa22694388fdd130f15b6ea, type: 2}
+      objectReference: {fileID: 11400000, guid: 6f8d056180f863748b6497c8a3ee33d8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
 --- !u!1001 &85011357939115778

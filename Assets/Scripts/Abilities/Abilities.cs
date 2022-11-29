@@ -2,13 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AbilityVelocityCost
-{
-    Quick,
-    Normal,
-    Slow,
-    VerySlow,
-}
+
 
 public enum TypeOfAbilityRange
 {
@@ -37,12 +31,11 @@ public enum EffectType
 public class Abilities : ScriptableObject
 {
     [Range (1,5)]
-    public int actionCost;
+    int actionCost;
     public int ActionCost
     {
         get { return actionCost; }
     }
-    public AbilityVelocityCost abilityVelocityCost;
 
 
     public RangeData rangeData;
@@ -63,7 +56,6 @@ public class Abilities : ScriptableObject
 
     [Header("Damage")]
     //Variables relacionado con daño
-    public float initialDamage;
     float finalDamage;
     
     [Range(0.1f, 1f)]
@@ -105,13 +97,7 @@ public class Abilities : ScriptableObject
         GetRangeScript();
     }
 
-    public void SetUnitTimelineVelocityAndActionCost(Unit u)
-    {
-        u.ActionsPerTurn -= actionCost;
-        u.TimelineVelocity += (int)abilityVelocityCost+1;
-        Debug.Log("CURRENT VELOCITY ES " + u.TimelineVelocity + u.gameObject.name + "CURRENT UNIT ACTIONS " + u.ActionsPerTurn);
-    }
-
+  
 
     public bool CanDoAbility(int actionPoints)
     {

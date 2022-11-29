@@ -54,15 +54,7 @@ public class SelectAbilityState : BattleState
 
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
-        if(!owner.abilitySelectionUI.onOption)
-        {
-            owner.ChangeState<SelectActionState>();
-        }
-        else
-        {
-            owner.attackChosen = AbilitySelectionUI.currentSelection;
-            owner.ChangeState<CheckAbilityDetailsState>();
-        }
+        owner.ChangeState<SelectActionState>();
     }
 
     protected override void OnMove(object sender, InfoEventArgs<Point> e)
@@ -124,7 +116,7 @@ public class SelectAbilityState : BattleState
         //ActionSelectionUI.gameObject.SetActive(false);
         //owner.ChangeState<UseAbilityState>();
 
-        if (owner.currentUnit.ActionsPerTurn >= (int)abilityList[currentActionIndex].abilityVelocityCost)
+        if (owner.currentUnit.ActionsPerTurn >= abilityList[currentActionIndex].ActionCost)
         {
             ActionSelectionUI.gameObject.SetActive(false);
             owner.ChangeState<UseAbilityState>();

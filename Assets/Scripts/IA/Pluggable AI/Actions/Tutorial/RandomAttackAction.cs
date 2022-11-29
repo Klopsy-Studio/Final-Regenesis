@@ -28,14 +28,17 @@ public class RandomAttackAction : Action
             }
         }
         AudioManager.instance.Play("MonsterAttack");
+
+
         controller.battleController.board.SelectAttackTiles(tiles);
 
         foreach(PlayerUnit u in controller.targetsInRange)
         {
             ability.UseAbility(u, controller.currentEnemy, controller.battleController);
-            u.Damage();
             u.DamageEffect();
         }
+
+        controller.monsterAnimations.SetBool("idle", false);
 
         controller.monsterAnimations.SetBool(ability.attackTrigger, true);
 
@@ -64,6 +67,7 @@ public class RandomAttackAction : Action
             yield return null;
         }
 
+        Debug.Log("Test");
         controller.monsterAnimations.SetBool(ability.attackTrigger, false);
         controller.monsterAnimations.SetBool("idle", true);
 
@@ -91,7 +95,10 @@ public class RandomAttackAction : Action
 
         foreach(PlayerUnit u in controller.targetsInRange)
         {
-            u.Default();
+            if (!u.isNearDeath)
+            {
+                u.Default();
+            }
         }
 
         controller.validAbilities.Clear();

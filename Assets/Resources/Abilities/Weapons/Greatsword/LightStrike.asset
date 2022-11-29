@@ -36,8 +36,7 @@ MonoBehaviour:
   rangeScript: {fileID: 0}
   abilityName: Light Strike
   abilityEffect: 0
-  initialDamage: 105
-  abilityModifier: 0.5
+  abilityModifier: 0.3
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

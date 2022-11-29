@@ -169,11 +169,61 @@ public abstract class Movement : MonoBehaviour
         range = OriginalRange;
     }
 
+    public bool CanBePushed(Directions pushDir, int pushStrength, Board board)
+    {
+        range = pushStrength;
+        MovementRange moveRange = unit.GetComponent<MovementRange>();
+        moveRange.tile = unit.tile;
+        moveRange.range = pushStrength;
+        moveRange.removeOrigin = true;
+        List<Tile> t = moveRange.GetTilesInRange(board);
+        Tile desiredTile = null;
+
+        foreach (Tile dirTile in t)
+        {
+            if (unit.tile.GetDirections(dirTile) == pushDir)
+            {
+                desiredTile = dirTile;
+            }
+        }
+
+        if (desiredTile != null && desiredTile.content == null)
+        {
+            return true;
+        }
+
+        else
+        {
+            if (desiredTile != null)
+            {
+                if (desiredTile.content.GetComponent<PlayerUnit>() == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+
+            else
+            {
+                return false;
+            }
+
+        }
+    }
     public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
         range = pushStrength;
-        List<Tile> t = GetTilesInRange(board, true);
+        MovementRange moveRange = unit.GetComponent<MovementRange>();
+        moveRange.tile = unit.tile;
+        moveRange.range = pushStrength;
+        moveRange.removeOrigin = true;
+        List<Tile> t = moveRange.GetTilesInRange(board);
         Tile desiredTile = null;
+
         foreach(Tile dirTile in t)
         {
             if (unit.tile.GetDirections(dirTile) == pushDir)
@@ -185,6 +235,7 @@ public abstract class Movement : MonoBehaviour
         if(desiredTile != null && desiredTile.content == null)
         {
             StartCoroutine(Traverse(desiredTile, board));
+
             if (unit.GetComponent<PlayerUnit>() != null)
             {
                 unit.GetComponent<PlayerUnit>().Push();
@@ -193,7 +244,32 @@ public abstract class Movement : MonoBehaviour
 
         else
         {
-            unit.Stun();
+            if(desiredTile != null)
+            {
+                if (desiredTile.content.GetComponent<PlayerUnit>() == null)
+                {
+                    unit.Stun();
+                }
+                else
+                {
+                    if(desiredTile.content.GetComponent<Movement>().CanBePushed(pushDir, pushStrength, board))
+                    {
+                        StartCoroutine(Traverse(desiredTile, board));
+
+                        if (unit.GetComponent<PlayerUnit>() != null)
+                        {
+                            unit.GetComponent<PlayerUnit>().Push();
+                        }
+                    }
+                }
+
+            }
+
+            else
+            {
+                unit.Stun();
+            }
+            
         }
         
     }

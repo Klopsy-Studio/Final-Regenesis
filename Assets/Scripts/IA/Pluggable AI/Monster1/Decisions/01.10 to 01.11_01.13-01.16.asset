@@ -15,8 +15,12 @@ MonoBehaviour:
   multipleStates: 1
   conditionalStates:
   - {fileID: 11400000, guid: b71aa7d4997397048b07ead18c5fc593, type: 2}
+  originalTrueState:
+  - {fileID: 11400000, guid: b398d525d13ab1844b4784ac31d5cead, type: 2}
   trueState:
   - {fileID: 11400000, guid: b398d525d13ab1844b4784ac31d5cead, type: 2}
+  originalFalseState:
+  - {fileID: 11400000, guid: 422dbb831e619a54b9eda613ffa19923, type: 2}
   falseState:
   - {fileID: 11400000, guid: 422dbb831e619a54b9eda613ffa19923, type: 2}
   monsterAbilities:
