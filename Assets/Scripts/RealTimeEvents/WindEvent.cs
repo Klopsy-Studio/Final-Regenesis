@@ -20,28 +20,28 @@ public class WindEvent : RealTimeEvents
     {
         windEffect.SetActive(true);
 
-        int i = new System.Random().Next(0, 4);
-
-        if (i == 0)
-        {
-            direction = Directions.East;
-            windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, -88));
-        }
-        else if (i == 1)
-        {
-            direction = Directions.South;
-            windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 12));
-        }
-        else if (i == 2)
-        {
-            direction = Directions.West;
-            windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 90));
-        }
-        else if (i == 3)
-        {
-            direction = Directions.North;
-            windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 190));
-        }
+        //int i = new System.Random().Next(0, 4);
+        //int i = 0;
+        //if (i == 0)
+        //{
+        //    direction = Directions.East;
+        //    windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, -88));
+        //}
+        //else if (i == 1)
+        //{
+        //    direction = Directions.South;
+        //    windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 12));
+        //}
+        //else if (i == 2)
+        //{
+        //    direction = Directions.West;
+        //    windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 90));
+        //}
+        //else if (i == 3)
+        //{
+        //    direction = Directions.North;
+        //    windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 190));
+        //}
 
         timelineFill = 0;
         units = battleController.unitsInGame;
@@ -55,7 +55,7 @@ public class WindEvent : RealTimeEvents
             mover.PushUnit(direction, 1, Board);
         }
       
-        fTimelineVelocity = 10;
+        fTimelineVelocity = 24;
       
         Invoke("DeactivateWindEffect", 1);
     }

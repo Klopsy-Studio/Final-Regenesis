@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsPerTurn: 0
+  timelineVelocity: 5
   fTimelineVelocity: 0
   timelineFill: 0
   isTimelineActive: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
   element: {fileID: 0}
   stunned: 0
   timeStunned: 2
+  previousVelocity: 0
   turnEnded: 0
   actionDone: 0
   currentPoint:

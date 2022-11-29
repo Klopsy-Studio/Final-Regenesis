@@ -64,7 +64,7 @@ public class TimelineUI : MonoBehaviour
                 offset = 70;
 
                 temp.velocityText.gameObject.SetActive(true);
-                var a = (int)temp.element.TimelineVelocity;
+                var a = (int)temp.element.timelineVelocity;
                 temp.velocityText.SetText(a.ToString());
             }
             else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.EnemyUnit)

@@ -19,15 +19,10 @@ public class Unit : TimelineElements
     public bool stunned;
     public float timeStunned;
     protected float originalTimeStunned;
-    protected TimelineVelocity previousVelocity;
+    public TimelineVelocity previousVelocity;
 
     
-    public override TimelineVelocity TimelineVelocity
-    {
-        get { return timelineVelocity; }
-
-        set { timelineVelocity = value;/* SetCurrentVelocity(); */}
-    }
+  
     public override int ActionsPerTurn
     {
         get { return actionsPerTurn; }
@@ -210,9 +205,12 @@ public class Unit : TimelineElements
     {
         if (!stunned)
         {
-            fTimelineVelocity = 0;
+            //fTimelineVelocity = 0;
+            timelineVelocity = TimelineVelocity.Stun;
             previousVelocity = timelineVelocity;
+            Debug.Log(gameObject.name + "previousVelocity es " + previousVelocity);
             stunned = true;
+            SetCurrentVelocity();
         }
     }
     public void SetCurrentVelocity()
@@ -239,6 +237,9 @@ public class Unit : TimelineElements
             case TimelineVelocity.TurboFast:
                 fTimelineVelocity = 24f;
                 break;
+            //case TimelineVelocity.Stun:
+            //    fTimelineVelocity = 0;
+                //break;
             default:
                 break;
         }

@@ -14,7 +14,7 @@ public class StartPlayerTurnState : BattleState
 
     IEnumerator SetStats()
     {
-        owner.currentUnit.TimelineVelocity = TimelineVelocity.VerySlow;
+        owner.currentUnit.timelineVelocity = TimelineVelocity.VerySlow;
         owner.currentUnit.ActionsPerTurn = 5;
 
         yield return null;

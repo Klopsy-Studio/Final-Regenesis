@@ -58,7 +58,7 @@ public class PlayerUnit : Unit
         playerUI.unitUI.planeDistance = 0.01f;
 
         didNotMove = true;
-        timelineFill = Random.Range(10, 30);
+        timelineFill = Random.Range(50, 90);
         //ESTO DEBERÍA DE ESTAR EN UNIT
 
         timelineTypes = TimeLineTypes.PlayerUnit;

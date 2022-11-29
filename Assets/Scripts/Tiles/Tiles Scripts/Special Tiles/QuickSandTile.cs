@@ -20,10 +20,10 @@ public class QuickSandTile : Tile
             {
                 unit = u;
                 //Guardar la velocidad timeline anterior en una variable temporal 
-                originalTimelineVelocity = u.TimelineVelocity;
+                originalTimelineVelocity = u.timelineVelocity;
 
                 //Cambiar la velocidad timeline a la más lenta
-                u.TimelineVelocity = TimelineVelocity.VerySlow;
+                u.timelineVelocity = TimelineVelocity.VerySlow;
                 //u.DebugThings();
                 //Cambiar el rango de la unidad a 1 
                 playerUnit = u.GetComponent<PlayerUnit>();
@@ -40,7 +40,7 @@ public class QuickSandTile : Tile
     {
         if(unit != null)
         {
-            unit.TimelineVelocity = originalTimelineVelocity;
+            unit.timelineVelocity = originalTimelineVelocity;
             //unit.DebugThings();
             playerUnit.weapon.range = originalRange;
         }

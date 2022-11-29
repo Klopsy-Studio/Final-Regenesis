@@ -45,7 +45,7 @@ public class EnemyUnit : Unit
         base.Start();
         //timelineFill = Random.Range(0, 3);
 
-        timelineFill = 70;
+        timelineFill = 30;
         timelineTypes = TimeLineTypes.EnemyUnit;
         health = maxHealth;
     }
@@ -74,7 +74,8 @@ public class EnemyUnit : Unit
         base.Default();
         sprite.sprite = defaultSprite;
     }
-
+ 
+  
     public void UpdateMonsterSpace(Board board)
     {
         if(monsterSpace != null)
@@ -139,7 +140,7 @@ public class EnemyUnit : Unit
                 SetCurrentVelocity();
                 stunned = false;
                 timeStunned = originalTimeStunned;
-                iconTimeline.DisableStun();
+               
             }
 
             return false;
