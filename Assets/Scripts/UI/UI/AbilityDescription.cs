@@ -12,7 +12,7 @@ public class AbilityDescription : MonoBehaviour
     {
         abilityDescription.text = ability.description;
         abilityRange.text = ability.rangeData.movementRange.ToString();
-        cost.text = ability.ActionCost.ToString();
+        cost.text = ability.actionCost.ToString();
     }
 
     public void AssignData(Consumables consumable)

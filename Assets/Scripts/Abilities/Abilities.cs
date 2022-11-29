@@ -31,11 +31,8 @@ public enum EffectType
 public class Abilities : ScriptableObject
 {
     [Range (1,5)]
-    int actionCost;
-    public int ActionCost
-    {
-        get { return actionCost; }
-    }
+    public int actionCost;
+  
 
 
     public RangeData rangeData;
@@ -199,7 +196,7 @@ public class Abilities : ScriptableObject
     {
         //AQUI ES DONDE SE HACE EL ACTION COST
         //target.ActionsPerTurn -= ActionCost;
-        //controller.currentUnit.actionsPerTurn -= ActionCost;
+        controller.currentUnit.actionsPerTurn -= actionCost;
 
         switch (abilityEffect)
         {
