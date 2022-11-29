@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public enum TimeLineTypes
 {
