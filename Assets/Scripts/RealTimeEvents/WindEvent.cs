@@ -42,10 +42,6 @@ public class WindEvent : RealTimeEvents
             direction = Directions.North;
             windEffect.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 190));
         }
-        else
-        {
-            Debug.Log("No se ha encontrado valor para la dirección del viento");
-        }
 
         timelineFill = 0;
         units = battleController.unitsInGame;
@@ -55,7 +51,7 @@ public class WindEvent : RealTimeEvents
         {
             if (unit.isInAction ||unit.isDead) { continue; }
             Movement mover = unit.GetComponent<Movement>();
-
+            
             mover.PushUnit(direction, 1, Board);
         }
       

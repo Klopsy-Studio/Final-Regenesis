@@ -288,6 +288,7 @@ public class PlayerUnit : Unit
     public override void Stun()
     {
         base.Stun();
+        
         iconTimeline.EnableStun();
         playerUI.EnableStun();
         Push();

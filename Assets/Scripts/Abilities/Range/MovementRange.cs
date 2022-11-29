@@ -8,6 +8,7 @@ public class MovementRange : AbilityRange
     public int range;
 
     public bool removeContent = false;
+    public bool removeOrigin = false;
     public override List<Tile> GetTilesInRange(Board board)
     {
         tile = unit.tile;
@@ -25,7 +26,14 @@ public class MovementRange : AbilityRange
                 }
             }
         }
-        
+
+        if (removeOrigin)
+        {
+            if (retValue.Contains(tile))
+            {
+                retValue.Remove(tile);
+            }
+        }
         return retValue;
     }
 

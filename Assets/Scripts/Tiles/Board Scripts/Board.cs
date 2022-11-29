@@ -112,7 +112,6 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
         {
             playableTiles.Add(t.pos, t);
         }
-
         else
         {
             nonPlayableTiles.Add(t.pos, t);

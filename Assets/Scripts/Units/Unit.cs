@@ -208,9 +208,12 @@ public class Unit : TimelineElements
 
     public virtual void Stun()
     {
-        fTimelineVelocity = 0;
-        previousVelocity = timelineVelocity;
-        stunned = true;
+        if (!stunned)
+        {
+            fTimelineVelocity = 0;
+            previousVelocity = timelineVelocity;
+            stunned = true;
+        }
     }
     public void SetCurrentVelocity()
     {
