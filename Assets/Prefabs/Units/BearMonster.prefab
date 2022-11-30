@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsPerTurn: 0
-  timelineVelocity: 5
+  timelineVelocity: 2
   fTimelineVelocity: 0
   timelineFill: 0
   isTimelineActive: 0
