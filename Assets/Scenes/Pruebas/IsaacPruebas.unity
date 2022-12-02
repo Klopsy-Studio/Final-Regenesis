@@ -420,5 +420,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 1778612495439374981, guid: 440313941c6b46e46822ce5c46df7fac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 440313941c6b46e46822ce5c46df7fac, type: 3}
