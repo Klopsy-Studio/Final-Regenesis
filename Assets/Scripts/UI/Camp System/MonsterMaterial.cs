@@ -16,10 +16,17 @@ public enum TypeOfMaterial
     Skull
 }
 
+public enum Rarity
+{
+    Common = 5,
+    Special = 3
+}
+
 [CreateAssetMenu(menuName = "MonsterMaterial")]
 public class MonsterMaterial: ScriptableObject
 {
     public Sprite sprite;
     public Monster monster;
     public TypeOfMaterial material;
+    public Rarity rarity;
 }
