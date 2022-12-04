@@ -157,10 +157,6 @@ public class TimelineUI : MonoBehaviour
             return true;
         }
 
-        //foreach (var item in battleController.timelineElements)
-        //{
-        //    Debug.Log("NOMBRE DEL ITEM " + item.name);
-        //}
         return false;
     }
 

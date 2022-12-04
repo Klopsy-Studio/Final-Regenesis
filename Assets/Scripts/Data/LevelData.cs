@@ -33,7 +33,6 @@ public class LevelData : ScriptableObject
 
     //Units in game
 
-    public UnitProfile[] unitsInLevel;
     public GameObject enemyInLevel;
 
     //Variables to unlock new missions

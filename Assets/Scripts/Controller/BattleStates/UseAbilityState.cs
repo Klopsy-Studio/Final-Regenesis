@@ -177,7 +177,7 @@ public class UseAbilityState : BattleState
     {
         if (!attacking)
         {
-            owner.currentUnit.WeaponIn();
+            owner.currentUnit.animations.SetIdle();
             owner.currentUnit.playerUI.ShowActionPoints();
             owner.DeactivateTileSelector();
             SelectTile(owner.currentUnit.currentPoint);
@@ -264,7 +264,7 @@ public class UseAbilityState : BattleState
             }
         }
 
-        owner.currentUnit.DefaultCombat();
+        owner.currentUnit.animations.SetIdle();
 
         yield return new WaitForSeconds(0.5f);
 

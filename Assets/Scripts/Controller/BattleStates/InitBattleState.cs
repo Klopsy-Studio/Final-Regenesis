@@ -26,13 +26,13 @@ public class InitBattleState : BattleState
     {
         System.Type[] components = new System.Type[] { typeof(WalkMovement) };
 
-        for (int i = 0; i < levelData.playerSpawnPoints.Count; i++)
+        for (int i = 0; i < GameManager.instance.unitsPrefab.Count; i++)
         {
-            GameObject instance = Instantiate(owner.heroPrefab) as GameObject;
+            GameObject instance = Instantiate(GameManager.instance.unitsPrefab[i]);
 
-            AssignUnitData(levelData.unitsInLevel[i], instance.GetComponent<PlayerUnit>());
+            AssignUnitData(GameManager.instance.unitProfilesList[i], instance.GetComponent<PlayerUnit>());
 
-            instance.GetComponent<PlayerUnit>().profile = levelData.unitsInLevel[i];
+            instance.GetComponent<PlayerUnit>().profile = GameManager.instance.unitProfilesList[i];
             Point p = levelData.playerSpawnPoints.ToArray()[i];
 
             Unit unit = instance.GetComponent<Unit>();
@@ -91,33 +91,21 @@ public class InitBattleState : BattleState
         unit.weapon = data.unitWeapon;
         unit.unitName = data.unitName;
 
-        unit.unitSprite.sprite = data.unitIdle;
-        unit.idleSprite = data.unitIdle;
-        unit.combatSprite = data.unitIdleCombat;
-
         switch (unit.weapon.EquipmentType)
         {
             case EquipmentType.Hammer:
-                unit.attackSprite = data.unitHeavyWeapon;
-                unit.hammerOffset = data.hammerOffset;
+
                 if(data.unitWeapon.weaponSprite != null)
                 {
-                    unit.hammerData.attackSprite.sprite = data.unitWeapon.weaponCombat;
-                    unit.hammerData.idleCombatSprite.sprite = data.unitWeapon.weaponSprite;
-                    unit.hammerData.savedWeaponSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.hammerSprite.sprite = data.unitWeapon.weaponCombat;
                 }
                 
                 break;
             case EquipmentType.Slingshot:
-                unit.attackSprite = data.unitLightWeapon;
-                unit.slingshotOffset = data.slingShotOffset;
                 if (data.unitWeapon.weaponSprite != null)
                 {
-                    unit.slingShotData.attackSprite.sprite = data.unitWeapon.weaponCombat;
-                    unit.slingShotData.idleCombatSprite.sprite = data.unitWeapon.weaponSprite;
-                    unit.slingShotData.savedWeaponSprite.sprite = data.unitWeapon.weaponSprite;
+                    unit.slingshotSprite.sprite = data.unitWeapon.weaponCombat;
                 }
-
                 break;
             default:
                 break;

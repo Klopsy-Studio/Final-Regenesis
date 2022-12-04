@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 1364770249159690893}
   - component: {fileID: 2133546689949067580}
   m_Layer: 6
-  m_Name: Hero
+  m_Name: Ola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
