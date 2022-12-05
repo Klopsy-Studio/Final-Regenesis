@@ -88,13 +88,6 @@ public class PlayerUnit : Unit
             data.transform.localPosition = new Vector3(offset.x, offset.y, offset.z);
         }
     }
-
-    public void ApplyOffSetToWeapon(WeaponSpriteData data, WeaponOffset offset)
-    {
-        ApplyOffset(data.savedWeaponSprite.gameObject, offset.savedWeaponSpriteOffset);
-        ApplyOffset(data.idleCombatSprite.gameObject, offset.idleCombatSpriteOffset);
-        ApplyOffset(data.attackSprite.gameObject, offset.attackSpriteOffset);
-    }
     
     //ESTA FUNCION HAY QUE REVISARLA
     public void EquipAllItems()
@@ -145,17 +138,7 @@ public class PlayerUnit : Unit
     }
     public override void Attack()
     {
-        switch (weapon.EquipmentType)
-        {
-            case EquipmentType.Hammer:
-                animations.SetAttackHammer();
-                break;
-            case EquipmentType.Slingshot:
-                animations.SetAttackSlingshot();
-                break;
-            default:
-                break;
-        }
+        animations.SetAnimation("attack");
     }
 
     public void DefaultCombat()
