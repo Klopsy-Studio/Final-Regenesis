@@ -109,10 +109,10 @@ TextureImporter:
       name: Kaeo_Sprite_combat_animation_idle_003_0
       rect:
         serializedVersion: 2
-        x: 13
+        x: 22
         y: 16
-        width: 40
-        height: 44
+        width: 22
+        height: 42
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
