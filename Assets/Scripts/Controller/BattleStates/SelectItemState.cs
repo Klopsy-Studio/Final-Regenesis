@@ -21,6 +21,11 @@ public class SelectItemState : BattleState
         //Abilities[] a = owner.currentUnit.weapon.Abilities;
         List<ConsumableSlot> itemList = owner.backpackInventory.consumableContainer;
 
+
+        for (int i = 0; i < owner.itemSelectionUI.options.Length; i++)
+        {
+            owner.itemSelectionUI.options[i].gameObject.SetActive(false);
+        }
         for (int i = 0; i < itemList.Count; i++)
         {
             var item = itemList[i];

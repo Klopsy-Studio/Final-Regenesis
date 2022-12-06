@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class TimelineUI : MonoBehaviour
 {
@@ -34,6 +35,11 @@ public class TimelineUI : MonoBehaviour
 
     public Image currentActorFrame;
     public Image currentActorIcon;
+
+    List<TimelineIconUI> iconsInTimeline = new List<TimelineIconUI>();
+    public List<TimelineIconUI> orderedIconsInTimeline;
+
+    public bool isActive;
     //The bar size. Dependant on size delta. Only works for a static scale object as delta isn't mesured the same way with different anchors.
     private void Start()
     {
@@ -43,17 +49,91 @@ public class TimelineUI : MonoBehaviour
     //Not Ideal. Would be better to avoid GetComponent entirely. Simplest solution for a 45 minutes project
     private void Update()
     {
-        BalanceAmountOf(iconPrefab, content, battleController.timelineElements.Count);
-        TimelineIconUI temp;
+        if (isActive) 
+        {
+            BalanceAmountOf(iconPrefab, content, battleController.timelineElements.Count);
+            SortList();
 
+            foreach (TimelineIconUI icon in iconsInTimeline)
+            {
+                AssignIcons(icon);
+            }
+        }
+    }
+
+    public void SortList()
+    {
+        orderedIconsInTimeline = iconsInTimeline.OrderByDescending(x => x.element.timelineFill).ToList();
+    }
+
+    public void AssignIcons(TimelineIconUI icon)
+    {
+        int index = orderedIconsInTimeline.IndexOf(icon);
+
+        if(index+1 < orderedIconsInTimeline.Count)
+        {
+            icon.prevIcon = orderedIconsInTimeline[index + 1];
+        }
+        else
+        {
+            icon.prevIcon = null;
+        }
+
+        if(index-1 >= 0)
+        {
+            icon.nextIcon = orderedIconsInTimeline[index - 1];
+        }
+        else
+        {
+            icon.nextIcon = null;
+        }
+
+    }
+
+    //Avoid creating or destroying more than necessary
+    private bool BalanceAmountOf(GameObject prefab, Transform content, int amount)
+    {
+        if (content.childCount > amount)
+        {
+            for (int i = 0; i < content.childCount; i++)
+            {
+                var a = content.GetChild(i).GetComponent<TimelineIconUI>();
+
+                if (!a.element.elementEnabled)
+                {
+                    a.transform.parent = removedChildren;
+                    a.gameObject.SetActive(false);
+                }
+            }
+
+            return true;
+        }
+
+        if (content.childCount < amount)
+        {
+            int amountToAdd = amount - content.childCount;
+            for (int i = 0; i < amountToAdd; i++)
+            {
+                TimelineIconUI test = Instantiate(prefab, content).GetComponent<TimelineIconUI>();
+                iconsInTimeline.Add(test);
+            }
+            SetIcons();
+            return true;
+        }
+
+        return false;
+    }
+
+    public void SetIcons()
+    {
+        TimelineIconUI temp;
         for (int i = 0; i < battleController.timelineElements.Count; i++)
         {
-            temp = content.GetChild(i).GetComponent<TimelineIconUI>();
+            temp = iconsInTimeline[i];
             temp.element = battleController.timelineElements[i];
 
-            if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.PlayerUnit)
+            if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.PlayerUnit)
             {
-                
                 temp.image.sprite = playerFrame;
                 temp.element.iconTimeline = temp;
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
@@ -61,13 +141,13 @@ public class TimelineUI : MonoBehaviour
                 temp.downSupport.GetComponent<Image>().enabled = true;
 
                 temp.downSupport.sprite = upSupport;
-                offset = 70;
+                temp.offset = 70;
 
                 temp.velocityText.gameObject.SetActive(true);
                 var a = (int)temp.element.timelineVelocity;
                 temp.velocityText.SetText(a.ToString());
             }
-            else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.EnemyUnit)
+            else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.EnemyUnit)
             {
                 temp.element.iconTimeline = temp;
 
@@ -78,12 +158,12 @@ public class TimelineUI : MonoBehaviour
                 temp.upSupport.GetComponent<Image>().enabled = true;
                 temp.upSupport.sprite = downSupport;
 
-                offset = -70;
+                temp.offset = -70;
 
             }
-            else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Events)
+            else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.Events)
             {
-                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+                temp.element.iconTimeline = temp;
 
                 temp.image.sprite = eventFrame;
                 temp.icon.sprite = eventIcon;
@@ -92,11 +172,11 @@ public class TimelineUI : MonoBehaviour
                 //temp.upSupport.sprite = eventSupport;
 
 
-                offset = 0;
+                temp.offset = 0;
             }
-            else if (battleController.timelineElements[i].TimelineTypes == TimeLineTypes.Items)
+            else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.Items)
             {
-                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+                temp.element.iconTimeline = temp;
 
                 temp.image.sprite = itemFrame;
                 temp.icon.sprite = itemIcon;
@@ -105,62 +185,30 @@ public class TimelineUI : MonoBehaviour
                 //temp.upSupport.sprite = eventSupport;
 
 
-                offset = 0;
+                temp.offset = 0;
             }
 
-            else if(battleController.timelineElements[i].TimelineTypes == TimeLineTypes.PlayerDeath)
+            else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.PlayerDeath)
             {
-                temp.element.GetComponent<TimelineElements>().iconTimeline = temp;
+                temp.element.iconTimeline = temp;
 
                 temp.image.sprite = itemFrame;
-                
+
                 //temp.upSupport.GetComponent<Image>().enabled = true;
 
                 //temp.upSupport.sprite = eventSupport;
 
 
-                offset = 0;
+                temp.offset = 0;
             }
 
+            temp.barSize = content.sizeDelta.x;
+            temp.originalOffset = temp.offset;
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
             temp.image.SetNativeSize();
-            //temp.icon.SetNativeSize();
 
-            temp.rectTransform.anchoredPosition = new Vector2(-barSize / 2 + battleController.timelineElements[i].GetActionBarPosition() * barSize, offset);
         }
     }
-
-
-    //Avoid creating or destroying more than necessary
-    private bool BalanceAmountOf(GameObject prefab, Transform content, int amount)
-    {
-        if (content.childCount > amount)
-        {
-            int amountToRemove = content.childCount - amount;
-            for (int i = 0; i < amountToRemove; i++)
-            {
-                var a = content.GetChild(battleController.itemIndexToRemove);
-                a.parent = removedChildren;
-                a.gameObject.SetActive(false);
-                //Destroy(content.GetChild(0));
-            }
-            return true;
-        }
-
-        if (content.childCount < amount)
-        {
-            int amountToAdd = amount - content.childCount;
-            for (int i = 0; i < amountToAdd; i++)
-            {
-                Instantiate(prefab, content);
-            }
-            return true;
-        }
-
-        return false;
-    }
-
-
     public bool CheckMouse()
     {
         for (int i = 0; i < battleController.timelineElements.Count; i++)
@@ -177,14 +225,12 @@ public class TimelineUI : MonoBehaviour
         selectedIcon = null;
         return false;
     }
-
-
     public void ShowIconActing(TimelineElements element)
     {
         currentActorFrame.enabled = true;
         currentActorIcon.enabled = true;
 
-        switch (element.TimelineTypes)
+        switch (element.timelineTypes)
         {
             case TimeLineTypes.Null:
                 break;

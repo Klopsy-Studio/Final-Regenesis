@@ -16,7 +16,7 @@ public class QuickSandTile : Tile
       
        if (content.TryGetComponent(out Unit u))
        {
-            if(u.TimelineTypes == TimeLineTypes.PlayerUnit)
+            if(u.timelineTypes == TimeLineTypes.PlayerUnit)
             {
                 unit = u;
                 //Guardar la velocidad timeline anterior en una variable temporal 

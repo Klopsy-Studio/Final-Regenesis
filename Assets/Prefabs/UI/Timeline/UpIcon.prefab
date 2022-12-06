@@ -592,4 +592,13 @@ MonoBehaviour:
   mouseOver: 0
   iconAnimations: {fileID: 9004903976858394086}
   element: {fileID: 0}
+  indexChild: 0
   stunnedIndicator: {fileID: 5175329627059384717}
+  offset: 0
+  originalOffset: 0
+  barSize: 0
+  iconTransform: {fileID: 5925223341508035335}
+  prevIcon: {fileID: 0}
+  nextIcon: {fileID: 0}
+  minDistance: 2
+  maxDistance: 4

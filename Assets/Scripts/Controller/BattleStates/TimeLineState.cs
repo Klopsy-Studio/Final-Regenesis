@@ -16,8 +16,11 @@ public class TimeLineState : BattleState
         base.Enter();
         if(currentElement != null)
         {
-            owner.timelineUI.ShowTimelineIcon(currentElement);
-            currentElement = null;
+            if (currentElement.elementEnabled)
+            {
+                owner.timelineUI.ShowTimelineIcon(currentElement);
+                currentElement = null;
+            }
         }
         owner.timelineUI.HideIconActing();
         owner.turnStatusUI.DeactivateTurn();

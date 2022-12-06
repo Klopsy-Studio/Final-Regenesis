@@ -16,8 +16,12 @@ public class PlayerUnitDeath : TimelineElements
 
     public void DisableDeath(BattleController controller)
     {
-        disabled = true;
-        timelineTypes = TimeLineTypes.Null;
+        elementEnabled = false;
+        unit.elementEnabled = false;
+
+        controller.timelineElements.Remove(this);
+        controller.timelineElements.Remove(unit);
+        //disabled = true;
         timelineFill = 0;
     }
     public override bool UpdateTimeLine()

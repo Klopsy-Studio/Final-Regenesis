@@ -37,10 +37,10 @@ public class MonsterRoarState : BattleState
         controller.monsterAnimations.SetBool("roar", false);
 
         //Maybe a hunt begin banner?
-
+        owner.timelineUI.isActive = true;
         owner.timelineUI.gameObject.SetActive(true);
         owner.unitStatusUI.gameObject.SetActive(true);
-
+        
         owner.ChangeState<TimeLineState>();
     }
 }
