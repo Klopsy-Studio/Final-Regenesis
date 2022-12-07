@@ -788,6 +788,8 @@ MonoBehaviour:
   isNearDeath: 0
   hammerSprite: {fileID: 2548524760504584439}
   slingshotSprite: {fileID: 6429371488287498043}
+  hammerParent: {fileID: 8260120077328344227}
+  slingshotParent: {fileID: 7798481099334856715}
 --- !u!114 &1364770249159690893
 MonoBehaviour:
   m_ObjectHideFlags: 0
