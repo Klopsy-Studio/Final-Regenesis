@@ -33,7 +33,7 @@ public class UseItemState : BattleState
         else if (currentItem.ConsumableType == ConsumableType.TimelineConsumable || currentItem.ConsumableType == ConsumableType.TargetConsumable)
         {
             isTimelineItem = true;
-
+            owner.currentUnit.animations.SetPrepareThrow();
             tiles = GetRangeOnItems(currentItem.itemRange);
             board.SelectMovementTiles(tiles);
 
@@ -223,6 +223,7 @@ public class UseItemState : BattleState
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
         if (!isTimelineItem) return;
+        owner.currentUnit.animations.SetIdle();
         SelectTile(owner.currentUnit.currentPoint);
         owner.ChangeState<SelectItemState>();
 

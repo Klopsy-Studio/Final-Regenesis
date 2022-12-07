@@ -40,13 +40,12 @@ public abstract class TimelineElements : MonoBehaviour
     }
 
 
-    protected TimeLineTypes timelineTypes;
-    public TimeLineTypes TimelineTypes { get { return timelineTypes; } }
+    public TimeLineTypes timelineTypes;
 
     [Header("Timelines variables")]
     public TimelineVelocity timelineVelocity = TimelineVelocity.Normal;
-   
 
+    public bool elementEnabled = true;
     public void SetTimelineVelocityText()
     {
         Debug.Log("b");

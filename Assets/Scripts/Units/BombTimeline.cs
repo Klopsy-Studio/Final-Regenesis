@@ -95,11 +95,9 @@ public class BombTimeline : ItemElements
         }
 
         battleController.board.DeSelectDefaultTiles(tiles);
-        battleController.itemIndexToRemove = battleController.timelineElements.IndexOf(this);
+        elementEnabled = false;
         battleController.timelineElements.Remove(this);
         tile.content = null;
-        gameObject.SetActive(false);
-
 
     }
 
