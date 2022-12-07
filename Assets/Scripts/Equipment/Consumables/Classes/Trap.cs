@@ -17,6 +17,7 @@ public class Trap : Consumables
     public override bool ApplyConsumable(Tile t, BattleController battleController)
     {
         var b = Instantiate(trap, new Vector3(t.pos.x, 0.5f, t.pos.y), trap.transform.rotation);
+        battleController.currentUnit.animations.SetThrow();
         b.Init(t, battleController);
         return true;
     }

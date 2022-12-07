@@ -16,6 +16,7 @@ public class Bomb : Consumables
     public override bool ApplyConsumable(Tile t, BattleController battleController)
     {
         var b = Instantiate(bomb);
+        battleController.currentUnit.animations.SetThrow();
         b.Init(battleController, t);
         Debug.Log("Tile es: " + t);
         b.Place(t);

@@ -52,4 +52,20 @@ public class UnitAnimations : MonoBehaviour
     {
         SetAnimation("damage");
     }
+
+
+    public void SetPrepareThrow()
+    {
+        SetAnimation("prepareThrow");
+    }
+
+    public void SetThrow()
+    {
+        SetAnimation("throw");
+    }
+
+    public void SetInject()
+    {
+        SetAnimation("inject");
+    }
 }

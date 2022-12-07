@@ -10,6 +10,7 @@ public class SmokeBomb : Consumables
     public override bool ApplyConsumable(Tile t, BattleController battleController)
     {
         Instantiate(smokeBomb);
+        battleController.currentUnit.animations.SetThrow();
         smokeBomb.range.tile = t;
         smokeBomb.ApplyEffect(battleController);
         return true;

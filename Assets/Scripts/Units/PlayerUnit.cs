@@ -72,9 +72,11 @@ public class PlayerUnit : Unit
         {
             case EquipmentType.Hammer:
                 animations.SetAnimation("hammer");
+                slingshotSprite.gameObject.SetActive(false);
                 break;
             case EquipmentType.Slingshot:
                 animations.SetAnimation("slingshot");
+                hammerSprite.gameObject.SetActive(false);
                 break;
             default:
                 break;
@@ -134,7 +136,6 @@ public class PlayerUnit : Unit
     public override void Damage()
     {
         animations.SetDamage();
-        Invoke("Default", 0.5f);
     }
     public override void Attack()
     {

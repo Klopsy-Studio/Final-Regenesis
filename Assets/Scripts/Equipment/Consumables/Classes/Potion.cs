@@ -45,9 +45,16 @@ public class Potion : Consumables
 
                 unit.HealEffect();
 
+                
                 if (unit.GetComponent<PlayerUnit>() != null)
                 {
                     PlayerUnit p = unit.GetComponent<PlayerUnit>();
+                    p.animations.SetInject();
+
+                    if (p != battleController.currentUnit)
+                    {
+                        battleController.currentUnit.animations.SetThrow();
+                    }
 
                     if (p.isNearDeath)
                     {
