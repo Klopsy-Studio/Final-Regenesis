@@ -20,6 +20,7 @@ public class LootSystem : MonoBehaviour
             Debug.Assert(dropContainer.containerList.Count > 0, "drop container list is void. Add info", gameObject);
             return;
         }
+        monsterMaterials.Clear();
 
         while (monsterMaterials.Count < 3)
         {
@@ -43,10 +44,11 @@ public class LootSystem : MonoBehaviour
             Debug.Log("rolls " + rolls);
             for (int i = 0; i < rolls; i++)
             {
-                var random = Random.value * 100;
+                var random =  Random.value * 100;
                 bool isDropSuccessful = random <= drop.dropProbabilty;
                 testInt++;
-                Debug.Log("valor aleatorio" + random + "testInt: " + testInt);
+                Debug.Log("valor random " + random);
+                //Debug.Log("valor aleatorio" + random + "testInt: " + testInt);
                 if (isDropSuccessful)
                 {
                     monsterMaterials.Add(drop.monsterMaterial);
