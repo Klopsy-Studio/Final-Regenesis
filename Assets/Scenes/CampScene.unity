@@ -12631,6 +12631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropContainer: {fileID: 11400000, guid: f8730ae47d14c6948b7c55e331b0a86b, type: 2}
+  lootUIManager: {fileID: 0}
 --- !u!4 &1478846033
 Transform:
   m_ObjectHideFlags: 0
@@ -18329,6 +18330,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560299689, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 17.230225
+      objectReference: {fileID: 0}
+    - target: {fileID: 560299689, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.399292
+      objectReference: {fileID: 0}
     - target: {fileID: 3080256926203387771, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

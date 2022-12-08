@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class LootSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     [SerializeField] DropsContainer dropContainer;
-    List<MonsterMaterial> monsterMaterials = new List<MonsterMaterial>();
+    public List<MonsterMaterial> monsterMaterials = new List<MonsterMaterial>();
+    public DroppedMaterials dropMaterials = new DroppedMaterials();
     int ciclo = 0;
+
+
     public void DropMaterials()
     {
-        while(monsterMaterials.Count < 3)
-        {        
+        Debug.Assert(dropContainer != null, "Drop container is null", gameObject);
+       
+        if(dropContainer.containerList.Count == 0)
+        {
+            Debug.Assert(dropContainer.containerList.Count > 0, "drop container list is void. Add info", gameObject);
+            return;
+        }
+
+        while (monsterMaterials.Count < 3)
+        {
             CalculaNumberOfMatDrops();
             ciclo++;
             Debug.Log("numero de ciclos: " + ciclo);
@@ -22,8 +33,10 @@ public class LootSystem : MonoBehaviour
 
     void CalculaNumberOfMatDrops()
     {
+       
+     
         monsterMaterials.Clear();
-        foreach (var drop in dropContainer.container)
+        foreach (var drop in dropContainer.containerList)
         {
             int testInt = 0;
             int rolls = (int)drop.monsterMaterial.rarity;
@@ -41,7 +54,16 @@ public class LootSystem : MonoBehaviour
                 }
             }
 
+
+
         }
+
+        foreach (var materials in monsterMaterials)
+        {
+            dropMaterials.AddMonsterMaterial(materials, 1);
+        }
+
+        
     }
 
     void AddToMaterialInventory()
@@ -50,7 +72,32 @@ public class LootSystem : MonoBehaviour
         {
             GameManager.instance.materialInventory.AddMonsterMaterial(material, 1);
         }
+
+      
     }
 
     
 }
+
+public class DroppedMaterials
+{
+    public List<MonsterMaterialSlot> materialContainer = new List<MonsterMaterialSlot>();
+    public void AddMonsterMaterial(MonsterMaterial _material, int _amount)
+    {
+        bool hasMaterial = false;
+        for (int i = 0; i < materialContainer.Count; i++)
+        {
+            if (materialContainer[i].material == _material)
+            {
+                materialContainer[i].AddAmount(_amount);
+                hasMaterial = true;
+                break;
+            }
+        }
+        if (!hasMaterial)
+        {
+            materialContainer.Add(new MonsterMaterialSlot(_material, _amount));
+        }
+    }
+}
+

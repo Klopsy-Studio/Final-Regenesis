@@ -2000,14 +2000,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 195445703, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
-      propertyPath: fTimelineVelocity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098223092, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.5172844
-      objectReference: {fileID: 0}
     - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: placeholderCanvas
       value: 
@@ -2059,14 +2051,6 @@ PrefabInstance:
     - target: {fileID: 3099776044107931979, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_Name
       value: BattleController
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.4918947
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.018314
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17578884795fd34fb5cc5374c73f868, type: 3}

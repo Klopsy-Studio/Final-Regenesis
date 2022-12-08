@@ -32,6 +32,7 @@ public class WinState : BattleState
         owner.levelData.hasBeenCompleted = true;
 
         //Switch later to show Loot load camp scene 
-        SceneManager.LoadScene("Battle");
+        //SceneManager.LoadScene("Battle");
+        owner.ChangeState<LootUIState>();
     }
 }

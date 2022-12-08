@@ -22,6 +22,7 @@ public class BattleController : StateMachine
 
     public GameObject heroPrefab;
     public GameObject enemyPrefab;
+    public LootSystem lootSystem;
     public PlayerUnit currentUnit;
     public EnemyUnit currentEnemyUnit;
     [HideInInspector] public EnemyController currentEnemyController;
@@ -52,6 +53,7 @@ public class BattleController : StateMachine
     public TimelineUI timelineUI;
     public ExpandedUnitStatus expandedUnitStatus;
     public UIController uiController;
+    public LootUIManager lootUIManager;
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
     public Tile currentTile { get { return board.GetTile(pos); } }

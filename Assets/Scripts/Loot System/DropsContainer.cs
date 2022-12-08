@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "MonsterDropsContainer")]
 public class DropsContainer : ScriptableObject
 {
-    public List<MonsterDrops> container = new List<MonsterDrops> ();
+    public List<MonsterDrops> containerList = new List<MonsterDrops> ();
 }
 
 [System.Serializable]
