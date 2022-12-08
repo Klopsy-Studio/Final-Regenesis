@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containerList:
   - monsterMaterial: {fileID: 11400000, guid: 35ce2cc62185f794f9ffed005f202668, type: 2}
-    dropProbabilty: 14
+    dropProbabilty: 50
   - monsterMaterial: {fileID: 11400000, guid: 0f60321a62da5aa4a9eed7508b82cf2a, type: 2}
-    dropProbabilty: 20
+    dropProbabilty: 70
   - monsterMaterial: {fileID: 11400000, guid: 4ff573396ac2ae44eb9029ad7f75be3d, type: 2}
-    dropProbabilty: 5
+    dropProbabilty: 1

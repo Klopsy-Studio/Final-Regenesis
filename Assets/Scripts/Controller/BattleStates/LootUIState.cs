@@ -19,7 +19,7 @@ public class LootUIState : BattleState
         yield return new WaitForSeconds(1);
         var monsterDrops = owner.lootSystem;
         monsterDrops.DropMaterials();
-        var materialsDropped = monsterDrops.dropMaterials;
+        var materialsDropped = monsterDrops.droppedMaterials;
       
 
         owner.lootUIManager.gameObject.SetActive(true);

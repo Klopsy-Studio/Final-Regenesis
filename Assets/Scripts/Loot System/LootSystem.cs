@@ -7,7 +7,7 @@ public class LootSystem : MonoBehaviour
    
     [SerializeField] DropsContainer dropContainer;
     public List<MonsterMaterial> monsterMaterials = new List<MonsterMaterial>();
-    public DroppedMaterials dropMaterials = new DroppedMaterials();
+    public DroppedMaterials droppedMaterials = new DroppedMaterials();
     int ciclo = 0;
 
 
@@ -21,8 +21,9 @@ public class LootSystem : MonoBehaviour
             return;
         }
         monsterMaterials.Clear();
+        //droppedMaterials.materialContainer.Clear();
 
-        while (monsterMaterials.Count < 3)
+        while (monsterMaterials.Count < 3/* droppedMaterials.materialContainer.Count<3*/)
         {
             CalculaNumberOfMatDrops();
             ciclo++;
@@ -34,9 +35,12 @@ public class LootSystem : MonoBehaviour
 
     void CalculaNumberOfMatDrops()
     {
-       
-     
+
+
         monsterMaterials.Clear();
+        //droppedMaterials.materialContainer.Clear();
+
+
         foreach (var drop in dropContainer.containerList)
         {
             int testInt = 0;
@@ -52,7 +56,7 @@ public class LootSystem : MonoBehaviour
                 if (isDropSuccessful)
                 {
                     monsterMaterials.Add(drop.monsterMaterial);
-                    //GameManager.instance.materialInventory.AddMonsterMaterial(drop.monsterMaterial, 1);
+                    //droppedMaterials.AddMonsterMaterial(drop.monsterMaterial, 1);
                 }
             }
 
@@ -60,16 +64,31 @@ public class LootSystem : MonoBehaviour
 
         }
 
+       
+
+
+        foreach (var drop in dropContainer.containerList)
+        {
+            droppedMaterials.AddMonsterMaterial(drop.monsterMaterial, 0);
+        }
         foreach (var materials in monsterMaterials)
         {
-            dropMaterials.AddMonsterMaterial(materials, 1);
+            droppedMaterials.AddMonsterMaterial(materials, 1);
         }
 
-        
+
     }
 
     void AddToMaterialInventory()
     {
+        //foreach (var material in droppedMaterials.materialContainer)
+        //{
+        //    //if (material.amount <= 0) continue;
+        //    //GameManager.instance.materialInventory.AddMonsterMaterial(material.material, material.amount);
+
+
+        //}
+
         foreach (var material in monsterMaterials)
         {
             GameManager.instance.materialInventory.AddMonsterMaterial(material, 1);
