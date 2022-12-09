@@ -167,7 +167,7 @@ public class Abilities : ScriptableObject
     {
         float criticalDmg = 1f;
         if (Random.value * 100 <= player.playerCriticalPercentage) criticalDmg = 1.5f;
-        float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(player.playerElement, target.monsterElement);
+        float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(player.playerAttackElement, target.MonsterDefenseElement);
 
 
         finalDamage = (((player.playerPower * criticalDmg) + (player.playerPower * player.playerElementPower) * elementEffectivenessNumber) * abilityModifier);
@@ -180,7 +180,7 @@ public class Abilities : ScriptableObject
     {
         float criticalDmg = 1f;
         if (Random.value * 100 <= player.playerCriticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(player.playerElement, target.playerElement);
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(player.playerAttackElement, target.playerAttackElement);
 
 
         finalDamage = (((player.playerPower * criticalDmg) + (player.playerPower * player.playerElementPower) * elementDmg) * abilityModifier) - target.playerDefense;

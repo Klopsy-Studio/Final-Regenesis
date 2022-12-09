@@ -240,9 +240,9 @@ public class MonsterAbility : ScriptableObject
     {
         float criticalDmg = 1f;
         if (Random.value * 100 <= enemy.criticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(enemy.monsterElement, target.weapon.WeaponElement);
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(enemy.MonsterAttackElement, target.playerDefenseElement);
 
 
-        finalDamage = (((enemy.power * criticalDmg) + (enemy.power * enemy.elementPower) * elementDmg) * abilityModifier) - target.weapon.Defense;
+        finalDamage = (((enemy.power * criticalDmg) + (enemy.power * enemy.elementPower) * elementDmg) * abilityModifier) - target.playerDefense;
     }
 }

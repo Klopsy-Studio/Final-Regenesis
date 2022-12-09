@@ -8,8 +8,11 @@ public class Weapons : Equipment
     int criticalPercentage;
     public int CriticalPercentage { get { return criticalPercentage; } }
 
-    [SerializeField] WeaponElement weaponElement;
-    public WeaponElement WeaponElement { get { return weaponElement; } }
+    [SerializeField] WeaponElement weaponAttackElement;
+    public WeaponElement WeaponAttackElement { get { return weaponAttackElement; } }
+
+    [SerializeField] WeaponElement weaponDefenseElement;
+    public WeaponElement WeaponDefenseElement { get { return weaponDefenseElement; } }
 
     [SerializeField] private int power;
     public int Power { get { return power; } }
@@ -37,7 +40,8 @@ public class Weapons : Equipment
     {
         c.playerPower = power;
         c.playerCriticalPercentage = criticalPercentage;
-        c.playerElement = WeaponElement;
+        c.playerAttackElement = WeaponAttackElement;
+        c.playerDefenseElement = WeaponDefenseElement;
         c.playerElementPower = elementPower;
         c.playerDefense = defense;
 

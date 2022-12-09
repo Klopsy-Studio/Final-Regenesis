@@ -13,7 +13,8 @@ public class PlayerUnit : Unit
     [Header("PlayerStats")]
     public int playerPower;
     public int playerCriticalPercentage;
-    public WeaponElement playerElement;
+    public WeaponElement playerAttackElement;
+    public WeaponElement playerDefenseElement;
     public int playerElementPower;
     public int playerDefense;
 
