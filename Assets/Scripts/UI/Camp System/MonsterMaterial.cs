@@ -4,17 +4,23 @@ using UnityEngine;
 
 public enum Monster
 {
-    Monster1,
+    None,
+    PutridBear,
     Monster2,
     Monster3
 }
 
-public enum TypeOfMaterial
-{
-    Scale,
-    Fang,
-    Skull
-}
+//public enum TypeOfMaterial
+//{
+//    MetalPiece,
+//    Biomass,
+//    fur,
+//    Fang,
+//    claw,
+//    RottenTissue,
+//    MutationRoot
+
+//}
 
 public enum Rarity
 {
@@ -25,8 +31,9 @@ public enum Rarity
 [CreateAssetMenu(menuName = "MonsterMaterial")]
 public class MonsterMaterial: ScriptableObject
 {
+    public string materialName;
     public Sprite sprite;
     public Monster monster;
-    public TypeOfMaterial material;
+    //public TypeOfMaterial material;
     public Rarity rarity;
 }
