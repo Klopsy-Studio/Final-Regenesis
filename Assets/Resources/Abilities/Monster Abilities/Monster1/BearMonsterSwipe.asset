@@ -22,6 +22,7 @@ MonoBehaviour:
     sideReach: 1
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 2
     alternateSideReach: 2
@@ -36,6 +37,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 2
     alternateSideReach: 2
@@ -50,6 +52,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 2
@@ -64,6 +67,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 2
     alternateSideReach: 2
@@ -78,6 +82,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 1
     alternateSideReach: 2
@@ -92,6 +97,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 2
     alternateSideReach: 2
@@ -106,6 +112,7 @@ MonoBehaviour:
     sideReach: 2
     sideLength: 2
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 2
     alternateSideReach: 2
@@ -120,6 +127,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 2
     alternateSideReach: 2
@@ -134,6 +142,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 3
     alternateSideReach: 2
@@ -149,6 +158,7 @@ MonoBehaviour:
     sideReach: 0
     sideLength: 0
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 2
@@ -163,6 +173,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 3
@@ -177,3 +188,4 @@ MonoBehaviour:
   initialDebuff: 0
   inAbilityEffects: []
   postAbilityEffect: []
+  targetType: 1

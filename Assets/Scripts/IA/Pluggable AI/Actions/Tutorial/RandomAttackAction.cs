@@ -5,9 +5,10 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Random Attack")]
 public class RandomAttackAction : Action
 {
+    public List<MonsterAbility> abilities;
     public override void Act(MonsterController controller)
     {
-        controller.CallCoroutine(Attack(controller, controller.ChooseRandomAttack()));
+        controller.CallCoroutine(Attack(controller, abilities[Random.Range(0, abilities.Count)]));
     }
 
 
@@ -17,16 +18,29 @@ public class RandomAttackAction : Action
         List<Tile> tiles = ability.ShowAttackRange(dir, controller);
         controller.targetsInRange.Clear();
 
-        foreach(Tile t in tiles)
+        switch (ability.targetType)
         {
-            if (t.content != null)
-            {
-                if (t.content.GetComponent<PlayerUnit>() != null)
+            case TypeOfTarget.SingleTarget:
+                controller.targetsInRange.Add(controller.target);
+                break;
+            case TypeOfTarget.MultipleTarget:
+
+                foreach (Tile t in tiles)
                 {
-                    controller.targetsInRange.Add(t.content.GetComponent<PlayerUnit>());
+                    if (t.content != null)
+                    {
+                        if (t.content.GetComponent<PlayerUnit>() != null)
+                        {
+                            controller.targetsInRange.Add(t.content.GetComponent<PlayerUnit>());
+                        }
+                    }
                 }
-            }
+
+                break;
+            default:
+                break;
         }
+        
         AudioManager.instance.Play("MonsterAttack");
 
 

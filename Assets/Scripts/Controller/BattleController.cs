@@ -59,7 +59,7 @@ public class BattleController : StateMachine
     public Tile currentTile { get { return board.GetTile(pos); } }
     [Space]
     public RealTimeEvents environmentEvent;
-
+    [HideInInspector] public MonsterEvent currentMonsterEvent;
 
     //Item variables
     [HideInInspector] public int itemChosen;
@@ -78,6 +78,10 @@ public class BattleController : StateMachine
     public GameObject placeholderWinScreen;
 
     public CinemachineVirtualCamera cinemachineCamera;
+
+
+    [Header("TESTING")]
+    public Playtest testScript;
     public void BeginGame()
     {
         cinemachineCamera.m_Lens.NearClipPlane = -1f;
@@ -100,6 +104,8 @@ public class BattleController : StateMachine
             SceneManager.LoadScene("Battle");
             backpackInventory.RefillBackpack();
         }
+
+        testScript.elements = timelineElements;
     }
 
     public virtual void SelectTile(Point p)

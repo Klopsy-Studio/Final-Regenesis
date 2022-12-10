@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TypeOfTarget
+{
+    SingleTarget, MultipleTarget
+}
+
 [System.Serializable]
 [CreateAssetMenu(menuName = "Ability/New Monster Ability")]
+
 public class MonsterAbility : ScriptableObject
 {
     public EffectType typeOfAbility;
@@ -38,6 +44,9 @@ public class MonsterAbility : ScriptableObject
     [Header("Effects")]
     public List<Effect> inAbilityEffects;
     public List<Effect> postAbilityEffect;
+
+
+    public TypeOfTarget targetType;
     public bool CheckIfAttackIsValid(MonsterController monster)
     {
         List<Tile> attackTiles = new List<Tile>();
@@ -64,7 +73,7 @@ public class MonsterAbility : ScriptableObject
                     break;
                 case TypeOfAbilityRange.Cross:
                     CrossAbilityRange crossRange = monster.GetRange<CrossAbilityRange>();
-                    crossRange.AssignVariables(r.crossLength);
+                    crossRange.AssignVariables(r);
                     if (CheckForUnits(crossRange.GetTilesInRange(monster.battleController.board), monster))
                     {
                         return true;
@@ -109,7 +118,7 @@ public class MonsterAbility : ScriptableObject
 
                 case TypeOfAbilityRange.Cross:
                     CrossAbilityRange crossRange = monster.GetRange<CrossAbilityRange>();
-                    crossRange.AssignVariables(r.crossLength);
+                    crossRange.AssignVariables(r);
                     List<Tile> crossTiles = crossRange.GetTilesInRange(monster.battleController.board);
                     AddTilesToList(retValue, crossTiles);
                     break;
@@ -172,7 +181,7 @@ public class MonsterAbility : ScriptableObject
 
                 case TypeOfAbilityRange.Cross:
                     CrossAbilityRange crossRange = monster.GetRange<CrossAbilityRange>();
-                    crossRange.AssignVariables(r.crossLength);
+                    crossRange.AssignVariables(r);
                     List<Tile> crossTiles = crossRange.GetTilesInRange(monster.battleController.board);
                     AddTilesToList(retValue, crossTiles);
                     break;
@@ -241,7 +250,6 @@ public class MonsterAbility : ScriptableObject
         float criticalDmg = 1f;
         if (Random.value * 100 <= enemy.criticalPercentage) criticalDmg = 1.5f;
         float elementDmg = ElementsEffectiveness.GetEffectiveness(enemy.MonsterAttackElement, target.playerDefenseElement);
-
 
         finalDamage = (((enemy.power * criticalDmg) + (enemy.power * enemy.elementPower) * elementDmg) * abilityModifier) - target.playerDefense;
     }

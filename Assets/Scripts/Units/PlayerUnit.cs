@@ -283,4 +283,16 @@ public class PlayerUnit : Unit
         
 
     }
+
+
+    public List<Tile> GetSurroundings(Board board)
+    {
+        CrossAbilityRange range = this.gameObject.GetComponent<CrossAbilityRange>();
+
+        range.crossLength = 2;
+        range.offset = 1;
+        range.unit = this;
+
+        return range.GetTilesInRange(board);
+    }
 }

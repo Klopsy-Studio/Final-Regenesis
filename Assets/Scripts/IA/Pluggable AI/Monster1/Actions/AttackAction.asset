@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12928aea4a276e4f8951c21b52b8f00, type: 3}
   m_Name: AttackAction
   m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 11400000, guid: 9bd54169d27d9ca438adf02a64186ae1, type: 2}
+  - {fileID: 11400000, guid: 567d2ce97833e374689a3526a2571139, type: 2}

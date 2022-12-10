@@ -849,6 +849,7 @@ GameObject:
   - component: {fileID: 4849501743113347343}
   - component: {fileID: 1364770249159690893}
   - component: {fileID: 2133546689949067580}
+  - component: {fileID: -2725668183901495202}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -889,7 +890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsPerTurn: 0
+  timelineTypes: 0
   timelineVelocity: 2
+  elementEnabled: 1
   fTimelineVelocity: 0
   timelineFill: 0
   isTimelineActive: 0
@@ -926,12 +929,14 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
   playerPower: 0
   playerCriticalPercentage: 0
-  playerElement: 0
+  playerAttackElement: 0
+  playerDefenseElement: 0
   playerElementPower: 0
   playerDefense: 0
   changing: 0
   status: {fileID: 0}
   playerUI: {fileID: 2133546689949067580}
+  animations: {fileID: 0}
   idleSprite: {fileID: 0}
   weaponSprite: {fileID: 0}
   combatSprite: {fileID: 0}
@@ -945,24 +950,8 @@ MonoBehaviour:
   nearDeathElement: {fileID: 3939858003233122212, guid: a861d1a67cc412440a66419a54589b01, type: 3}
   deathElement: {fileID: 0}
   isNearDeath: 0
-  hammerData:
-    savedWeaponSprite: {fileID: 1559223263172895049}
-    idleCombatSprite: {fileID: 2548524760504584439}
-    attackSprite: {fileID: 8848850554043759655}
-  hammerOffset:
-    savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
-    idleCombatSpriteOffset: {x: 0, y: 0, z: 0}
-    attackSpriteOffset: {x: 0, y: 0, z: 0}
-  slingShotData:
-    savedWeaponSprite: {fileID: 5035256462612172321}
-    idleCombatSprite: {fileID: 2848427733018308218}
-    attackSprite: {fileID: 6429371488287498043}
-  slingshotOffset:
-    savedWeaponSpriteOffset: {x: 0, y: 0, z: 0}
-    idleCombatSpriteOffset: {x: 0, y: 0, z: 0}
-    attackSpriteOffset: {x: 0, y: 0, z: 0}
-  test:
-    _keyValuePairs: []
+  hammerSprite: {fileID: 0}
+  slingshotSprite: {fileID: 0}
 --- !u!114 &1364770249159690893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +998,23 @@ MonoBehaviour:
   regularActionPointsSprite: {fileID: 769212033221575598, guid: 768f01b974ae9224f802c85819c4bf81, type: 3}
   previewActionPointsSprite: {fileID: 2192999827752927587, guid: 768f01b974ae9224f802c85819c4bf81, type: 3}
   spentActionPointsSprite: {fileID: -1924617907073917994, guid: 768f01b974ae9224f802c85819c4bf81, type: 3}
+--- !u!114 &-2725668183901495202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783648232820829175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9418db137347bb4fbec4f847358ebc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 0}
+  crossLength: 0
+  offset: -1
 --- !u!1 &3818055158232388540
 GameObject:
   m_ObjectHideFlags: 0

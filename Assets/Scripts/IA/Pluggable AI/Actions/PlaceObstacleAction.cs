@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlaceObstacleAction : Action
 {
     [SerializeField] MonsterAbility obstacleRange;
+
+    public int obstaclesToPlace;
     public override void Act(MonsterController controller)
     {
         controller.CallCoroutine(PlaceObstacle(controller));
@@ -17,20 +19,14 @@ public class PlaceObstacleAction : Action
         if(controller.obstaclesInGame.Count >= controller.obstacleLimit)
         {
             AudioManager.instance.Play("MonsterObstacle");
-            foreach(Tile t in controller.obstaclesInGame)
+            foreach(BearObstacleScript o in controller.obstaclesInGame)
             {
-                BearObstacleScript o = t.content.GetComponent<BearObstacleScript>();
-                List<Tile> tiles = o.Explode(t.pos, controller.battleController.board);
+                List<Tile> tiles = o.Explode(controller.battleController.board);
 
-                controller.battleController.SelectTile(t.pos);
+                controller.battleController.SelectTile(o.pos);
                 ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
                 AudioManager.instance.Play("ObstacleExplosion");
-                while (ActionEffect.instance.play)
-                {
-                    yield return null;
-                }
-
-                while (ActionEffect.instance.recovery)
+                while (ActionEffect.instance.play || ActionEffect.instance.recovery)
                 {
                     yield return null;
                 }
@@ -41,48 +37,63 @@ public class PlaceObstacleAction : Action
 
             }
 
+            controller.obstaclesInGame.Clear();
             OnExit(controller);
 
         }
         else
         {
-            List<Tile> rangeTiles = obstacleRange.GetAttackTiles(controller);
+            List<Tile> tiles = new List<Tile>();
 
-            List<Tile> validTiles = new List<Tile>();
-            Tile tileToPlaceObstacle = new Tile();
-
-            foreach (Tile t in rangeTiles)
+            for (int i = 0; i < obstaclesToPlace; i++)
             {
-                if (t.content == null)
+                List<Tile> rangeTiles = obstacleRange.GetAttackTiles(controller);
+
+                List<Tile> validTiles = new List<Tile>();
+                Tile tileToPlaceObstacle = new Tile();
+
+                foreach (Tile t in rangeTiles)
                 {
-                    validTiles.Add(t);
+                    if (t.content == null)
+                    {
+                        validTiles.Add(t);
+                    }
                 }
+
+                if (validTiles != null)
+                {
+                    tileToPlaceObstacle = validTiles[Random.Range(0, validTiles.Count - 1)];
+                }
+
+                else
+                {
+                    OnExit(controller);
+                    yield break;
+                }
+
+
+                tiles.Add(tileToPlaceObstacle);
+
+                BearObstacleScript obstacle = Instantiate(controller.obstacle, new Vector3(tileToPlaceObstacle.pos.x, 1, tileToPlaceObstacle.pos.y), controller.obstacle.transform.rotation).GetComponent<BearObstacleScript>();
+
+                obstacle.pos = tileToPlaceObstacle.pos;
+                controller.obstaclesInGame.Add(obstacle.GetComponent<BearObstacleScript>());
+
+                if (obstacle.IsObstacleValid(controller.battleController.board))
+                {
+                    controller.validObstacles.Add(obstacle);
+                }
+
+                tileToPlaceObstacle.content = obstacle.gameObject;
+                obstacle.transform.parent = null;
             }
 
-            if (validTiles != null)
-            {
-                tileToPlaceObstacle = validTiles[Random.Range(0, validTiles.Count - 1)];
-            }
-
-            else
-            {
-                OnExit(controller);
-                yield break;
-            }
-
-            List<Tile> singleTile = new List<Tile>();
-            singleTile.Add(tileToPlaceObstacle);
-            controller.battleController.board.SelectAttackTiles(singleTile);
-
-            GameObject obstacle = Instantiate(controller.obstacle, new Vector3(tileToPlaceObstacle.pos.x, 1, tileToPlaceObstacle.pos.y), controller.obstacle.transform.rotation);
-            controller.obstaclesInGame.Add(tileToPlaceObstacle);
-            tileToPlaceObstacle.content = obstacle;
-            obstacle.transform.parent = null;
+            controller.battleController.board.SelectAttackTiles(tiles);
 
             controller.monsterAnimations.SetBool("idle", false);
             controller.monsterAnimations.SetBool("roar", true);
             AudioManager.instance.Play("MonsterRoar");
-            ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
+            ActionEffect.instance.Play(4, 0.5f, 0.01f, 0.05f);
 
             while (ActionEffect.instance.play)
             {
@@ -91,7 +102,7 @@ public class PlaceObstacleAction : Action
 
             controller.monsterAnimations.SetBool("idle", true);
             controller.monsterAnimations.SetBool("roar", false);
-            controller.battleController.board.DeSelectTiles(singleTile);
+            controller.battleController.board.DeSelectTiles(tiles);
             controller.currentEnemy.Default();
 
             OnExit(controller);

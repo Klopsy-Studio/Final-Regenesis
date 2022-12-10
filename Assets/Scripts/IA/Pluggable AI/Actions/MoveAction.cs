@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MoveType
+{
+    ClosestUnit, LeastHealthUnit, GetAway
+};
 [CreateAssetMenu(menuName = "PluggableAI/Actions/MoveAction")]
 public class MoveAction : Action
 {
-    public bool isCalled = false;
+    public List<MoveType> moveOptions;
+    public bool isCalled  = false;
+
+    public bool differentTarget;
+
+    bool impossibleMovement;
     Movement m;
     public override void Act(MonsterController controller)
     {
@@ -23,89 +32,169 @@ public class MoveAction : Action
     IEnumerator MoveMonster(MonsterController controller)
     {
         yield return new WaitForSeconds(1);
+        MoveType chosenType = moveOptions[Random.Range(0, moveOptions.Count)];
+        PlayerUnit t = new PlayerUnit();
         isCalled = true;
-        //Move To Closest Player Unit
-        Tile closestTile = null;
-        float closestDistance = 0f;
-        Unit t = new Unit();
-
-        //T is the closest unit to the enemy
-        foreach (PlayerUnit p in controller.battleController.playerUnits)
-        {
-            if (Vector3.Distance(controller.currentEnemy.transform.position, p.transform.position) <= closestDistance || closestDistance == 0f)
-            {
-                t = p;
-                closestDistance = Vector3.Distance(controller.currentEnemy.transform.position, p.transform.position);
-            }
-        }
-
-        controller.target = t.GetComponent<PlayerUnit>();
-        Movement range = controller.currentEnemy.GetComponent<Movement>();
-        range.range = 5;
-
-        //MovementRange range = GetRange<MovementRange>();
-
-        //range.unit = owner.currentEnemy;
-        //range.range = 3;
-        //range.tile = owner.currentEnemy.tile;
-
-        List<Tile> unfilteredTiles = range.GetTilesInRangeForEnemy(controller.battleController.board, false);
+        float value = 0f;
+        Tile tileToMove = new Tile();
         List<Tile> tiles = new List<Tile>();
-        foreach(Tile validTile in unfilteredTiles)
+        List<Tile> validTiles = new List<Tile>();
+        List<PlayerUnit> invalidUnits = new List<PlayerUnit>();
+        m = controller.GetComponent<Movement>();
+
+
+        switch (chosenType)
         {
-            if (validTile.CheckSurroundings(controller.battleController.board) != null)
-            {
-                tiles.Add(validTile);
-            }
+            case MoveType.ClosestUnit:
+                while(validTiles.Count == 0)
+                {
+                    foreach (PlayerUnit p in controller.battleController.playerUnits)
+                    {
+                        if (invalidUnits.Contains(p))
+                            continue;
+                        if (differentTarget && p == controller.target)
+                            continue;
+                        if (Vector3.Distance(controller.currentEnemy.transform.position, p.transform.position) <= value || value == 0f)
+                        {
+                            t = p;
+                            value = Vector3.Distance(controller.currentEnemy.transform.position, p.transform.position);
+                        }
+                    }
+
+                    if(t == null)
+                    {
+                        impossibleMovement = true;
+                        break;
+                    }
+
+                    tiles = t.GetSurroundings(controller.battleController.board);
+
+                    foreach (Tile tile in tiles)
+                    {
+                        if (tile.CheckSurroundings(controller.battleController.board) != null)
+                        {
+                            validTiles.Add(tile);
+                        }
+                    }
+
+                    if (validTiles == null)
+                    {
+                        invalidUnits.Add(t);
+                    }
+
+                    else
+                    {
+                        controller.target = t;
+                    }
+                }
+                break;
+            case MoveType.LeastHealthUnit:
+
+                while (validTiles.Count == 0)
+                {
+                    foreach (PlayerUnit p in controller.battleController.playerUnits)
+                    {
+                        if (invalidUnits.Contains(p))
+                            continue;
+                        if (differentTarget && p == controller.target)
+                            continue;
+                        if (p.health< value || value == 0)
+                        {
+                            t = p;
+                            value = t.health;
+                        }
+                    }
+
+                    if (t == null)
+                    {
+                        impossibleMovement = true;
+                        break;
+                    }
+
+                    tiles = t.GetSurroundings(controller.battleController.board);
+
+                    foreach (Tile tile in tiles)
+                    {
+                        if (tile.CheckSurroundings(controller.battleController.board) != null)
+                        {
+                            validTiles.Add(tile);
+                        }
+                    }
+
+                    if (validTiles.Count == 0)
+                    {
+                        invalidUnits.Add(t);
+                    }
+                    else
+                    {
+                        controller.target = t;
+                    }
+                }
+                break;
+            case MoveType.GetAway:
+                m.range = 8;
+
+                tiles = m.GetTilesInRangeForEnemy(controller.battleController.board, false);
+
+                foreach (Tile tile in tiles)
+                {
+                    if (tile.CheckSurroundings(controller.battleController.board) != null)
+                    {
+                        validTiles.Add(tile);
+                    }
+                }
+
+                if (validTiles.Count == 0)
+                {
+                    impossibleMovement = true;
+                }
+
+                else
+                {
+                    foreach(Tile tile in tiles)
+                    {
+                        if(value == 0 || Vector3.Distance(controller.currentEnemy.transform.position, tile.transform.position) >= value)
+                        {
+                            tileToMove = tile;
+                            value = Vector3.Distance(controller.currentEnemy.transform.position, tile.transform.position);
+                        }
+                    }
+                }
+                break;
+            default:
+                break;
         }
 
-        closestDistance = 0f;
-        
-        foreach (Tile tile in tiles)
+        if (!impossibleMovement)
         {
-            if (Vector3.Distance(tile.transform.position, t.tile.transform.position) <= closestDistance || closestDistance == 0f && tile.content == null)
-            {
-                closestDistance = Vector3.Distance(tile.transform.position, t.tile.transform.position);
-                closestTile = tile;
-            }
+            tileToMove = validTiles[Random.Range(0, validTiles.Count)];
+            //controller.battleController.board.SelectMovementTiles(test);
+
+
+            controller.monsterAnimations.SetBool("hide", true);
+            AudioManager.instance.Play("MonsterMovement");
+            yield return new WaitForSeconds(1f);
+
+            controller.monsterAnimations.SetBool("hide", false);
+
+            controller.battleController.tileSelectionToggle.MakeTileSelectionBig();
+            controller.CallCoroutine(m.SimpleTraverse(tileToMove));
+            controller.battleController.SelectTile(tileToMove.pos);
+            controller.monsterAnimations.SetBool("appear", true);
+            //AudioManager.instance.Play("MonsterMovement");
+
+            yield return new WaitForSeconds(1f);
+
+            controller.monsterAnimations.SetBool("appear", false);
+            controller.monsterAnimations.SetBool("idle", true);
+            controller.monsterAnimations.SetBool("idle", false);
+
+            controller.currentEnemy.currentPoint = tileToMove.pos;
+            controller.currentEnemy.UpdateMonsterSpace(controller.battleController.board);
+
+            controller.currentEnemy.actionDone = true;
         }
 
-        m = controller.currentEnemy.GetComponent<Movement>();
-
-        List<Tile> test = new List<Tile>();
-        test.Add(closestTile);
-      
-        //controller.battleController.board.SelectMovementTiles(test);
-        
-
-        controller.monsterAnimations.SetBool("hide", true);
-        AudioManager.instance.Play("MonsterMovement");
-        yield return new WaitForSeconds(1f);
-
-        controller.monsterAnimations.SetBool("hide", false);
-
-        controller.battleController.SelectTile(closestTile.pos);
-        controller.battleController.tileSelectionToggle.MakeTileSelectionBig();
-        controller.CallCoroutine(m.SimpleTraverse(closestTile));
-
-        controller.monsterAnimations.SetBool("appear", true);
-        //AudioManager.instance.Play("MonsterMovement");
-
-        yield return new WaitForSeconds(1f);
-
-        controller.monsterAnimations.SetBool("appear", false);
-        controller.monsterAnimations.SetBool("idle", true);
-        controller.monsterAnimations.SetBool("idle", false);
-
-
-        yield return new WaitForSeconds(0.2f);
-        controller.battleController.board.DeSelectDefaultTiles(test);
-
-
-        controller.currentEnemy.currentPoint = closestTile.pos;
-        controller.currentEnemy.UpdateMonsterSpace(controller.battleController.board);
-
-        controller.currentEnemy.actionDone = true;
         OnExit(controller);
     }
 

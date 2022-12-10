@@ -35,7 +35,7 @@ public class CheckAttackRangeDecisionDrawer : PropertyDrawer
             case TypeOfAbilityRange.AlternateSide:
                 return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 5;
             case TypeOfAbilityRange.Cross:
-                return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 3;
+                return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 4;
 
             case TypeOfAbilityRange.Normal:
                 return (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 3;
@@ -103,6 +103,8 @@ public class CheckAttackRangeDecisionDrawer : PropertyDrawer
                 break;
             case TypeOfAbilityRange.Cross:
                 DisplayVariable("crossLength", ref position, property);
+                DisplayVariable("crossOffset", ref position, property);
+
                 break;
             case TypeOfAbilityRange.Normal:
                 DisplayVariable("movementRange", ref position, property);

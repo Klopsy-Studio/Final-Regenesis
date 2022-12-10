@@ -167,10 +167,6 @@ public class TimelineUI : MonoBehaviour
 
                 temp.image.sprite = eventFrame;
                 temp.icon.sprite = eventIcon;
-                //temp.upSupport.GetComponent<Image>().enabled = true;
-
-                //temp.upSupport.sprite = eventSupport;
-
 
                 temp.offset = 0;
             }
@@ -180,10 +176,6 @@ public class TimelineUI : MonoBehaviour
 
                 temp.image.sprite = itemFrame;
                 temp.icon.sprite = itemIcon;
-                //temp.upSupport.GetComponent<Image>().enabled = true;
-
-                //temp.upSupport.sprite = eventSupport;
-
 
                 temp.offset = 0;
             }
@@ -191,14 +183,14 @@ public class TimelineUI : MonoBehaviour
             else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.PlayerDeath)
             {
                 temp.element.iconTimeline = temp;
-
                 temp.image.sprite = itemFrame;
+                temp.offset = 0;
+            }
 
-                //temp.upSupport.GetComponent<Image>().enabled = true;
-
-                //temp.upSupport.sprite = eventSupport;
-
-
+            else if(battleController.timelineElements[i].timelineTypes == TimeLineTypes.EnemyEvent)
+            {
+                temp.element.iconTimeline = temp;
+                temp.image.sprite = itemFrame;
                 temp.offset = 0;
             }
 

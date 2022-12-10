@@ -44,7 +44,6 @@ public class InitBattleState : BattleState
 
 
             unitsInGame.Add(unit);
-
             owner.playerUnits.Add(unit);
         }
 
@@ -70,7 +69,6 @@ public class InitBattleState : BattleState
             m.jumpHeight = 1;
 
             unitsInGame.Add(unit);
-
             owner.enemyUnits.Add(unit);
         }
 

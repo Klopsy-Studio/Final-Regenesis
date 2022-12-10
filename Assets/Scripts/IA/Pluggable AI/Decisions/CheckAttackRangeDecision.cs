@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 
 [System.Serializable]
-[CreateAssetMenu(menuName = "PluggableAI/Decisions/CheckAttackRangeDecision")]
+[CreateAssetMenu(menuName = "PluggableAI/Decisions/Check Attack Range Decision")]
 public class CheckAttackRangeDecision : Decision
 {
     public List<MonsterAbility> monsterAbilities;

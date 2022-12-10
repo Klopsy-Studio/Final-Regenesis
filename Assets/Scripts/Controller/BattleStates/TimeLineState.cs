@@ -98,6 +98,13 @@ public class TimeLineState : BattleState
                         owner.ChangeState<PlayerUnitDeathState>();
                         break;
                     }
+
+                    if(t is MonsterEvent m)
+                    {
+                        SelectTile(m.controller.currentEnemy.tile.pos);
+                        owner.currentMonsterEvent = m;
+                        owner.ChangeState<MonsterEventState>();
+                    }
                 }
                
             }

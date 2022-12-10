@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 2133546689949067580}
   - component: {fileID: 8474618634057605766}
   - component: {fileID: 703906005040748471}
+  - component: {fileID: 3639657622488920708}
   m_Layer: 6
   m_Name: Isak
   m_TagString: Untagged
@@ -766,7 +767,8 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
   playerPower: 0
   playerCriticalPercentage: 0
-  playerElement: 0
+  playerAttackElement: 0
+  playerDefenseElement: 0
   playerElementPower: 0
   playerDefense: 0
   changing: 0
@@ -866,6 +868,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 8474618634057605766}
+--- !u!114 &3639657622488920708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783648232820829175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9418db137347bb4fbec4f847358ebc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 0}
+  crossLength: 0
+  offset: -1
 --- !u!1 &3818055158232388540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,13 +1700,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
---- !u!4 &2246286409456321009 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4362671115338849498, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
-  m_PrefabInstance: {fileID: 2569087900042894635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2246286409456321014 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4362671115338849501, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
+  m_PrefabInstance: {fileID: 2569087900042894635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2246286409456321009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4362671115338849498, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
   m_PrefabInstance: {fileID: 2569087900042894635}
   m_PrefabAsset: {fileID: 0}

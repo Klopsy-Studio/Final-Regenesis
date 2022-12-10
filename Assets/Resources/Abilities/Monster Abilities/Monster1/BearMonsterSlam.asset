@@ -22,6 +22,7 @@ MonoBehaviour:
     sideReach: 2
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -36,6 +37,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -50,6 +52,7 @@ MonoBehaviour:
     sideReach: 2
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -64,6 +67,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -78,6 +82,7 @@ MonoBehaviour:
     sideReach: 2
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -92,6 +97,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -106,6 +112,7 @@ MonoBehaviour:
     sideReach: 2
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -120,6 +127,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 1
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -135,6 +143,7 @@ MonoBehaviour:
     sideReach: 2
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -149,6 +158,7 @@ MonoBehaviour:
     sideReach: 3
     sideLength: 1
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
@@ -167,3 +177,4 @@ MonoBehaviour:
   postAbilityEffect:
   - effectPlaying: 0
     effectType: 1
+  targetType: 1

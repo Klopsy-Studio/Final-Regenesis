@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: LightStrike
   m_EditorClassIdentifier: 
   actionCost: 3
-  abilityVelocityCost: 0
   rangeData:
-    range: 9
+    range: 8
     lineDir: 0
     lineLength: 0
     sideDir: 0
     sideReach: 0
     sideLength: 0
-    crossLength: 0
+    crossLength: 2
+    crossOffset: 1
     squareReach: 2
     alternateSideDir: 0
     alternateSideReach: 0
