@@ -301,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112483469374211842}
   - component: {fileID: 2548524760504584439}
+  - component: {fileID: 8815352828080576110}
   m_Layer: 6
   m_Name: Hammer
   m_TagString: Untagged
@@ -373,6 +374,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8815352828080576110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567694356356156966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 2548524760504584439}
+  spriteObject: {fileID: 3783648232820829175}
+  offset: 1
 --- !u!1 &1587547189663452285
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +703,7 @@ GameObject:
   - component: {fileID: 2133546689949067580}
   - component: {fileID: 8474618634057605766}
   - component: {fileID: 703906005040748471}
+  - component: {fileID: 7504658254494794176}
   m_Layer: 6
   m_Name: Isak
   m_TagString: Untagged
@@ -868,6 +885,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 8474618634057605766}
+--- !u!114 &7504658254494794176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783648232820829175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 4824170015590987729}
+  spriteObject: {fileID: 3783648232820829175}
+  offset: 0
 --- !u!1 &3818055158232388540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228955603596174117}
   - component: {fileID: 6429371488287498043}
+  - component: {fileID: 912536054786584854}
   m_Layer: 6
   m_Name: Slingshot
   m_TagString: Untagged
@@ -1140,6 +1173,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &912536054786584854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456863419445947804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 6429371488287498043}
+  spriteObject: {fileID: 3783648232820829175}
+  offset: 1
 --- !u!1 &5634395535021815354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,8 +1351,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1681290243
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 330f9481b00810f458f1652d5a7a9a7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
