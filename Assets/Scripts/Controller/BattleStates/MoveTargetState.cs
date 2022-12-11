@@ -37,12 +37,29 @@ public class MoveTargetState : BattleState
         originPoint = owner.currentTile;
         owner.ghostImage.sprite = owner.currentUnit.unitSprite.sprite;
 
+        foreach(Unit u in unitsInGame)
+        {
+            if(u != owner.currentUnit)
+            {
+                u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.b, u.unitSprite.color.g, u.unitSprite.color.a - 0.35f);
+            }
+        }
+
     }
 
     public override void Exit()
     {
         base.Exit();
         owner.ghostImage.gameObject.SetActive(false);
+
+        foreach (Unit u in unitsInGame)
+        {
+            if (u != owner.currentUnit)
+            {
+                u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.b, u.unitSprite.color.g, u.unitSprite.color.a + 0.35f);
+            }
+        }
+
         board.DeSelectDefaultTiles(tiles);
         test = false;
         tiles = null;

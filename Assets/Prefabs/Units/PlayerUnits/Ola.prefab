@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8514287956359002813}
   - component: {fileID: 5035256462612172321}
+  - component: {fileID: 8307120334320222389}
   m_Layer: 6
   m_Name: Slingshot
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3377da32526a6f542b27186a4dc33c43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,6 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8307120334320222389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282768191353230261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 5035256462612172321}
+  spriteObject: {fileID: 3783648232820829175}
+  offset: 1
 --- !u!1 &1321777289758811747
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +511,7 @@ GameObject:
   - component: {fileID: 2133546689949067580}
   - component: {fileID: 8541322230166998350}
   - component: {fileID: 3080770479731245304}
-  - component: {fileID: -3914251481590259674}
+  - component: {fileID: -7898357747378619467}
   m_Layer: 6
   m_Name: Ola
   m_TagString: Untagged
@@ -574,8 +590,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
   playerPower: 0
   playerCriticalPercentage: 0
-  playerAttackElement: 0
-  playerDefenseElement: 0
+  playerElement: 0
   playerElementPower: 0
   playerDefense: 0
   changing: 0
@@ -597,6 +612,8 @@ MonoBehaviour:
   isNearDeath: 0
   hammerSprite: {fileID: 1559223263172895049}
   slingshotSprite: {fileID: 5035256462612172321}
+  hammerParent: {fileID: 8260120077328344227}
+  slingshotParent: {fileID: 7798481099334856715}
 --- !u!114 &1364770249159690893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 8541322230166998350}
---- !u!114 &-3914251481590259674
+--- !u!114 &-7898357747378619467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -684,14 +701,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3783648232820829175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9418db137347bb4fbec4f847358ebc8, type: 3}
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: 1
-  vertical: 2147483647
-  unit: {fileID: 0}
-  crossLength: 0
-  offset: -1
+  sprite: {fileID: 4824170015590987729}
+  spriteObject: {fileID: 3783648232820829175}
+  offset: 0
 --- !u!1 &3818055158232388540
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9157135656391598969}
   - component: {fileID: 1559223263172895049}
+  - component: {fileID: 2211660804280087192}
   m_Layer: 6
   m_Name: Hammer
   m_TagString: Untagged
@@ -964,6 +980,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2211660804280087192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947991320196653375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 1559223263172895049}
+  spriteObject: {fileID: 3783648232820829175}
+  offset: 1
 --- !u!1 &6667685233887291024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,8 +1063,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1681290243
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 330f9481b00810f458f1652d5a7a9a7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1381,13 +1412,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
---- !u!4 &2246286409456321009 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4362671115338849498, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
-  m_PrefabInstance: {fileID: 2569087900042894635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2246286409456321014 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4362671115338849501, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
+  m_PrefabInstance: {fileID: 2569087900042894635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2246286409456321009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4362671115338849498, guid: b24361480dbee9c4484f6f56b0b0c590, type: 3}
   m_PrefabInstance: {fileID: 2569087900042894635}
   m_PrefabAsset: {fileID: 0}
