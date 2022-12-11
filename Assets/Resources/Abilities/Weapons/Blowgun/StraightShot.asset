@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: StraightShot
   m_EditorClassIdentifier: 
   actionCost: 2
-  abilityVelocityCost: 0
   rangeData:
     range: 9
     lineDir: 0
@@ -22,11 +21,13 @@ MonoBehaviour:
     sideReach: 0
     sideLength: 0
     crossLength: 0
+    crossOffset: 0
     squareReach: 1
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 3
+    removeOrigin: 1
     itemRange: 0
     itemRemoveContent: 0
   cameraSize: 3

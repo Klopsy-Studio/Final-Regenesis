@@ -46,5 +46,6 @@ public class MovementRange : AbilityRange
     public override void AssignVariables(RangeData rangeData)
     {
         range = rangeData.movementRange;
+        removeOrigin = rangeData.removeOrigin;
     }
 }

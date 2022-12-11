@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionCost: 3
   rangeData:
-    range: 8
+    range: 9
     lineDir: 0
     lineLength: 0
     sideDir: 0
@@ -27,6 +27,7 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 2
+    removeOrigin: 1
     itemRange: 0
     itemRemoveContent: 0
   cameraSize: 3

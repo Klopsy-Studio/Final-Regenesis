@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Bash
   m_EditorClassIdentifier: 
   actionCost: 3
-  abilityVelocityCost: 1
   rangeData:
     range: 9
     lineDir: 0
@@ -22,11 +21,13 @@ MonoBehaviour:
     sideReach: 0
     sideLength: 0
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 1
+    removeOrigin: 1
     itemRange: 0
     itemRemoveContent: 0
   cameraSize: 3

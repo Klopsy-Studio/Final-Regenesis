@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 14440921267588393}
   - component: {fileID: 7566003522731722064}
   - component: {fileID: -2391741905834994129}
+  - component: {fileID: 8580293411072218240}
   m_Layer: 6
   m_Name: Kaeo
   m_TagString: Untagged
@@ -590,7 +591,8 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
   playerPower: 0
   playerCriticalPercentage: 0
-  playerElement: 0
+  playerAttackElement: 0
+  playerDefenseElement: 0
   playerElementPower: 0
   playerDefense: 0
   changing: 0
@@ -707,6 +709,23 @@ MonoBehaviour:
   sprite: {fileID: 4824170015590987729}
   spriteObject: {fileID: 3783648232820829175}
   offset: 0
+--- !u!114 &8580293411072218240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783648232820829175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9418db137347bb4fbec4f847358ebc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontal: 1
+  vertical: 2147483647
+  unit: {fileID: 4849501743113347343}
+  crossLength: 2
+  offset: 1
 --- !u!1 &3818055158232388540
 GameObject:
   m_ObjectHideFlags: 0
