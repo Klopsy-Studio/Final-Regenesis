@@ -100,6 +100,14 @@ public class BattleController : StateMachine
             SceneManager.LoadScene("Battle");
             backpackInventory.RefillBackpack();
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            foreach(TimelineElements e in timelineElements)
+            {
+                e.fTimelineVelocity = 0;
+            }
+        }
     }
 
     public virtual void SelectTile(Point p)

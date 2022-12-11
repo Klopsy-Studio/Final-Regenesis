@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8065880355718981688}
   - component: {fileID: 8569566428150529451}
   - component: {fileID: 8579801364242190014}
+  - component: {fileID: 5238097427631128608}
   m_Layer: 6
   m_Name: BearMonster
   m_TagString: Untagged
@@ -224,6 +225,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpText: {fileID: 3058184175537077074, guid: 30dd75ad56442b1439fb30ac915768e2, type: 3}
+--- !u!114 &5238097427631128608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118657081945532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 1262454043973379550}
+  spriteObject: {fileID: 118657081945532926}
 --- !u!1 &2516664840645378107
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,8 +623,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1681290243
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 330f9481b00810f458f1652d5a7a9a7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -51,6 +51,8 @@ public class PlayerUnit : Unit
     [Header("Weapons")]
     public SpriteRenderer hammerSprite;
     public SpriteRenderer slingshotSprite;
+    [SerializeField] GameObject hammerParent;
+    [SerializeField] GameObject slingshotParent;
 
     
     protected override void Start()
@@ -73,24 +75,17 @@ public class PlayerUnit : Unit
         {
             case EquipmentType.Hammer:
                 animations.SetAnimation("hammer");
-                slingshotSprite.gameObject.SetActive(false);
+                slingshotParent.SetActive(false);
                 break;
             case EquipmentType.Slingshot:
                 animations.SetAnimation("slingshot");
-                hammerSprite.gameObject.SetActive(false);
+                hammerParent.SetActive(false);
                 break;
             default:
                 break;
         }
     }
 
-    public void ApplyOffset(GameObject data, Vector3 offset)
-    {
-        if(offset != Vector3.zero)
-        {
-            data.transform.localPosition = new Vector3(offset.x, offset.y, offset.z);
-        }
-    }
     
     //ESTA FUNCION HAY QUE REVISARLA
     public void EquipAllItems()
@@ -143,22 +138,6 @@ public class PlayerUnit : Unit
         animations.SetAnimation("attack");
     }
 
-    public void DefaultCombat()
-    {
-        switch (weapon.EquipmentType)
-        {
-            case EquipmentType.Hammer:
-                animations.SetCombatIdle();
-                break;
-            case EquipmentType.Slingshot:
-                animations.SetCombatIdle();
-                break;
-            default:
-                break;
-        }
-
-        unitSprite.sprite = idleSprite;
-    }
     public override void Default()
     {
         animations.SetIdle();
