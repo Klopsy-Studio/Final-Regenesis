@@ -8,7 +8,7 @@ public class CanHealDecision : Decision
 {
     public override bool Decide(MonsterController controller)
     {
-        if(controller.obstaclesInGame.Count != 0)
+        if(controller.validObstacles.Count > 0 && controller.currentEnemy.health < controller.currentEnemy.maxHealth)
         {
             return true;
         }

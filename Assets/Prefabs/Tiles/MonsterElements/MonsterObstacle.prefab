@@ -121,6 +121,9 @@ MonoBehaviour:
   squareRange: {fileID: 1306439643566243199}
   crossRange: {fileID: 8353051550376916818}
   obstacleDamage: 0
+  pos:
+    x: 0
+    y: 0
 --- !u!114 &1306439643566243199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +155,7 @@ MonoBehaviour:
   horizontal: 1
   vertical: 2147483647
   unit: {fileID: 0}
-  crossLength: 1
+  crossLength: 2
   offset: 1
 --- !u!1 &5786643671974507575
 GameObject:

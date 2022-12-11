@@ -32,9 +32,18 @@ public class RootsEvent : MonsterEvent
             foreach(PlayerUnit p in targets)
             {
                 //Hardcoded, change it with implementation of monster skills
-                p.ReceiveDamage(30);
-                p.DamageEffect();
-                p.animations.SetDamage();
+                if (!p.isNearDeath)
+                {
+                    if (p.ReceiveDamage(30))
+                    {
+                        p.NearDeath(battleController);
+                    }
+
+                    p.DamageEffect();
+                    p.status.HealthAnimation(p.health);
+                    p.animations.SetDamage();
+                }
+                
             }
         }
 

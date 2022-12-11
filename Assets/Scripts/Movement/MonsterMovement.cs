@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterMovement : WalkMovement
-{ 
-    bool canPush;
+{
+
+    public bool allowStun = false;
 
     public override void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
@@ -30,7 +31,20 @@ public class MonsterMovement : WalkMovement
         }
         else
         {
-            unit.Stun();
+            if (allowStun)
+            {
+                unit.Stun();
+            }
         }
+    }
+
+    public void EnableMonsterStun()
+    {
+        allowStun = true;
+    }
+
+    public void DisableMonsterStun()
+    {
+        allowStun = false;
     }
 }

@@ -11,6 +11,8 @@ public class TimeLineState : BattleState
 
     float timer = 2f;
     bool timerCheck;
+
+    List<Tile> selecTiles;
     public override void Enter()
     {
         base.Enter();
@@ -131,6 +133,11 @@ public class TimeLineState : BattleState
                     selectedUnit.status.ChangeToBig();
 
                     SelectTile(selectedUnit.currentPoint);
+
+                }
+
+                if(owner.timelineUI.selectedIcon.element.timelineTypes == TimeLineTypes.EnemyEvent)
+                {
 
                 }
 

@@ -54,6 +54,8 @@ public class MoveAction : Action
                             continue;
                         if (differentTarget && p == controller.target)
                             continue;
+                        if (p.isNearDeath)
+                            continue;
                         if (Vector3.Distance(controller.currentEnemy.transform.position, p.transform.position) <= value || value == 0f)
                         {
                             t = p;
@@ -97,6 +99,8 @@ public class MoveAction : Action
                         if (invalidUnits.Contains(p))
                             continue;
                         if (differentTarget && p == controller.target)
+                            continue;
+                        if (p.isNearDeath)
                             continue;
                         if (p.health< value || value == 0)
                         {

@@ -103,6 +103,7 @@ public class TimelineUI : MonoBehaviour
                 {
                     a.transform.parent = removedChildren;
                     a.gameObject.SetActive(false);
+                    iconsInTimeline.Remove(a);
                 }
             }
 
@@ -183,15 +184,21 @@ public class TimelineUI : MonoBehaviour
             else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.PlayerDeath)
             {
                 temp.element.iconTimeline = temp;
-                temp.image.sprite = itemFrame;
+                temp.upSupport.sprite = downSupport;
                 temp.offset = 0;
             }
 
             else if(battleController.timelineElements[i].timelineTypes == TimeLineTypes.EnemyEvent)
             {
                 temp.element.iconTimeline = temp;
+                temp.upSupport.GetComponent<Image>().enabled = true;
+
                 temp.image.sprite = itemFrame;
                 temp.offset = 0;
+
+                temp.upSupport.gameObject.SetActive(true);
+                temp.offset = -70;
+
             }
 
             temp.barSize = content.sizeDelta.x;

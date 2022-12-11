@@ -15,6 +15,6 @@ MonoBehaviour:
   sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   transition:
     decision:
-    - {fileID: 11400000, guid: 63cccfee796f28d4e86fb3b34f802f65, type: 2}
+    - {fileID: 11400000, guid: 43be728094110c146bb04147a2dced82, type: 2}
   actions: {fileID: 11400000, guid: d11ddf0cb89b5544f87677cb6f658dbd, type: 2}
   isDecisionRandom: 0

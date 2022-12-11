@@ -21,9 +21,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f22d46667ec55ae4fbbfd970ccfc7c9c, type: 2}
   - {fileID: 11400000, guid: 2a1e52850f85be3439fb906990a008cd, type: 2}
   falseState:
-  - {fileID: 11400000, guid: 1512c0dc39c2380459b81aea18b7a32d, type: 2}
+  - {fileID: 11400000, guid: 3679a3e896949654781e06d34545ba93, type: 2}
   _falseState:
-  - {fileID: 11400000, guid: 1512c0dc39c2380459b81aea18b7a32d, type: 2}
+  - {fileID: 11400000, guid: c203eb16679d6bc4f87f5a844e84e9e2, type: 2}
   monsterAbilities:
   - {fileID: 11400000, guid: 9bd54169d27d9ca438adf02a64186ae1, type: 2}
   - {fileID: 11400000, guid: 567d2ce97833e374689a3526a2571139, type: 2}
