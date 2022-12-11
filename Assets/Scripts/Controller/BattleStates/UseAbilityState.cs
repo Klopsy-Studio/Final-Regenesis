@@ -5,6 +5,7 @@ using UnityEngine;
 public class UseAbilityState : BattleState
 {
     List<Tile> tiles;
+    List<Tile> targetTiles = new List<Tile>();
     List<Tile> selectTiles = new List<Tile>();
 
     public Abilities currentAbility;
@@ -12,6 +13,7 @@ public class UseAbilityState : BattleState
     bool onMonster;
     //PLACEHOLDER 
     bool attacking;
+    bool selected;
     public override void Enter()
     {
         base.Enter();
@@ -27,7 +29,58 @@ public class UseAbilityState : BattleState
         tiles = PreviewAbility(currentAbility.rangeData);
 
         board.SelectAbilityTiles(tiles);
+
+        foreach(AbilityTargetType target in currentAbility.elementsToTarget)
+        {
+            switch (target)
+            {
+                case AbilityTargetType.Enemies:
+                    foreach(Tile t in tiles)
+                    {
+                        if (t.occupied)
+                        {
+                            targetTiles.Add(t);
+                        }
+                    }
+                    break;
+                case AbilityTargetType.Allies:
+                    foreach (Tile t in tiles)
+                    {
+                        if(t.content != null)
+                        {
+                            if (t.content.GetComponent<PlayerUnit>() != null)
+                            {
+                                targetTiles.Add(t);
+                            }
+                        }
+                    }
+                    break;
+                case AbilityTargetType.Obstacles:
+                    foreach (Tile t in tiles)
+                    {
+                        if(t.content != null)
+                        {
+                            if (t.content.GetComponent<BearObstacleScript>() != null)
+                            {
+                                targetTiles.Add(t);
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        owner.targets.gameObject.SetActive(true);
+
+        if(targetTiles != null || targetTiles.Count > 0)
+        {
+            owner.targets.CreateTargets(targetTiles);
+        }
+        
     }
+
 
     protected override void OnMove(object sender, InfoEventArgs<Point> e)
     {
@@ -35,7 +88,6 @@ public class UseAbilityState : BattleState
         {
             SelectTile(e.info + pos);
         }
-        
     }
 
     protected override void OnFire(object sender, InfoEventArgs<KeyCode> e)
@@ -54,67 +106,66 @@ public class UseAbilityState : BattleState
 
     }
 
-    protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100))
-        {
-            var a = hit.transform.gameObject;
-            var t = a.GetComponent<Tile>();
+    //protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
+    //{
+    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(ray, out hit, 100))
+    //    {
+    //        var a = hit.transform.gameObject;
+    //        var t = a.GetComponent<Tile>();
 
-            if (t != null)
-            {
-                if (!attacking)
-                {
-                    if (tiles.Contains(board.GetTile(e.info + t.pos)))
-                    {
-                        if(t.content != null)
-                        {
-                            if (t.content.GetComponent<EnemyUnit>())
-                            {
-                                if (!onMonster)
-                                {
-                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
-                                }
-                            }
-                            else if (t.content.GetComponent<PlayerUnit>())
-                            {
-                                CleanSelectTiles();
-                                SelectTile(e.info + t.pos);
-                                owner.tileSelectionToggle.MakeTileSelectionSmall();
-                                selectTiles.Add(t);
-                                board.SelectAttackTiles(selectTiles);
-                                onMonster = false;
-                            }
-                        }
-                        else
-                        {
-                            if (t.occupied)
-                            {
-                                if (!onMonster)
-                                {
-                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
-                                }
-                            }
+    //        if (t != null)
+    //        {
+    //            if (!attacking)
+    //            {
+    //                if(targetTiles != null)
+    //                {
+    //                    if (targetTiles.Contains(board.GetTile(e.info + t.pos)))
+    //                    {
+    //                        if (t.content != null)
+    //                        {
+    //                            if (t.content.GetComponent<EnemyUnit>())
+    //                            {
+    //                                if (!onMonster)
+    //                                {
+    //                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
+    //                                }
+    //                            }
+    //                            else if (t.content.GetComponent<PlayerUnit>())
+    //                            {
+    //                                CleanSelectTiles();
+    //                                SelectTile(e.info + t.pos);
+    //                                owner.tileSelectionToggle.MakeTileSelectionSmall();
+    //                                selectTiles.Add(t);
+    //                                board.SelectAttackTiles(selectTiles);
+    //                                onMonster = false;
+    //                            }
+    //                        }
+    //                        else
+    //                        {
+    //                            if (t.occupied)
+    //                            {
+    //                                if (!onMonster)
+    //                                {
+    //                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
+    //                                }
+    //                            }
 
-                            else
-                            {
-                                CleanSelectTiles();
-                                SelectTile(e.info + t.pos);
-                                owner.tileSelectionToggle.MakeTileSelectionSmall();
-                                onMonster = false;
-                            }
-                        }
-                    }
-                   
-                }
-
-            }
-
-        }
-
-    }
+    //                            else
+    //                            {
+    //                                CleanSelectTiles();
+    //                                SelectTile(e.info + t.pos);
+    //                                owner.tileSelectionToggle.MakeTileSelectionSmall();
+    //                                onMonster = false;
+    //                            }
+    //                        }
+    //                    }
+    //                } 
+    //            }
+    //        }
+    //    }
+    //}
 
 
     public void SelectMonster(EnemyUnit enemy, Tile t)
@@ -139,26 +190,31 @@ public class UseAbilityState : BattleState
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)
     {
         
-        if (!attacking && selectTiles !=null)
+        if (!attacking)
         {
-            if(selectTiles != null)
+            if(owner.targets.selectedTarget != null)
             {
-                foreach (Tile t in selectTiles)
-                {
-                    if (t.content != null && !attacking)
-                    {
-                        if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
-                        {
-                            owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
-                            owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
-                          
-
-                            StartCoroutine(UseAbilitySequence(t.content.GetComponent<Unit>()));
-                        }
-                    }
-
-                }
+                owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
+                Unit target = owner.targets.selectedTarget.targetAssigned.GetComponent<Unit>();
+                StartCoroutine(UseAbilitySequence(target));
             }
+
+
+            //if(selectTiles != null)
+            //{
+            //    foreach (Tile t in selectTiles)
+            //    {
+            //        if (t.content != null && !attacking)
+            //        {
+            //            if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
+            //            {
+                            
+            //            }
+            //        }
+
+            //    }
+            //}
             
         }
     }
@@ -213,24 +269,14 @@ public class UseAbilityState : BattleState
             }
         }
 
-        if (target == owner.currentUnit)
+        AudioManager.instance.Play("HunterAttack");
+        owner.currentUnit.Attack();
+
+        if (target.GetComponent<PlayerUnit>() != null)
         {
-            AudioManager.instance.Play("HunterAttack");
-
-            owner.currentUnit.Attack();
-        }
-
-        else
-        {
-            AudioManager.instance.Play("HunterAttack");
-            owner.currentUnit.Attack();
-
-            if(target.GetComponent<PlayerUnit>()!= null)
+            if (!target.GetComponent<PlayerUnit>().isNearDeath)
             {
-                if (!target.GetComponent<PlayerUnit>().isNearDeath)
-                {
-                    target.Damage();
-                }
+                target.Damage();
             }
         }
 
@@ -308,6 +354,11 @@ public class UseAbilityState : BattleState
         mover.ResetRange();
 
         owner.attackChosen = 0;
+
+        targetTiles.Clear();
+        owner.targets.ClearTargets();
+        owner.targets.gameObject.SetActive(false);
+
     }
 
     public List<Tile> PreviewAbility(RangeData data)

@@ -135,7 +135,17 @@ public class PlayerUnit : Unit
     }
     public override void Attack()
     {
-        animations.SetAnimation("attack");
+        switch (weapon.EquipmentType)
+        {
+            case EquipmentType.Hammer:
+                animations.SetAnimation("attackHammer");
+                break;
+            case EquipmentType.Slingshot:
+                animations.SetAnimation("attackSlingshot");
+                break;
+            default:
+                break;
+        }
     }
 
     public override void Default()

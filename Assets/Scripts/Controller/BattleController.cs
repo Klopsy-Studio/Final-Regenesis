@@ -54,6 +54,7 @@ public class BattleController : StateMachine
     public ExpandedUnitStatus expandedUnitStatus;
     public UIController uiController;
     public LootUIManager lootUIManager;
+    public AbilityTargets targets;
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
     public Tile currentTile { get { return board.GetTile(pos); } }
@@ -81,6 +82,8 @@ public class BattleController : StateMachine
 
     [Header("Playtesting")]
     [SerializeField] Playtest playtestingFunctions;
+
+
     public void BeginGame()
     {
         cinemachineCamera.m_Lens.NearClipPlane = -1f;

@@ -49,3 +49,4 @@ MonoBehaviour:
   inAbilityEffects: []
   postAbilityEffect: []
   soundString: 
+  elementsToTarget: 01000000

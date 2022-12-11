@@ -51,3 +51,4 @@ MonoBehaviour:
     effectType: 2
   postAbilityEffect: []
   soundString: HammerAttack
+  elementsToTarget: 0000000001000000

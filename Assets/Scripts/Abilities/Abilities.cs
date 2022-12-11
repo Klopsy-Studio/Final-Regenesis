@@ -27,6 +27,10 @@ public enum EffectType
     Debuff
 };
 
+public enum AbilityTargetType
+{
+    Enemies, Allies, Obstacles
+};
 [CreateAssetMenu(menuName = "Ability/New Ability")]
 public class Abilities : ScriptableObject
 {
@@ -89,6 +93,7 @@ public class Abilities : ScriptableObject
     [Header("Sound Parameters")]
     public string soundString;
 
+    public List<AbilityTargetType> elementsToTarget;
     private void Awake()
     {
         GetRangeScript();
