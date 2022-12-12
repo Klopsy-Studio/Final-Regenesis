@@ -50,6 +50,7 @@ public class Target : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         owner.selectedTarget = null;
         targetDisplay.color = defaultColor;
+        controller.tileSelectionToggle.MakeTileSelectionSmall();
 
         controller.SelectTile(controller.currentUnit.tile.pos);
     }

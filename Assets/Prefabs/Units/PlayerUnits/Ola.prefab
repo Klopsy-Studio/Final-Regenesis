@@ -97,7 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 5035256462612172321}
   spriteObject: {fileID: 3783648232820829175}
-  offset: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!1 &1321777289758811747
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,14 +702,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3783648232820829175}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1759171a5232584ea92f285cc872b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4824170015590987729}
   spriteObject: {fileID: 3783648232820829175}
-  offset: 0
+  offsetX: 0
+  offsetY: 0
 --- !u!114 &6056112858640174182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 1559223263172895049}
   spriteObject: {fileID: 3783648232820829175}
-  offset: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!1 &6667685233887291024
 GameObject:
   m_ObjectHideFlags: 0
