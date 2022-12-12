@@ -77,7 +77,7 @@ MonoBehaviour:
   maxHealth: 200
   health: 200
   hurtAnimation: {fileID: 0}
-  unitName: Monstruo
+  unitName: Ursamyr
   particleHitPrefab: {fileID: 9195261423928058443, guid: db77acff450030546aa4b9db9dbeda8a, type: 3}
   isInAction: 0
   isDead: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 61b579e26d144ac448c7e81bc5af7340, type: 3}
   reactSprite: {fileID: 21300000, guid: 662c4f150086c11409210e8ae2bccc6b, type: 3}
   controller: {fileID: 3600112416777368949}
+  lowHealth: 100
 --- !u!114 &3600112416777368949
 MonoBehaviour:
   m_ObjectHideFlags: 0

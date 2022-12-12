@@ -24,8 +24,9 @@ public class EnemyUnit : Unit
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite reactSprite;
-
     [SerializeField] MonsterController controller;
+
+    public int lowHealth;
     List<Tile> monsterSpace;
     public float StunThreshold
     {
@@ -61,7 +62,6 @@ public class EnemyUnit : Unit
         {
             timelineFill -= 30;
             StunThreshold = 100;
-
         }
         return base.ReceiveDamageStun(damage, StunDMG);     
     }
@@ -146,6 +146,26 @@ public class EnemyUnit : Unit
                
             }
 
+            return false;
+        }
+    }
+
+    public override bool ReceiveDamage(float damage)
+    {
+        health -= (int)damage;
+
+        if(health <= lowHealth)
+        {
+            controller.monsterAnimations.SetTrigger("lowHealth");
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            return true;
+        }
+        else
+        {
             return false;
         }
     }
