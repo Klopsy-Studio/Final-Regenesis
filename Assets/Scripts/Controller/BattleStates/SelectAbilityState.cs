@@ -8,6 +8,9 @@ public class SelectAbilityState : BattleState
     public int currentActionIndex;
     bool canShowUI;
     Abilities[] abilityList;
+    List<Tile> tiles = new List<Tile>();
+
+    bool onPreview;
     public override void Enter()
     {
         base.Enter();
@@ -19,6 +22,15 @@ public class SelectAbilityState : BattleState
         owner.abilitySelectionUI.EnableAbilitySelection();
         abilityList = owner.currentUnit.weapon.Abilities;
         AbilitySelectionUI.ChangeAllAbilitiesToDefault();
+
+        
+        foreach(Unit u in unitsInGame)
+        {
+            if(u == owner.currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a - 0.5f);
+        }
 
         for (int i = 0; i < abilityList.Length; i++)
         {
@@ -37,13 +49,19 @@ public class SelectAbilityState : BattleState
                 }
 
                 AbilitySelectionUI.options[i].GetComponent<Text>().text = abilityList[i].abilityName;
-                AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().abilityDescription.AssignData(abilityList[i]);
 
+                SelectorMovement e = AbilitySelectionUI.options[i].GetComponent<SelectorMovement>();
+                e.abilityDescription.AssignData(abilityList[i]);
+                e.assignedAbility = abilityList[i];
+                e.ClearOption();
+                e.GetPreviewRange();
+                e.GetTargets();
             }
         }
 
-        
         owner.abilitySelectionUI.ResetSelector();
+
+        
         //Meter ActivarUI
     }
 
@@ -92,7 +110,6 @@ public class SelectAbilityState : BattleState
 
     protected override void OnSelectAction(object sender, InfoEventArgs<int> e)
     {
-
         owner.attackChosen = e.info;
 
         if (abilityList[owner.attackChosen].CanDoAbility(owner.currentUnit.actionsPerTurn))
@@ -102,7 +119,42 @@ public class SelectAbilityState : BattleState
         }
     }
 
+    //protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
+    //{
+    //    if (owner.abilitySelectionUI.onOption)
+    //    {
+    //        if (onPreview)
+    //        {
+    //            board.DeSelectTiles(tiles);
+    //            tiles.Clear();
+    //            onPreview = false;
+    //        }
 
+    //        Abilities currentAbility = AbilitySelectionUI.options[AbilitySelectionUI.currentSelection].GetComponent<SelectorMovement>().assignedAbility;
+    //        AbilityRange range = currentAbility.rangeData.GetOrCreateRange(currentAbility.rangeData.range, owner.currentUnit.gameObject);
+    //        range.unit = owner.currentUnit;
+
+    //        tiles = range.GetTilesInRange(board);
+
+    //        board.SelectAbilityTiles(tiles);
+
+    //        owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost);
+
+    //        onPreview = true;
+    //    }
+
+    //    else
+    //    {
+    //        if(tiles != null || tiles.Count > 0)
+    //        {
+    //            board.DeSelectTiles(tiles);
+    //            tiles.Clear();
+    //            onPreview = false;
+    //        }
+
+    //        owner.currentUnit.playerUI.ShowActionPoints();
+    //    }
+    //}
     protected override void OnSelectCancelEvent(object sender, InfoEventArgs<int> e)
     {
         owner.currentUnit.playerUI.ShowActionPoints();
@@ -113,8 +165,6 @@ public class SelectAbilityState : BattleState
     {
         owner.attackChosen = currentActionIndex;
 
-        //ActionSelectionUI.gameObject.SetActive(false);
-        //owner.ChangeState<UseAbilityState>();
 
         if (owner.currentUnit.ActionsPerTurn >= abilityList[currentActionIndex].actionCost)
         {
@@ -133,5 +183,21 @@ public class SelectAbilityState : BattleState
         AbilitySelectionUI.ResetSelector();
         AbilitySelectionUI.gameObject.SetActive(false);
         AbilitySelectionUI.onOption = false;
+        onPreview = false;
+
+        tiles.Clear();
+
+        foreach (Unit u in unitsInGame)
+        {
+            if (u == owner.currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a + 0.5f);
+        }
+
+        for (int i = 0; i < AbilitySelectionUI.options.Length; i++)
+        {
+            AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().ClearOption();
+        }
     }
 }

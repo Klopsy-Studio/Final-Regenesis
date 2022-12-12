@@ -30,7 +30,7 @@ public class RangeData
         switch (rangeType)
         {
             case TypeOfAbilityRange.Cone:
-
+                //We never use this 
                 if (receiver.GetComponent<ConeAbilityRange>() != null)
                 {
                     rangeClass = receiver.GetComponent<ConeAbilityRange>();
@@ -42,8 +42,9 @@ public class RangeData
                 break;
 
             case TypeOfAbilityRange.Constant:
+                //We never use this 
                 if (receiver.GetComponent<ConstantAbilityRange>() != null)
-                {
+                {                
                     rangeClass = receiver.GetComponent<ConstantAbilityRange>();
                 }
                 else
@@ -55,93 +56,130 @@ public class RangeData
             case TypeOfAbilityRange.Infinite:
                 if (receiver.GetComponent<InfiniteAbilityRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<InfiniteAbilityRange>();
+                    InfiniteAbilityRange range = receiver.GetComponent<InfiniteAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<InfiniteAbilityRange>();
+                    InfiniteAbilityRange range = receiver.AddComponent<InfiniteAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
 
             case TypeOfAbilityRange.LineAbility:
                 if (receiver.GetComponent<LineAbilityRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<LineAbilityRange>();
+                    LineAbilityRange range = receiver.GetComponent<LineAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<LineAbilityRange>();
+                    LineAbilityRange range = receiver.AddComponent<LineAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.SelfAbility:
                 if (receiver.GetComponent<SelfAbilityRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<SelfAbilityRange>();
+                    SelfAbilityRange range = receiver.GetComponent<SelfAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<SelfAbilityRange>();
+                    SelfAbilityRange range = receiver.AddComponent<SelfAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.SquareAbility:
                 if (receiver.GetComponent<SquareAbilityRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<SquareAbilityRange>();
+                    SquareAbilityRange range = receiver.GetComponent<SquareAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<SquareAbilityRange>();
+                    SquareAbilityRange range = receiver.AddComponent<SquareAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.Side:
                 if (receiver.GetComponent<SideAbilityRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<SideAbilityRange>();
+                    SideAbilityRange range = receiver.GetComponent<SideAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<SideAbilityRange>();
+                    SideAbilityRange range = receiver.AddComponent<SideAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.AlternateSide:
                 if (receiver.GetComponent<AlternateSideRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<AlternateSideRange>();
+                    AlternateSideRange range = receiver.GetComponent<AlternateSideRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<AlternateSideRange>();
+                    AlternateSideRange range = receiver.AddComponent<AlternateSideRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.Cross:
                 if (receiver.GetComponent<CrossAbilityRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<CrossAbilityRange>();
+                    CrossAbilityRange range = receiver.GetComponent<CrossAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<CrossAbilityRange>();
+                    CrossAbilityRange range = receiver.AddComponent<CrossAbilityRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.Normal:
                 if (receiver.GetComponent<MovementRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<MovementRange>();
+                    MovementRange range = receiver.GetComponent<MovementRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<MovementRange>();
+                    MovementRange range = receiver.AddComponent<MovementRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 break;
             case TypeOfAbilityRange.Item:
                 if (receiver.GetComponent<ItemRange>() != null)
                 {
-                    rangeClass = receiver.GetComponent<ItemRange>();
+                    ItemRange range = receiver.GetComponent<ItemRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
                 else
                 {
-                    rangeClass = receiver.AddComponent<ItemRange>();
+                    ItemRange range = receiver.AddComponent<ItemRange>();
+                    range.AssignVariables(this);
+                    rangeClass = range;
                 }
+
                 break;
             default:
                 rangeClass = null;
@@ -150,7 +188,6 @@ public class RangeData
 
         if(rangeClass != null)
         {
-            rangeClass.AssignVariables(this);
             return rangeClass;
         }
         else

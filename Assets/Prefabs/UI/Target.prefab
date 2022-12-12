@@ -67,7 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1fb61431d67ffcf46ba90a1053ae7acc, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -100,3 +100,5 @@ MonoBehaviour:
   controller: {fileID: 0}
   targetDisplay: {fileID: 5487847041613726091}
   owner: {fileID: 0}
+  selectedColor: {r: 0.6117647, g: 0.29803923, b: 0.1882353, a: 1}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}

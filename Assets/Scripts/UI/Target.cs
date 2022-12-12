@@ -15,6 +15,13 @@ public class Target : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public AbilityTargets owner;
 
+    public Color selectedColor;
+    public Color defaultColor;
+
+    void Start()
+    {
+        defaultColor = targetDisplay.color;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -35,11 +42,14 @@ public class Target : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             default:
                 break;
         }
+
+        targetDisplay.color = selectedColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         owner.selectedTarget = null;
+        targetDisplay.color = defaultColor;
 
         controller.SelectTile(controller.currentUnit.tile.pos);
     }
