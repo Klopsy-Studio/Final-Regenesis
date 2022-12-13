@@ -7,14 +7,15 @@ public class WeaponUpgradeSystem : ScriptableObject
 {
 
    public AllWeaponsTrees[] allWeaponsTrees;
-  
+   
 }
 
 [System.Serializable]
 public class AllWeaponsTrees
 {
-   public WeaponUpgradeTree[] weaponUpgrade;
-
+    public string TreeName;
+    public WeaponUpgradeTree[] weaponUpgrade;
+   
   
 }
 
