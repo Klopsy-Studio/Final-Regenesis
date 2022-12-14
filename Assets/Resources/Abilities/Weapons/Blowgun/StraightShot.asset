@@ -51,4 +51,4 @@ MonoBehaviour:
     effectType: 2
   postAbilityEffect: []
   soundString: SlingshotAttack
-  elementsToTarget: 0100000000000000
+  elementsToTarget: 010000000000000002000000
