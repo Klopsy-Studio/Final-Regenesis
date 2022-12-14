@@ -24,7 +24,7 @@ public class SelectAbilityState : BattleState
         AbilitySelectionUI.ChangeAllAbilitiesToDefault();
 
 
-        FadeUnits();
+        owner.FadeUnits();
 
         for (int i = 0; i < abilityList.Length; i++)
         {
@@ -66,7 +66,7 @@ public class SelectAbilityState : BattleState
 
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
-        ResetUnits();
+        owner.ResetUnits();
         owner.ChangeState<SelectActionState>();
     }
 

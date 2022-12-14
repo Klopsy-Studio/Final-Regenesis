@@ -134,8 +134,6 @@ public class SelectActionState : BattleState
                     break;
             }
         }
-
-        
     }
 
 

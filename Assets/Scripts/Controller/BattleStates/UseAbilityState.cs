@@ -14,6 +14,8 @@ public class UseAbilityState : BattleState
     //PLACEHOLDER 
     bool attacking;
     bool selected;
+
+    bool test;
     public override void Enter()
     {
         base.Enter();
@@ -189,7 +191,11 @@ public class UseAbilityState : BattleState
     }
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)
     {
-        
+        if (!test)
+        {
+            test = true;
+            return;
+        }
         if (!attacking)
         {
             if(owner.targets.selectedTarget != null)
@@ -199,6 +205,7 @@ public class UseAbilityState : BattleState
 
                 GameObject objectTarget = owner.targets.selectedTarget.targetAssigned;
 
+                board.DeSelectTiles(tiles);
                 if(objectTarget.GetComponent<Unit>()!= null)
                 {
                     Unit target = owner.targets.selectedTarget.targetAssigned.GetComponent<Unit>();
@@ -210,7 +217,7 @@ public class UseAbilityState : BattleState
                     BearObstacleScript target = owner.targets.selectedTarget.targetAssigned.GetComponent<BearObstacleScript>();
                     StartCoroutine(Placeholder(target));
                 }
-
+                owner.targets.gameObject.SetActive(false);
                 owner.targets.stopSelection = true;
             }
 
@@ -281,6 +288,7 @@ public class UseAbilityState : BattleState
         AudioManager.instance.Play("HunterAttack");
         owner.currentUnit.Attack();
 
+        ActionEffect.instance.Play(currentAbility.cameraSize, currentAbility.effectDuration, currentAbility.shakeIntensity, currentAbility.shakeDuration);
 
         while (ActionEffect.instance.play)
         {
@@ -292,6 +300,9 @@ public class UseAbilityState : BattleState
         owner.currentUnit.animations.SetIdle();
 
         yield return new WaitForSeconds(0.5f);
+
+
+        owner.ChangeState<SelectActionState>();
 
     }
     IEnumerator UseAbilitySequence(Unit target)
@@ -332,7 +343,7 @@ public class UseAbilityState : BattleState
             }
         }
 
-        while (ActionEffect.instance.play)
+        while (ActionEffect.instance.play || ActionEffect.instance.recovery)
         {
             yield return null;
         }
@@ -409,8 +420,10 @@ public class UseAbilityState : BattleState
 
         targetTiles.Clear();
         owner.targets.ClearTargets();
+        owner.ResetUnits();
         owner.targets.gameObject.SetActive(false);
         owner.targets.stopSelection = false;
+        test = false;
 
     }
 

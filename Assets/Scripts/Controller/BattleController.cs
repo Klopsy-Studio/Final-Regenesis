@@ -8,7 +8,7 @@ public class BattleController : StateMachine
 {
     [HideInInspector] public MonsterController monsterController;
 
-    public bool isTimeLineActive = true;
+    [HideInInspector] public bool isTimeLineActive = true;
     public CameraRig cameraRig;
     public Board board;
     public LevelData levelData;
@@ -20,8 +20,6 @@ public class BattleController : StateMachine
     public ConsumableBackpack backpackInventory;
     //public ConsumableInventoryDemo inventory;
 
-    public GameObject heroPrefab;
-    public GameObject enemyPrefab;
     public LootSystem lootSystem;
     public PlayerUnit currentUnit;
     public EnemyUnit currentEnemyUnit;
@@ -55,12 +53,16 @@ public class BattleController : StateMachine
     public UIController uiController;
     public LootUIManager lootUIManager;
     public AbilityTargets targets;
+    [Space]
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
+    public List<TimelineElements> timelineElements;
+
     public Tile currentTile { get { return board.GetTile(pos); } }
     [Space]
+    [Header("Events")]
     public RealTimeEvents environmentEvent;
-    public MonsterEvent currentMonsterEvent;
+    [HideInInspector] public MonsterEvent currentMonsterEvent;
 
     //Item variables
     [HideInInspector] public int itemChosen;
@@ -73,7 +75,6 @@ public class BattleController : StateMachine
     [HideInInspector] public bool win;
     [HideInInspector] public bool lose;
 
-    public List<TimelineElements> timelineElements;
 
     [SerializeField] GameObject placeholderCanvas;
     public GameObject placeholderWinScreen;
@@ -147,6 +148,29 @@ public class BattleController : StateMachine
         if(playerUnits.Count == 0)
         {
             ChangeState<DefeatState>();
+        }
+    }
+
+    public void FadeUnits()
+    {
+        foreach (Unit u in unitsInGame)
+        {
+            if (u == currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, 0.5f);
+        }
+    }
+
+
+    public void ResetUnits()
+    {
+        foreach (Unit u in unitsInGame)
+        {
+            if (u == currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, 1f);
         }
     }
 }

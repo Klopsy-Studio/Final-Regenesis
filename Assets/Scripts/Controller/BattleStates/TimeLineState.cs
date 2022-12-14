@@ -29,8 +29,23 @@ public class TimeLineState : BattleState
         owner.isTimeLineActive = true;
     }
 
+    
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (owner.isTimeLineActive)
+            {
+                owner.isTimeLineActive = false;
+            }
+
+            else
+            {
+                owner.isTimeLineActive = true;
+            }
+        }
+
+        
         if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse())
         {
 
