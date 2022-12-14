@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class TabButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
-    [SerializeField] private TabGroup tabGroup;
+    public TabGroup tabGroup;
     public Image currentImage;
 
     public Sprite idleImage;
@@ -24,12 +24,13 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelected(this);
-        currentImage.sprite = selectedImage;
+        //currentImage.sprite = selectedImage;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         tabGroup.OnTabEnter(this);
-        currentImage.sprite = hoverImage; 
+        Debug.Log(gameObject.name);
+        //currentImage.sprite = hoverImage; 
     }
     public void OnPointerExit(PointerEventData eventData)
     {

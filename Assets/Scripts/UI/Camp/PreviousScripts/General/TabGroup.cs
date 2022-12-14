@@ -5,60 +5,62 @@ using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES NOT HAVE ITS ORIGINAL PURPOSE
 {
-    [SerializeField] public List<TabButton> tabButtons;
-    [SerializeField] public TabButton selectedTabButton;
-    //[SerializeField] public Sprite tabIdle;
-    //[SerializeField] public Sprite tabHover;
-    //[SerializeField] public Sprite tabActive;
+    [SerializeField] public List<TabButtonUI> tabButtons;
+    [SerializeField] public TabButtonUI selectedTabButton;
+    [SerializeField] public Sprite tabIdle;
+    [SerializeField] public Sprite tabHover;
+    [SerializeField] public Sprite tabActive;
     [SerializeField] public List<GameObject> objectsToSwap;
 
-    public void Subscribe(TabButton button)
+    public void Subscribe(TabButtonUI button)
     {
         if (tabButtons == null)
-            tabButtons = new List<TabButton>();
+            tabButtons = new List<TabButtonUI>();
 
         tabButtons.Add(button);
     }
 
-    public void OnTabEnter(TabButton button)
+    public void OnTabEnter(TabButtonUI button)
     {
-        ResetTabs();
+        ResetTabsToIdle();
         //if (selectedTabButton == null || button != selectedTabButton)
-        //    button.image.sprite = tabHover;
+            button.currentImage.sprite = tabHover;
 
     }
-    public void OnTabExit(TabButton button)
+    public void OnTabExit(TabButtonUI button)
     {
-        ResetTabs();
+        ResetTabsToIdle();
     }
-    public void OnTabSelected(TabButton button)
+    public void OnTabSelected(TabButtonUI button)
     {
         //THIS SCRIPT HAS BEEN MODIFIED. IT DOES NOT HAVE ITS ORIGINAL PURPOSE
 
-        selectedTabButton = button;
-        ResetTabs();
-        //button.curren.sprite = tabActive;
-        int index = button.transform.GetSiblingIndex();
+        //selectedTabButton = button;
+        ResetTabsToIdle();
+        button.currentImage.sprite = tabActive;
+        //int index = button.transform.GetSiblingIndex();
 
       
-        if(index == 0)
-        {
-            for (int i = 0; i < objectsToSwap.Count; i++)
-            {
-                objectsToSwap[i].SetActive(false);
+        //if(index == 0)
+        //{
+        //    for (int i = 0; i < objectsToSwap.Count; i++)
+        //    {
+        //        objectsToSwap[i].SetActive(false);
                 
-            }
-            objectsToSwap[0].SetActive(true);
-        }
-        else if(index >0)
-        {
-            for (int i = 0; i < objectsToSwap.Count; i++)
-            {
-                objectsToSwap[i].SetActive(false);
+        //    }
+        //    objectsToSwap[0].SetActive(true);
+        //}
+        //else if(index >0)
+        //{
+        //    for (int i = 0; i < objectsToSwap.Count; i++)
+        //    {
+        //        objectsToSwap[i].SetActive(false);
 
-            }
-            objectsToSwap[1].SetActive(true);
-        }
+        //    }
+        //    objectsToSwap[1].SetActive(true);
+        //}
+
+
         //for (int i = 0; i < objectsToSwap.Count; i++)
         //{
             
@@ -69,13 +71,13 @@ public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES N
         //}
     }
 
-    public void ResetTabs()
+    public void ResetTabsToIdle()
     {
-        foreach (TabButton button in tabButtons)
+        foreach (TabButtonUI button in tabButtons)
         {
-            if (selectedTabButton != null && button == selectedTabButton)
-                continue;
-            button.currentImage.sprite = button.idleImage;
+            //if (selectedTabButton != null && button == selectedTabButton)
+            //    continue;
+            button.currentImage.sprite = tabIdle;
         }
     }
 }
