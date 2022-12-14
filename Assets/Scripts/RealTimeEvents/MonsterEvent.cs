@@ -54,4 +54,15 @@ public class MonsterEvent : TimelineElements
         return tiles;
     }
 
+    public void HighlightTiles(Board board)
+    {
+        List<Tile> tiles = GetEventTiles();
+        board.SelectAttackTiles(tiles);
+    }
+
+    public void DeactivateTiles(Board board)
+    {
+        List<Tile> tiles = GetEventTiles();
+        board.DeSelectDefaultTiles(tiles);
+    }
 }

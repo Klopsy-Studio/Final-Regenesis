@@ -12,7 +12,7 @@ public class TimeLineState : BattleState
     float timer = 2f;
     bool timerCheck;
 
-    List<Tile> selecTiles;
+    List<Tile> selectTiles;
     public override void Enter()
     {
         base.Enter();
@@ -153,10 +153,20 @@ public class TimeLineState : BattleState
 
                 if(owner.timelineUI.selectedIcon.element.timelineTypes == TimeLineTypes.EnemyEvent)
                 {
-
+                    selectTiles = owner.timelineUI.selectedIcon.element.GetComponent<MonsterEvent>().GetEventTiles();
+                    board.SelectAttackTiles(selectTiles);
                 }
 
+
                 owner.timelineUI.selectedIcon.Grow();
+            }
+            else
+            {
+                if(selectTiles.Count >0  && selectTiles != null)
+                {
+                    board.DeSelectDefaultTiles(selectTiles);
+                    selectTiles.Clear();
+                }
             }
         }
 
