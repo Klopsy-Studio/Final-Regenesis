@@ -11,9 +11,9 @@ public class AbilityTargets : MonoBehaviour
 
     public List<Target> currentTargets;
 
-    bool monsterTargetted; 
+    bool monsterTargetted;
 
-
+    public bool stopSelection;
     public void CreateTargets(List<Tile> targetTiles)
     {
         foreach(Tile t in targetTiles)

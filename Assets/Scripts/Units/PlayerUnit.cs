@@ -100,7 +100,7 @@ public class PlayerUnit : Unit
 
     public bool CanMove()
     {
-        if(didNotMove && actionsPerTurn >= 2)
+        if(actionsPerTurn >= 2)
         {
             return true;
         }

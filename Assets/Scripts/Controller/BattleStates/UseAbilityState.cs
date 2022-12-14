@@ -196,8 +196,22 @@ public class UseAbilityState : BattleState
             {
                 owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
                 owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
-                Unit target = owner.targets.selectedTarget.targetAssigned.GetComponent<Unit>();
-                StartCoroutine(UseAbilitySequence(target));
+
+                GameObject objectTarget = owner.targets.selectedTarget.targetAssigned;
+
+                if(objectTarget.GetComponent<Unit>()!= null)
+                {
+                    Unit target = owner.targets.selectedTarget.targetAssigned.GetComponent<Unit>();
+                    StartCoroutine(UseAbilitySequence(target));
+                }
+
+                else if(objectTarget.GetComponent<BearObstacleScript>() != null)
+                {
+                    BearObstacleScript target = owner.targets.selectedTarget.targetAssigned.GetComponent<BearObstacleScript>();
+                    StartCoroutine(Placeholder(target));
+                }
+
+                owner.targets.stopSelection = true;
             }
 
 
@@ -242,6 +256,44 @@ public class UseAbilityState : BattleState
     }
 
 
+    //Placeholder for obstacle destruction, replace when ability sequences are implemented
+    IEnumerator Placeholder (BearObstacleScript target)
+    {
+        attacking = true;
+
+
+        if (currentAbility.inAbilityEffects != null)
+        {
+            foreach (Effect e in currentAbility.inAbilityEffects)
+            {
+                switch (e.effectType)
+                {
+                    case TypeOfEffect.FallBack:
+                        e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(board.GetTile(target.pos)), board);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        target.GetDestroyed(board);
+        AudioManager.instance.Play("HunterAttack");
+        owner.currentUnit.Attack();
+
+
+        while (ActionEffect.instance.play)
+        {
+            yield return null;
+        }
+
+        owner.currentUnit.actionDone = true;
+
+        owner.currentUnit.animations.SetIdle();
+
+        yield return new WaitForSeconds(0.5f);
+
+    }
     IEnumerator UseAbilitySequence(Unit target)
     {
         attacking = true;
@@ -358,6 +410,7 @@ public class UseAbilityState : BattleState
         targetTiles.Clear();
         owner.targets.ClearTargets();
         owner.targets.gameObject.SetActive(false);
+        owner.targets.stopSelection = false;
 
     }
 

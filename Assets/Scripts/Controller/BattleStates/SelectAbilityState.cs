@@ -23,14 +23,8 @@ public class SelectAbilityState : BattleState
         abilityList = owner.currentUnit.weapon.Abilities;
         AbilitySelectionUI.ChangeAllAbilitiesToDefault();
 
-        
-        foreach(Unit u in unitsInGame)
-        {
-            if(u == owner.currentUnit)
-                continue;
 
-            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a - 0.5f);
-        }
+        FadeUnits();
 
         for (int i = 0; i < abilityList.Length; i++)
         {
@@ -72,6 +66,7 @@ public class SelectAbilityState : BattleState
 
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
+        ResetUnits();
         owner.ChangeState<SelectActionState>();
     }
 
@@ -187,17 +182,33 @@ public class SelectAbilityState : BattleState
 
         tiles.Clear();
 
+        for (int i = 0; i < AbilitySelectionUI.options.Length; i++)
+        {
+            AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().ClearOption();
+        }
+    }
+
+
+    public void FadeUnits()
+    {
+        foreach (Unit u in unitsInGame)
+        {
+            if (u == owner.currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a - 0.5f);
+        }
+    }
+
+
+    public void ResetUnits()
+    {
         foreach (Unit u in unitsInGame)
         {
             if (u == owner.currentUnit)
                 continue;
 
             u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a + 0.5f);
-        }
-
-        for (int i = 0; i < AbilitySelectionUI.options.Length; i++)
-        {
-            AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().ClearOption();
         }
     }
 }

@@ -75,7 +75,7 @@ public class PlaceObstacleAction : Action
                 tiles.Add(tileToPlaceObstacle);
 
                 BearObstacleScript obstacle = Instantiate(controller.obstacle, new Vector3(tileToPlaceObstacle.pos.x, 1, tileToPlaceObstacle.pos.y), controller.obstacle.transform.rotation).GetComponent<BearObstacleScript>();
-
+                obstacle.controller = controller;
                 obstacle.pos = tileToPlaceObstacle.pos;
                 controller.obstaclesInGame.Add(obstacle.GetComponent<BearObstacleScript>());
 

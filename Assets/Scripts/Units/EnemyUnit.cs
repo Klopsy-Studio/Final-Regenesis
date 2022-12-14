@@ -93,7 +93,6 @@ public class EnemyUnit : Unit
         }
 
         SquareAbilityRange monsterRange = GetComponent<SquareAbilityRange>();
-
         monsterSpace = monsterRange.GetTilesInRange(board);
 
         foreach (Tile t in monsterSpace)
