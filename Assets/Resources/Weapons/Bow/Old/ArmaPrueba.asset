@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ArmaPrueba
   m_EditorClassIdentifier: 
   equipmentName: Arma prueba
-  sprite: {fileID: 21300000, guid: fab8aa472ee570f40a54459ee23bcea2, type: 3}
+  sprite: {fileID: -2933916564714595955, guid: 857fd445f32c5ea4e8e6ff74759486b6, type: 3}
   equipmentType: 1
-  elements_Effectiveness: 2
+  weaponPowerElement: 0
+  weaponDefenseElement: 0
   power: 30
   elementPower: 21
   defense: 3
-  staminaCost: 0
   originalRange: 0
   range: 0
   Abilities:
@@ -28,4 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9ea88ec4bcb1b142ae6c4f3d0d633b5, type: 2}
   - {fileID: 11400000, guid: 28fa620a8b3c8be4b9165aad166b6b53, type: 2}
   weaponSprite: {fileID: 0}
+  weaponCombat: {fileID: 0}
   weaponIcon: {fileID: 21300000, guid: 22b45b8c7fe365947820a9429e4b3913, type: 3}
