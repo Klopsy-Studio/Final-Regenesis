@@ -54,6 +54,8 @@ public class BattleController : StateMachine
     public UIController uiController;
     public LootUIManager lootUIManager;
     public AbilityTargets targets;
+    public GameObject bowExtraAttackObject;
+    public Text bowExtraAttackText;
     [Space]
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
@@ -88,10 +90,12 @@ public class BattleController : StateMachine
     [Header("Unit variables")]
     [SerializeField] 
     [Range(0f, 1f)] float unitFadeValue;
+    public bool bowExtraAttack = false;
 
     [Header("Timeline Variables")]
     public bool pauseTimeline;
     [SerializeField] Text pauseText;
+    [SerializeField] Text pauseTextButton;
     public void BeginGame()
     {
         cinemachineCamera.m_Lens.NearClipPlane = -1f;
@@ -177,11 +181,15 @@ public class BattleController : StateMachine
         {
             pauseText.color = Color.green;
             pauseText.text = "Active";
+            pauseTextButton.text = "Pause Timeline";
         }
         else
         {
             pauseText.color = Color.red;
             pauseText.text = "Paused";
+
+            pauseTextButton.text = "Resume Timeline";
+
 
         }
     }
@@ -194,5 +202,28 @@ public class BattleController : StateMachine
 
             u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, 1f);
         }
+    }
+
+
+    public void SetBowExtraAttack()
+    {
+        bowExtraAttack = !bowExtraAttack;
+
+        if (bowExtraAttack)
+        {
+            bowExtraAttackText.text = "Remove Extra Attack";
+        }
+
+        else
+        {
+            bowExtraAttackText.text = "Set Extra Attack";
+        }
+    }
+
+    public void ResetBowExtraAttack()
+    {
+        bowExtraAttack = false;
+        bowExtraAttackText.text = "Set Extra Attack";
+
     }
 }

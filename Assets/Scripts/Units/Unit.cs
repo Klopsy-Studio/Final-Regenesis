@@ -56,13 +56,22 @@ public class Unit : TimelineElements
     [SerializeField] GameObject hitEffect;
 
 
-    [SerializeField] float stunThreshold;
+    [SerializeField] public float stunThreshold;
     [SerializeField] float stunLimit;
 
     public SpriteRenderer unitSprite;
 
     [Header("Testing")]
     [SerializeField] bool thisIsMyFuckingTurn;
+
+
+    [Header("Unit Stats")]
+    public int power;
+    public int criticalPercentage;
+    public WeaponElement attackElement;
+    public WeaponElement defenseElement;
+    public int elementPower;
+    public int defense;
     protected virtual void Start()
     {
         Match();

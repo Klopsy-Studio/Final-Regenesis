@@ -10,13 +10,7 @@ public class PlayerUnit : Unit
     [HideInInspector] public Sprite fullUnitPortrait;
     public bool didNotMove;
     public Weapons weapon;
-    [Header("PlayerStats")]
-    public int playerPower;
-    public int playerCriticalPercentage;
-    public WeaponElement playerAttackElement;
-    public WeaponElement playerDefenseElement;
-    public int playerElementPower;
-    public int playerDefense;
+
 
     public bool changing;
 
@@ -135,17 +129,8 @@ public class PlayerUnit : Unit
     }
     public override void Attack()
     {
-        switch (weapon.EquipmentType)
-        {
-            case KitType.Hammer:
-                animations.SetAnimation("attackHammer");
-                break;
-            case KitType.Bow:
-                animations.SetAnimation("attackSlingshot");
-                break;
-            default:
-                break;
-        }
+        animations.SetAnimation("attack");
+        Debug.Log("attack");
     }
 
     public override void Default()
@@ -284,4 +269,38 @@ public class PlayerUnit : Unit
 
         return range.GetTilesInRange(board);
     }
+
+
+    public override bool ReceiveDamage(float damage)
+    {
+        health -= (int)damage;
+
+        status.HealthAnimation(health);
+        Damage();
+        DamageEffect();
+        Debug.Log("Damaged");
+        if (health <= 0)
+        {
+            health = 0;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public override void Heal(float heal)
+    {
+        AudioManager.instance.Play("HunterHeal");
+
+        health += (int)heal;
+        status.HealthAnimation(health);
+        HealEffect();
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
 }
+

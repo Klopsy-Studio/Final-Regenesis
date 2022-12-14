@@ -44,11 +44,12 @@ MonoBehaviour:
   stunDamage: 0
   animationName: 
   lastTarget: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
+  weapon: {fileID: 11400000, guid: d150b137ecacc264dac67d37faec0a05, type: 2}
   description: Deals light damage to the selected unit.
   inAbilityEffects:
   - effectPlaying: 0
     effectType: 2
   postAbilityEffect: []
+  sequence: {fileID: 11400000, guid: 5499cc0a7453b524d97e98e299aa16d8, type: 2}
   soundString: SlingshotAttack
   elementsToTarget: 010000000000000002000000

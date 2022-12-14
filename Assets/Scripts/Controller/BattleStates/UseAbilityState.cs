@@ -25,13 +25,25 @@ public class UseAbilityState : BattleState
         owner.ActivateTileSelector();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
 
-        owner.currentUnit.playerUI.PreviewActionCost(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
+        owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost);
         //tiles = PreviewAbility();
 
         tiles = PreviewAbility(currentAbility.rangeData);
 
         board.SelectAbilityTiles(tiles);
 
+        switch (owner.currentUnit.weapon.EquipmentType)
+        {
+            case KitType.Hammer:
+                break;
+            case KitType.Bow:
+                owner.bowExtraAttackObject.SetActive(true);
+                break;
+            case KitType.Gunblade:
+                break;
+            default:
+                break;
+        }
         foreach(AbilityTargetType target in currentAbility.elementsToTarget)
         {
             switch (target)
@@ -108,6 +120,24 @@ public class UseAbilityState : BattleState
 
     }
 
+    public void ExtraAttackBow()
+    {
+        if(currentAbility.actionCost+1<= owner.currentUnit.actionsPerTurn)
+        {
+            
+            owner.SetBowExtraAttack();
+
+            if (owner.bowExtraAttack)
+            {
+                owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost + 1);
+            }
+            else
+            {
+                owner.currentUnit.playerUI.ShowActionPoints();
+                owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost);
+            }
+        }
+    }
     //protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
     //{
     //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -201,42 +231,16 @@ public class UseAbilityState : BattleState
             if(owner.targets.selectedTarget != null)
             {
                 owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
-                owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
 
                 GameObject objectTarget = owner.targets.selectedTarget.targetAssigned;
 
                 board.DeSelectTiles(tiles);
-                if(objectTarget.GetComponent<Unit>()!= null)
-                {
-                    Unit target = owner.targets.selectedTarget.targetAssigned.GetComponent<Unit>();
-                    StartCoroutine(UseAbilitySequence(target));
-                }
+                owner.bowExtraAttackObject.SetActive(false);
+                StartCoroutine(UseAbilitySequence(objectTarget));
 
-                else if(objectTarget.GetComponent<BearObstacleScript>() != null)
-                {
-                    BearObstacleScript target = owner.targets.selectedTarget.targetAssigned.GetComponent<BearObstacleScript>();
-                    StartCoroutine(Placeholder(target));
-                }
                 owner.targets.gameObject.SetActive(false);
                 owner.targets.stopSelection = true;
-            }
-
-
-            //if(selectTiles != null)
-            //{
-            //    foreach (Tile t in selectTiles)
-            //    {
-            //        if (t.content != null && !attacking)
-            //        {
-            //            if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
-            //            {
-                            
-            //            }
-            //        }
-
-            //    }
-            //}
-            
+            }       
         }
     }
 
@@ -262,139 +266,98 @@ public class UseAbilityState : BattleState
         }
     }
 
-
-    //Placeholder for obstacle destruction, replace when ability sequences are implemented
-    IEnumerator Placeholder (BearObstacleScript target)
+    IEnumerator UseAbilitySequence(GameObject target)
     {
         attacking = true;
 
+        StartCoroutine(currentAbility.sequence.Sequence(target, owner));
 
-        if (currentAbility.inAbilityEffects != null)
-        {
-            foreach (Effect e in currentAbility.inAbilityEffects)
-            {
-                switch (e.effectType)
-                {
-                    case TypeOfEffect.FallBack:
-                        e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(board.GetTile(target.pos)), board);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
 
-        target.GetDestroyed(board);
-        AudioManager.instance.Play("HunterAttack");
-        owner.currentUnit.Attack();
-
-        ActionEffect.instance.Play(currentAbility.cameraSize, currentAbility.effectDuration, currentAbility.shakeIntensity, currentAbility.shakeDuration);
-
-        while (ActionEffect.instance.play)
+        while (currentAbility.sequence.playing)
         {
             yield return null;
         }
+        //currentAbility.UseAbility(target, owner);
 
-        owner.currentUnit.actionDone = true;
+        //if(currentAbility.inAbilityEffects != null)
+        //{
+        //    foreach(Effect e in currentAbility.inAbilityEffects)
+        //    {
+        //        switch (e.effectType)
+        //        {
+        //            case TypeOfEffect.PushUnit:
+        //                e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
+        //                break;
+        //            case TypeOfEffect.FallBack:
+        //                e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
+        //                break;
+        //            case TypeOfEffect.AddStunValue:
+        //                e.AddStunValue(target, 5);
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
+        //}
+
+        //AudioManager.instance.Play("HunterAttack");
+        //owner.currentUnit.Attack();
+
+        //if (target.GetComponent<PlayerUnit>() != null)
+        //{
+        //    if (!target.GetComponent<PlayerUnit>().isNearDeath)
+        //    {
+        //        target.Damage();
+        //    }
+        //}
+
+        //while (ActionEffect.instance.play || ActionEffect.instance.recovery)
+        //{
+        //    yield return null;
+        //}
+
+        //owner.currentUnit.actionDone = true;
+
+        //if (target.GetComponent<PlayerUnit>() != null)
+        //{
+        //    if (!target.GetComponent<PlayerUnit>().isNearDeath)
+        //    {
+        //        target.Default();
+        //    }
+        //}
+
+        //foreach (Effect e in currentAbility.postAbilityEffect)
+        //{
+        //    switch (e.effectType)
+        //    {
+        //        case TypeOfEffect.PushUnit:
+        //            e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
+        //            break;
+        //        case TypeOfEffect.FallBack:
+        //            e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
 
         owner.currentUnit.animations.SetIdle();
+        //yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(0.5f);
+        //if (target.isDead)
+        //{
+        //    if(target.GetComponent<EnemyUnit>() != null)
+        //    {
+        //        owner.enemyUnits.Remove(target);
 
+        //        if (owner.enemyUnits.Count == 0)
+        //        {
+        //            owner.ChangeState<WinState>();
+        //        }
+        //    }
+        //}
 
         owner.ChangeState<SelectActionState>();
-
-    }
-    IEnumerator UseAbilitySequence(Unit target)
-    {
-        attacking = true;
-
-        currentAbility.UseAbility(target, owner);
-
-        if(currentAbility.inAbilityEffects != null)
-        {
-            foreach(Effect e in currentAbility.inAbilityEffects)
-            {
-                switch (e.effectType)
-                {
-                    case TypeOfEffect.PushUnit:
-                        e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
-                        break;
-                    case TypeOfEffect.FallBack:
-                        e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
-                        break;
-                    case TypeOfEffect.AddStunValue:
-                        e.AddStunValue(target, 5);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        AudioManager.instance.Play("HunterAttack");
-        owner.currentUnit.Attack();
-
-        if (target.GetComponent<PlayerUnit>() != null)
-        {
-            if (!target.GetComponent<PlayerUnit>().isNearDeath)
-            {
-                target.Damage();
-            }
-        }
-
-        while (ActionEffect.instance.play || ActionEffect.instance.recovery)
-        {
-            yield return null;
-        }
-
-        owner.currentUnit.actionDone = true;
-
-        if (target.GetComponent<PlayerUnit>() != null)
-        {
-            if (!target.GetComponent<PlayerUnit>().isNearDeath)
-            {
-                target.Default();
-            }
-        }
-
-        foreach (Effect e in currentAbility.postAbilityEffect)
-        {
-            switch (e.effectType)
-            {
-                case TypeOfEffect.PushUnit:
-                    e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
-                    break;
-                case TypeOfEffect.FallBack:
-                    e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        owner.currentUnit.animations.SetIdle();
-
-        yield return new WaitForSeconds(0.5f);
-
-        if (target.isDead)
-        {
-            if(target.GetComponent<EnemyUnit>() != null)
-            {
-                owner.enemyUnits.Remove(target);
-
-                if (owner.enemyUnits.Count == 0)
-                {
-                    owner.ChangeState<WinState>();
-                }
-            }
-        }
-
-        else
-        {
-            yield return null;
-            owner.ChangeState<SelectActionState>();
-        }
     }
 
     public override void Exit()
@@ -423,8 +386,14 @@ public class UseAbilityState : BattleState
         owner.ResetUnits();
         owner.targets.gameObject.SetActive(false);
         owner.targets.stopSelection = false;
+
+        //For the first click inside the state
         test = false;
 
+        //Bow variables
+        owner.bowExtraAttackObject.SetActive(false);
+        owner.bowExtraAttack = false;
+        owner.ResetBowExtraAttack();
     }
 
     public List<Tile> PreviewAbility(RangeData data)

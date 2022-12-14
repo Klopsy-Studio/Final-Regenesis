@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
-  m_Name: Attack1
+  m_Script: {fileID: 11500000, guid: b8ae1eb48b3e2d84f89864cc60b64507, type: 3}
+  m_Name: StraightShot
   m_EditorClassIdentifier: 
-  abilityVelocityCost: 0
-  rangeType: 1
-  abilityName: 
-  range: 0
-  damage: 0
-  staminaCost: 0
-  animationName: 
-  abilityAnimation: {fileID: 0}
+  ability: {fileID: 0}
+  user: {fileID: 0}
+  weapon: {fileID: 0}
+  playing: 0
+  extraAttack: 0

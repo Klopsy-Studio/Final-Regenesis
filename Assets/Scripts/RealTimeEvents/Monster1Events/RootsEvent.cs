@@ -40,7 +40,6 @@ public class RootsEvent : MonsterEvent
                     }
 
                     p.DamageEffect();
-                    p.status.HealthAnimation(p.health);
                     p.animations.SetDamage();
                 }
                 

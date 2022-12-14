@@ -90,6 +90,8 @@ public class Abilities : ScriptableObject
     public List<Effect> inAbilityEffects;
     public List<Effect> postAbilityEffect;
 
+    public AbilitySequence sequence;
+
     [Header("Sound Parameters")]
     public string soundString;
 
@@ -168,14 +170,21 @@ public class Abilities : ScriptableObject
                 break;
         }
     }
-    void CalculateDmg(PlayerUnit player, EnemyUnit target)
+    public int CalculateDmg(Unit user, Unit target)
     {
+        Unit u = new Unit();
         float criticalDmg = 1f;
-        if (Random.value * 100 <= player.playerCriticalPercentage) criticalDmg = 1.5f;
-        float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(player.playerAttackElement, target.MonsterDefenseElement);
+        if (Random.value * 100 <= user.criticalPercentage) criticalDmg = 1.5f;
+        float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(user.attackElement, target.defenseElement);
 
 
-        finalDamage = (((player.playerPower * criticalDmg) + (player.playerPower * player.playerElementPower) * elementEffectivenessNumber) * abilityModifier);
+        finalDamage = (((user.power * criticalDmg) + (user.power * user.elementPower) * elementEffectivenessNumber) * abilityModifier) - target.defense;
+
+        if(finalDamage <= 0)
+        {
+            finalDamage = 0;
+        }
+        return (int)finalDamage;
         
     }
 
@@ -184,11 +193,11 @@ public class Abilities : ScriptableObject
     void CalculateDmg(PlayerUnit player,PlayerUnit target)
     {
         float criticalDmg = 1f;
-        if (Random.value * 100 <= player.playerCriticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(player.playerAttackElement, target.playerAttackElement);
+        if (Random.value * 100 <= player.criticalPercentage) criticalDmg = 1.5f;
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(player.attackElement, target.defenseElement);
 
 
-        finalDamage = (((player.playerPower * criticalDmg) + (player.playerPower * player.playerElementPower) * elementDmg) * abilityModifier) - target.playerDefense;
+        finalDamage = (((player.power * criticalDmg) + (player.power * player.elementPower) * elementDmg) * abilityModifier) - target.defense;
         
     }
     void CalculateHeal()
@@ -222,7 +231,6 @@ public class Abilities : ScriptableObject
                         ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
                     }
 
-                    Debug.Log(target.health);
                     target.GetComponent<UnitUI>().CreatePopUpText(target.transform.position, (int)finalDamage);
 
                 }
@@ -236,8 +244,6 @@ public class Abilities : ScriptableObject
                     {
                         u.NearDeath(controller);
                     }
-
-                    u.status.HealthAnimation((int)target.health);
                 }
 
                 break;
@@ -257,7 +263,6 @@ public class Abilities : ScriptableObject
                         u.Revive(controller);
                         u.Default();
                     }
-                    u.status.HealthAnimation((int)target.health);
                 }
                 break;
             case EffectType.Buff:
@@ -270,5 +275,7 @@ public class Abilities : ScriptableObject
                 break;
         }
     }
+
+
 
 }

@@ -241,16 +241,14 @@ public class MonsterAbility : ScriptableObject
         {
             target.Damage();
         }
-
-        target.status.HealthAnimation((int)target.health);
     }
 
     void CalculateDmg(EnemyUnit enemy, PlayerUnit target)
     {
         float criticalDmg = 1f;
         if (Random.value * 100 <= enemy.criticalPercentage) criticalDmg = 1.5f;
-        float elementDmg = ElementsEffectiveness.GetEffectiveness(enemy.MonsterAttackElement, target.playerDefenseElement);
+        float elementDmg = ElementsEffectiveness.GetEffectiveness(enemy.attackElement, target.defenseElement);
 
-        finalDamage = (((enemy.power * criticalDmg) + (enemy.power * enemy.elementPower) * elementDmg) * abilityModifier) - target.playerDefense;
+        finalDamage = (((enemy.power * criticalDmg) + (enemy.power * enemy.elementPower) * elementDmg) * abilityModifier) - target.defense;
     }
 }

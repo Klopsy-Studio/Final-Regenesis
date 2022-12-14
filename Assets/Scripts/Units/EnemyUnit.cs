@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class EnemyUnit : Unit
 {
-
-    [Header("Monster Stats")]
-    public float criticalPercentage;
-    public float power;
-    public float elementPower;
     [Header("Abilities")]
     public Abilities[] abilities;
     public Unit target;
@@ -19,7 +14,6 @@ public class EnemyUnit : Unit
     public WeaponElement MonsterDefenseElement { get { return monsterDefenseElement; } }
 
     //Enemy Stats
-    float stunThreshold = 100;
 
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Sprite defaultSprite;
@@ -28,12 +22,10 @@ public class EnemyUnit : Unit
 
     public int lowHealth;
     List<Tile> monsterSpace;
-    public float StunThreshold
-    {
-        get { return stunThreshold; }
-        private set { stunThreshold = value; }
-    }
-    
+
+    [Header("UI")]
+    [SerializeField] UnitUI monsterUI;
+
     public void BeginAnimation()
     {
         controller.animPlaying = true;
@@ -57,11 +49,11 @@ public class EnemyUnit : Unit
     
     public override bool ReceiveDamageStun(float damage, float StunDMG)
     {
-        StunThreshold -= StunDMG;
-        if (StunThreshold <= 0)
+        stunThreshold -= StunDMG;
+        if (stunThreshold <= 0)
         {
             timelineFill -= 30;
-            StunThreshold = 100;
+            stunThreshold = 100;
         }
         return base.ReceiveDamageStun(damage, StunDMG);     
     }
@@ -152,6 +144,8 @@ public class EnemyUnit : Unit
     public override bool ReceiveDamage(float damage)
     {
         health -= (int)damage;
+        DamageEffect();
+        monsterUI.CreatePopUpText(transform.position, (int)damage);
 
         if(health <= lowHealth)
         {

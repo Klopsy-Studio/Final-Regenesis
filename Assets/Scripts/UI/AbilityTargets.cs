@@ -59,9 +59,7 @@ public class AbilityTargets : MonoBehaviour
             parent.transform.GetChild(0).transform.parent = null;
         }
 
+        selectedTarget = null;
         currentTargets.Clear();
     }
-
-
-
 }

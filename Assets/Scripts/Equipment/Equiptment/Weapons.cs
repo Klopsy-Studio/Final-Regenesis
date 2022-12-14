@@ -38,13 +38,22 @@ public class Weapons : Equipment
 
     public override void EquipItem(PlayerUnit c)
     {
-        c.playerPower = power;
-        c.playerCriticalPercentage = criticalPercentage;
-        c.playerAttackElement = WeaponAttackElement;
-        c.playerDefenseElement = WeaponDefenseElement;
-        c.playerElementPower = elementPower;
-        c.playerDefense = defense;
+        c.power = power;
+        c.criticalPercentage = criticalPercentage;
+        c.attackElement = WeaponAttackElement;
+        c.defenseElement = WeaponDefenseElement;
+        c.elementPower = elementPower;
+        c.defense = defense;
 
+        foreach(Abilities a in Abilities)
+        {
+            if(a.sequence != null)
+            {
+                a.sequence.user = c;
+                a.weapon = this;
+                a.sequence.ability = a;
+            }
+        }
     }
 
     private void OnEnable()

@@ -50,14 +50,6 @@ public class BombTimeline : ItemElements
                 {
                     unit.ReceiveDamage(30);
                     unit.Damage();
-                    unit.DamageEffect();
-
-                    if (unit.GetComponent<PlayerUnit>() != null)
-                    {
-                        PlayerUnit u = unit.GetComponent<PlayerUnit>();
-                        u.status.HealthAnimation(u.health);
-
-                    }
 
                     if(unit.GetComponent<EnemyUnit>() != null)
                     {

@@ -13,8 +13,7 @@ public class UnitUI : MonoBehaviour
         PopUpText textPopUp = textPopUpGameobject.GetComponentInChildren<PopUpText>();
       
         textPopUp.SetUp(dmgAmount);
-
-
+        Debug.Log("Pop up :(");
     }
    
 }
