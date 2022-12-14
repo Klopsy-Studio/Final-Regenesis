@@ -73,11 +73,11 @@ public class PlayerUnit : Unit
 
         switch (weapon.EquipmentType)
         {
-            case EquipmentType.Hammer:
+            case KitType.Hammer:
                 animations.SetAnimation("hammer");
                 slingshotParent.SetActive(false);
                 break;
-            case EquipmentType.Slingshot:
+            case KitType.Bow:
                 animations.SetAnimation("slingshot");
                 hammerParent.SetActive(false);
                 break;
@@ -137,10 +137,10 @@ public class PlayerUnit : Unit
     {
         switch (weapon.EquipmentType)
         {
-            case EquipmentType.Hammer:
+            case KitType.Hammer:
                 animations.SetAnimation("attackHammer");
                 break;
-            case EquipmentType.Slingshot:
+            case KitType.Bow:
                 animations.SetAnimation("attackSlingshot");
                 break;
             default:

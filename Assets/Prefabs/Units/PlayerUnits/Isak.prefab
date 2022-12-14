@@ -782,7 +782,7 @@ MonoBehaviour:
   unitPortrait: {fileID: 0}
   fullUnitPortrait: {fileID: 0}
   didNotMove: 0
-  weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
+  weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
   playerPower: 0
   playerCriticalPercentage: 0
   playerAttackElement: 0

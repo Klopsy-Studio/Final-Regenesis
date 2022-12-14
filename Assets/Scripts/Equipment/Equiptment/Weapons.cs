@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Equipment/New weapon")]
 public class Weapons : Equipment
 {
-    int criticalPercentage;
+    public int criticalPercentage;
     public int CriticalPercentage { get { return criticalPercentage; } }
 
     [SerializeField] WeaponElement weaponAttackElement;
