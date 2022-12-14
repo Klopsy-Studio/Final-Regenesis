@@ -7,9 +7,9 @@ public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES N
 {
     [SerializeField] public List<TabButton> tabButtons;
     [SerializeField] public TabButton selectedTabButton;
-    [SerializeField] public Sprite tabIdle;
-    [SerializeField] public Sprite tabHover;
-    [SerializeField] public Sprite tabActive;
+    //[SerializeField] public Sprite tabIdle;
+    //[SerializeField] public Sprite tabHover;
+    //[SerializeField] public Sprite tabActive;
     [SerializeField] public List<GameObject> objectsToSwap;
 
     public void Subscribe(TabButton button)
@@ -23,8 +23,8 @@ public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES N
     public void OnTabEnter(TabButton button)
     {
         ResetTabs();
-        if (selectedTabButton == null || button != selectedTabButton)
-            button.image.sprite = tabHover;
+        //if (selectedTabButton == null || button != selectedTabButton)
+        //    button.image.sprite = tabHover;
 
     }
     public void OnTabExit(TabButton button)
@@ -37,7 +37,7 @@ public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES N
 
         selectedTabButton = button;
         ResetTabs();
-        button.image.sprite = tabActive;
+        //button.curren.sprite = tabActive;
         int index = button.transform.GetSiblingIndex();
 
       
@@ -75,7 +75,7 @@ public class TabGroup : MonoBehaviour //THIS SCRIPT HAS BEEN MODIFIED. IT DOES N
         {
             if (selectedTabButton != null && button == selectedTabButton)
                 continue;
-            button.image.sprite = tabIdle;
+            button.currentImage.sprite = button.idleImage;
         }
     }
 }
