@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class BattleController : StateMachine
 {
@@ -88,6 +89,9 @@ public class BattleController : StateMachine
     [SerializeField] 
     [Range(0f, 1f)] float unitFadeValue;
 
+    [Header("Timeline Variables")]
+    public bool pauseTimeline;
+    [SerializeField] Text pauseText;
     public void BeginGame()
     {
         cinemachineCamera.m_Lens.NearClipPlane = -1f;
@@ -165,7 +169,22 @@ public class BattleController : StateMachine
         }
     }
 
+    public void PauseOrResumeTimeline()
+    {
+        pauseTimeline = !pauseTimeline;
 
+        if (!pauseTimeline)
+        {
+            pauseText.color = Color.green;
+            pauseText.text = "Active";
+        }
+        else
+        {
+            pauseText.color = Color.red;
+            pauseText.text = "Paused";
+
+        }
+    }
     public void ResetUnits()
     {
         foreach (Unit u in unitsInGame)

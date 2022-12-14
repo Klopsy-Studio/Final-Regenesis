@@ -11,8 +11,8 @@ public class TimeLineState : BattleState
 
     float timer = 2f;
     bool timerCheck;
-
-    List<Tile> selectTiles;
+    bool pause = false;
+    public List<Tile> selectTiles;
     public override void Enter()
     {
         base.Enter();
@@ -32,21 +32,15 @@ public class TimeLineState : BattleState
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (owner.isTimeLineActive)
-            {
-                owner.isTimeLineActive = false;
-            }
 
-            else
-            {
-                owner.isTimeLineActive = true;
-            }
+        if (selectTiles != null && !owner.timelineUI.CheckMouse())
+        {
+            Debug.Log("Bruh");
+            board.DeSelectDefaultTiles(selectTiles);
+            selectTiles.Clear();
         }
 
-        
-        if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse())
+        if (owner.isTimeLineActive && !owner.timelineUI.CheckMouse() && !owner.pauseTimeline)
         {
 
             if (selectedUnit != null)
@@ -125,11 +119,13 @@ public class TimeLineState : BattleState
                 }
                
             }
+
+            
         }
 
         else
         {
-            if (owner.timelineUI.selectedIcon != null)
+            if (owner.timelineUI.selectedIcon != null && owner.isTimeLineActive)
             {
                 if (owner.timelineUI.selectedIcon.element.GetComponent<Unit>() != null)
                 {
@@ -155,19 +151,14 @@ public class TimeLineState : BattleState
                 {
                     selectTiles = owner.timelineUI.selectedIcon.element.GetComponent<MonsterEvent>().GetEventTiles();
                     board.SelectAttackTiles(selectTiles);
+                    Debug.Log("?");
                 }
 
 
                 owner.timelineUI.selectedIcon.Grow();
             }
-            else
-            {
-                if(selectTiles.Count >0  && selectTiles != null)
-                {
-                    board.DeSelectDefaultTiles(selectTiles);
-                    selectTiles.Clear();
-                }
-            }
+
+
         }
 
     }
