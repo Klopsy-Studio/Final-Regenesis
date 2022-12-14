@@ -31,7 +31,7 @@ public class BattleController : StateMachine
     [HideInInspector] public int itemIndexToRemove;
 
     [Space]
-    [Header("Unit lists")]
+    [Header("Units lists")]
     public List<Unit> unitsInGame;
     public List<Unit> unitsWithActions;
 
@@ -84,6 +84,9 @@ public class BattleController : StateMachine
     [Header("Playtesting")]
     [SerializeField] Playtest playtestingFunctions;
 
+    [Header("Unit variables")]
+    [SerializeField] 
+    [Range(0f, 1f)] float unitFadeValue;
 
     public void BeginGame()
     {
@@ -158,7 +161,7 @@ public class BattleController : StateMachine
             if (u == currentUnit)
                 continue;
 
-            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, 0.5f);
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, unitFadeValue);
         }
     }
 

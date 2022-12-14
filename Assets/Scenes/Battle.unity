@@ -2127,6 +2127,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1978384202}
     - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: unitFadeValue
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: placeholderCanvas
       value: 
       objectReference: {fileID: 1015432369}
