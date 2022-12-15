@@ -15,4 +15,3 @@ MonoBehaviour:
   container:
   - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
   - weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
-  - weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}

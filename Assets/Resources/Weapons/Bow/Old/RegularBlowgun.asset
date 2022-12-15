@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: RegularBlowgun
   m_EditorClassIdentifier: 
   equipmentName: Regular Blowgun
-  sprite: {fileID: 21300000, guid: 97095ccd0b3a1434eb26aa4982db7490, type: 3}
+  sprite: {fileID: 21300000, guid: 3377da32526a6f542b27186a4dc33c43, type: 3}
   equipmentType: 1
-  elements_Effectiveness: 0
+  weaponPowerElement: 0
+  weaponDefenseElement: 0
   power: 30
   elementPower: 0
   defense: 10
-  staminaCost: 0
   originalRange: 4
   range: 4
   Abilities:
@@ -27,4 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 577af5607b1c56f49a4865d255cb48ba, type: 2}
   weaponSprite: {fileID: 21300000, guid: 3377da32526a6f542b27186a4dc33c43, type: 3}
   weaponCombat: {fileID: 21300000, guid: 6217c3790e8c4294481e668cbb89c961, type: 3}
-  weaponIcon: {fileID: 21300000, guid: 22b45b8c7fe365947820a9429e4b3913, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 3377da32526a6f542b27186a4dc33c43, type: 3}
