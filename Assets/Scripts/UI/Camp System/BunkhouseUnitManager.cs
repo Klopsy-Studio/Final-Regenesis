@@ -11,6 +11,7 @@ public class BunkhouseUnitManager : MonoBehaviour
     public delegate void ClickAction();
     public static event ClickAction changeUnitWeaponID;
 
+  
     public DisplayEquipmentBunkhouse openSelectWeaponPanel;
 
 
@@ -26,10 +27,11 @@ public class BunkhouseUnitManager : MonoBehaviour
     public Text critico;
     public Text ataqElemental;
 
-    int updateID;
+   
 
     private void Start()
     {
+       
         UpdateDefaultWeaponPanel();
     }
     void UpdateDefaultWeaponPanel()
@@ -49,8 +51,9 @@ public class BunkhouseUnitManager : MonoBehaviour
        
         var unitProfile = GameManager.instance.unitProfilesList[id];
 
-        updateID = id;
-        //openSelectWeaponPanel.SetUnitProfileID(id);
+      
+
+        openSelectWeaponPanel.SetUnitProfileID(id);
         if (changeUnitWeaponID != null) changeUnitWeaponID();
         weaponIMG.sprite = unitProfile.unitWeapon.Sprite;
         movimiento.text = unitProfile.unitWeapon.originalRange.ToString();
@@ -62,10 +65,11 @@ public class BunkhouseUnitManager : MonoBehaviour
 
     }
 
-    public void UpdateWeaponIMG()
+    public void UpdateWeaponIMG(int unitID)
     {
-        var unitProfile = GameManager.instance.unitProfilesList[updateID];
+        var unitProfile = GameManager.instance.unitProfilesList[unitID];
         weaponIMG.sprite = unitProfile.unitWeapon.Sprite;
+        Debug.Log("se ha llamado a updateWeaponIMG");
     }
 
     

@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: b70384d5e492e1f48b07064f653bae84
+guid: 7aaff5137ef35784bbf70ae533b2aea9
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1826833517011108430
-    second: Barracones_IconoAtaqueCritico_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -92,28 +89,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Barracones_IconoAtaqueCritico_0
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 149
-        width: 31
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e42893d97673a5910800000000000000
-      internalID: 1826833517011108430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

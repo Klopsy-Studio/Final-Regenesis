@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 
@@ -8,17 +9,22 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
 {
     public GameObject slotPrefab;
     public EquipmentInventory inventory;
-      
+    public BunkhouseUnitManager bunkHouseManager;
 
     int unitProfileID = 0;
     public List<GameObject> slotPrefablist;
     public Dictionary<WeaponSlot, GameObject> equipmentDisplayed = new Dictionary<WeaponSlot, GameObject>();
     void Start()
     {
-        //BunkhouseUnitManager.changeUnitWeaponID += UpdateUnitsProfileID;
-      
+        BunkhouseUnitManager.changeUnitWeaponID += UpdateUnitsProfileID;
+
         CreateDisplay();
 
+    }
+
+    public void UpdateWeaponImage(int i)
+    {
+        bunkHouseManager.UpdateWeaponIMG(i);
     }
 
     public void SetUnitProfileID(int id)
@@ -71,22 +77,22 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
         }
     }
 
-    //void UpdateUnitsProfileID()
-    //{
-    //    foreach (var item in slotPrefablist)
-    //    {
-    //        if (item.TryGetComponent(out EquipmentBunkhouseButton button))
-    //        {
-    //            button.SetUnitProfileID(unitProfileID);
-    //        }
-    //    }
+    void UpdateUnitsProfileID()
+    {
+        foreach (var item in slotPrefablist)
+        {
+            if (item.TryGetComponent(out EquipmentBunkhouseButton button))
+            {
+                button.SetUnitProfileID(unitProfileID);
+            }
+        }
 
-    //}
+    }
 
-    //private void OnDisable()
-    //{
-    //    BunkhouseUnitManager.changeUnitWeaponID -= UpdateUnitsProfileID;
-    //}
+    private void OnDisable()
+    {
+        BunkhouseUnitManager.changeUnitWeaponID -= UpdateUnitsProfileID;
+    }
 
 
 }
