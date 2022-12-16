@@ -54,7 +54,7 @@ public class Unit : TimelineElements
     [Header("Particles")]
     [SerializeField] GameObject healEffect;
     [SerializeField] GameObject hitEffect;
-
+    [SerializeField] GameObject criticalMark;
 
     [SerializeField] public float stunThreshold;
     [SerializeField] float stunLimit;
@@ -72,16 +72,41 @@ public class Unit : TimelineElements
     public WeaponElement defenseElement;
     public int elementPower;
     public int defense;
+
+    [Header("Modifiers")]
+    public List<DamageModifier> criticalModifiers;
+
     protected virtual void Start()
     {
         Match();
         SetInitVelocity();
-       
-       
         originalTimeStunned = timeStunned;
     }
 
 
+    public void EnableCriticalMark()
+    {
+        if (criticalMark != null)
+        {
+            criticalMark.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Critical Mark Missing");
+        }
+    }
+
+    public void DisableCriticalMark()
+    {
+        if(criticalMark!= null)
+        {
+            criticalMark.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Critical Mark Missing");
+        }
+    }
     private void Update()
     {
         if (thisIsMyFuckingTurn)

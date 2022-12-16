@@ -22,7 +22,7 @@ public class SelectAbilityState : BattleState
         owner.abilitySelectionUI.EnableAbilitySelection();
         abilityList = owner.currentUnit.weapon.Abilities;
         AbilitySelectionUI.ChangeAllAbilitiesToDefault();
-
+        AbilitySelectionUI.DeactivateAllAbilitySelection();
 
         owner.FadeUnits();
 

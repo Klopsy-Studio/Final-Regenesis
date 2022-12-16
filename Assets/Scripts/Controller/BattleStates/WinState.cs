@@ -20,7 +20,7 @@ public class WinState : BattleState
 
     IEnumerator Win()
     {
-        while (ActionEffect.instance.play || ActionEffect.instance.recovery)
+        while (ActionEffect.instance.CheckActionEffectState())
         {
             yield return null;
         }

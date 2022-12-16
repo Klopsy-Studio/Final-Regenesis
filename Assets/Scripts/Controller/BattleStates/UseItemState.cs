@@ -95,13 +95,12 @@ public class UseItemState : BattleState
 
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
         
-        while(ActionEffect.instance.play || ActionEffect.instance.recovery)
+        while(ActionEffect.instance.CheckActionEffectState())
         {
             yield return null;
         }
 
-        owner.currentUnit.playerUI.SpendActionPoints(2);
-        owner.currentUnit.ActionsPerTurn -= 2;
+        owner.currentUnit.SpendActionPoints(owner.itemCost);
 
         owner.ChangeState<FinishPlayerUnitTurnState>();
     }
@@ -203,13 +202,12 @@ public class UseItemState : BattleState
         //Unit item pose
         ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
 
-        while (ActionEffect.instance.play || ActionEffect.instance.recovery)
+        while (ActionEffect.instance.CheckActionEffectState())
         {
             yield return null;
         }
 
-        owner.currentUnit.playerUI.SpendActionPoints(2);
-        owner.currentUnit.ActionsPerTurn -= 2;
+        owner.currentUnit.SpendActionPoints(owner.itemCost);
 
         owner.ChangeState<SelectActionState>();
     }

@@ -15,7 +15,7 @@ public abstract class RealTimeEvents : TimelineElements
 
     protected virtual void Start()
     {
-        timelineTypes = TimeLineTypes.Events;
+        timelineTypes = TimeLineTypes.RealtimeEvents;
         //fTimelineVelocity = 0;
         board = battleController.board;
     }

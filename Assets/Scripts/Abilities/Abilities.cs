@@ -84,6 +84,7 @@ public class Abilities : ScriptableObject
     [HideInInspector] public Unit lastTarget;
     public Weapons weapon;
 
+    [TextArea(15, 20)]
     public string description;
 
     [Header("AbilityEffects")]
@@ -174,7 +175,37 @@ public class Abilities : ScriptableObject
     {
         Unit u = new Unit();
         float criticalDmg = 1f;
-        if (Random.value * 100 <= user.criticalPercentage) criticalDmg = 1.5f;
+
+        if(target.criticalModifiers != null)
+        {
+            List<DamageModifier> trashModifiers = new List<DamageModifier>();
+
+            foreach(DamageModifier d in target.criticalModifiers)
+            {
+                if (d.SpendModifier())
+                {
+                    trashModifiers.Add(d);
+                    criticalDmg = 1.5f;
+                }
+            }
+
+            foreach(DamageModifier d in trashModifiers)
+            {
+                target.criticalModifiers.Remove(d);
+            }
+
+            if(target.criticalModifiers.Count == 0)
+            {
+                target.DisableCriticalMark();
+            }
+        }
+        else
+        {
+            if (Random.value * 100 <= user.criticalPercentage)
+            {
+                criticalDmg = 1.5f;
+            }
+        }
         float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(user.attackElement, target.defenseElement);
 
 
@@ -184,6 +215,7 @@ public class Abilities : ScriptableObject
         {
             finalDamage = 0;
         }
+
         return (int)finalDamage;
         
     }
@@ -193,12 +225,14 @@ public class Abilities : ScriptableObject
     void CalculateDmg(PlayerUnit player,PlayerUnit target)
     {
         float criticalDmg = 1f;
-        if (Random.value * 100 <= player.criticalPercentage) criticalDmg = 1.5f;
+
+        if(target.criticalModifiers!= null)
+        {
+            if (Random.value * 100 <= player.criticalPercentage) criticalDmg = 1.5f;
+        }
+
         float elementDmg = ElementsEffectiveness.GetEffectiveness(player.attackElement, target.defenseElement);
-
-
         finalDamage = (((player.power * criticalDmg) + (player.power * player.elementPower) * elementDmg) * abilityModifier) - target.defense;
-        
     }
     void CalculateHeal()
     {
@@ -208,9 +242,9 @@ public class Abilities : ScriptableObject
 
     public void UseAbility(Unit target, BattleController controller)
     {
-        //AQUI ES DONDE SE HACE EL ACTION COST
+        //AQUI YA NO SE HACE EL ACTION COST
         //target.ActionsPerTurn -= ActionCost;
-        controller.currentUnit.actionsPerTurn -= actionCost;
+        //controller.currentUnit.actionsPerTurn -= actionCost;
 
         switch (abilityEffect)
         {

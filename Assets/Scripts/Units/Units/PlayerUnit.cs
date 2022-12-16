@@ -302,5 +302,12 @@ public class PlayerUnit : Unit
             health = maxHealth;
         }
     }
+
+
+    public void SpendActionPoints(int actionPoints)
+    {
+        actionsPerTurn -= actionPoints;
+        playerUI.SpendActionPoints(actionPoints);
+    }
 }
 

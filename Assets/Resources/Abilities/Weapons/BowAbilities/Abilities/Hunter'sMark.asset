@@ -7,12 +7,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
-  m_Name: HealingShot
+  m_Name: Hunter'sMark
   m_EditorClassIdentifier: 
-  actionCost: 3
+  actionCost: 2
   rangeData:
     range: 9
     lineDir: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
-    movementRange: 3
+    movementRange: 4
     removeOrigin: 1
     itemRange: 0
     itemRemoveContent: 0
@@ -35,18 +35,20 @@ MonoBehaviour:
   shakeIntensity: 0.01
   shakeDuration: 0.05
   rangeScript: {fileID: 0}
-  abilityName: Healing Shot
-  abilityEffect: 1
-  abilityModifier: 0.1
-  initialHeal: 40
+  abilityName: Hunter's Mark
+  abilityEffect: 0
+  abilityModifier: 0
+  initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
-  stunDamage: 20
+  stunDamage: 0
   animationName: 
   lastTarget: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
-  description: Restores some health to the selected hunter.
+  weapon: {fileID: 11400000, guid: d150b137ecacc264dac67d37faec0a05, type: 2}
+  description: Select a target, it becomes <color=maroon>marked</color>. The next
+    attack the target receives will be a <b>guaranteed critical hit</b>.
   inAbilityEffects: []
   postAbilityEffect: []
+  sequence: {fileID: 11400000, guid: 4cf7da2c6715f3344b73ecb3401297d8, type: 2}
   soundString: 
-  elementsToTarget: 01000000
+  elementsToTarget: 0000000001000000

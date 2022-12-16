@@ -18,7 +18,7 @@ public class EnemyUnit : Unit
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite reactSprite;
-    [SerializeField] MonsterController controller;
+    public MonsterController controller;
 
     public int lowHealth;
     List<Tile> monsterSpace;
@@ -107,8 +107,10 @@ public class EnemyUnit : Unit
     public override void Die(BattleController battleController)
     {
         controller.monsterAnimations.SetBool("death", true);
+        
         isDead = true;
         AudioManager.instance.Play("MonsterDeath");
+        battleController.ChangeState<WinState>();
     }
 
     public override bool UpdateTimeLine()
@@ -155,6 +157,7 @@ public class EnemyUnit : Unit
         if (health <= 0)
         {
             health = 0;
+            Die(controller.battleController);
             return true;
         }
         else

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerUnitUI : UnitUI
 {
-    
+    [Header("UI")]
     public Canvas unitUI;
     [SerializeField] GameObject actionPointsObject;
     [SerializeField] GameObject stunIndicator;
@@ -16,6 +16,8 @@ public class PlayerUnitUI : UnitUI
 
     List<Image> previewActionPoints = new List<Image>();
 
+
+    [SerializeField] GameObject mark;
 
     [Header("Sprites")]
     [SerializeField] Sprite regularActionPointsSprite;
@@ -35,6 +37,16 @@ public class PlayerUnitUI : UnitUI
     public void HideActionPoints()
     {
         actionPointsObject.SetActive(false);
+    }
+
+    public void EnableMark()
+    {
+        mark.gameObject.SetActive(true);
+    }
+
+    public void DisableMark()
+    {
+        mark.gameObject.SetActive(false);
     }
     public void ShowActionPoints()
     {

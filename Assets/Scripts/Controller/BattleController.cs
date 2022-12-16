@@ -60,12 +60,14 @@ public class BattleController : StateMachine
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
     public List<TimelineElements> timelineElements;
-
+    public int moveCost;
+    public int itemCost;
     public Tile currentTile { get { return board.GetTile(pos); } }
     [Space]
     [Header("Events")]
     public RealTimeEvents environmentEvent;
     [HideInInspector] public MonsterEvent currentMonsterEvent;
+    [HideInInspector] public HunterEvent currentHunterEvent;
 
     //Item variables
     [HideInInspector] public int itemChosen;
@@ -91,6 +93,7 @@ public class BattleController : StateMachine
     [SerializeField] 
     [Range(0f, 1f)] float unitFadeValue;
     public bool bowExtraAttack = false;
+    public bool endTurnInstantly = false;
 
     [Header("Timeline Variables")]
     public bool pauseTimeline;

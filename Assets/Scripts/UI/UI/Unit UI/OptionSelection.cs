@@ -240,6 +240,14 @@ public class OptionSelection : MonoBehaviour
         buttonSelectAbility3.GetComponent<SelectorMovement>().canBeSelected = false;
         buttonSelectAbility4.GetComponent<SelectorMovement>().canBeSelected = false;
     }
+
+    public void DeactivateAllAbilitySelection()
+    {
+        buttonSelectAbility1.gameObject.SetActive(false);
+        buttonSelectAbility2.gameObject.SetActive(false);
+        buttonSelectAbility3.gameObject.SetActive(false);
+        buttonSelectAbility4.gameObject.SetActive(false);
+    }
     public void MouseOverExit(SelectorMovement s)
     {
         onOption = false;    

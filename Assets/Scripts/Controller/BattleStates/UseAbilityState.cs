@@ -124,7 +124,6 @@ public class UseAbilityState : BattleState
     {
         if(currentAbility.actionCost+1<= owner.currentUnit.actionsPerTurn)
         {
-            
             owner.SetBowExtraAttack();
 
             if (owner.bowExtraAttack)
@@ -237,7 +236,7 @@ public class UseAbilityState : BattleState
                 board.DeSelectTiles(tiles);
                 owner.bowExtraAttackObject.SetActive(false);
                 StartCoroutine(UseAbilitySequence(objectTarget));
-
+                owner.ResetUnits();
                 owner.targets.gameObject.SetActive(false);
                 owner.targets.stopSelection = true;
             }       
@@ -341,23 +340,17 @@ public class UseAbilityState : BattleState
         //    }
         //}
 
-        owner.currentUnit.animations.SetIdle();
-        //yield return new WaitForSeconds(0.5f);
+        if (!owner.endTurnInstantly)
+        {
+            owner.currentUnit.animations.SetIdle();
+            owner.ChangeState<SelectActionState>();
+        }
 
-        //if (target.isDead)
-        //{
-        //    if(target.GetComponent<EnemyUnit>() != null)
-        //    {
-        //        owner.enemyUnits.Remove(target);
-
-        //        if (owner.enemyUnits.Count == 0)
-        //        {
-        //            owner.ChangeState<WinState>();
-        //        }
-        //    }
-        //}
-
-        owner.ChangeState<SelectActionState>();
+        else
+        {
+            owner.endTurnInstantly = false;
+            owner.ChangeState<FinishPlayerUnitTurnState>();
+        }
     }
 
     public override void Exit()

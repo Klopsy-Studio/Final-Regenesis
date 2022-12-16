@@ -11,26 +11,10 @@ public class StraightShot : AbilitySequence
         yield return null; 
 
         ActionEffect.instance.Play(ability.cameraSize, ability.effectDuration, ability.shakeIntensity, ability.shakeDuration);
-
-        if(target.GetComponent<Unit>()!= null)
+        int numberOfAttacks = DefaultBowAttack(controller);
+        if (target.GetComponent<Unit>()!= null)
         {
             Unit unitTarget = target.GetComponent<Unit>();
-
-            int numberOfAttacks = 1;
-
-            if (controller.bowExtraAttack)
-            {
-                numberOfAttacks++;
-                user.animations.SetAnimation("extraAttack");
-                controller.currentUnit.actionsPerTurn -= ability.actionCost+1;
-                controller.currentUnit.playerUI.SpendActionPoints(ability.actionCost + 1);
-
-            }
-            else
-            {
-                controller.currentUnit.playerUI.SpendActionPoints(ability.actionCost);
-                controller.currentUnit.actionsPerTurn -= ability.actionCost;
-            }
             for (int i = 0; i < numberOfAttacks; i++)
             {
                 Attack(unitTarget);
@@ -52,14 +36,7 @@ public class StraightShot : AbilitySequence
 
 
 
-
         playing = false;
-
     }
 
-    public void Attack(Unit unitTarget)
-    {
-        unitTarget.ReceiveDamage(ability.CalculateDmg(user, unitTarget));
-        user.Attack();
-    }
 }

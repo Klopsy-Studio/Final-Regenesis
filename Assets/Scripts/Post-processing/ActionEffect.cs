@@ -170,4 +170,17 @@ public class ActionEffect : MonoBehaviour
             recovery = false;
         }
     }
+
+
+    public bool CheckActionEffectState()
+    {
+        if(play || recovery)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
