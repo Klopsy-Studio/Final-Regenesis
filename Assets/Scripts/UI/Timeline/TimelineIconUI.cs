@@ -68,6 +68,15 @@ public class TimelineIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         UpdatePreviousIcon();
     }
 
+  
+    public void SetTimelineIconTextVelocity()
+    {
+        var timelineVelocity = (int)element.TimelineVelocity;
+        Debug.Log("EL NUMERO DE LA VELOCIDAD ES " + timelineVelocity);
+        velocityText.SetText(timelineVelocity.ToString());
+        //Debug.Log("esta activado");
+    }
+
     public void UpdatePreviousIcon()
     {
         if (prevIcon == null)

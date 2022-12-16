@@ -224,6 +224,7 @@ public class PlayerUnit : Unit
     public override void Stun()
     {
         base.Stun();
+     
         iconTimeline.EnableStun();
         playerUI.EnableStun();
         Push();
@@ -253,11 +254,17 @@ public class PlayerUnit : Unit
 
                 if (timeStunned <= 0)
                 {
+                    
                     timelineVelocity = previousVelocity;
-                    SetCurrentVelocity();
+                    Debug.Log("new timeline velocity aaa" + timelineVelocity);
+                    UpdateCurrentVelocity();
+                    Debug.Log("new timeline velocity bbb" + timelineVelocity);
                     stunned = false;
                     timeStunned = originalTimeStunned;
                     playerUI.DisableStun();
+                    iconTimeline.velocityText.gameObject.SetActive(true);
+                    Debug.Log("HA DEJADO DE STUNEARSE");
+                    iconTimeline.SetTimelineIconTextVelocity();
                     iconTimeline.DisableStun();
                 }
 

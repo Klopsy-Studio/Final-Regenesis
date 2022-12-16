@@ -77,7 +77,7 @@ public class OptionSelection : MonoBehaviour
         {
             buttonMove.onClick.AddListener(() =>
             {
-                Debug.Log("SELECT MOVE EVENT");
+                //Debug.Log("SELECT MOVE EVENT");
                 UIController.instance.ClickConfirm(0);
             });
         }

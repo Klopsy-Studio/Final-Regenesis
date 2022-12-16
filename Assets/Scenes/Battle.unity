@@ -1850,6 +1850,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 195445703, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: fTimelineVelocity
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 581683979, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 12

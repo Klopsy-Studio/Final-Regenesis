@@ -45,20 +45,15 @@ public abstract class TimelineElements : MonoBehaviour
 
     [Header("Timelines variables")]
     public TimelineVelocity timelineVelocity = TimelineVelocity.Normal;
+    public TimelineVelocity TimelineVelocity
+    {
+        get { return timelineVelocity; }
+        set { timelineVelocity = value; }
+    }
 
     public bool elementEnabled = true;
-    public void SetTimelineVelocityText()
-    {
-        Debug.Log("b");
-        if (iconTimeline.velocityText == null)
-        {
-            Debug.Log("a");
-        }
-        
-        Debug.Log("entra");
-    }
-    
-    
+
+
 
     public float fTimelineVelocity;
     public float timelineFill;

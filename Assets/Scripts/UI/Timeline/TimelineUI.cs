@@ -49,6 +49,7 @@ public class TimelineUI : MonoBehaviour
     //Not Ideal. Would be better to avoid GetComponent entirely. Simplest solution for a 45 minutes project
     private void Update()
     {
+       
         if (isActive) 
         {
             BalanceAmountOf(iconPrefab, content, battleController.timelineElements.Count);
@@ -135,6 +136,7 @@ public class TimelineUI : MonoBehaviour
 
             if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.PlayerUnit)
             {
+               
                 temp.image.sprite = playerFrame;
                 temp.element.iconTimeline = temp;
                 temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
@@ -145,8 +147,10 @@ public class TimelineUI : MonoBehaviour
                 temp.offset = 70;
 
                 temp.velocityText.gameObject.SetActive(true);
-                var a = (int)temp.element.timelineVelocity;
-                temp.velocityText.SetText(a.ToString());
+
+                temp.SetTimelineIconTextVelocity();
+                //var timelineVelocity = (int)temp.element.timelineVelocity;
+                //temp.velocityText.SetText(timelineVelocity.ToString());
             }
             else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.EnemyUnit)
             {

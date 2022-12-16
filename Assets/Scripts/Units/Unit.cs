@@ -66,8 +66,7 @@ public class Unit : TimelineElements
     protected virtual void Start()
     {
         Match();
-        SetInitVelocity();
-       
+        UpdateCurrentVelocity();
        
         originalTimeStunned = timeStunned;
     }
@@ -163,7 +162,7 @@ public class Unit : TimelineElements
         }
     }
 
-    public void SetInitVelocity()
+    public void UpdateCurrentVelocity()
     {
         //SetTimelineVelocityText();
         switch (timelineVelocity)
@@ -206,14 +205,15 @@ public class Unit : TimelineElements
         if (!stunned)
         {
             //fTimelineVelocity = 0;
-            timelineVelocity = TimelineVelocity.Stun;
             previousVelocity = timelineVelocity;
+            timelineVelocity = TimelineVelocity.Stun;
             Debug.Log(gameObject.name + "previousVelocity es " + previousVelocity);
             stunned = true;
-            SetCurrentVelocity();
+            iconTimeline.velocityText.gameObject.SetActive(false);
+            UpdateCurrentVelocity();
         }
     }
-    public void SetCurrentVelocity()
+    public void SetVelocityWhenTurnIsFinished()
     {
         timelineVelocity += (int)actionsPerTurn;
 
@@ -239,7 +239,7 @@ public class Unit : TimelineElements
                 break;
             //case TimelineVelocity.Stun:
             //    fTimelineVelocity = 0;
-                //break;
+            //    break;
             default:
                 break;
         }
@@ -287,7 +287,6 @@ public class Unit : TimelineElements
 
             return false;
         }
-
         else
         {
             Debug.Log("stunned");
@@ -295,9 +294,10 @@ public class Unit : TimelineElements
 
             if(timeStunned <= 0)
             {
-                timelineVelocity = previousVelocity;
-                SetCurrentVelocity();
+                TimelineVelocity = previousVelocity;
+                UpdateCurrentVelocity();
                 stunned = false;
+             
                 timeStunned = originalTimeStunned;
             }
 

@@ -140,7 +140,7 @@ public class EnemyUnit : Unit
             if (timeStunned <= 0)
             {
                 timelineVelocity = previousVelocity;
-                SetCurrentVelocity();
+                UpdateCurrentVelocity();
                 stunned = false;
                 timeStunned = originalTimeStunned;
                

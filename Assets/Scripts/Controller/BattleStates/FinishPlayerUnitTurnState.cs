@@ -19,12 +19,13 @@ public class FinishPlayerUnitTurnState : BattleState
     IEnumerator FinishTurnCoroutine()
     {
        
-        owner.currentUnit.SetCurrentVelocity();
-        Debug.Log("CURRENT VELOCITY ES " + owner.currentUnit.timelineVelocity + " CURRENT UNIT ACTIONS " + owner.currentUnit.ActionsPerTurn);
+        owner.currentUnit.SetVelocityWhenTurnIsFinished();
+        //Debug.Log("CURRENT VELOCITY ES " + owner.currentUnit.TimelineVelocity + " CURRENT UNIT ACTIONS " + owner.currentUnit.ActionsPerTurn);
         owner.currentUnit.didNotMove = true;
         owner.currentUnit.timelineFill = 0;
         owner.currentUnit.status.ChangeToSmall();
         owner.currentUnit.playerUI.HideActionPoints();
+        owner.currentUnit.iconTimeline.SetTimelineIconTextVelocity();
         //AudioManager.instance.Play("TurnEnd");
         yield return null;
         owner.ChangeState<TimeLineState>();

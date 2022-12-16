@@ -31,7 +31,7 @@ public class SmokeBombTimeline : MonoBehaviour
 
         foreach(Unit u in units)
         {
-            if(u.timelineVelocity == 0)
+            if(u.TimelineVelocity == 0)
             {
                 continue;
             }
