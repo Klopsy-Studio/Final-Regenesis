@@ -13,10 +13,80 @@ MonoBehaviour:
   m_Name: HealingSplash
   m_EditorClassIdentifier: 
   actionCost: 3
+  abilityRange:
+  - range: 3
+    lineDir: 0
+    lineLength: 5
+    stopLine: 1
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 3
+    lineDir: 1
+    lineLength: 5
+    stopLine: 1
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 3
+    lineDir: 2
+    lineLength: 5
+    stopLine: 1
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 3
+    lineDir: 3
+    lineLength: 5
+    stopLine: 1
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   rangeData:
     range: 9
     lineDir: 0
     lineLength: 0
+    stopLine: 0
     sideDir: 0
     sideReach: 0
     sideLength: 0

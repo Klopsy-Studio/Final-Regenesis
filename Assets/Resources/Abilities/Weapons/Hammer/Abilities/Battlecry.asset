@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
-  m_Name: Bullseye
+  m_Name: Battlecry
   m_EditorClassIdentifier: 
-  actionCost: 4
-  rangeData:
-    range: 9
+  actionCost: 0
+  abilityRange:
+  - range: 9
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 0
     sideLength: 0
@@ -26,30 +28,47 @@ MonoBehaviour:
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
-    movementRange: 4
-    removeOrigin: 1
+    movementRange: 2
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  rangeData:
+    range: 0
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   cameraSize: 3
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
-  rangeScript: {fileID: 0}
-  abilityName: Bullseye
+  abilityName: Battlecry
   abilityEffect: 0
-  abilityModifier: 0.7
+  abilityModifier: 0
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
   stunDamage: 0
-  animationName: attack
+  animationName: 
   lastTarget: {fileID: 0}
-  weapon: {fileID: 11400000, guid: d150b137ecacc264dac67d37faec0a05, type: 2}
-  description: Charge a strong attack, <b>finishing the turn inmediatly</b>. The
-    next turn, perform the attack dealing <b>heavy damage</b> to the target wherever
-    it is.
+  weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
+  description: Encourage yourself and other hunters giving a <b>DEF bonus</b> until
+    they receive damage.
   inAbilityEffects: []
   postAbilityEffect: []
-  sequence: {fileID: 11400000, guid: c1d5611ab411a284082a324fb8aba5f9, type: 2}
+  sequence: {fileID: 11400000, guid: 1ab623b3c50a43c4aa181a1be4774c78, type: 2}
   soundString: 
-  elementsToTarget: 010000000000000002000000
+  elementsToTarget: 03000000

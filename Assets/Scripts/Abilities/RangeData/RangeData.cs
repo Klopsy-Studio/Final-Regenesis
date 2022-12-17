@@ -8,6 +8,8 @@ public class RangeData
     [SerializeField] public TypeOfAbilityRange range;
     [SerializeField] public Directions lineDir;
     [SerializeField] public int lineLength;
+    [SerializeField] public bool stopLine;
+    [SerializeField] public int lineOffset;
     [SerializeField] public Directions sideDir;
     [SerializeField] public int sideReach;
     [SerializeField] public int sideLength;

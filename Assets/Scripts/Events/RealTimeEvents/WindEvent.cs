@@ -8,7 +8,7 @@ public class WindEvent : RealTimeEvents
     
     [SerializeField] GameObject windEffect;
     List<Unit> units;
-
+    public int pushStrength;
     public Directions direction;
     protected override void Start()
     {
@@ -52,7 +52,7 @@ public class WindEvent : RealTimeEvents
             if (unit.isInAction ||unit.isDead) { continue; }
             Movement mover = unit.GetComponent<Movement>();
             
-            mover.PushUnit(direction, 1, Board);
+            mover.PushUnit(direction, pushStrength, Board);
         }
       
         fTimelineVelocity = 24;

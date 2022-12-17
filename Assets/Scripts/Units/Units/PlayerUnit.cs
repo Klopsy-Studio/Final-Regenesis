@@ -64,7 +64,7 @@ public class PlayerUnit : Unit
 
        
         EquipAllItems();
-
+        SetOriginalValues();
         switch (weapon.EquipmentType)
         {
             case KitType.Hammer:

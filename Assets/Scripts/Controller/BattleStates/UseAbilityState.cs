@@ -27,8 +27,19 @@ public class UseAbilityState : BattleState
 
         owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost);
         //tiles = PreviewAbility();
+        tiles = new List<Tile>();
 
-        tiles = PreviewAbility(currentAbility.rangeData);
+        foreach(RangeData r in currentAbility.abilityRange)
+        {
+            List<Tile> dirtyTiles = PreviewAbility(r);
+            foreach(Tile t in dirtyTiles)
+            {
+                if (!tiles.Contains(t))
+                {
+                    tiles.Add(t);
+                }
+            }
+        }
 
         board.SelectAbilityTiles(tiles);
 
@@ -44,6 +55,7 @@ public class UseAbilityState : BattleState
             default:
                 break;
         }
+
         foreach(AbilityTargetType target in currentAbility.elementsToTarget)
         {
             switch (target)
@@ -80,6 +92,9 @@ public class UseAbilityState : BattleState
                             }
                         }
                     }
+                    break;
+                case AbilityTargetType.Self:
+                    targetTiles.Add(owner.currentUnit.tile);
                     break;
                 default:
                     break;
@@ -391,64 +406,13 @@ public class UseAbilityState : BattleState
 
     public List<Tile> PreviewAbility(RangeData data)
     {
-        switch (data.range)
-        {
-            case TypeOfAbilityRange.Cone:
-                ConeAbilityRange rangeCone = GetRange<ConeAbilityRange>();
-                rangeCone.unit = owner.currentUnit;
-                return rangeCone.GetTilesInRange(board);
+        List<Tile> t = new List<Tile>();
+        AbilityRange range = data.GetOrCreateRange(data.range,owner.currentUnit.gameObject);
+        range.unit = owner.currentUnit;
 
-            case TypeOfAbilityRange.Constant:
-                ConstantAbilityRange rangeConstant = GetRange<ConstantAbilityRange>();
-                rangeConstant.unit = owner.currentUnit;
+        t = range.GetTilesInRange(board);
+        return t;
 
-                return rangeConstant.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Infinite:
-                InfiniteAbilityRange infiniteRange = GetRange<InfiniteAbilityRange>();
-                infiniteRange.unit = owner.currentUnit;
-                return infiniteRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.LineAbility:
-                LineAbilityRange lineRange = GetRange<LineAbilityRange>();
-                lineRange.AssignVariables(data);
-                lineRange.unit = owner.currentUnit;
-
-                return lineRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.SelfAbility:
-                SelfAbilityRange selfRange = GetRange<SelfAbilityRange>();
-                selfRange.unit = owner.currentUnit;
-                return selfRange.GetTilesInRange(board);
-                
-            case TypeOfAbilityRange.SquareAbility:
-                SquareAbilityRange squareRange = GetRange<SquareAbilityRange>();
-                squareRange.AssignVariables(data);
-                squareRange.unit = owner.currentUnit;
-
-                return squareRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Side:
-
-                MovementRange sideRange = GetRange<MovementRange>();
-                sideRange.unit = owner.currentUnit;
-                sideRange.AssignVariables(data);
-                return sideRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Cross:
-                CrossAbilityRange crossRange = GetRange<CrossAbilityRange>();
-                crossRange.AssignVariables(data);
-                crossRange.unit = owner.currentUnit;
-
-                return crossRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Normal:
-                MovementRange normalRange = GetRange<MovementRange>();
-                normalRange.AssignVariables(data);
-                normalRange.unit = owner.currentUnit;
-                return normalRange.GetTilesInRange(board);
-            default:
-                return null;
-        }
     }
+   
 }

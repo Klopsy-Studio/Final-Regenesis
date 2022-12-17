@@ -55,7 +55,7 @@ public class Unit : TimelineElements
     [SerializeField] GameObject healEffect;
     [SerializeField] GameObject hitEffect;
     [SerializeField] GameObject criticalMark;
-
+    [SerializeField] GameObject battlecryMark;
     [SerializeField] public float stunThreshold;
     [SerializeField] float stunLimit;
 
@@ -67,15 +67,20 @@ public class Unit : TimelineElements
 
     [Header("Unit Stats")]
     public int power;
+    [HideInInspector] public int originalPower;
     public int criticalPercentage;
+    [HideInInspector] public int originalCriticalPercentage;
     public WeaponElement attackElement;
     public WeaponElement defenseElement;
     public int elementPower;
+    [HideInInspector] public int originalElementPower;
     public int defense;
+    [HideInInspector] public int originalDefense;
+
 
     [Header("Modifiers")]
-    public List<DamageModifier> criticalModifiers;
-
+    public List<DamageModifier> criticalModifiers = new List<DamageModifier>();
+    public List<DamageModifier> defenseModifier = new List<DamageModifier>();
     protected virtual void Start()
     {
         Match();
@@ -127,6 +132,21 @@ public class Unit : TimelineElements
             target.content = gameObject;
     }
 
+    public void SetOriginalValues()
+    {
+        originalPower = power;
+        originalCriticalPercentage = criticalPercentage;
+        originalElementPower = elementPower;
+        originalDefense = defense;
+    }
+
+    public void ResetValues()
+    {
+        power = originalPower;
+        criticalPercentage = originalCriticalPercentage;
+        elementPower = originalElementPower;
+        defense = originalDefense;
+    }
     public void Match()
     {
         transform.localPosition = tile.center;
@@ -375,5 +395,16 @@ public class Unit : TimelineElements
         Destroy(temp, 0.8f);
     }
 
-    
+
+    public void EnableBattlecry()
+    {
+        battlecryMark.SetActive(true);
+    }
+
+    public void DisableBattlecry()
+    {
+        battlecryMark.SetActive(false);
+    }
+
+
 }

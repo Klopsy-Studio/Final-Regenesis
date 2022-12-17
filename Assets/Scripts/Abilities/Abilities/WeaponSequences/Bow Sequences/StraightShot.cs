@@ -7,6 +7,7 @@ public class StraightShot : AbilitySequence
 {
     public override IEnumerator Sequence(GameObject target, BattleController controller)
     {
+        user = controller.currentUnit;
         playing = true;
         yield return null; 
 
@@ -34,7 +35,14 @@ public class StraightShot : AbilitySequence
             yield return null;
         }
 
-
+        if (controller.bowExtraAttack)
+        {
+            user.SpendActionPoints(ability.actionCost + 1);
+        }
+        else
+        {
+            user.SpendActionPoints(ability.actionCost);
+        }
 
         playing = false;
     }

@@ -10,6 +10,7 @@ public class HealingSplash : AbilitySequence
     public List<RangeData> dataForMonsters;
     public override IEnumerator Sequence(GameObject target, BattleController controller)
     {
+        user = controller.currentUnit;
         playing = true;
         yield return null;
 
@@ -43,7 +44,15 @@ public class HealingSplash : AbilitySequence
             yield return new WaitForSeconds(0.7f);
             controller.board.DeSelectDefaultTiles(healingSplashArea);
         }
-
+        
+        if (controller.bowExtraAttack)
+        {
+            user.SpendActionPoints(ability.actionCost + 1);
+        }
+        else
+        {
+            user.SpendActionPoints(ability.actionCost);
+        }
         while (ActionEffect.instance.CheckActionEffectState())
         {
             yield return null;

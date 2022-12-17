@@ -29,16 +29,16 @@ public enum EffectType
 
 public enum AbilityTargetType
 {
-    Enemies, Allies, Obstacles
+    Enemies, Allies, Obstacles, Self
 };
 [CreateAssetMenu(menuName = "Ability/New Ability")]
 public class Abilities : ScriptableObject
 {
     [Range (1,5)]
     public int actionCost;
-  
 
 
+    public List<RangeData> abilityRange;
     public RangeData rangeData;
     [Header("Effect parameters")]
     [SerializeField] public float cameraSize = 3f;
@@ -46,8 +46,6 @@ public class Abilities : ScriptableObject
     [SerializeField] public float shakeIntensity = 0.01f;
     [SerializeField] public float shakeDuration = 0.05f;
 
-    [Header("")]
-    public AbilityRange rangeScript;
    
     [Header("Ability Variables")]
  
@@ -59,9 +57,9 @@ public class Abilities : ScriptableObject
     //Variables relacionado con daño
     float finalDamage;
     
-    [Range(0.1f, 1f)]
-    [SerializeField] float abilityModifier; //CAMBIAR ESTA VARIABLE A PUBLICA Y HACER QUE SEA UN SLIDE ENTRE 0 A 1 
-
+    [Range(0f, 1f)]
+    [SerializeField] public float abilityModifier;
+    float originalAbilityModifier;
     [Header("Heal")]
     //Si la habilidad es de curación, se utilizan estas variables
     public float initialHeal;
@@ -97,12 +95,6 @@ public class Abilities : ScriptableObject
     public string soundString;
 
     public List<AbilityTargetType> elementsToTarget;
-    private void Awake()
-    {
-        GetRangeScript();
-    }
-
-  
 
     public bool CanDoAbility(int actionPoints)
     {
@@ -115,68 +107,20 @@ public class Abilities : ScriptableObject
             return true;
         }
     }
-    public bool CheckUnitInRange(Board board)
-    {
-        rangeScript.AssignVariables(rangeData);
-        List<Tile> tiles = rangeScript.GetTilesInRange(board);
-
-        foreach(Tile t in tiles)
-        {
-            if(t.content != null)
-            {
-                if (t.content.GetComponent<PlayerUnit>())
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
+  
 
     //public void UseAbilityAgainstPlayerUnit(Unit target)
     //{
     //    CalculateDmg();
     //    target.ReceiveDamage(finalDamage);
     //}
-    public void GetRangeScript()
-    {
-        switch (rangeData.range)
-        {
-            case TypeOfAbilityRange.Cone:
-                rangeScript = new ConeAbilityRange();
-                break;
-            case TypeOfAbilityRange.Constant:
-                rangeScript = new ConstantAbilityRange();
-                break;
-            case TypeOfAbilityRange.Infinite:
-                rangeScript = new InfiniteAbilityRange();
-                break;
-            case TypeOfAbilityRange.LineAbility:
-                rangeScript = new LineAbilityRange();
-                break;
-            case TypeOfAbilityRange.SelfAbility:
-                rangeScript = new SelfAbilityRange();
-                break;
-            case TypeOfAbilityRange.SquareAbility:
-                rangeScript = new SquareAbilityRange();
-                break;
-            case TypeOfAbilityRange.Side:
-                rangeScript = new SideAbilityRange();
-                break;
-            case TypeOfAbilityRange.Normal:
-                rangeScript = new MovementRange();
-                break;
-            default:
-                break;
-        }
-    }
+    
     public int CalculateDmg(Unit user, Unit target)
     {
-        Unit u = new Unit();
+        originalAbilityModifier = abilityModifier;
         float criticalDmg = 1f;
 
-        if(target.criticalModifiers != null)
+        if(target.criticalModifiers != null && target.criticalModifiers.Count > 0)
         {
             List<DamageModifier> trashModifiers = new List<DamageModifier>();
 
@@ -206,8 +150,34 @@ public class Abilities : ScriptableObject
                 criticalDmg = 1.5f;
             }
         }
+
         float elementEffectivenessNumber = ElementsEffectiveness.GetEffectiveness(user.attackElement, target.defenseElement);
 
+        if(target.defenseModifier!= null)
+        {
+            if(target.defenseModifier.Count > 0)
+            {
+                List<DamageModifier> trash = new List<DamageModifier>();
+
+                foreach(DamageModifier d in target.defenseModifier)
+                {
+                    abilityModifier -= d.damageReduction;
+
+                    if (d.SpendModifier())
+                    {
+                        trash.Add(d);
+                    }
+                }
+
+                if(trash.Count > 0)
+                {
+                    foreach(DamageModifier d in trash)
+                    {
+                        target.defenseModifier.Remove(d);
+                    }
+                }
+            }
+        }
 
         finalDamage = (((user.power * criticalDmg) + (user.power * user.elementPower) * elementEffectivenessNumber) * abilityModifier) - target.defense;
 
@@ -216,8 +186,10 @@ public class Abilities : ScriptableObject
             finalDamage = 0;
         }
 
+        abilityModifier = originalAbilityModifier;
+        target.ResetValues();
+
         return (int)finalDamage;
-        
     }
 
 
@@ -240,6 +212,8 @@ public class Abilities : ScriptableObject
         finalHeal = initialHeal;
     }
 
+
+  
     public void UseAbility(Unit target, BattleController controller)
     {
         //AQUI YA NO SE HACE EL ACTION COST

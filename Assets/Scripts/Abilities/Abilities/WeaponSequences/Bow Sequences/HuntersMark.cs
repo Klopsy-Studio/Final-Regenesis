@@ -7,6 +7,7 @@ public class HuntersMark : AbilitySequence
 {
     public override IEnumerator Sequence(GameObject target, BattleController controller)
     {
+        user = controller.currentUnit;
         playing = true;
         yield return null;
 

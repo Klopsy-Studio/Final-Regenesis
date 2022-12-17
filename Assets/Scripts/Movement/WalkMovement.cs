@@ -18,6 +18,7 @@ public class WalkMovement : Movement
 
     public override IEnumerator Traverse(Tile tile, Board board)
     {
+        tile.prev = unit.tile;
         unit.currentPoint = tile.pos;
         moving = true;
         unit.Place(tile);
@@ -35,13 +36,13 @@ public class WalkMovement : Movement
             Tile from = targets[i - 1];
             Tile to = targets[i];
             Directions dir = from.GetDirections(to);
+            yield return StartCoroutine(Walk(to));
 
-            if (unit.dir != dir)
-                yield return StartCoroutine(Turn(dir));
-            if (from.height == to.height)
-                yield return StartCoroutine(Walk(to));
-            else
-                yield return StartCoroutine(Jump(to));
+            //if (unit.dir != dir)
+            //    yield return StartCoroutine(Turn(dir));
+            //if (from.height == to.height)
+            //else
+            //    yield return StartCoroutine(Jump(to));
         }
 
         moving = false;
@@ -55,7 +56,8 @@ public class WalkMovement : Movement
         {
             if (!unit.GetComponent<PlayerUnit>().isNearDeath)
             {
-                unit.GetComponent<PlayerUnit>().Default();
+                //Fix later for stampede
+                //unit.GetComponent<PlayerUnit>().Default();
             }
             else
             {

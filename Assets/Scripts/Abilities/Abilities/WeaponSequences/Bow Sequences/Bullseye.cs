@@ -8,9 +8,9 @@ public class Bullseye : AbilitySequence
 {
     [SerializeField] BullseyeEvent bullseyeEvent;
 
-
     public override IEnumerator Sequence(GameObject target, BattleController controller)
     {
+        user = controller.currentUnit;
         playing = true;
         yield return null;
 

@@ -118,6 +118,14 @@ public abstract class Movement : MonoBehaviour
 
     }
 
+    public void StartSimpleTraverse(Tile tile)
+    {
+        StartCoroutine(SimpleTraverse(tile));
+    }
+    public void StartTraverse(Tile tile, Board board)
+    {
+        StartCoroutine(Traverse(tile, board));
+    }
     public abstract IEnumerator SimpleTraverse(Tile tile); //Unit just teleports.
 
     public abstract IEnumerator Traverse(Tile tile, Board board); //Traverse animation
@@ -216,23 +224,28 @@ public abstract class Movement : MonoBehaviour
     }
     public virtual void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
-        range = pushStrength;
-        MovementRange moveRange = unit.GetComponent<MovementRange>();
-        moveRange.tile = unit.tile;
-        moveRange.range = pushStrength;
-        moveRange.removeOrigin = true;
-        List<Tile> t = moveRange.GetTilesInRange(board);
+        LineAbilityRange moveRange = unit.GetComponent<LineAbilityRange>();
+
+        moveRange.lineDir = pushDir;
+        moveRange.lineLength = pushStrength;
+        moveRange.stopLine = true;
+
+        List<Tile> tiles = moveRange.GetTilesInRange(board);
         Tile desiredTile = null;
 
-        foreach(Tile dirTile in t)
+        for (int i = 0; i < tiles.Count; i++)
         {
-            if (unit.tile.GetDirections(dirTile) == pushDir)
+            if(tiles[i].content == null && !tiles[i].occupied)
             {
-                desiredTile = dirTile;
+                desiredTile = tiles[i];
+            }
+            else
+            {
+                break;
             }
         }
 
-        if(desiredTile != null && desiredTile.content == null)
+        if(desiredTile != null)
         {
             StartCoroutine(Traverse(desiredTile, board));
 

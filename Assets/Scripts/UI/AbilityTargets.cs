@@ -16,6 +16,7 @@ public class AbilityTargets : MonoBehaviour
     public bool stopSelection;
     public void CreateTargets(List<Tile> targetTiles)
     {
+        monsterTargetted = false;
         foreach(Tile t in targetTiles)
         {
             if (t.occupied && !monsterTargetted)

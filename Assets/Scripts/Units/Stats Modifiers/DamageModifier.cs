@@ -6,6 +6,11 @@ using UnityEngine;
 public class DamageModifier
 {
     public int modifierCount;
+
+    public int damageIncrease;
+
+    [Range(0, 1)]
+    public float damageReduction;
     public virtual bool SpendModifier()
     {
         modifierCount--;
