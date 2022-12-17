@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 8943003532539801442}
   - component: {fileID: -6171889826131123982}
   m_Layer: 5
-  m_Name: Item template
+  m_Name: Deprecated Item template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
