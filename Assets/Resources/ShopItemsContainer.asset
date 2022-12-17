@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItems:
   - name: Bomb
-    item: {fileID: 11400000, guid: cc24fb1885481b548849bb55b1d61dc1, type: 2}
+    consumable: {fileID: 11400000, guid: cc24fb1885481b548849bb55b1d61dc1, type: 2}
     pointCosts: 10
   - name: Potion
-    item: {fileID: 11400000, guid: bd9ed1f77b64bd14eb25fc46d103ad1b, type: 2}
+    consumable: {fileID: 11400000, guid: bd9ed1f77b64bd14eb25fc46d103ad1b, type: 2}
     pointCosts: 15
   - name: MegaPotion
-    item: {fileID: 11400000, guid: d5a509a17074bc84cb5f47e17ae8c374, type: 2}
+    consumable: {fileID: 11400000, guid: d5a509a17074bc84cb5f47e17ae8c374, type: 2}
     pointCosts: 25

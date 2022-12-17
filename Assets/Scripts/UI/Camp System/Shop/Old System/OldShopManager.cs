@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class OldShopManager : MonoBehaviour
 {
-    public ShopItem[] shopItems;
-    public ShopTemplate[] shopPanels;
+    public OldShopItem[] shopItems;
+    public OldShopTemplate[] shopPanels;
     public GameObject[] shopPanelsGO;
 
     public Button[] myPurchaseButton;

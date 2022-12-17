@@ -13,6 +13,6 @@ public class ShopItemContainer : ScriptableObject
 public class ShopItemInfo
 {
     public string name;
-    public Consumables item;
+    public Consumables consumable;
     public int pointCosts;
 }

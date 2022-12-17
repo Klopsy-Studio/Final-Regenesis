@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2304057826153152310}
   - component: {fileID: 2304057826153152308}
   - component: {fileID: 2304057826153152311}
+  - component: {fileID: 2683697910522330553}
   m_Layer: 5
   m_Name: Item shop Slot
   m_TagString: Untagged
@@ -78,6 +79,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2683697910522330553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2304057826153152265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e097d82144607b45a6847db78205c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 2304057827281139538}
+  itemName: {fileID: 2304057827227179351}
+  itemCost: {fileID: 2304057827290911297}
+  item:
+    name: 
+    bruh: {fileID: 0}
+    pointCosts: 0
+  sprite: {fileID: 21300000, guid: ec8f175e10fa63f4cb8c4ca2e4b90702, type: 3}
 --- !u!1 &2304057827227179305
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,8 +191,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
