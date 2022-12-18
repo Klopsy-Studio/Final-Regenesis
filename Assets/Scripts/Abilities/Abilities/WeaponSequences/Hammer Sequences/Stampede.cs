@@ -111,12 +111,33 @@ public class Stampede : AbilitySequence
         if(target.GetComponent<Unit>() != null)
         {
             Attack(t);
+
+            if (CheckFury())
+            {
+                HammerFurySequence(5, t, controller, user.tile.GetDirections(t.tile));
+                ResetFury();
+            }
+
+            else
+            {
+                IncreaseFury(furyAmount);
+            }
         }
 
         if(target.GetComponent<BearObstacleScript>()!= null)
         {
             user.Attack();
             target.GetComponent<BearObstacleScript>().GetDestroyed(controller.board);
+
+            if (CheckFury())
+            {
+                ResetFury();
+            }
+
+            else
+            {
+                IncreaseFury(furyAmount);
+            }
         }
 
         user.SpendActionPoints(ability.actionCost);

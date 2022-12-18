@@ -48,6 +48,10 @@ public class PlayerUnit : Unit
     [SerializeField] GameObject hammerParent;
     [SerializeField] GameObject slingshotParent;
 
+    [Header("Weapon Variables")]
+    public int hammerFuryAmount;
+    public int hammerFuryMax;
+    public int gunbladeAmmoAmount;
     
     protected override void Start()
     {

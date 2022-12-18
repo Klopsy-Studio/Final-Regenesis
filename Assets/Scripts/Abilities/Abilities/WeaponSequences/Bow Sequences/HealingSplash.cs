@@ -18,6 +18,7 @@ public class HealingSplash : AbilitySequence
 
         List<Tile> healingSplashArea = GetSplash(target, controller);
 
+        //We spend points here
         int numberOfAttacks = DefaultBowAttack(controller);
         if (target.GetComponent<Unit>() != null)
         {
@@ -45,14 +46,6 @@ public class HealingSplash : AbilitySequence
             controller.board.DeSelectDefaultTiles(healingSplashArea);
         }
         
-        if (controller.bowExtraAttack)
-        {
-            user.SpendActionPoints(ability.actionCost + 1);
-        }
-        else
-        {
-            user.SpendActionPoints(ability.actionCost);
-        }
         while (ActionEffect.instance.CheckActionEffectState())
         {
             yield return null;

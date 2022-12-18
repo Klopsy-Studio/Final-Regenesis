@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Ability/Weapon Sequences/Hammer Sequences/Bash")]
+
 public class Bash : AbilitySequence
 {
+    [SerializeField] int furyAmount;
     [SerializeField] int bashStrenght;
     public override IEnumerator Sequence(GameObject target, BattleController controller)
     {
@@ -18,7 +21,16 @@ public class Bash : AbilitySequence
             Attack(u);
             Movement m = u.GetComponent<Movement>();
 
-            m.PushUnit(user.tile.GetDirections(u.tile), bashStrenght, controller.board);
+            if(CheckFury())
+            {
+                HammerFurySequence(5, u, controller, user.tile.GetDirections(u.tile));
+                ResetFury();
+            }
+            else
+            {
+                m.PushUnit(user.tile.GetDirections(u.tile), bashStrenght, controller.board);
+                IncreaseFury(furyAmount);
+            }
 
             while (m.moving)
             {
@@ -26,11 +38,15 @@ public class Bash : AbilitySequence
             }
         }
 
-
         if(target.GetComponent<BearObstacleScript>() != null)
         {
             user.Attack();
             target.GetComponent<BearObstacleScript>().GetDestroyed(controller.board);
+
+            if (CheckFury())
+            {
+                ResetFury();
+            }
         }
 
         while (ActionEffect.instance.CheckActionEffectState())

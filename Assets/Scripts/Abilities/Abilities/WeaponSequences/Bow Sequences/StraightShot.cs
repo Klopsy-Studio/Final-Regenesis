@@ -35,15 +35,6 @@ public class StraightShot : AbilitySequence
             yield return null;
         }
 
-        if (controller.bowExtraAttack)
-        {
-            user.SpendActionPoints(ability.actionCost + 1);
-        }
-        else
-        {
-            user.SpendActionPoints(ability.actionCost);
-        }
-
         playing = false;
     }
 

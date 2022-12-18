@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
   m_Name: Stampede
   m_EditorClassIdentifier: 
-  actionCost: 0
+  actionCost: 3
   abilityRange:
   - range: 3
     lineDir: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   shakeDuration: 0.05
   abilityName: Stampede
   abilityEffect: 0
-  abilityModifier: 0.08
+  abilityModifier: 0.12
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
@@ -119,7 +119,8 @@ MonoBehaviour:
   animationName: 
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
-  description: 
+  description: Charge towards a target in a stright line dealing <b>damage based
+    on the distance</b>.
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: bf35dbb3c939d714696a879c8ba5bdec, type: 2}

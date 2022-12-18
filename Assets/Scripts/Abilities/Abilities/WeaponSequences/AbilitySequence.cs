@@ -60,4 +60,38 @@ public class AbilitySequence : ScriptableObject
 
         return numberOfAttacks;
     }
+
+    public void HammerFurySequence(int pushFury, Unit target, BattleController controller, Directions dir)
+    {
+        target.GetComponent<Movement>().PushUnit(dir, pushFury, controller.board);
+        //Just a value to trigger it
+        target.ApplyStunValue(100);
+    }
+
+    public void IncreaseFury(int fury)
+    {
+        user.hammerFuryAmount += fury;
+        user.playerUI.ChangeFuryValue(user.hammerFuryAmount);
+        if(user.hammerFuryAmount >= user.hammerFuryMax)
+        {
+            user.hammerFuryAmount = user.hammerFuryMax;
+        }
+    }
+    public void ResetFury()
+    {
+        user.hammerFuryAmount = 0;
+        user.playerUI.ChangeFuryValue(user.hammerFuryAmount);
+    }
+
+    public bool CheckFury()
+    {
+        if(user.hammerFuryAmount >= user.hammerFuryMax)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

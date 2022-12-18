@@ -244,7 +244,7 @@ public class UseAbilityState : BattleState
         {
             if(owner.targets.selectedTarget != null)
             {
-                owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
+                owner.currentUnit.playerUI.HideActionPoints();
 
                 GameObject objectTarget = owner.targets.selectedTarget.targetAssigned;
 
@@ -286,74 +286,10 @@ public class UseAbilityState : BattleState
 
         StartCoroutine(currentAbility.sequence.Sequence(target, owner));
 
-
         while (currentAbility.sequence.playing)
         {
             yield return null;
         }
-        //currentAbility.UseAbility(target, owner);
-
-        //if(currentAbility.inAbilityEffects != null)
-        //{
-        //    foreach(Effect e in currentAbility.inAbilityEffects)
-        //    {
-        //        switch (e.effectType)
-        //        {
-        //            case TypeOfEffect.PushUnit:
-        //                e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
-        //                break;
-        //            case TypeOfEffect.FallBack:
-        //                e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
-        //                break;
-        //            case TypeOfEffect.AddStunValue:
-        //                e.AddStunValue(target, 5);
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //    }
-        //}
-
-        //AudioManager.instance.Play("HunterAttack");
-        //owner.currentUnit.Attack();
-
-        //if (target.GetComponent<PlayerUnit>() != null)
-        //{
-        //    if (!target.GetComponent<PlayerUnit>().isNearDeath)
-        //    {
-        //        target.Damage();
-        //    }
-        //}
-
-        //while (ActionEffect.instance.play || ActionEffect.instance.recovery)
-        //{
-        //    yield return null;
-        //}
-
-        //owner.currentUnit.actionDone = true;
-
-        //if (target.GetComponent<PlayerUnit>() != null)
-        //{
-        //    if (!target.GetComponent<PlayerUnit>().isNearDeath)
-        //    {
-        //        target.Default();
-        //    }
-        //}
-
-        //foreach (Effect e in currentAbility.postAbilityEffect)
-        //{
-        //    switch (e.effectType)
-        //    {
-        //        case TypeOfEffect.PushUnit:
-        //            e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
-        //            break;
-        //        case TypeOfEffect.FallBack:
-        //            e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
 
         if (!owner.endTurnInstantly)
         {

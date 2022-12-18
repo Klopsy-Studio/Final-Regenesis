@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerUnitUI : UnitUI
 {
+    bool updatingValue;
+    [SerializeField] float speed;
     [Header("UI")]
     public Canvas unitUI;
     [SerializeField] GameObject actionPointsObject;
@@ -17,13 +19,12 @@ public class PlayerUnitUI : UnitUI
     List<Image> previewActionPoints = new List<Image>();
 
 
-    [SerializeField] GameObject mark;
-
     [Header("Sprites")]
     [SerializeField] Sprite regularActionPointsSprite;
     [SerializeField] Sprite previewActionPointsSprite;
     [SerializeField] Sprite spentActionPointsSprite;
 
+    [SerializeField] Slider unitFury;
     int index;
 
     private void Start()
@@ -37,16 +38,6 @@ public class PlayerUnitUI : UnitUI
     public void HideActionPoints()
     {
         actionPointsObject.SetActive(false);
-    }
-
-    public void EnableMark()
-    {
-        mark.gameObject.SetActive(true);
-    }
-
-    public void DisableMark()
-    {
-        mark.gameObject.SetActive(false);
     }
     public void ShowActionPoints()
     {
@@ -69,8 +60,12 @@ public class PlayerUnitUI : UnitUI
                 i.sprite = spentActionPointsSprite;
             }
         }
-        
+    }
 
+    public void ChangeFuryValue(int value)
+    {
+
+        StartCoroutine(SliderValueAnimation(unitFury, value));
     }
 
     public void EnableStun()
@@ -119,5 +114,43 @@ public class PlayerUnitUI : UnitUI
         }
     }
 
- 
+
+    IEnumerator SliderValueAnimation(Slider s, int targetValue)
+    {
+        s.gameObject.SetActive(true);
+        updatingValue = true;
+
+        if (s.value >= targetValue)
+        {
+            while (s.value >= targetValue)
+            {
+                s.value -= Time.deltaTime * speed;
+                yield return null;
+
+                if (s.value <= 0)
+                {
+                    break;
+                }
+            }
+        }
+        else
+        {
+            while (s.value <= targetValue)
+            {
+                s.value += Time.deltaTime * speed;
+                yield return null;
+
+                if (s.value >= s.maxValue)
+                {
+                    break;
+                }
+            }
+        }
+
+        s.value = targetValue;
+
+        yield return new WaitForSeconds(0.5f);
+        s.gameObject.SetActive(false);
+        updatingValue = false;
+    }
 }

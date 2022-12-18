@@ -12,11 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
   m_Name: LightStrike
   m_EditorClassIdentifier: 
-  actionCost: 3
+  actionCost: 2
+  abilityRange:
+  - range: 9
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 0
+    sideReach: 0
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 2
+    removeOrigin: 1
+    itemRange: 0
+    itemRemoveContent: 0
   rangeData:
     range: 9
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 0
     sideLength: 0
@@ -34,21 +55,21 @@ MonoBehaviour:
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
-  rangeScript: {fileID: 0}
   abilityName: Light Strike
   abilityEffect: 0
-  abilityModifier: 0.3
+  abilityModifier: 0.1
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
   stunDamage: 0
   animationName: 
   lastTarget: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 8067631d7791b0944a9f84d8e32dcaf1, type: 2}
-  description: Deals damage to the selected unit.
+  weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
+  description: Swing your hammer quickly dealing <b>moderate damage</b> to the target.
   inAbilityEffects:
   - effectPlaying: 0
     effectType: 2
   postAbilityEffect: []
+  sequence: {fileID: 11400000, guid: 594e7e3f4c2097f4287ed91c19dc1931, type: 2}
   soundString: HammerAttack
   elementsToTarget: 000000000100000002000000
