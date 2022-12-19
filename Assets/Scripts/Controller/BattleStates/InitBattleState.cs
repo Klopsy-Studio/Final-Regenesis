@@ -102,7 +102,7 @@ public class InitBattleState : BattleState
             case KitType.Bow:
                 if (data.unitWeapon.weaponSprite != null)
                 {
-                    unit.slingshotSprite.sprite = data.unitWeapon.weaponCombat;
+                    unit.bowSprite.sprite = data.unitWeapon.weaponCombat;
                 }
                 break;
             default:
