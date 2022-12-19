@@ -23,7 +23,7 @@ MonoBehaviour:
     lineOffset: 0
     sideDir: 0
     sideReach: 2
-    sideLength: 1
+    sideLength: 2
     crossLength: 0
     crossOffset: 0
     squareReach: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     lineOffset: 0
     sideDir: 1
     sideReach: 2
-    sideLength: 1
+    sideLength: 2
     crossLength: 0
     crossOffset: 0
     squareReach: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     lineOffset: 0
     sideDir: 2
     sideReach: 2
-    sideLength: 1
+    sideLength: 2
     crossLength: 0
     crossOffset: 0
     squareReach: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
     lineOffset: 0
     sideDir: 3
     sideReach: 2
-    sideLength: 1
+    sideLength: 2
     crossLength: 0
     crossOffset: 0
     squareReach: 0
@@ -160,13 +160,67 @@ MonoBehaviour:
     removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
-  - range: 3
+  - range: 6
     lineDir: 0
-    lineLength: 3
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 0
+    sideReach: 4
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 1
+    sideReach: 4
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 2
+    sideReach: 4
+    sideLength: 0
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
     stopLine: 0
     lineOffset: 0
     sideDir: 3
-    sideReach: 3
+    sideReach: 4
     sideLength: 0
     crossLength: 0
     crossOffset: 0
@@ -204,7 +258,7 @@ MonoBehaviour:
   shakeDuration: 0.05
   abilityName: Bullseye
   abilityEffect: 0
-  abilityModifier: 0.7
+  abilityModifier: 0.6
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

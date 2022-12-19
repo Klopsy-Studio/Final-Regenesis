@@ -152,6 +152,7 @@ public class EnemyUnit : Unit
         monsterUI.CreatePopUpText(transform.position, (int)damage);
 
         controller.monsterAnimations.SetTrigger("damage");
+
         if(health <= lowHealth)
         {
             controller.monsterAnimations.SetTrigger("lowHealth");
@@ -163,6 +164,7 @@ public class EnemyUnit : Unit
             Die(controller.battleController);
             return true;
         }
+
         else
         {
             return false;

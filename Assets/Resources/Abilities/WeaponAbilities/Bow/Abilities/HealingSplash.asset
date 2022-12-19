@@ -16,13 +16,85 @@ MonoBehaviour:
   actionCost: 3
   ammoCost: 0
   abilityRange:
-  - range: 3
+  - range: 6
     lineDir: 0
-    lineLength: 5
-    stopLine: 1
+    lineLength: 0
+    stopLine: 0
     lineOffset: 0
     sideDir: 0
-    sideReach: 0
+    sideReach: 2
+    sideLength: 1
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 1
+    sideReach: 2
+    sideLength: 1
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 2
+    sideReach: 2
+    sideLength: 1
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 3
+    sideReach: 2
+    sideLength: 1
+    crossLength: 0
+    crossOffset: 0
+    squareReach: 0
+    alternateSideDir: 0
+    alternateSideReach: 0
+    alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
+    lineOffset: 0
+    sideDir: 0
+    sideReach: 3
     sideLength: 0
     crossLength: 0
     crossOffset: 0
@@ -34,13 +106,13 @@ MonoBehaviour:
     removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
-  - range: 3
-    lineDir: 1
-    lineLength: 5
-    stopLine: 1
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
     lineOffset: 0
-    sideDir: 0
-    sideReach: 0
+    sideDir: 1
+    sideReach: 3
     sideLength: 0
     crossLength: 0
     crossOffset: 0
@@ -52,13 +124,13 @@ MonoBehaviour:
     removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
-  - range: 3
-    lineDir: 2
-    lineLength: 5
-    stopLine: 1
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
     lineOffset: 0
-    sideDir: 0
-    sideReach: 0
+    sideDir: 2
+    sideReach: 3
     sideLength: 0
     crossLength: 0
     crossOffset: 0
@@ -70,13 +142,13 @@ MonoBehaviour:
     removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
-  - range: 3
-    lineDir: 3
-    lineLength: 5
-    stopLine: 1
+  - range: 6
+    lineDir: 0
+    lineLength: 0
+    stopLine: 0
     lineOffset: 0
-    sideDir: 0
-    sideReach: 0
+    sideDir: 3
+    sideReach: 3
     sideLength: 0
     crossLength: 0
     crossOffset: 0
@@ -115,7 +187,7 @@ MonoBehaviour:
   abilityName: Healing Splash
   abilityEffect: 1
   abilityModifier: 0.1
-  initialHeal: 40
+  initialHeal: 15
   initialBuff: 0
   initialDebuff: 0
   stunDamage: 20

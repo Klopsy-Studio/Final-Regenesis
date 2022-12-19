@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AdvancingSlash
   m_EditorClassIdentifier: 
   abilityEquipmentType: 2
-  actionCost: 2
+  actionCost: 3
   ammoCost: 0
   abilityRange:
   - range: 3
     lineDir: 0
-    lineLength: 2
+    lineLength: 3
     stopLine: 1
     lineOffset: 0
     sideDir: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     itemRemoveContent: 0
   - range: 3
     lineDir: 1
-    lineLength: 2
+    lineLength: 3
     stopLine: 1
     lineOffset: 0
     sideDir: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
     itemRemoveContent: 0
   - range: 3
     lineDir: 2
-    lineLength: 2
+    lineLength: 3
     stopLine: 1
     lineOffset: 0
     sideDir: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     itemRemoveContent: 0
   - range: 3
     lineDir: 3
-    lineLength: 2
+    lineLength: 3
     stopLine: 1
     lineOffset: 0
     sideDir: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   shakeDuration: 0.05
   abilityName: Advacing Slash
   abilityEffect: 0
-  abilityModifier: 0
+  abilityModifier: 0.3
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

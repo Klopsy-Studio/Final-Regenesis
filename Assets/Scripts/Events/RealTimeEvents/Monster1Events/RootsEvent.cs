@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RootsEvent : MonsterEvent
 {
+    [SerializeField] MonsterAbility rootsAbility;
     public override IEnumerator Event()
     {
         acting = true;
@@ -34,13 +35,10 @@ public class RootsEvent : MonsterEvent
                 //Hardcoded, change it with implementation of monster skills
                 if (!p.isNearDeath)
                 {
-                    if (p.ReceiveDamage(30))
-                    {
-                        p.NearDeath(battleController);
-                    }
-
+                    rootsAbility.UseAbility(p, controller.currentEnemy, battleController);
                     p.DamageEffect();
                     p.animations.SetDamage();
+                    p.DecreaseTimelineVelocity(1);
                 }
                 
             }

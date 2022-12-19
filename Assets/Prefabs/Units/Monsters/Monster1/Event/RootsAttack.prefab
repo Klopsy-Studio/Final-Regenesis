@@ -57,6 +57,8 @@ MonoBehaviour:
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 2
     sideLength: 2
@@ -67,11 +69,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 3
     sideLength: 2
@@ -82,11 +87,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 4
     sideLength: 2
@@ -97,11 +105,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 2
     sideLength: 2
@@ -112,11 +123,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 3
     sideLength: 2
@@ -127,11 +141,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 4
     sideLength: 2
@@ -142,11 +159,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 2
     sideLength: 2
@@ -157,11 +177,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 3
     sideLength: 2
@@ -172,11 +195,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 4
     sideLength: 2
@@ -187,11 +213,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 2
     sideLength: 2
@@ -202,11 +231,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 3
     sideLength: 2
@@ -217,11 +249,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 4
     sideLength: 2
@@ -232,6 +267,8 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   acting: 0
+  rootsAbility: {fileID: 11400000, guid: 31d019b5c27bb75419ac863f23fe99fd, type: 2}

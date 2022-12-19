@@ -21,7 +21,7 @@ public class PlaceObstacleAction : Action
             AudioManager.instance.Play("MonsterObstacle");
             foreach(BearObstacleScript o in controller.obstaclesInGame)
             {
-                List<Tile> tiles = o.Explode(controller.battleController.board);
+                List<Tile> tiles = o.Explode(controller.battleController.board, controller.battleController);
 
                 controller.battleController.SelectTile(o.pos);
                 ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);

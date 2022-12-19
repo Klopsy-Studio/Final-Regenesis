@@ -13,97 +13,158 @@ MonoBehaviour:
   m_Name: BearMonsterPlaceObstacle
   m_EditorClassIdentifier: 
   typeOfAbility: 0
+  attackTrigger: 
   attackRange:
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 2
     sideLength: 3
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 3
     sideLength: 2
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 2
     sideLength: 3
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 3
     sideLength: 2
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 2
     sideLength: 3
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 3
     sideLength: 2
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 2
     sideLength: 3
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 3
     sideLength: 2
     crossLength: 0
+    crossOffset: 0
     squareReach: 0
     alternateSideDir: 0
     alternateSideReach: 0
     alternateSideLength: 0
+    movementRange: 0
+    removeOrigin: 0
+    itemRange: 0
+    itemRemoveContent: 0
+  attackRangeShow: []
   initialDamage: 0
-  abilityModifier: 0
+  abilityModifier: 0.8
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0
+  inAbilityEffects: []
+  postAbilityEffect: []
+  targetType: 0

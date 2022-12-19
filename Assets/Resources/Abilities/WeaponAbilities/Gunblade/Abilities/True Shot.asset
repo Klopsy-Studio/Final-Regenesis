@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: True Shot
   m_EditorClassIdentifier: 
   abilityEquipmentType: 2
-  actionCost: 2
+  actionCost: 1
   ammoCost: 3
   abilityRange:
   - range: 9
@@ -60,7 +60,7 @@ MonoBehaviour:
   shakeDuration: 0.05
   abilityName: True Shot
   abilityEffect: 0
-  abilityModifier: 0
+  abilityModifier: 0.1
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

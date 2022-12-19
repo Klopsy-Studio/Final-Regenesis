@@ -18,6 +18,8 @@ MonoBehaviour:
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 2
     sideLength: 1
@@ -28,11 +30,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 3
     sideLength: 1
@@ -43,11 +48,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 2
     sideLength: 1
@@ -58,11 +66,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 3
     sideLength: 1
@@ -73,11 +84,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 2
     sideLength: 1
@@ -88,11 +102,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 3
     sideLength: 1
@@ -103,11 +120,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 2
     sideLength: 1
@@ -118,11 +138,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 2
     lineLength: 2
+    stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 3
     sideLength: 1
@@ -133,12 +156,15 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   attackRangeShow:
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 2
     sideLength: 1
@@ -149,11 +175,14 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   - range: 6
     lineDir: 0
     lineLength: 0
+    stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 3
     sideLength: 1
@@ -164,10 +193,11 @@ MonoBehaviour:
     alternateSideReach: 0
     alternateSideLength: 0
     movementRange: 0
+    removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
   initialDamage: 5
-  abilityModifier: 0.5
+  abilityModifier: 1
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

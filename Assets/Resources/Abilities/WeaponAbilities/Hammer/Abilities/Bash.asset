@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
   m_Name: Bash
   m_EditorClassIdentifier: 
+  abilityEquipmentType: 0
   actionCost: 3
+  ammoCost: 0
   abilityRange:
   - range: 9
     lineDir: 0
@@ -32,6 +34,7 @@ MonoBehaviour:
     removeOrigin: 1
     itemRange: 0
     itemRemoveContent: 0
+  tileTargetAbilityRange: []
   rangeData:
     range: 9
     lineDir: 0
@@ -57,7 +60,7 @@ MonoBehaviour:
   shakeDuration: 0.05
   abilityName: Bash
   abilityEffect: 0
-  abilityModifier: 0.09
+  abilityModifier: 0.2
   initialHeal: 0
   initialBuff: 0
   initialDebuff: 0

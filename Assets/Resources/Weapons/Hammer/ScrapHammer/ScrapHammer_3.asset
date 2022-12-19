@@ -18,7 +18,7 @@ MonoBehaviour:
   criticalPercentage: 2
   weaponAttackElement: 0
   weaponDefenseElement: 0
-  power: 300
+  power: 103
   elementPower: 0
   defense: 29
   originalRange: 2

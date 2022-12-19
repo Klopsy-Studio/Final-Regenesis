@@ -6,13 +6,13 @@ public class BearObstacleScript : MonoBehaviour
 {
     [SerializeField] SquareAbilityRange squareRange;
     [SerializeField] CrossAbilityRange crossRange;
-    [SerializeField] float obstacleDamage;
+    [SerializeField] MonsterAbility obstacleAbility;
 
     public MonsterController controller;
     public Point pos;
     [SerializeField] Animator obstacleAnimations;
 
-    public List<Tile> Explode(Board board)
+    public List<Tile> Explode(Board board, BattleController battleController)
     {
         obstacleAnimations.SetTrigger("explode");
         List<Tile> tiles = squareRange.GetTilesInRangeWithoutUnit(board, pos);
@@ -24,9 +24,7 @@ public class BearObstacleScript : MonoBehaviour
                 if(t.content.GetComponent<PlayerUnit>() != null)
                 {
                     PlayerUnit p = t.content.GetComponent<PlayerUnit>();
-                    p.ReceiveDamage(obstacleDamage);
-                    p.Damage();
-                    
+                    obstacleAbility.UseAbility(p, controller.currentEnemy, battleController);
                 }
             }
         }

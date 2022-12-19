@@ -15,12 +15,12 @@ MonoBehaviour:
   equipmentName: 
   sprite: {fileID: 21300000, guid: ec86d4a080c8591429b41f48819e0929, type: 3}
   equipmentType: 2
-  criticalPercentage: 0
+  criticalPercentage: 10
   weaponAttackElement: 0
   weaponDefenseElement: 0
-  power: 1
-  elementPower: 1
-  defense: 1
+  power: 112
+  elementPower: 0
+  defense: 21
   originalRange: 3
   range: 3
   Abilities:
