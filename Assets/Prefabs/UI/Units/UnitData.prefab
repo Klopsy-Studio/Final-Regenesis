@@ -691,7 +691,8 @@ MonoBehaviour:
   smallUnitUI: {fileID: 1219359427389959373}
   statusModes: {fileID: 2860826978199054228}
   unitName: {fileID: 6538892182145285028}
-  unitHealth: {fileID: 7967361985512224053}
+  unitHealthBig: {fileID: 7967361985512224053}
+  unitHealthSmall: {fileID: 0}
   unitPortrait: {fileID: 6750348980913789839}
   unitWeapon: {fileID: 547755260122312927}
   updatingValue: 0
