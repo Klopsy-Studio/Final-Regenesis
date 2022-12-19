@@ -74,8 +74,8 @@ MonoBehaviour:
   currentPoint:
     x: 0
     y: 0
-  maxHealth: 200
-  health: 200
+  maxHealth: 300
+  health: 300
   hurtAnimation: {fileID: 0}
   unitName: Ursamyr
   particleHitPrefab: {fileID: 9195261423928058443, guid: db77acff450030546aa4b9db9dbeda8a, type: 3}

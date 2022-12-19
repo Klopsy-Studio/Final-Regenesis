@@ -9,8 +9,11 @@ public class BearObstacleScript : MonoBehaviour
     [SerializeField] float obstacleDamage;
 
     public Point pos;
+    [SerializeField] Animator obstacleAnimations;
+
     public List<Tile> Explode(Board board)
     {
+        obstacleAnimations.SetTrigger("explode");
         List<Tile> tiles = squareRange.GetTilesInRangeWithoutUnit(board, pos);
         board.SelectAttackTiles(tiles);
         foreach(Tile t in tiles)
@@ -26,7 +29,6 @@ public class BearObstacleScript : MonoBehaviour
                 }
             }
         }
-
         board.GetTile(pos).content = null;
         return tiles;
     }
