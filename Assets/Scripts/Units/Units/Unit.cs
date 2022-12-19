@@ -360,6 +360,64 @@ public class Unit : TimelineElements
         
     }
 
+    public void SetVelocityWhenTurnIsFinished()
+    {
+        timelineVelocity += (int)actionsPerTurn;
+
+        switch (timelineVelocity)
+        {
+            case TimelineVelocity.VerySlow:
+                fTimelineVelocity = 9;
+                break;
+            case TimelineVelocity.Slow:
+                fTimelineVelocity = 12;
+                break;
+            case TimelineVelocity.Normal:
+                fTimelineVelocity = 15;
+                break;
+            case TimelineVelocity.Quick:
+                fTimelineVelocity = 18;
+                break;
+            case TimelineVelocity.VeryQuick:
+                fTimelineVelocity = 21;
+                break;
+            case TimelineVelocity.TurboFast:
+                fTimelineVelocity = 24;
+                break;
+            //case TimelineVelocity.Stun:
+            //    fTimelineVelocity = 0;
+            //    break;
+            default:
+                break;
+        }
+    }
+
+    public void UpdateCurrentVelocity()
+    {
+        switch (timelineVelocity)
+        {
+            case TimelineVelocity.VerySlow:
+                fTimelineVelocity = 9;
+                break;
+            case TimelineVelocity.Slow:
+                fTimelineVelocity = 12;
+                break;
+            case TimelineVelocity.Normal:
+                fTimelineVelocity = 15;
+                break;
+            case TimelineVelocity.Quick:
+                fTimelineVelocity = 18;
+                break;
+            case TimelineVelocity.VeryQuick:
+                fTimelineVelocity = 21;
+                break;
+            case TimelineVelocity.TurboFast:
+                fTimelineVelocity = 24;
+                break;
+            default:
+                break;
+        }
+    }
     //public void DebugThings()
     //{
     //    Debug.Log( this.unitName + "current velocity: " + timelineVelocity);
