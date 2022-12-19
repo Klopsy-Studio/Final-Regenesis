@@ -98,9 +98,13 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
                         {
                             controller.board.DeSelectTiles(abilityPreviewTiles);
                         }
-
                         controller.currentUnit.playerUI.ShowActionPoints();
-                        controller.currentUnit.playerUI.ShowBullets();
+
+                        if (assignedAbility.abilityEquipmentType == KitType.Gunblade)
+                        {
+                            controller.currentUnit.playerUI.ShowBullets();
+                        }
+                        
                         if (targets != null)
                         {
                             if (targets.Count > 0)

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentName: 
   sprite: {fileID: 0}
-  equipmentType: 0
+  equipmentType: 1
+  criticalPercentage: 0
   weaponAttackElement: 0
   weaponDefenseElement: 0
   power: 0

@@ -151,6 +151,7 @@ public class EnemyUnit : Unit
         DamageEffect();
         monsterUI.CreatePopUpText(transform.position, (int)damage);
 
+        controller.monsterAnimations.SetTrigger("damage");
         if(health <= lowHealth)
         {
             controller.monsterAnimations.SetTrigger("lowHealth");

@@ -76,7 +76,7 @@ public class PlayerUnit : Unit
                 slingshotParent.SetActive(false);
                 break;
             case KitType.Bow:
-                animations.SetAnimation("slingshot");
+                animations.SetAnimation("bow");
                 hammerParent.SetActive(false);
                 break;
             default:
