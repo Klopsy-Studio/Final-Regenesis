@@ -24,7 +24,21 @@ public class PlayerUnitUI : UnitUI
     [SerializeField] Sprite previewActionPointsSprite;
     [SerializeField] Sprite spentActionPointsSprite;
 
+    [Header("Hammer")]
     [SerializeField] Slider unitFury;
+
+    [Header("Gunblade")]
+    [SerializeField] GameObject bulletsObject;
+    [SerializeField] List<Image> bullets;
+    [SerializeField] List<Image> originalBullets;
+    [SerializeField] List<Image> usedBullets;
+
+    [SerializeField] Color regularColor;
+    [SerializeField] Color usedColor;
+    [SerializeField] Color previewColor;
+
+    List<Image> previewBullets = new List<Image>();
+
     int index;
 
     private void Start()
@@ -33,11 +47,43 @@ public class PlayerUnitUI : UnitUI
         {
             originalActionPoints.Add(i);
         }
+
+        foreach(Image i in bullets)
+        {
+            originalBullets.Add(i);
+        }
     }
 
+    public void HideBullets()
+    {
+        bulletsObject.SetActive(false);
+    }
     public void HideActionPoints()
     {
         actionPointsObject.SetActive(false);
+    }
+    
+    public void ShowBullets()
+    {
+        previewBullets.Clear();
+        bulletsObject.SetActive(true);
+
+        if (bullets != null)
+        {
+            foreach (Image i in bullets)
+            {
+                i.color = regularColor;
+            }
+        }
+
+
+        if (usedBullets != null)
+        {
+            foreach (Image i in usedBullets)
+            {
+                i.color = usedColor;
+            }
+        }
     }
     public void ShowActionPoints()
     {
@@ -64,7 +110,6 @@ public class PlayerUnitUI : UnitUI
 
     public void ChangeFuryValue(int value)
     {
-
         StartCoroutine(SliderValueAnimation(unitFury, value));
     }
 
@@ -77,6 +122,7 @@ public class PlayerUnitUI : UnitUI
     {
         stunIndicator.SetActive(false);
     }
+
     public void PreviewActionCost(int actionCost)
     {
         index = actionPoints.Count - 1;
@@ -88,6 +134,34 @@ public class PlayerUnitUI : UnitUI
         }
     }
 
+    public void PreviewBulletCost(int bulletCost)
+    {
+        index = bullets.Count - 1;
+
+        for (int i = bulletCost; i >0; i--)
+        {
+            bullets[index].color = previewColor;
+            previewBullets.Add(bullets[index]);
+            index--;
+        }
+    }
+
+    public void GainBullets(int bulletGain)
+    {
+        while(bulletGain+bullets.Count> originalBullets.Count)
+        {
+            bulletGain--;
+        }
+        index = usedBullets.Count-1;
+
+        for (int i = bulletGain; i >0; i--)
+        {
+            bullets.Add(usedBullets[index]);
+            usedBullets.RemoveAt(index);
+            index--;
+        }
+
+    }
     public void SpendActionPoints(int actionCost)
     {
         index = actionPoints.Count - 1;
@@ -100,6 +174,34 @@ public class PlayerUnitUI : UnitUI
         foreach(Image i in previewActionPoints)
         {
             usedActionPoints.Add(i);
+        }
+    }
+
+
+    public void SpendBullets(int bulletCost)
+    {
+        index = bullets.Count - 1;
+        for (int i = bulletCost; i > 0; i--)
+        {
+            bullets.RemoveAt(index);
+            index--;
+        }
+
+        foreach (Image i in previewBullets)
+        {
+            usedBullets.Add(i);
+        }
+    }
+
+    public void ResetBullets()
+    {
+        bullets.Clear();
+        usedBullets.Clear();
+        previewBullets.Clear();
+
+        foreach (Image i in originalBullets)
+        {
+            bullets.Add(i);
         }
     }
     public void ResetActionPoints()

@@ -52,7 +52,7 @@ public class PlayerUnit : Unit
     public int hammerFuryAmount;
     public int hammerFuryMax;
     public int gunbladeAmmoAmount;
-    
+    public int gunbladeAmmoMax;
     protected override void Start()
     {
         base.Start();
@@ -262,7 +262,27 @@ public class PlayerUnit : Unit
 
     }
 
+    public void IncreaseBullets(int ammount)
+    {
+        if (gunbladeAmmoAmount >= gunbladeAmmoMax)
+            return;
 
+        gunbladeAmmoAmount += ammount;
+        playerUI.GainBullets(ammount);
+        if(gunbladeAmmoAmount > gunbladeAmmoMax)
+        {
+            gunbladeAmmoAmount = gunbladeAmmoMax;
+        }
+    }
+    public void SpendBullets(int ammount)
+    {
+        gunbladeAmmoAmount -= ammount;
+        playerUI.SpendBullets(ammount);
+        if(gunbladeAmmoAmount <= 0)
+        {
+            gunbladeAmmoAmount = 0;
+        }
+    }
     public List<Tile> GetSurroundings(Board board)
     {
         CrossAbilityRange range = this.gameObject.GetComponent<CrossAbilityRange>();

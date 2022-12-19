@@ -229,4 +229,9 @@ public class BattleController : StateMachine
         bowExtraAttackText.text = "Set Extra Attack";
 
     }
+
+    public void PlayCorotuine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
+    }
 }

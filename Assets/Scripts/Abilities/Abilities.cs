@@ -29,16 +29,19 @@ public enum EffectType
 
 public enum AbilityTargetType
 {
-    Enemies, Allies, Obstacles, Self
+    Enemies, Allies, Obstacles, Self, Tile
 };
 [CreateAssetMenu(menuName = "Ability/New Ability")]
 public class Abilities : ScriptableObject
 {
-    [Range (1,5)]
+    public KitType abilityEquipmentType;
+    [Range(1,5)]
     public int actionCost;
-
+    [Range(0, 5)]
+    public int ammoCost;
 
     public List<RangeData> abilityRange;
+    public List<RangeData> tileTargetAbilityRange;
     public RangeData rangeData;
     [Header("Effect parameters")]
     [SerializeField] public float cameraSize = 3f;
@@ -108,7 +111,17 @@ public class Abilities : ScriptableObject
         }
     }
   
-
+    public bool CanDoAbility(int actionPoints, PlayerUnit user)
+    {
+        if (actionPoints < actionCost || user.gunbladeAmmoAmount < ammoCost)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     //public void UseAbilityAgainstPlayerUnit(Unit target)
     //{
     //    CalculateDmg();

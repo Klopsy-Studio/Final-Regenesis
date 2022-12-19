@@ -12,6 +12,7 @@ public class AbilitySequence : ScriptableObject
     [HideInInspector] public Weapons weapon;
     [HideInInspector] public bool playing;
 
+    [HideInInspector] public bool moving;
 
     [Header("Bow Variables")]
     [HideInInspector] public bool extraAttack;
@@ -21,8 +22,8 @@ public class AbilitySequence : ScriptableObject
         yield return null;
         playing = false;
     }
-    
-    public virtual IEnumerator Sequence(GameObject target, BattleController controller, bool extraAttack)
+
+    public virtual IEnumerator Sequence(List<Tile> tiles, BattleController controller)
     {
         playing = true;
         yield return null;
@@ -85,7 +86,7 @@ public class AbilitySequence : ScriptableObject
 
     public bool CheckFury()
     {
-        if(user.hammerFuryAmount >= user.hammerFuryMax)
+        if (user.hammerFuryAmount >= user.hammerFuryMax)
         {
             return true;
         }
@@ -93,5 +94,76 @@ public class AbilitySequence : ScriptableObject
         {
             return false;
         }
+    }
+
+    public IEnumerator MoveInADirection(Directions dir, BattleController controller, int moveDistance)
+    {
+        moving = true;
+        LineAbilityRange range;
+
+        if (user.GetComponent<LineAbilityRange>() != null)
+        {
+            range = user.GetComponent<LineAbilityRange>();
+        }
+        else
+        {
+            range = user.gameObject.AddComponent<LineAbilityRange>();
+        }
+
+        range.unit = user;
+        range.lineDir = dir;
+        range.lineLength = moveDistance;
+        range.stopLine = true;
+
+        List<Tile> tiles = range.GetTilesInRange(controller.board);
+        //Remove the tile the objective is supposed to be
+
+        if (tiles != null)
+        {
+            if (tiles[tiles.Count - 1] != null)
+            {
+                tiles.RemoveAt(tiles.Count - 1);
+            }
+        }
+
+        Tile tileToMove;
+
+        if (tiles != null)
+        {
+            if (tiles.Count - 1 >= 0)
+            {
+                if (tiles[tiles.Count - 1] != null)
+                {
+                    tileToMove = tiles[tiles.Count - 1];
+                }
+                else
+                {
+                    tileToMove = null;
+                }
+            }
+            else
+            {
+                tileToMove = null;
+            }
+
+        }
+        else
+        {
+            tileToMove = null;
+        }
+
+        //Move
+        if (tileToMove != null)
+        {
+            Movement m = user.GetComponent<Movement>();
+            tileToMove.prev = user.tile;
+            m.StartTraverse(tileToMove, controller.board);
+            while (m.moving)
+            {
+                yield return null;
+            }
+        }
+
+        moving = false;
     }
 }

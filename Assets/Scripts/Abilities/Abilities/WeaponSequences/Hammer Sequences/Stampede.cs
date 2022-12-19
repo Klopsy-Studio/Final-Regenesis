@@ -13,9 +13,23 @@ public class Stampede : AbilitySequence
         user = controller.currentUnit;
         playing = true;
         yield return null;
-        Unit t = target.GetComponent<Unit>();
+        Tile t;
+        if (target.GetComponent<Unit>())
+        {
+            t = target.GetComponent<Unit>().tile;
+        }
+        
+        else if (target.GetComponent<BearObstacleScript>())
+        {
+            t = controller.board.GetTile(target.GetComponent<BearObstacleScript>().pos);
+        }
+        else
+        {
+            t = null;
+        }
 
         LineAbilityRange range;
+
         if (user.GetComponent<LineAbilityRange>()!= null)
         {
             range = user.GetComponent<LineAbilityRange>();
@@ -26,7 +40,7 @@ public class Stampede : AbilitySequence
         }
 
         range.unit = user;
-        range.lineDir = user.tile.GetDirections(t.tile);
+        range.lineDir = user.tile.GetDirections(t);
         range.lineLength = 4;
         range.stopLine = true;
 
@@ -110,11 +124,12 @@ public class Stampede : AbilitySequence
 
         if(target.GetComponent<Unit>() != null)
         {
-            Attack(t);
+            Unit u = target.GetComponent<Unit>();
+            Attack(u);
 
             if (CheckFury())
             {
-                HammerFurySequence(5, t, controller, user.tile.GetDirections(t.tile));
+                HammerFurySequence(5, u, controller, user.tile.GetDirections(u.tile));
                 ResetFury();
             }
 

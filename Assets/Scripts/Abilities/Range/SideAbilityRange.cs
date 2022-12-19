@@ -56,7 +56,6 @@ public class SideAbilityRange : AbilityRange
 
         return retValue;
     }
-
     public void ChangeDirections(Tile t)
     {
         sideDir = unit.tile.GetDirections(t);

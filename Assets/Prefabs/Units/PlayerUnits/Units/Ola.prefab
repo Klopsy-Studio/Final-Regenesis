@@ -874,7 +874,8 @@ MonoBehaviour:
   slingshotParent: {fileID: 7798481099334856715}
   hammerFuryAmount: 0
   hammerFuryMax: 100
-  gunbladeAmmoAmount: 0
+  gunbladeAmmoAmount: 5
+  gunbladeAmmoMax: 5
 --- !u!114 &1364770249159690893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +927,13 @@ MonoBehaviour:
   previewActionPointsSprite: {fileID: 2192999827752927587, guid: 768f01b974ae9224f802c85819c4bf81, type: 3}
   spentActionPointsSprite: {fileID: -1924617907073917994, guid: 768f01b974ae9224f802c85819c4bf81, type: 3}
   unitFury: {fileID: 1830010440215044971}
+  bulletsObject: {fileID: 0}
+  bullets: []
+  originalBullets: []
+  usedBullets: []
+  regularColor: {r: 0, g: 0, b: 0, a: 0}
+  usedColor: {r: 0, g: 0, b: 0, a: 0}
+  previewColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!95 &8541322230166998350
 Animator:
   serializedVersion: 3
