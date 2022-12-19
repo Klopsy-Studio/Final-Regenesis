@@ -166,7 +166,7 @@ public class TimelineUI : MonoBehaviour
                 temp.offset = -70;
 
             }
-            else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.Events)
+            else if (battleController.timelineElements[i].timelineTypes == TimeLineTypes.RealtimeEvents)
             {
                 temp.element.iconTimeline = temp;
 
@@ -205,6 +205,16 @@ public class TimelineUI : MonoBehaviour
 
             }
 
+            else if(battleController.timelineElements[i].timelineTypes == TimeLineTypes.HunterEvent)
+            {
+                temp.image.sprite = playerFrame;
+                temp.element.iconTimeline = temp;
+                temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
+
+                temp.downSupport.GetComponent<Image>().enabled = true;
+                temp.downSupport.sprite = upSupport;
+                temp.offset = 70;
+            }
             temp.barSize = content.sizeDelta.x;
             temp.originalOffset = temp.offset;
             temp.icon.sprite = battleController.timelineElements[i].timelineIcon;
@@ -243,7 +253,7 @@ public class TimelineUI : MonoBehaviour
             case TimeLineTypes.EnemyUnit:
                 currentActorFrame.sprite = enemyFrame;
                 break;
-            case TimeLineTypes.Events:
+            case TimeLineTypes.RealtimeEvents:
                 currentActorFrame.sprite = eventFrame;
                 break;
             case TimeLineTypes.Items:

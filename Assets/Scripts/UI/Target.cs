@@ -25,34 +25,41 @@ public class Target : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        owner.selectedTarget = this;
-        controller.SelectTile(targetPosition);
-
-        switch (targetType)
+        if (!owner.stopSelection)
         {
-            case AbilityTargetType.Enemies:
-                controller.tileSelectionToggle.MakeTileSelectionBig();
-                break;
-            case AbilityTargetType.Allies:
-                controller.tileSelectionToggle.MakeTileSelectionSmall();
-                break;
-            case AbilityTargetType.Obstacles:
-                controller.tileSelectionToggle.MakeTileSelectionSmall();
-                break;
-            default:
-                break;
-        }
+            owner.selectedTarget = this;
+            controller.SelectTile(targetPosition);
 
-        targetDisplay.color = selectedColor;
+            switch (targetType)
+            {
+                case AbilityTargetType.Enemies:
+                    controller.tileSelectionToggle.MakeTileSelectionBig();
+                    break;
+                case AbilityTargetType.Allies:
+                    controller.tileSelectionToggle.MakeTileSelectionSmall();
+                    break;
+                case AbilityTargetType.Obstacles:
+                    controller.tileSelectionToggle.MakeTileSelectionSmall();
+                    break;
+                default:
+                    break;
+            }
+
+            targetDisplay.color = selectedColor;
+        }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        owner.selectedTarget = null;
-        targetDisplay.color = defaultColor;
-        controller.tileSelectionToggle.MakeTileSelectionSmall();
+        if (!owner.stopSelection)
+        {
+            owner.selectedTarget = null;
+            targetDisplay.color = defaultColor;
+            controller.tileSelectionToggle.MakeTileSelectionSmall();
 
-        controller.SelectTile(controller.currentUnit.tile.pos);
+            controller.SelectTile(controller.currentUnit.tile.pos);
+        }
     }
     public void SetTarget()
     {

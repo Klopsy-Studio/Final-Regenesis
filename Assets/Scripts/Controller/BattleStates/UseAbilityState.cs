@@ -14,6 +14,12 @@ public class UseAbilityState : BattleState
     //PLACEHOLDER 
     bool attacking;
     bool selected;
+
+    bool test;
+
+    bool isTargetTile;
+    public Tile selectedTile;
+    List<SpriteRenderer> spriteTargets = new List<SpriteRenderer>();
     public override void Enter()
     {
         base.Enter();
@@ -23,12 +29,36 @@ public class UseAbilityState : BattleState
         owner.ActivateTileSelector();
         currentAbility = owner.currentUnit.weapon.Abilities[owner.attackChosen];
 
-        owner.currentUnit.playerUI.PreviewActionCost(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
+        owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost);
         //tiles = PreviewAbility();
+        tiles = new List<Tile>();
 
-        tiles = PreviewAbility(currentAbility.rangeData);
+        foreach(RangeData r in currentAbility.abilityRange)
+        {
+            List<Tile> dirtyTiles = PreviewAbility(r);
+            foreach(Tile t in dirtyTiles)
+            {
+                if (!tiles.Contains(t))
+                {
+                    tiles.Add(t);
+                }
+            }
+        }
 
         board.SelectAbilityTiles(tiles);
+
+        switch (owner.currentUnit.weapon.EquipmentType)
+        {
+            case KitType.Hammer:
+                break;
+            case KitType.Bow:
+                owner.bowExtraAttackObject.SetActive(true);
+                break;
+            case KitType.Gunblade:
+                break;
+            default:
+                break;
+        }
 
         foreach(AbilityTargetType target in currentAbility.elementsToTarget)
         {
@@ -67,18 +97,28 @@ public class UseAbilityState : BattleState
                         }
                     }
                     break;
+                case AbilityTargetType.Self:
+                    targetTiles.Add(owner.currentUnit.tile);
+                    break;
+
+                case AbilityTargetType.Tile:
+                    isTargetTile = true;
+                    break;
                 default:
                     break;
             }
         }
 
-        owner.targets.gameObject.SetActive(true);
-
-        if(targetTiles != null || targetTiles.Count > 0)
+        if (!isTargetTile)
         {
-            owner.targets.CreateTargets(targetTiles);
+            owner.targets.gameObject.SetActive(true);
+
+
+            if (targetTiles != null || targetTiles.Count > 0)
+            {
+                owner.targets.CreateTargets(targetTiles);
+            }
         }
-        
     }
 
 
@@ -106,68 +146,191 @@ public class UseAbilityState : BattleState
 
     }
 
-    //protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
-    //{
-    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(ray, out hit, 100))
-    //    {
-    //        var a = hit.transform.gameObject;
-    //        var t = a.GetComponent<Tile>();
+    public void ExtraAttackBow()
+    {
+        if(currentAbility.actionCost+1<= owner.currentUnit.actionsPerTurn)
+        {
+            owner.SetBowExtraAttack();
 
-    //        if (t != null)
-    //        {
-    //            if (!attacking)
-    //            {
-    //                if(targetTiles != null)
-    //                {
-    //                    if (targetTiles.Contains(board.GetTile(e.info + t.pos)))
-    //                    {
-    //                        if (t.content != null)
-    //                        {
-    //                            if (t.content.GetComponent<EnemyUnit>())
-    //                            {
-    //                                if (!onMonster)
-    //                                {
-    //                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
-    //                                }
-    //                            }
-    //                            else if (t.content.GetComponent<PlayerUnit>())
-    //                            {
-    //                                CleanSelectTiles();
-    //                                SelectTile(e.info + t.pos);
-    //                                owner.tileSelectionToggle.MakeTileSelectionSmall();
-    //                                selectTiles.Add(t);
-    //                                board.SelectAttackTiles(selectTiles);
-    //                                onMonster = false;
-    //                            }
-    //                        }
-    //                        else
-    //                        {
-    //                            if (t.occupied)
-    //                            {
-    //                                if (!onMonster)
-    //                                {
-    //                                    SelectMonster(owner.enemyUnits[0].GetComponent<EnemyUnit>(), t);
-    //                                }
-    //                            }
+            if (owner.bowExtraAttack)
+            {
+                owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost + 1);
+            }
+            else
+            {
+                owner.currentUnit.playerUI.ShowActionPoints();
+                owner.currentUnit.playerUI.PreviewActionCost(currentAbility.actionCost);
+            }
+        }
+    }
 
-    //                            else
-    //                            {
-    //                                CleanSelectTiles();
-    //                                SelectTile(e.info + t.pos);
-    //                                owner.tileSelectionToggle.MakeTileSelectionSmall();
-    //                                onMonster = false;
-    //                            }
-    //                        }
-    //                    }
-    //                } 
-    //            }
-    //        }
-    //    }
-    //}
+    protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)
+    {
+        if (isTargetTile)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                var a = hit.transform.gameObject;
+                var t = a.GetComponent<Tile>();
+
+                if (t != null)
+                {
+                    if (!attacking)
+                    {
+                        if (tiles != null)
+                        {
+                            if (tiles.Contains(board.GetTile(e.info + t.pos)))
+                            {
+                                SelectTile(e.info + t.pos);
+                                selectedTile = board.GetTile(e.info + t.pos);
+
+                                if (selectTiles != null)
+                                {
+                                    board.DeSelectTiles(selectTiles);
+                                }
+
+                                GetSelectTiles(currentAbility);
+
+                                board.SelectAttackTiles(selectTiles);
+
+                                foreach(Tile tile in selectTiles)
+                                {
+                                    if(tile.content != null)
+                                    {
+                                        if (t.content.GetComponent<Unit>())
+                                        {
+                                            if (!spriteTargets.Contains(t.content.GetComponent<Unit>().unitSprite))
+                                            {
+                                                spriteTargets.Add(t.content.GetComponent<Unit>().unitSprite);
+                                            }
+                                        }
+
+                                        if(t.content.GetComponent<BearObstacleScript>()!= null)
+                                        {
+                                            if (!spriteTargets.Contains(t.content.GetComponent<SpriteRenderer>()))
+                                            {
+                                                spriteTargets.Add(t.content.GetComponent<SpriteRenderer>());
+                                            }
+                                        }
+                                    }
+
+                                    if (tile.occupied)
+                                    {
+                                        if (!spriteTargets.Contains(owner.enemyUnits[0].unitSprite))
+                                        {
+                                            spriteTargets.Add(owner.enemyUnits[0].unitSprite);
+                                        }
+                                    }
+                                }
 
 
+                                if(spriteTargets != null)
+                                {
+                                    if (spriteTargets.Count > 0)
+                                    {
+                                        foreach(SpriteRenderer s in spriteTargets)
+                                        {
+                                            s.color = new Color(s.color.r, s.color.g, s.color.b, 1f);
+                                        }
+                                    }
+                                }
+                                
+                            }
+                            else
+                            {
+                                board.DeSelectTiles(selectTiles);
+                                selectTiles.Clear();
+
+                                if (spriteTargets != null)
+                                {
+                                    if (spriteTargets.Count > 0)
+                                    {
+                                        foreach (SpriteRenderer s in spriteTargets)
+                                        {
+                                            s.color = new Color(s.color.r, s.color.g, s.color.b, 0.6f);
+                                        }
+                                    }
+
+                                    spriteTargets.Clear();
+                                    selectedTile = null;
+                                }
+
+                            }
+                        }
+
+
+                    }
+                }
+
+            }
+
+           
+        }
+        
+    }
+
+    public void GetSelectTiles(Abilities ability)
+    {
+        List<Tile> tiles;
+
+        foreach(RangeData r in ability.tileTargetAbilityRange)
+        {
+            tiles = GetTiles(r);
+
+            foreach(Tile t in tiles)
+            {
+                if (!selectTiles.Contains(t))
+                {
+                    selectTiles.Add(t);
+                }
+            }
+        }
+    }
+    public List<Tile> GetTiles (RangeData data)
+    {
+        switch (data.range)
+        {
+            case TypeOfAbilityRange.Cone:
+                return null;
+            case TypeOfAbilityRange.Constant:
+                return null;
+            case TypeOfAbilityRange.Infinite:
+                return null;
+            case TypeOfAbilityRange.LineAbility:
+                LineAbilityRange line = GetRange<LineAbilityRange>();
+                line.AssignVariables(data);
+                return line.GetTilesInRange(board);
+            case TypeOfAbilityRange.SelfAbility:
+                return null;
+            case TypeOfAbilityRange.SquareAbility:
+                SquareAbilityRange square = GetRange<SquareAbilityRange>();
+                square.AssignVariables(data);
+                return square.GetTilesInRangeWithoutUnit(board, owner.currentTile.pos);
+            case TypeOfAbilityRange.Side:
+                SideAbilityRange side = GetRange<SideAbilityRange>();
+                side.AssignVariables(data);
+                return side.GetTilesInRange(board);
+            case TypeOfAbilityRange.AlternateSide:
+                AlternateSideRange altSide = GetRange<AlternateSideRange>();
+                altSide.AssignVariables(data);
+                return altSide.GetTilesInRange(board);
+            case TypeOfAbilityRange.Cross:
+                CrossAbilityRange cross = GetRange<CrossAbilityRange>();
+                cross.AssignVariables(data);
+                return cross.GetTilesInRange(board);
+            case TypeOfAbilityRange.Normal:
+                return null;
+            case TypeOfAbilityRange.Item:
+                ItemRange item = GetRange<ItemRange>();
+                item.AssignVariables(data);
+                item.tile = owner.currentTile;
+                return item.GetTilesInRange(board);
+            default:
+                return null;
+        }
+    }
     public void SelectMonster(EnemyUnit enemy, Tile t)
     {
         CleanSelectTiles();
@@ -189,32 +352,60 @@ public class UseAbilityState : BattleState
     }
     protected override void OnMouseConfirm(object sender, InfoEventArgs<KeyCode> e)
     {
-        
+        if (!test)
+        {
+            test = true;
+            return;
+        }
         if (!attacking)
         {
-            if(owner.targets.selectedTarget != null)
+            if (isTargetTile)
             {
-                owner.currentUnit.playerUI.unitUI.gameObject.SetActive(false);
-                owner.currentUnit.playerUI.SpendActionPoints(owner.currentUnit.weapon.Abilities[owner.attackChosen].actionCost);
-                Unit target = owner.targets.selectedTarget.targetAssigned.GetComponent<Unit>();
-                StartCoroutine(UseAbilitySequence(target));
+                if(selectedTile!= null)
+                {
+                    if (spriteTargets != null)
+                    {
+                        if (spriteTargets.Count > 0)
+                        {
+                            foreach (SpriteRenderer s in spriteTargets)
+                            {
+                                s.color = new Color(s.color.r, s.color.g, s.color.b, 1f);
+                            }
+                        }
+                    }
+
+                    owner.ResetUnits();
+
+                    owner.currentUnit.playerUI.HideActionPoints();
+                    owner.currentUnit.playerUI.HideBullets();
+
+                    board.DeSelectTiles(tiles);
+                    board.DeSelectDefaultTiles(selectTiles);
+
+                    owner.bowExtraAttackObject.SetActive(false);
+                    StartCoroutine(UseAbilitySequence(selectTiles));
+                    owner.ResetUnits();
+                    owner.targets.gameObject.SetActive(false);
+                    owner.targets.stopSelection = true;
+                }
             }
 
+            else
+            {
+                if (owner.targets.selectedTarget != null)
+                {
+                    owner.currentUnit.playerUI.HideActionPoints();
+                    owner.currentUnit.playerUI.HideBullets();
+                    GameObject objectTarget = owner.targets.selectedTarget.targetAssigned;
 
-            //if(selectTiles != null)
-            //{
-            //    foreach (Tile t in selectTiles)
-            //    {
-            //        if (t.content != null && !attacking)
-            //        {
-            //            if (t.content.gameObject.GetComponent<Unit>() != null && selectTiles.Contains(owner.currentTile))
-            //            {
-                            
-            //            }
-            //        }
-
-            //    }
-            //}
+                    board.DeSelectTiles(tiles);
+                    owner.bowExtraAttackObject.SetActive(false);
+                    StartCoroutine(UseAbilitySequence(objectTarget));
+                    owner.ResetUnits();
+                    owner.targets.gameObject.SetActive(false);
+                    owner.targets.stopSelection = true;
+                }
+            }
             
         }
     }
@@ -241,99 +432,53 @@ public class UseAbilityState : BattleState
         }
     }
 
-
-    IEnumerator UseAbilitySequence(Unit target)
+    IEnumerator UseAbilitySequence(GameObject target)
     {
         attacking = true;
 
-        currentAbility.UseAbility(target, owner);
+        StartCoroutine(currentAbility.sequence.Sequence(target, owner));
 
-        if(currentAbility.inAbilityEffects != null)
-        {
-            foreach(Effect e in currentAbility.inAbilityEffects)
-            {
-                switch (e.effectType)
-                {
-                    case TypeOfEffect.PushUnit:
-                        e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
-                        break;
-                    case TypeOfEffect.FallBack:
-                        e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
-                        break;
-                    case TypeOfEffect.AddStunValue:
-                        e.AddStunValue(target, 5);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        AudioManager.instance.Play("HunterAttack");
-        owner.currentUnit.Attack();
-
-        if (target.GetComponent<PlayerUnit>() != null)
-        {
-            if (!target.GetComponent<PlayerUnit>().isNearDeath)
-            {
-                target.Damage();
-            }
-        }
-
-        while (ActionEffect.instance.play)
+        while (currentAbility.sequence.playing)
         {
             yield return null;
         }
 
-        owner.currentUnit.actionDone = true;
-
-        if (target.GetComponent<PlayerUnit>() != null)
+        if (!owner.endTurnInstantly)
         {
-            if (!target.GetComponent<PlayerUnit>().isNearDeath)
-            {
-                target.Default();
-            }
-        }
-
-        foreach (Effect e in currentAbility.postAbilityEffect)
-        {
-            switch (e.effectType)
-            {
-                case TypeOfEffect.PushUnit:
-                    e.PushUnit(target, owner.currentUnit.tile.GetDirections(target.tile), board);
-                    break;
-                case TypeOfEffect.FallBack:
-                    e.FallBack(owner.currentUnit, owner.currentUnit.tile.GetDirections(target.tile), board);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        owner.currentUnit.animations.SetIdle();
-
-        yield return new WaitForSeconds(0.5f);
-
-        if (target.isDead)
-        {
-            if(target.GetComponent<EnemyUnit>() != null)
-            {
-                owner.enemyUnits.Remove(target);
-
-                if (owner.enemyUnits.Count == 0)
-                {
-                    owner.ChangeState<WinState>();
-                }
-            }
+            owner.currentUnit.animations.SetIdle();
+            owner.ChangeState<SelectActionState>();
         }
 
         else
         {
-            yield return null;
-            owner.ChangeState<SelectActionState>();
+            owner.endTurnInstantly = false;
+            owner.ChangeState<FinishPlayerUnitTurnState>();
         }
     }
 
+    public IEnumerator UseAbilitySequence(List<Tile> target)
+    {
+        attacking = true;
+
+        StartCoroutine(currentAbility.sequence.Sequence(target, owner));
+
+        while (currentAbility.sequence.playing)
+        {
+            yield return null;
+        }
+
+        if (!owner.endTurnInstantly)
+        {
+            owner.currentUnit.animations.SetIdle();
+            owner.ChangeState<SelectActionState>();
+        }
+
+        else
+        {
+            owner.endTurnInstantly = false;
+            owner.ChangeState<FinishPlayerUnitTurnState>();
+        }
+    }
     public override void Exit()
     {
         base.Exit();
@@ -356,71 +501,32 @@ public class UseAbilityState : BattleState
         owner.attackChosen = 0;
 
         targetTiles.Clear();
+        spriteTargets.Clear();
         owner.targets.ClearTargets();
+        owner.ResetUnits();
         owner.targets.gameObject.SetActive(false);
+        owner.targets.stopSelection = false;
 
+        //For the first click inside the state
+        test = false;
+
+        //Bow variables
+        owner.bowExtraAttackObject.SetActive(false);
+        owner.bowExtraAttack = false;
+        owner.ResetBowExtraAttack();
+        isTargetTile = false;
+        selectedTile = null;
     }
 
     public List<Tile> PreviewAbility(RangeData data)
     {
-        switch (data.range)
-        {
-            case TypeOfAbilityRange.Cone:
-                ConeAbilityRange rangeCone = GetRange<ConeAbilityRange>();
-                rangeCone.unit = owner.currentUnit;
-                return rangeCone.GetTilesInRange(board);
+        List<Tile> t = new List<Tile>();
+        AbilityRange range = data.GetOrCreateRange(data.range,owner.currentUnit.gameObject);
+        range.unit = owner.currentUnit;
 
-            case TypeOfAbilityRange.Constant:
-                ConstantAbilityRange rangeConstant = GetRange<ConstantAbilityRange>();
-                rangeConstant.unit = owner.currentUnit;
+        t = range.GetTilesInRange(board);
+        return t;
 
-                return rangeConstant.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Infinite:
-                InfiniteAbilityRange infiniteRange = GetRange<InfiniteAbilityRange>();
-                infiniteRange.unit = owner.currentUnit;
-                return infiniteRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.LineAbility:
-                LineAbilityRange lineRange = GetRange<LineAbilityRange>();
-                lineRange.AssignVariables(data);
-                lineRange.unit = owner.currentUnit;
-
-                return lineRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.SelfAbility:
-                SelfAbilityRange selfRange = GetRange<SelfAbilityRange>();
-                selfRange.unit = owner.currentUnit;
-                return selfRange.GetTilesInRange(board);
-                
-            case TypeOfAbilityRange.SquareAbility:
-                SquareAbilityRange squareRange = GetRange<SquareAbilityRange>();
-                squareRange.AssignVariables(data);
-                squareRange.unit = owner.currentUnit;
-
-                return squareRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Side:
-
-                MovementRange sideRange = GetRange<MovementRange>();
-                sideRange.unit = owner.currentUnit;
-                sideRange.AssignVariables(data);
-                return sideRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Cross:
-                CrossAbilityRange crossRange = GetRange<CrossAbilityRange>();
-                crossRange.AssignVariables(data);
-                crossRange.unit = owner.currentUnit;
-
-                return crossRange.GetTilesInRange(board);
-
-            case TypeOfAbilityRange.Normal:
-                MovementRange normalRange = GetRange<MovementRange>();
-                normalRange.AssignVariables(data);
-                normalRange.unit = owner.currentUnit;
-                return normalRange.GetTilesInRange(board);
-            default:
-                return null;
-        }
     }
+   
 }

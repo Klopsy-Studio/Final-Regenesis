@@ -6,6 +6,9 @@ public class LineAbilityRange : AbilityRange
 {
     public int lineLength = 2;
     public Directions lineDir;
+    public bool stopLine = false;
+    public int lineOffset = 0;
+
     public override List<Tile> GetTilesInRange(Board board)
     {
         Point startPos = unit.tile.pos;
@@ -15,59 +18,127 @@ public class LineAbilityRange : AbilityRange
         switch (lineDir)
         {
             case Directions.North:
-                for (int i = 0; i < lineLength+1; i++)
+                for (int i = 1; i < lineLength+1; i++)
                 {
-                    if (board.GetTile(startPos + new Point(0, i)) != null)
+                    if(lineOffset >= i)
                     {
-                        retValue.Add(board.GetTile(startPos + new Point(0, i)));
+                        continue;
                     }
                     else
                     {
-                        break;
+                        if (board.GetTile(startPos + new Point(0, i)) != null)
+                        {
+                            Tile t = board.GetTile(startPos + new Point(0, i));
+                            retValue.Add(board.GetTile(startPos + new Point(0, i)));
+
+                            if (stopLine)
+                            {
+                                if (t.content != null || t.occupied)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
-                 
                 }
                 break;
             case Directions.East:
-                for (int i = 0; i < lineLength+1; i++)
+                for (int i = 1; i < lineLength+1; i++)
                 {
-                    if (board.GetTile(startPos + new Point(-i, 0)) != null)
+                    if (lineOffset >= i)
                     {
-                        retValue.Add(board.GetTile(startPos+ new Point(-i, 0)));
+                        continue;
                     }
                     else
                     {
-                        break;
-                    }
+                        if (board.GetTile(startPos + new Point(-i, 0)) != null)
+                        {
+                            Tile t = board.GetTile(startPos + new Point(-i, 0));
+                            retValue.Add(t);
 
+                            if (stopLine)
+                            {
+                                if (t.content != null || t.occupied)
+                                {
+                                    break;
+                                }
+                            }
+
+                            else
+                            {
+                                retValue.Add(board.GetTile(startPos + new Point(-i, 0)));
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
                 break;
             case Directions.South:
-                for (int i = 0; i < lineLength+1; i++)
+                for (int i = 1; i < lineLength+1; i++)
                 {
-                    if (board.GetTile(startPos + new Point(0,-i)) != null)
+                    if (lineOffset >= i)
                     {
-                        retValue.Add(board.GetTile(startPos + new Point(0, -i)));
+                        continue;
                     }
                     else
                     {
-                        break;
-                    }
+                        if (board.GetTile(startPos + new Point(0, -i)) != null)
+                        {
+                            Tile t = board.GetTile(startPos + new Point(0, -i));
 
+                            retValue.Add(t);
+
+                            if (t.content != null || t.occupied)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
                 break;
             case Directions.West:
-                for (int i = 0; i < lineLength+1; i++)
+                for (int i = 1; i < lineLength+1; i++)
                 {
-                    if (board.GetTile(startPos + new Point(i, 0)) != null)
+
+                    if (lineOffset >= i)
                     {
-                        retValue.Add(board.GetTile(startPos + new Point(i, 0)));
+                        continue;
                     }
                     else
                     {
-                        break;
-                    }
+                        if (board.GetTile(startPos + new Point(i, 0)) != null)
+                        {
+                            Tile t = board.GetTile(startPos + new Point(i, 0));
+                            retValue.Add(t);
+                            if (stopLine)
+                            {
+                                if (t.content != null || t.occupied)
+                                {
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                retValue.Add(t);
+                            }
+                        }
 
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
                 break;
             default:
@@ -87,5 +158,7 @@ public class LineAbilityRange : AbilityRange
     {
         lineDir = rangeData.lineDir;
         lineLength = rangeData.lineLength;
+        stopLine = rangeData.stopLine;
+        lineOffset = rangeData.lineOffset;
     }
 }

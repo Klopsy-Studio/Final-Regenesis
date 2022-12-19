@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Equipment/New weapon")]
 public class Weapons : Equipment
 {
-    int criticalPercentage;
+    public int criticalPercentage;
     public int CriticalPercentage { get { return criticalPercentage; } }
 
-    [SerializeField] WeaponElement weaponPowerElement;
-    public WeaponElement WeaponPowerElement { get { return weaponPowerElement; } }
+    [SerializeField] WeaponElement weaponAttackElement;
+    public WeaponElement WeaponAttackElement { get { return weaponAttackElement; } }
 
     [SerializeField] WeaponElement weaponDefenseElement;
     public WeaponElement WeaponDefenseElement { get { return weaponDefenseElement; } }
@@ -38,13 +38,22 @@ public class Weapons : Equipment
 
     public override void EquipItem(PlayerUnit c)
     {
-        c.playerPower = power;
-        c.playerCriticalPercentage = criticalPercentage;
-        c.playerAttackElement = WeaponPowerElement;
-        c.playerDefenseElement = WeaponDefenseElement;
-        c.playerElementPower = elementPower;
-        c.playerDefense = defense;
+        c.power = power;
+        c.criticalPercentage = criticalPercentage;
+        c.attackElement = WeaponAttackElement;
+        c.defenseElement = WeaponDefenseElement;
+        c.elementPower = elementPower;
+        c.defense = defense;
 
+        foreach(Abilities a in Abilities)
+        {
+            if(a.sequence != null)
+            {
+                a.sequence.user = c;
+                a.weapon = this;
+                a.sequence.ability = a;
+            }
+        }
     }
 
     private void OnEnable()

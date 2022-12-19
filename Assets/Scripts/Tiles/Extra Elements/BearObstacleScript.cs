@@ -8,6 +8,7 @@ public class BearObstacleScript : MonoBehaviour
     [SerializeField] CrossAbilityRange crossRange;
     [SerializeField] float obstacleDamage;
 
+    public MonsterController controller;
     public Point pos;
     [SerializeField] Animator obstacleAnimations;
 
@@ -33,7 +34,19 @@ public class BearObstacleScript : MonoBehaviour
         return tiles;
     }
 
+    public void GetDestroyed(Board board)
+    {
+        board.GetTile(pos).content = null;
+        controller.obstaclesInGame.Remove(this);
 
+        if (controller.validObstacles.Contains(this))
+        {
+            controller.validObstacles.Remove(this);
+        }
+
+        this.gameObject.SetActive(false);
+
+    }
     public bool IsObstacleValid(Board board)
     {
         foreach(Tile t in crossRange.GetTilesOnRangeWithoutUnit(pos, board))

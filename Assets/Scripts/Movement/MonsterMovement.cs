@@ -9,22 +9,36 @@ public class MonsterMovement : WalkMovement
 
     public override void PushUnit(Directions pushDir, int pushStrength, Board board)
     {
+        LineAbilityRange lineRange = GetComponent<LineAbilityRange>();
+        lineRange.lineDir = pushDir;
+        lineRange.lineLength = pushStrength;
+        //lineRange.lineOffset = pushStrength - 1;
+        lineRange.stopLine = true; 
+
         CrossAbilityRange crossRange = GetComponent<CrossAbilityRange>();
         crossRange.offset = pushStrength - 1;
         crossRange.crossLength = pushStrength;
         range = pushStrength;
-        List<Tile> t = crossRange.GetTilesInRange(board);
+        List<Tile> tiles = lineRange.GetTilesInRange(board);
         Tile desiredTile = null;
 
-        foreach (Tile dirTile in t)
-        {
-            if (unit.tile.GetDirections(dirTile) == pushDir)
-            {
-                desiredTile = dirTile;
-            }
-        }
 
-        if (desiredTile != null && desiredTile.content == null && desiredTile.CheckSurroundings(board) != null)
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            if (tiles[i] != null && tiles[i].CheckSurroundings(board) != null)
+            {
+                desiredTile = tiles[i];
+            }
+            else
+            {
+                break;
+            }
+
+        }
+        
+        
+
+        if (desiredTile != null)
         {
             desiredTile.prev = unit.tile;
             StartCoroutine(Traverse(desiredTile, board));

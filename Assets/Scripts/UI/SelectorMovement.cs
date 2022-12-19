@@ -47,6 +47,10 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
                         controller.currentUnit.playerUI.PreviewActionCost(assignedAbility.actionCost);
 
+                        if(assignedAbility.abilityEquipmentType == KitType.Gunblade)
+                        {
+                            controller.currentUnit.playerUI.PreviewBulletCost(assignedAbility.ammoCost);
+                        }
 
                         if (targets != null)
                         {
@@ -96,7 +100,7 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
                         }
 
                         controller.currentUnit.playerUI.ShowActionPoints();
-
+                        controller.currentUnit.playerUI.ShowBullets();
                         if (targets != null)
                         {
                             if (targets.Count > 0)
@@ -151,10 +155,23 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
     public void GetPreviewRange()
     {
-        AbilityRange range = assignedAbility.rangeData.GetOrCreateRange(assignedAbility.rangeData.range, controller.currentUnit.gameObject);
-        range.unit = controller.currentUnit;
+        foreach(RangeData r in assignedAbility.abilityRange)
+        {
+            List<Tile> tiles;
+            AbilityRange range = r.GetOrCreateRange(r.range, controller.currentUnit.gameObject);
+            range.unit = controller.currentUnit;
 
-        abilityPreviewTiles = range.GetTilesInRange(controller.board);
+            tiles = range.GetTilesInRange(controller.board);
+
+            foreach(Tile t in tiles)
+            {
+                if (!abilityPreviewTiles.Contains(t))
+                {
+                    abilityPreviewTiles.Add(t);
+                }
+            }
+        }
+        
     }
     public void GetTargets()
     {
@@ -176,7 +193,6 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
                     }
                     break;
                 case AbilityTargetType.Allies:
-
                     foreach (Tile t in abilityPreviewTiles)
                     {
                         if (t.content != null)
@@ -196,6 +212,18 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
                             if (t.content.GetComponent<BearObstacleScript>() != null)
                             {
                                 targets.Add(t.content.GetComponent<SpriteRenderer>());
+                            }
+                        }
+                    }
+                    break;
+                case AbilityTargetType.Self:
+                    foreach (Tile t in abilityPreviewTiles)
+                    {
+                        if (t.content != null)
+                        {
+                            if (t.content.GetComponent<PlayerUnit>() != null)
+                            {
+                                targets.Add(t.content.GetComponent<PlayerUnit>().unitSprite);
                             }
                         }
                     }

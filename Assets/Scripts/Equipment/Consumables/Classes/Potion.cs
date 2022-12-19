@@ -9,23 +9,10 @@ public class Potion : Consumables
    
     public override bool ApplyConsumable(Unit unit)
     {
-        
-        unit.health += addHealth;
-
-        if(unit.health> unit.maxHealth)
-        {
-            unit.health = unit.maxHealth;
-        }
-
+        unit.Heal(addHealth);
         unit.HealEffect();
         
-        if(unit.GetComponent<PlayerUnit>() != null)
-        {
-            PlayerUnit p = unit.GetComponent<PlayerUnit>();
-            p.status.HealthAnimation(p.health);
-        }
         return true;
-
     }
 
     public override bool ApplyConsumable(Tile t, BattleController battleController)
@@ -36,12 +23,7 @@ public class Potion : Consumables
             {
                 Unit unit = t.content.GetComponent<Unit>();
 
-                unit.health += addHealth;
-
-                if (unit.health > unit.maxHealth)
-                {
-                    unit.health = unit.maxHealth;
-                }
+                unit.Heal(addHealth);
 
                 unit.HealEffect();
 
@@ -61,7 +43,6 @@ public class Potion : Consumables
                         p.Revive(battleController);
                     }
 
-                    p.status.HealthAnimation(p.health);
                 }
                 return true;
             }

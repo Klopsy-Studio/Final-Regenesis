@@ -12,17 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92293337c2721b7438af83a935bcd548, type: 3}
   m_Name: ScrapBow_3
   m_EditorClassIdentifier: 
-  equipmentName: 
-  sprite: {fileID: 0}
-  equipmentType: 0
+  equipmentName: Scrap Bow 3
+  sprite: {fileID: 21300000, guid: 3377da32526a6f542b27186a4dc33c43, type: 3}
+  equipmentType: 1
+  criticalPercentage: 0
   weaponAttackElement: 0
   weaponDefenseElement: 0
-  power: 0
+  power: 68
   elementPower: 0
-  defense: 0
-  originalRange: 0
-  range: 0
-  Abilities: []
-  weaponSprite: {fileID: 0}
-  weaponCombat: {fileID: 0}
-  weaponIcon: {fileID: 0}
+  defense: 12
+  originalRange: 4
+  range: 4
+  Abilities:
+  - {fileID: 11400000, guid: 552638faf7f68d742a24b53ffebef8b2, type: 2}
+  - {fileID: 11400000, guid: 577af5607b1c56f49a4865d255cb48ba, type: 2}
+  - {fileID: 11400000, guid: 229ed7a7c3657144e97d9dec41a10e87, type: 2}
+  - {fileID: 11400000, guid: ce42a20d999375647b372c124e2f89cf, type: 2}
+  weaponSprite: {fileID: 21300000, guid: 3377da32526a6f542b27186a4dc33c43, type: 3}
+  weaponCombat: {fileID: 21300000, guid: 6217c3790e8c4294481e668cbb89c961, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 97095ccd0b3a1434eb26aa4982db7490, type: 3}

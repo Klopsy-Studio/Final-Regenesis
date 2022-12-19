@@ -91,7 +91,7 @@ public class InitBattleState : BattleState
 
         switch (unit.weapon.EquipmentType)
         {
-            case EquipmentType.Hammer:
+            case KitType.Hammer:
 
                 if(data.unitWeapon.weaponSprite != null)
                 {
@@ -99,7 +99,7 @@ public class InitBattleState : BattleState
                 }
                 
                 break;
-            case EquipmentType.Slingshot:
+            case KitType.Bow:
                 if (data.unitWeapon.weaponSprite != null)
                 {
                     unit.slingshotSprite.sprite = data.unitWeapon.weaponCombat;

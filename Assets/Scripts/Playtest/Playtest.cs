@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Playtest : MonoBehaviour
 {
-    public List<TimelineElements> elements;
+    [HideInInspector]public List<TimelineElements> elements;
      
 
 
@@ -12,4 +12,6 @@ public class Playtest : MonoBehaviour
     {
         element.timelineFill = 100;
     }
+
+
 }

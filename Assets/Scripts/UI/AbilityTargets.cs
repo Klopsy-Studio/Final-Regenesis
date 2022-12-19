@@ -11,11 +11,12 @@ public class AbilityTargets : MonoBehaviour
 
     public List<Target> currentTargets;
 
-    bool monsterTargetted; 
+    bool monsterTargetted;
 
-
+    public bool stopSelection;
     public void CreateTargets(List<Tile> targetTiles)
     {
+        monsterTargetted = false;
         foreach(Tile t in targetTiles)
         {
             if (t.occupied && !monsterTargetted)
@@ -59,6 +60,7 @@ public class AbilityTargets : MonoBehaviour
             parent.transform.GetChild(0).transform.parent = null;
         }
 
+        selectedTarget = null;
         currentTargets.Clear();
     }
 }

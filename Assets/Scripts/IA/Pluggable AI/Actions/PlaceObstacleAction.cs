@@ -26,7 +26,7 @@ public class PlaceObstacleAction : Action
                 controller.battleController.SelectTile(o.pos);
                 ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
                 AudioManager.instance.Play("ObstacleExplosion");
-                while (ActionEffect.instance.play || ActionEffect.instance.recovery)
+                while (ActionEffect.instance.CheckActionEffectState())
                 {
                     yield return null;
                 }
@@ -75,7 +75,7 @@ public class PlaceObstacleAction : Action
                 tiles.Add(tileToPlaceObstacle);
 
                 BearObstacleScript obstacle = Instantiate(controller.obstacle, new Vector3(tileToPlaceObstacle.pos.x, 1, tileToPlaceObstacle.pos.y), controller.obstacle.transform.rotation).GetComponent<BearObstacleScript>();
-
+                obstacle.controller = controller;
                 obstacle.pos = tileToPlaceObstacle.pos;
                 controller.obstaclesInGame.Add(obstacle.GetComponent<BearObstacleScript>());
 
@@ -95,7 +95,7 @@ public class PlaceObstacleAction : Action
             AudioManager.instance.Play("MonsterRoar");
             ActionEffect.instance.Play(4, 0.5f, 0.01f, 0.05f);
 
-            while (ActionEffect.instance.play)
+            while (ActionEffect.instance.CheckActionEffectState())
             {
                 yield return null;
             }

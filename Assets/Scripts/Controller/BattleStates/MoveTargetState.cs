@@ -121,10 +121,9 @@ public class MoveTargetState : BattleState
         }
         if (tiles.Contains(owner.currentTile) && owner.currentTile != originPoint)
         {
-            owner.currentUnit.playerUI.SpendActionPoints(2);
             owner.ghostImage.gameObject.SetActive(false);
             owner.currentUnit.didNotMove = false;
-            owner.currentUnit.ActionsPerTurn -= 2;
+            owner.currentUnit.SpendActionPoints(owner.moveCost);
             owner.currentUnit.actionDone = true;
             owner.ChangeState<MoveSequenceState>();
         }

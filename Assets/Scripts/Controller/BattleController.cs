@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class BattleController : StateMachine
 {
     [HideInInspector] public MonsterController monsterController;
 
-    public bool isTimeLineActive = true;
+    [HideInInspector] public bool isTimeLineActive = true;
     public CameraRig cameraRig;
     public Board board;
     public LevelData levelData;
@@ -20,8 +21,6 @@ public class BattleController : StateMachine
     public ConsumableBackpack backpackInventory;
     //public ConsumableInventoryDemo inventory;
 
-    public GameObject heroPrefab;
-    public GameObject enemyPrefab;
     public LootSystem lootSystem;
     public PlayerUnit currentUnit;
     public EnemyUnit currentEnemyUnit;
@@ -33,7 +32,7 @@ public class BattleController : StateMachine
     [HideInInspector] public int itemIndexToRemove;
 
     [Space]
-    [Header("Unit lists")]
+    [Header("Units lists")]
     public List<Unit> unitsInGame;
     public List<Unit> unitsWithActions;
 
@@ -55,12 +54,20 @@ public class BattleController : StateMachine
     public UIController uiController;
     public LootUIManager lootUIManager;
     public AbilityTargets targets;
+    public GameObject bowExtraAttackObject;
+    public Text bowExtraAttackText;
+    [Space]
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
+    public List<TimelineElements> timelineElements;
+    public int moveCost;
+    public int itemCost;
     public Tile currentTile { get { return board.GetTile(pos); } }
     [Space]
+    [Header("Events")]
     public RealTimeEvents environmentEvent;
-    public MonsterEvent currentMonsterEvent;
+    [HideInInspector] public MonsterEvent currentMonsterEvent;
+    [HideInInspector] public HunterEvent currentHunterEvent;
 
     //Item variables
     [HideInInspector] public int itemChosen;
@@ -73,7 +80,6 @@ public class BattleController : StateMachine
     [HideInInspector] public bool win;
     [HideInInspector] public bool lose;
 
-    public List<TimelineElements> timelineElements;
 
     [SerializeField] GameObject placeholderCanvas;
     public GameObject placeholderWinScreen;
@@ -83,7 +89,16 @@ public class BattleController : StateMachine
     [Header("Playtesting")]
     [SerializeField] Playtest playtestingFunctions;
 
+    [Header("Unit variables")]
+    [SerializeField] 
+    [Range(0f, 1f)] float unitFadeValue;
+    public bool bowExtraAttack = false;
+    public bool endTurnInstantly = false;
 
+    [Header("Timeline Variables")]
+    public bool pauseTimeline;
+    [SerializeField] Text pauseText;
+    [SerializeField] Text pauseTextButton;
     public void BeginGame()
     {
         cinemachineCamera.m_Lens.NearClipPlane = -1f;
@@ -148,5 +163,75 @@ public class BattleController : StateMachine
         {
             ChangeState<DefeatState>();
         }
+    }
+
+    public void FadeUnits()
+    {
+        foreach (Unit u in unitsInGame)
+        {
+            if (u == currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, unitFadeValue);
+        }
+    }
+
+    public void PauseOrResumeTimeline()
+    {
+        pauseTimeline = !pauseTimeline;
+
+        if (!pauseTimeline)
+        {
+            pauseText.color = Color.green;
+            pauseText.text = "Active";
+            pauseTextButton.text = "Pause Timeline";
+        }
+        else
+        {
+            pauseText.color = Color.red;
+            pauseText.text = "Paused";
+
+            pauseTextButton.text = "Resume Timeline";
+
+
+        }
+    }
+    public void ResetUnits()
+    {
+        foreach (Unit u in unitsInGame)
+        {
+            if (u == currentUnit)
+                continue;
+
+            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, 1f);
+        }
+    }
+
+
+    public void SetBowExtraAttack()
+    {
+        bowExtraAttack = !bowExtraAttack;
+
+        if (bowExtraAttack)
+        {
+            bowExtraAttackText.text = "Remove Extra Attack";
+        }
+
+        else
+        {
+            bowExtraAttackText.text = "Set Extra Attack";
+        }
+    }
+
+    public void ResetBowExtraAttack()
+    {
+        bowExtraAttack = false;
+        bowExtraAttackText.text = "Set Extra Attack";
+
+    }
+
+    public void PlayCorotuine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
     }
 }

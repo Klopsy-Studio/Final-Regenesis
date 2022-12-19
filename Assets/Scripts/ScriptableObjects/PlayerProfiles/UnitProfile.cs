@@ -30,8 +30,8 @@ public class UnitProfile : ScriptableObject
 
     [Header("Equipment")]
     public Weapons unitWeapon;
-    public WeaponOffset hammerOffset;
-    public WeaponOffset slingShotOffset;
+    //public WeaponOffset hammerOffset;
+    //public WeaponOffset slingShotOffset;
 }
 
 [System.Serializable]

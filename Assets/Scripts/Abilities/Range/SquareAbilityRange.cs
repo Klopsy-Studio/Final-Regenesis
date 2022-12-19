@@ -5,9 +5,11 @@ using UnityEngine;
 public class SquareAbilityRange : AbilityRange
 {
     public int squareReach = 1;
+    public bool removeOrigin;
     public override List<Tile> GetTilesInRange(Board board)
     {
         List<Tile> retValue = new List<Tile>();
+
 
         retValue.Add(GetTileInPosition(new Point(0, 0), board));
 
@@ -25,7 +27,7 @@ public class SquareAbilityRange : AbilityRange
         return retValue;
     }
 
-    public List<Tile> GetTilesInRangeWithoutUnit(Board board, Point initialPos)
+    public override List<Tile> GetTilesInRangeWithoutUnit(Board board, Point initialPos)
     {
         List<Tile> retValue = new List<Tile>();
 

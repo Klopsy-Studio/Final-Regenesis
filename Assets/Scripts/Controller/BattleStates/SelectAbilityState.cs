@@ -22,15 +22,14 @@ public class SelectAbilityState : BattleState
         owner.abilitySelectionUI.EnableAbilitySelection();
         abilityList = owner.currentUnit.weapon.Abilities;
         AbilitySelectionUI.ChangeAllAbilitiesToDefault();
+        AbilitySelectionUI.DeactivateAllAbilitySelection();
 
-        
-        foreach(Unit u in unitsInGame)
+        if(owner.currentUnit.weapon.EquipmentType == KitType.Gunblade)
         {
-            if(u == owner.currentUnit)
-                continue;
-
-            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a - 0.5f);
+            owner.currentUnit.playerUI.ShowBullets();
         }
+
+        owner.FadeUnits();
 
         for (int i = 0; i < abilityList.Length; i++)
         {
@@ -38,15 +37,30 @@ public class SelectAbilityState : BattleState
             {
                 AbilitySelectionUI.options[i].gameObject.SetActive(true);
 
-                if (owner.currentUnit.weapon.Abilities[i].CanDoAbility(owner.currentUnit.actionsPerTurn))
+                if(owner.currentUnit.weapon.EquipmentType == KitType.Gunblade)
                 {
-                    AbilitySelectionUI.EnableSelectAbilty(i);
-                    
+                    if (owner.currentUnit.weapon.Abilities[i].CanDoAbility(owner.currentUnit.actionsPerTurn, owner.currentUnit))
+                    {
+                        AbilitySelectionUI.EnableSelectAbilty(i);
+                    }
+                    else
+                    {
+                        AbilitySelectionUI.DisableSelectAbilty(i);
+                    }
                 }
                 else
                 {
-                    AbilitySelectionUI.DisableSelectAbilty(i);
+                    if (owner.currentUnit.weapon.Abilities[i].CanDoAbility(owner.currentUnit.actionsPerTurn))
+                    {
+                        AbilitySelectionUI.EnableSelectAbilty(i);
+
+                    }
+                    else
+                    {
+                        AbilitySelectionUI.DisableSelectAbilty(i);
+                    }
                 }
+                
 
                 AbilitySelectionUI.options[i].GetComponent<Text>().text = abilityList[i].abilityName;
 
@@ -72,6 +86,8 @@ public class SelectAbilityState : BattleState
 
     protected override void OnMouseCancelEvent(object sender, InfoEventArgs<KeyCode> e)
     {
+        owner.ResetUnits();
+        owner.currentUnit.playerUI.HideBullets();
         owner.ChangeState<SelectActionState>();
     }
 
@@ -187,17 +203,10 @@ public class SelectAbilityState : BattleState
 
         tiles.Clear();
 
-        foreach (Unit u in unitsInGame)
-        {
-            if (u == owner.currentUnit)
-                continue;
-
-            u.unitSprite.color = new Color(u.unitSprite.color.r, u.unitSprite.color.g, u.unitSprite.color.b, u.unitSprite.color.a + 0.5f);
-        }
-
         for (int i = 0; i < AbilitySelectionUI.options.Length; i++)
         {
             AbilitySelectionUI.options[i].GetComponent<SelectorMovement>().ClearOption();
         }
     }
+
 }
