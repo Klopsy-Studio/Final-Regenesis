@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
   m_Name: Bullseye
   m_EditorClassIdentifier: 
+  abilityEquipmentType: 1
   actionCost: 4
+  ammoCost: 0
   abilityRange:
   - range: 6
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 2
     sideLength: 1
@@ -35,6 +38,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 2
     sideLength: 1
@@ -52,6 +56,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 2
     sideLength: 1
@@ -69,6 +74,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 2
     sideLength: 1
@@ -86,6 +92,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 3
     sideLength: 1
@@ -103,6 +110,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 1
     sideReach: 3
     sideLength: 1
@@ -120,6 +128,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 2
     sideReach: 3
     sideLength: 1
@@ -137,6 +146,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 3
     sideLength: 1
@@ -154,6 +164,7 @@ MonoBehaviour:
     lineDir: 0
     lineLength: 3
     stopLine: 0
+    lineOffset: 0
     sideDir: 3
     sideReach: 3
     sideLength: 0
@@ -167,11 +178,13 @@ MonoBehaviour:
     removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
+  tileTargetAbilityRange: []
   rangeData:
     range: 9
     lineDir: 0
     lineLength: 0
     stopLine: 0
+    lineOffset: 0
     sideDir: 0
     sideReach: 0
     sideLength: 0
@@ -189,7 +202,6 @@ MonoBehaviour:
   effectDuration: 0.5
   shakeIntensity: 0.01
   shakeDuration: 0.05
-  rangeScript: {fileID: 0}
   abilityName: Bullseye
   abilityEffect: 0
   abilityModifier: 0.7

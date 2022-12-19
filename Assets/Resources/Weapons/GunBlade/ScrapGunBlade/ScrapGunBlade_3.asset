@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ScrapGunBlade_3
   m_EditorClassIdentifier: 
   equipmentName: 
-  sprite: {fileID: 21300000, guid: ec8f175e10fa63f4cb8c4ca2e4b90702, type: 3}
+  sprite: {fileID: 21300000, guid: ec86d4a080c8591429b41f48819e0929, type: 3}
   equipmentType: 2
   criticalPercentage: 0
   weaponAttackElement: 0
@@ -28,6 +28,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ebea38be86854b42adf64085c7424b6, type: 2}
   - {fileID: 11400000, guid: 3530a75cc6e23154384c3e28157a45ac, type: 2}
   - {fileID: 11400000, guid: 0f069e865b35b3f4389cdb3261fa0972, type: 2}
-  weaponSprite: {fileID: 21300000, guid: ec86d4a080c8591429b41f48819e0929, type: 3}
-  weaponCombat: {fileID: 21300000, guid: 60aa9552ada247543bf441b59ffdb8d1, type: 3}
-  weaponIcon: {fileID: 21300000, guid: 2398e9de4e8bd984d9dfff2b84d6d9f8, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 812705858d5145946959ea331e5af0c3, type: 3}
+  weaponCombat: {fileID: 21300000, guid: 812705858d5145946959ea331e5af0c3, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 6437da7758991f849a9d1d9faedf79c2, type: 3}

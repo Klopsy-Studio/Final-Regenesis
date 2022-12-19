@@ -44,9 +44,11 @@ public class PlayerUnit : Unit
 
     [Header("Weapons")]
     public SpriteRenderer hammerSprite;
-    public SpriteRenderer slingshotSprite;
+    public SpriteRenderer bowSprite;
+    public SpriteRenderer gunbladeSprite;
     [SerializeField] GameObject hammerParent;
-    [SerializeField] GameObject slingshotParent;
+    [SerializeField] GameObject bowParent;
+    [SerializeField] GameObject gunbladeParent;
 
     [Header("Weapon Variables")]
     public int hammerFuryAmount;
@@ -73,11 +75,18 @@ public class PlayerUnit : Unit
         {
             case KitType.Hammer:
                 animations.SetAnimation("hammer");
-                slingshotParent.SetActive(false);
+                bowParent.SetActive(false);
+                gunbladeParent.SetActive(false);
                 break;
             case KitType.Bow:
-                animations.SetAnimation("slingshot");
+                animations.SetAnimation("bow");
                 hammerParent.SetActive(false);
+                gunbladeParent.SetActive(false);
+                break;
+            case KitType.Gunblade:
+                animations.SetAnimation("gunblade");
+                hammerParent.SetActive(false);
+                bowParent.SetActive(false);
                 break;
             default:
                 break;

@@ -1854,6 +1854,34 @@ PrefabInstance:
       propertyPath: pushStrength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 590147695, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590147695, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098223092, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.5172844
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572059877, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1828.5714
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572059877, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 71.42857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572059877, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572059878, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 88a135a28983b4f45adad80217565591, type: 3}
     - target: {fileID: 1671819936, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -718.71
@@ -1934,6 +1962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleController
       objectReference: {fileID: 0}
+    - target: {fileID: 3099776045518085930, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4385728648161413568, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 1
@@ -1941,6 +1973,14 @@ PrefabInstance:
     - target: {fileID: 4385728648161413568, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_FontData.m_AlignByGeometry
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.4918947
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.018314
       objectReference: {fileID: 0}
     - target: {fileID: 9028855916217491049, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_FontData.m_Alignment
