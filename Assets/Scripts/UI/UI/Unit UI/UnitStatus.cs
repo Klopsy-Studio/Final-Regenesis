@@ -14,9 +14,12 @@ public class UnitStatus : MonoBehaviour
     [SerializeField] GameObject smallUnitUI;
     [Space]
     [Header("Unit Status References")]
-    
+
+    [SerializeField] Animator statusModes;
     [SerializeField] Text unitName;
-    [SerializeField] Slider unitHealth;
+    [SerializeField] Slider unitHealthBig;
+    [SerializeField] Slider unitHealthSmall;
+
     public Image unitPortrait;
     [SerializeField] Image unitWeapon;
 
@@ -31,10 +34,8 @@ public class UnitStatus : MonoBehaviour
     public void SetUnit(PlayerUnit unit)
     {
         //unitName.text = unit.unitName;
-        unitHealth.maxValue = unit.maxHealth;
-        unitHealth.value = unit.health;
-
-
+        unitHealthBig.maxValue = unit.maxHealth;
+        unitHealthBig.value = unit.health;
 
         unitPortrait.sprite = unit.timelineIcon;
 
@@ -54,7 +55,7 @@ public class UnitStatus : MonoBehaviour
     public void HealthAnimation(int target)
     {
         ChangeToBig();
-        StartCoroutine(SliderValueAnimation(unitHealth, target));
+        StartCoroutine(SliderValueAnimation(unitHealthBig, target));
     }
 
     //public void SharpnessAnimation(int target)
@@ -94,7 +95,6 @@ public class UnitStatus : MonoBehaviour
         }
         s.value = targetValue;
 
-        UpdateSliderValue(unitHealth, targetValue);
         Invoke("ChangeToSmall", 1f);
         updatingValue = false;
     }
@@ -103,8 +103,8 @@ public class UnitStatus : MonoBehaviour
     {
         if(uiStatus != StatusMode.Big)
         {
+            statusModes.SetTrigger("big");
             uiStatus = StatusMode.Big;
-            bigUnitUI.SetActive(true);
         }
     }
 
@@ -112,8 +112,8 @@ public class UnitStatus : MonoBehaviour
     {
         if (uiStatus != StatusMode.Small)
         {
+            statusModes.SetTrigger("small");
             uiStatus = StatusMode.Small;
-            bigUnitUI.SetActive(false);
         }
     }
 }
