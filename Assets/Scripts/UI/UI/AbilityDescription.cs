@@ -11,6 +11,7 @@ public class AbilityDescription : MonoBehaviour
     public void AssignData(Abilities ability)
     {
         abilityDescription.text = ability.description;
+        abilityDescription.fontSize = ability.abilityTextFontSize;
         abilityRange.text = ability.rangeData.movementRange.ToString();
         cost.text = ability.actionCost.ToString();
     }

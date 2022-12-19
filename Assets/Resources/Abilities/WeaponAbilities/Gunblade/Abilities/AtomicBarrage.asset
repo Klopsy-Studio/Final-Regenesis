@@ -88,6 +88,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 04e984118d3f5f841bf65c06e999cb23, type: 2}
   description: Create an explosion dealing <b>heavy damage</b> to all units in an
     area.
+  abilityTextFontSize: 25
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: 63a4a9225ef82e54fad75e4a7edf026d, type: 2}

@@ -95,13 +95,6 @@ AnimationClip:
     path: Sprite
     classID: 212
     script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: 21300000, guid: 6217c3790e8c4294481e668cbb89c961, type: 3}
-    attribute: m_Sprite
-    path: Weapons/BowSprites/Bow
-    classID: 212
-    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -132,13 +125,6 @@ AnimationClip:
       isPPtrCurve: 1
     - serializedVersion: 2
       path: 4248692162
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 4248692162
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -153,7 +139,6 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: ace9cfd8da4a8d846b404b114e0a1563, type: 3}
-    - {fileID: 21300000, guid: 6217c3790e8c4294481e668cbb89c961, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

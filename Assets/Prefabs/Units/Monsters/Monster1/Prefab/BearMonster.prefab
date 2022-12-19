@@ -63,7 +63,7 @@ MonoBehaviour:
   fTimelineVelocity: 0
   timelineFill: 0
   isTimelineActive: 0
-  timelineIcon: {fileID: 21300000, guid: f2b3e7eb87e236b4b88cfa73e49c6d8a, type: 3}
+  timelineIcon: {fileID: 21300000, guid: ce955d0e51a26ed4ab464f13611a9354, type: 3}
   iconTimeline: {fileID: 0}
   dir: 0
   unitSpeed: 0

@@ -93,16 +93,12 @@ public class PlayerUnit : Unit
         }
     }
 
-    
     //ESTA FUNCION HAY QUE REVISARLA
     public void EquipAllItems()
     {
         if (weapon == null) { Debug.Log("No hay weapon"); return; }
         health = 100;
-
-        
         weapon.EquipItem(this);
-
     }
 
     public bool CanMove()

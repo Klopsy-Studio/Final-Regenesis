@@ -87,7 +87,7 @@ public class Abilities : ScriptableObject
 
     [TextArea(15, 20)]
     public string description;
-
+    public int abilityTextFontSize;
     [Header("AbilityEffects")]
     public List<Effect> inAbilityEffects;
     public List<Effect> postAbilityEffect;

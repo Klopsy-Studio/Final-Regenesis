@@ -70,6 +70,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
   description: Tackle a target dealing <b>low damage</b> and <color=aqua>pushing</color>
     a short distance.
+  abilityTextFontSize: 25
   inAbilityEffects:
   - effectPlaying: 1
     effectType: 0

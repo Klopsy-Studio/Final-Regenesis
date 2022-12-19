@@ -124,6 +124,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 04e984118d3f5f841bf65c06e999cb23, type: 2}
   description: Move forward and attack a target delaing <b>moderate damage</b>. Generates
     (2) <color=orange><i>Bullets</i></color>.
+  abilityTextFontSize: 25
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: ee76606965235564ca3b1c99d5cf9895, type: 2}

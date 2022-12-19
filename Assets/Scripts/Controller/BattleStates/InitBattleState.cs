@@ -89,25 +89,7 @@ public class InitBattleState : BattleState
         unit.weapon = data.unitWeapon;
         unit.unitName = data.unitName;
 
-        switch (unit.weapon.EquipmentType)
-        {
-            case KitType.Hammer:
-
-                if(data.unitWeapon.weaponSprite != null)
-                {
-                    unit.hammerSprite.sprite = data.unitWeapon.weaponCombat;
-                }
-                
-                break;
-            case KitType.Bow:
-                if (data.unitWeapon.weaponSprite != null)
-                {
-                    unit.bowSprite.sprite = data.unitWeapon.weaponCombat;
-                }
-                break;
-            default:
-                break;
-        }
+      
 
         unit.damageSprite = data.unitDamageReaction;
         unit.weaponSprite = data.unitTakeOutWeapon;

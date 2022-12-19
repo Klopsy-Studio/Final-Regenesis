@@ -124,6 +124,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
   description: Charge towards a target in a stright line dealing <b>damage based
     on the distance</b>.
+  abilityTextFontSize: 25
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: bf35dbb3c939d714696a879c8ba5bdec, type: 2}

@@ -69,6 +69,7 @@ MonoBehaviour:
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
   description: Swing your hammer quickly dealing <b>moderate damage</b> to the target.
+  abilityTextFontSize: 25
   inAbilityEffects:
   - effectPlaying: 0
     effectType: 2

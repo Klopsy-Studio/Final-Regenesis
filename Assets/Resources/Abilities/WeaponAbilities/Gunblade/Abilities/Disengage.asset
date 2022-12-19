@@ -70,6 +70,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 04e984118d3f5f841bf65c06e999cb23, type: 2}
   description: Slash a target dealing <b>low damage</b> and retreating up to 2 tiles
     in the opposite direction. Generates (1) <color=orange><i>Bullet</i></color>.
+  abilityTextFontSize: 23
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: c4279c1fa4219294b9bf98a6b24f8ab5, type: 2}

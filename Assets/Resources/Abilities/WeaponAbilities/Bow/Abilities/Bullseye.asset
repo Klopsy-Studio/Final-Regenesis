@@ -269,6 +269,7 @@ MonoBehaviour:
   description: Charge a strong attack, <b>finishing the turn inmediatly</b>. The
     next turn, perform the attack dealing <b>heavy damage</b> to the target wherever
     it is.
+  abilityTextFontSize: 22
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: c1d5611ab411a284082a324fb8aba5f9, type: 2}

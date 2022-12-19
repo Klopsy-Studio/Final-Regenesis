@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92293337c2721b7438af83a935bcd548, type: 3}
   m_Name: ScrapGunBlade_3
   m_EditorClassIdentifier: 
-  equipmentName: 
+  equipmentName: Scrap Gunblade III
   sprite: {fileID: 21300000, guid: ec86d4a080c8591429b41f48819e0929, type: 3}
   equipmentType: 2
   criticalPercentage: 10

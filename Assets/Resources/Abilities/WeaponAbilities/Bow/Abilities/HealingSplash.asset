@@ -196,6 +196,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: d150b137ecacc264dac67d37faec0a05, type: 2}
   description: Shoot an explosive arrow dealing <b>low damage</b> to target and <color=green>healing</color>
     all units standing around the target.
+  abilityTextFontSize: 25
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: ef623fbeedd44e3468a69344766ef5c2, type: 2}

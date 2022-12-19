@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66192f0bed27c03439ddef84929ca1a2, type: 3}
   m_Name: Battlecry
   m_EditorClassIdentifier: 
+  abilityEquipmentType: 0
   actionCost: 0
+  ammoCost: 0
   abilityRange:
   - range: 9
     lineDir: 0
@@ -32,6 +34,7 @@ MonoBehaviour:
     removeOrigin: 0
     itemRange: 0
     itemRemoveContent: 0
+  tileTargetAbilityRange: []
   rangeData:
     range: 0
     lineDir: 0
@@ -67,6 +70,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: ef7ca232f21e73346a460ecdd1e743ff, type: 2}
   description: Encourage yourself and other hunters giving a <b>DEF bonus</b> until
     they receive damage.
+  abilityTextFontSize: 25
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: 1ab623b3c50a43c4aa181a1be4774c78, type: 2}

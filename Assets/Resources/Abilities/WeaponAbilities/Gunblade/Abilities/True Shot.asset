@@ -69,6 +69,7 @@ MonoBehaviour:
   lastTarget: {fileID: 0}
   weapon: {fileID: 11400000, guid: 04e984118d3f5f841bf65c06e999cb23, type: 2}
   description: Shoot a target <b>3 times</b>, dealing <b>damage</b>for each shot.
+  abilityTextFontSize: 25
   inAbilityEffects: []
   postAbilityEffect: []
   sequence: {fileID: 11400000, guid: 9ec3e3c4421988a4aaf5526370fb8969, type: 2}
