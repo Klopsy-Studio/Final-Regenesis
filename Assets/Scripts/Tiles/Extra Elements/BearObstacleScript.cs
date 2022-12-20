@@ -14,6 +14,7 @@ public class BearObstacleScript : MonoBehaviour
 
     public List<Tile> Explode(Board board, BattleController battleController)
     {
+        AudioManager.instance.Play("ObstacleExplosion");
         obstacleAnimations.SetTrigger("explode");
         List<Tile> tiles = squareRange.GetTilesInRangeWithoutUnit(board, pos);
         board.SelectAttackTiles(tiles);
@@ -34,16 +35,22 @@ public class BearObstacleScript : MonoBehaviour
 
     public void GetDestroyed(Board board)
     {
+        AudioManager.instance.Play("ObstacleExplosion");
         board.GetTile(pos).content = null;
         controller.obstaclesInGame.Remove(this);
-
+        obstacleAnimations.SetTrigger("explode");
         if (controller.validObstacles.Contains(this))
         {
             controller.validObstacles.Remove(this);
         }
 
-        this.gameObject.SetActive(false);
 
+        Invoke("DeactivateWithDelay", 1f);
+    }
+
+    public void DeactivateWithDelay()
+    {
+        this.gameObject.SetActive(false);
     }
     public bool IsObstacleValid(Board board)
     {

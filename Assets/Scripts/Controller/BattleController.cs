@@ -122,15 +122,15 @@ public class BattleController : StateMachine
             backpackInventory.RefillBackpack();
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            foreach(TimelineElements e in timelineElements)
-            {
-                e.fTimelineVelocity = 0;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    foreach(TimelineElements e in timelineElements)
+        //    {
+        //        e.fTimelineVelocity = 0;
+        //    }
+        //}
 
-        playtestingFunctions.elements = timelineElements;
+        //playtestingFunctions.elements = timelineElements;
 
     }
 

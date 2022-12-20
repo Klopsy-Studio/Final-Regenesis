@@ -243,6 +243,10 @@ public class TimelineUI : MonoBehaviour
         currentActorFrame.enabled = true;
         currentActorIcon.enabled = true;
 
+        if(element.iconTimeline.prevIcon != null)
+        {
+            element.iconTimeline.ReturnIcon(element.iconTimeline.prevIcon);
+        }
         switch (element.timelineTypes)
         {
             case TimeLineTypes.Null:
