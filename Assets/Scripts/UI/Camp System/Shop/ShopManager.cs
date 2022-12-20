@@ -55,6 +55,11 @@ public class ShopManager : MonoBehaviour
         buyItemPanel.SetBuyPanelInfo(itemPanelInfo);
         buyItemPanel.SetUpButtons();
     }
+
+    public void BuyItem()//UnityButton function calls this method
+    {
+        buyItemPanel.BuyItem();
+    }
 }
 
 [System.Serializable]
@@ -108,6 +113,8 @@ public class SetShopItemInfoPanelText
     }
 
    
+   
+
 }
 
 [System.Serializable]
@@ -115,17 +122,20 @@ public class BuyItemPanel
 {
     public GameObject GO;
     [SerializeField] TextMeshProUGUI itemName;
-    [SerializeField] TextMeshProUGUI itemAmount;
+    [SerializeField] TextMeshProUGUI itemAmountTxT;
     [SerializeField] Image itemImage;
     [SerializeField] TextMeshProUGUI itemTotalCostTxT;
     [SerializeField] TextMeshProUGUI currentPointsTxT;
     int itemTotalCost;
     int currentPoints;
+    int itemAmount;
 
     [SerializeField] MaterialInventory materialInventory;
     [SerializeField] MonsterMaterialSlot material1;
     [SerializeField] MonsterMaterialSlot material2;
     [SerializeField] MaterialPointsShopButton button1;
+    ShopItemInfo itemInfo;
+
     public void SetBuyPanelInfo(SetShopItemInfoPanelText _itemInfoPanel)
     {
        
@@ -133,10 +143,13 @@ public class BuyItemPanel
         itemImage.sprite = _itemInfoPanel.ItemImage.sprite;
         itemTotalCost = _itemInfoPanel.itemCost;
         itemTotalCostTxT.SetText(itemTotalCost.ToString());
-        itemAmount.SetText("x "+_itemInfoPanel.itemAmount.ToString());
+        itemAmount = _itemInfoPanel.itemAmount;
+        itemAmountTxT.SetText("x "+_itemInfoPanel.itemAmount.ToString());
 
         currentPoints = 0;
         currentPointsTxT.SetText(currentPoints.ToString());
+
+        itemInfo = _itemInfoPanel.itemInfo;
     }
 
     public void SetUpButtons()
@@ -155,6 +168,18 @@ public class BuyItemPanel
     {
         currentPoints += _points;
         currentPointsTxT.SetText(currentPoints.ToString());
+    }
+
+    public void BuyItem()
+    {
+     
+        if (currentPoints < itemTotalCost) return;
+        UpdateCurrentPoints(-itemTotalCost);
+        GameManager.instance.consumableInventory.AddConsumable(itemInfo.consumable, itemAmount);
+
+        //SABER CUANTOS MATERIALES HAY QUE QUITAR
+        //GameManager.instance.materialInventory.SubstractMaterial(material1.material, material1.amount)
+
     }
 
 }

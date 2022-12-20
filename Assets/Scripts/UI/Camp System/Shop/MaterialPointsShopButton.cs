@@ -16,12 +16,13 @@ public class MaterialPointsShopButton : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Decrease();
+            UseMaterial();
         }   
-        else if (eventData.button == PointerEventData.InputButton.Middle)
-            Debug.Log("Middle click");
         else if (eventData.button == PointerEventData.InputButton.Right)
-            Debug.Log("Right click");
+        {
+            ReturnMaterial();
+        }
+           
     }
 
     public void SetMaterial(MonsterMaterialSlot _materialSlot, BuyItemPanel _buyItemPanel)
@@ -33,10 +34,15 @@ public class MaterialPointsShopButton : MonoBehaviour, IPointerClickHandler
         buyItemPanel = _buyItemPanel;
     }
 
-    void Decrease()
+    void UseMaterial()
     {
         materialSlot.amount -= 1;
         amountText.SetText(materialSlot.amount.ToString());
         buyItemPanel.UpdateCurrentPoints(points);
+    }
+
+    void ReturnMaterial()
+    {
+        Debug.Log("return material method");
     }
 }
