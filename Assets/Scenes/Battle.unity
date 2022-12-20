@@ -1851,6 +1851,10 @@ PrefabInstance:
       propertyPath: pushStrength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 195445703, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: fTimelineVelocity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 590147695, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -1861,7 +1865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1098223092, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5172844
+      value: -6.517285
       objectReference: {fileID: 0}
     - target: {fileID: 1169296836, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_IsActive
@@ -2037,11 +2041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.4918947
+      value: 2.4918938
       objectReference: {fileID: 0}
     - target: {fileID: 5226850521427589661, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.018314
+      value: -2.0183144
       objectReference: {fileID: 0}
     - target: {fileID: 5522800658900762697, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_SizeDelta.y
