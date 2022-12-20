@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] ShopItemContainer shopItemContainer;
@@ -52,6 +53,7 @@ public class ShopManager : MonoBehaviour
         if (itemPanelInfo.itemAmount <= 0) return;
         buyItemPanel.GO.SetActive(true);
         buyItemPanel.SetBuyPanelInfo(itemPanelInfo);
+        buyItemPanel.SetUpButtons();
     }
 }
 
@@ -120,6 +122,10 @@ public class BuyItemPanel
     int itemTotalCost;
     int currentPoints;
 
+    [SerializeField] MaterialInventory materialInventory;
+    [SerializeField] MonsterMaterialSlot material1;
+    [SerializeField] MonsterMaterialSlot material2;
+    [SerializeField] MaterialPointsShopButton button1;
     public void SetBuyPanelInfo(SetShopItemInfoPanelText _itemInfoPanel)
     {
        
@@ -131,8 +137,24 @@ public class BuyItemPanel
 
         currentPoints = 0;
         currentPointsTxT.SetText(currentPoints.ToString());
+    }
 
+    public void SetUpButtons()
+    {
 
+        var item1 = materialInventory.materialContainer.Find(x => x.material == material1.material);
+        if(item1 != null)
+        {
+            material1.amount = item1.amount;
+        }
+
+        button1.SetMaterial(material1, this);
+    }
+
+    public void UpdateCurrentPoints(int _points)
+    {
+        currentPoints += _points;
+        currentPointsTxT.SetText(currentPoints.ToString());
     }
 
 }
