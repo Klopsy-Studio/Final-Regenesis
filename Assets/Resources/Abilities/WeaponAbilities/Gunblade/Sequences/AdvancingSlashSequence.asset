@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bba2b563104314eba1eb71549a7bdc, type: 3}
   m_Name: AdvancingSlashSequence
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
+  ability: {fileID: 11400000, guid: 9ebea38be86854b42adf64085c7424b6, type: 2}
   user: {fileID: 0}
   weapon: {fileID: 0}
   playing: 0
   moving: 0
   extraAttack: 0
-  ammoGain: 0
-  moveLength: 2
+  ammoGain: 2
+  moveLength: 3

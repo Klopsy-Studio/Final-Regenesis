@@ -14,6 +14,7 @@ public class HuntersMark : AbilitySequence
         //Change to point or hunter's mark animation
         user.Attack();
         ActionEffect.instance.Play(ability.cameraSize, ability.effectDuration, ability.shakeIntensity, ability.shakeDuration);
+        AudioManager.instance.Play("SlingshotAttack");
 
         if (target.GetComponent<Unit>() != null)
         {

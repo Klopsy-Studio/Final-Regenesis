@@ -138,8 +138,20 @@ public class TimeLineState : BattleState
                 {
                     if (owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>() != null)
                     {
-                        selectedUnit = owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>();
-                        selectedUnit.status.ChangeToBig();
+                        if(selectedUnit == null)
+                        {
+                            selectedUnit = owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>();
+                            selectedUnit.status.ChangeToBig();
+                        }
+                        else
+                        {
+                            if(selectedUnit != owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>())
+                            {
+                                selectedUnit.status.ChangeToSmall();
+                                selectedUnit = owner.timelineUI.selectedIcon.element.GetComponent<PlayerUnit>();
+                                selectedUnit.status.ChangeToBig();
+                            }
+                        }
                     }
 
                     SelectTile(owner.timelineUI.selectedIcon.element.GetComponent<Unit>().tile.pos);

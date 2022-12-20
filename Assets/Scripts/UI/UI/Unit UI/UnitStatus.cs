@@ -54,8 +54,8 @@ public class UnitStatus : MonoBehaviour
 
     public void HealthAnimation(int target)
     {
-        ChangeToBig();
-        StartCoroutine(SliderValueAnimation(unitHealthBig, target));
+        //ChangeToBig();
+        StartCoroutine(SliderValueAnimation(unitHealthSmall, target));
     }
 
     //public void SharpnessAnimation(int target)

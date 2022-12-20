@@ -18,6 +18,7 @@ public class StraightShot : AbilitySequence
             Unit unitTarget = target.GetComponent<Unit>();
             for (int i = 0; i < numberOfAttacks; i++)
             {
+                AudioManager.instance.Play("SlingshotAttack");
                 Attack(unitTarget);
                 yield return new WaitForSeconds(0.7f);
             }
