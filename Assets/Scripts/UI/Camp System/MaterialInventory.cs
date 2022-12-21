@@ -22,6 +22,25 @@ public class MaterialInventory : ScriptableObject
             materialContainer.Add(new MonsterMaterialSlot(_material, _amount));
         }
     }
+
+    public void SubstractMaterial(MonsterMaterialSlot _materialSlot)
+    {
+        bool hasMat = false;
+        for (int i = 0; i < materialContainer.Count; i++)
+        {
+            if (materialContainer[i].material == _materialSlot.material)
+            {
+                materialContainer[i].amount = _materialSlot.amount;
+                hasMat = true;
+                break;
+            }
+          
+        }
+        if (!hasMat)
+        {
+            Debug.Log("no existe el mismo material, no se puede quitar materiales");
+        }
+    }
 }
 
 [System.Serializable]
@@ -39,4 +58,6 @@ public class MonsterMaterialSlot
     {
         amount += value;
     }
+
+  
 }

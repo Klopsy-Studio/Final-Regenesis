@@ -11,8 +11,8 @@ public enum ConsumableType
 public abstract class Consumables : ScriptableObject
 {
     
-    [SerializeField] protected string itemName;
-    [SerializeField] public Sprite iconSprite;
+    protected string itemName;
+    public Sprite iconSprite;
     public Sprite itemSprite;
     [SerializeField] private ConsumableType consumableType;
     public RangeData itemRange;
