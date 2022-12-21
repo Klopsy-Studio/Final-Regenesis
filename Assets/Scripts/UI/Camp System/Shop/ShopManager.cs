@@ -134,6 +134,7 @@ public class BuyItemPanel
     [SerializeField] MonsterMaterialSlot material1;
     [SerializeField] MonsterMaterialSlot material2;
     [SerializeField] MaterialPointsShopButton button1;
+    [SerializeField] MaterialPointsShopButton button2;
     ShopItemInfo itemInfo;
 
     public void SetBuyPanelInfo(SetShopItemInfoPanelText _itemInfoPanel)
@@ -162,6 +163,15 @@ public class BuyItemPanel
         }
 
         button1.SetMaterial(material1, this);
+
+        var item2 = materialInventory.materialContainer.Find(y => y.material == material2.material);
+        if(item2 != null)
+        {
+            material2.amount = item2.amount;
+        }
+        button2.SetMaterial(material2, this);
+
+
     }
 
     public void UpdateCurrentPoints(int _points)
@@ -176,9 +186,8 @@ public class BuyItemPanel
         if (currentPoints < itemTotalCost) return;
         UpdateCurrentPoints(-itemTotalCost);
         GameManager.instance.consumableInventory.AddConsumable(itemInfo.consumable, itemAmount);
-
-        //SABER CUANTOS MATERIALES HAY QUE QUITAR
-        //GameManager.instance.materialInventory.SubstractMaterial(material1.material, material1.amount)
+        GameManager.instance.materialInventory.SubstractMaterial(material1);
+        GameManager.instance.materialInventory.SubstractMaterial(material2);
 
     }
 

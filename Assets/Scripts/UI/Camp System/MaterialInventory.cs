@@ -23,19 +23,22 @@ public class MaterialInventory : ScriptableObject
         }
     }
 
-    public void SubstractMaterial(MonsterMaterial _material, int _amount)
+    public void SubstractMaterial(MonsterMaterialSlot _materialSlot)
     {
+        bool hasMat = false;
         for (int i = 0; i < materialContainer.Count; i++)
         {
-            if (materialContainer[i].material == _material)
+            if (materialContainer[i].material == _materialSlot.material)
             {
-                materialContainer[i].SubstractAmount(_amount);
+                materialContainer[i].amount = _materialSlot.amount;
+                hasMat = true;
                 break;
             }
-            else
-            {
-                Debug.Log("no existe el mismo material, no se puede quitar materiales");
-            }
+          
+        }
+        if (!hasMat)
+        {
+            Debug.Log("no existe el mismo material, no se puede quitar materiales");
         }
     }
 }
@@ -56,8 +59,5 @@ public class MonsterMaterialSlot
         amount += value;
     }
 
-    public void SubstractAmount(int value)
-    {
-        amount -= value;
-    }
+  
 }
