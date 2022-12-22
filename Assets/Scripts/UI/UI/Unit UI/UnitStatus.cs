@@ -15,6 +15,7 @@ public class UnitStatus : MonoBehaviour
     [Space]
     [Header("Unit Status References")]
 
+    PlayerUnit currentUnit;
     [SerializeField] Animator statusModes;
     [SerializeField] Text unitName;
     [SerializeField] Slider unitHealthBig;
@@ -34,6 +35,7 @@ public class UnitStatus : MonoBehaviour
     public void SetUnit(PlayerUnit unit)
     {
         //unitName.text = unit.unitName;
+        currentUnit = unit;
         unitHealthBig.maxValue = unit.maxHealth;
         unitHealthBig.value = unit.health;
 
@@ -103,6 +105,7 @@ public class UnitStatus : MonoBehaviour
     {
         if(uiStatus != StatusMode.Big)
         {
+            unitHealthBig.value = currentUnit.health;
             statusModes.SetTrigger("big");
             uiStatus = StatusMode.Big;
         }
@@ -112,8 +115,10 @@ public class UnitStatus : MonoBehaviour
     {
         if (uiStatus != StatusMode.Small)
         {
+            unitHealthSmall.value = currentUnit.health;
             statusModes.SetTrigger("small");
             uiStatus = StatusMode.Small;
         }
     }
+
 }

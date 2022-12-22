@@ -122,15 +122,7 @@ public class BattleController : StateMachine
             backpackInventory.RefillBackpack();
         }
 
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    foreach(TimelineElements e in timelineElements)
-        //    {
-        //        e.fTimelineVelocity = 0;
-        //    }
-        //}
-
-        //playtestingFunctions.elements = timelineElements;
+        playtestingFunctions.elements = timelineElements;
 
     }
 
@@ -154,7 +146,6 @@ public class BattleController : StateMachine
     public void DeactivateTileSelector()
     {
         tileSelectionIndicator.gameObject.SetActive(false);
-
     }
 
     public void CheckAllUnits()

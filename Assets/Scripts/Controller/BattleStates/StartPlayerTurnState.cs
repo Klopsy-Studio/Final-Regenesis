@@ -8,6 +8,7 @@ public class StartPlayerTurnState : BattleState
     {
         base.Enter();
         owner.currentUnit.status.ChangeToBig();
+        Debug.Log("?");
         owner.turnStatusUI.ActivateTurn(owner.currentUnit.unitName);
         StartCoroutine(SetStats());
     }
