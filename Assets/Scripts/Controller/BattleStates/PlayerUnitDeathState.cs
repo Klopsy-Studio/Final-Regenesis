@@ -18,7 +18,7 @@ public class PlayerUnitDeathState : BattleState
         yield return new WaitForSeconds(2f);
         owner.currentUnit.deathElement.DisableDeath(owner);
 
-        owner.currentUnit.Die(owner);
+        owner.currentUnit.Die();
 
         yield return null;
         

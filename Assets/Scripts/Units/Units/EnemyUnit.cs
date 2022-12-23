@@ -18,7 +18,7 @@ public class EnemyUnit : Unit
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite reactSprite;
-    public MonsterController controller;
+    public MonsterController monsterControl;
 
     public int lowHealth;
     List<Tile> monsterSpace;
@@ -28,12 +28,12 @@ public class EnemyUnit : Unit
 
     public void BeginAnimation()
     {
-        controller.animPlaying = true;
+        monsterControl.animPlaying = true;
     }
 
     public void EndAnimation()
     {
-        controller.animPlaying = false;
+        monsterControl.animPlaying = false;
     }
 
     protected override void Start()
@@ -106,13 +106,13 @@ public class EnemyUnit : Unit
     }
 
 
-    public override void Die(BattleController battleController)
+    public override void Die()
     {
-        controller.monsterAnimations.SetBool("death", true);
+        monsterControl.monsterAnimations.SetBool("death", true);
         
         isDead = true;
         AudioManager.instance.Play("MonsterDeath");
-        battleController.ChangeState<WinState>();
+        controller.ChangeState<WinState>();
     }
 
     public override bool UpdateTimeLine()
@@ -151,17 +151,17 @@ public class EnemyUnit : Unit
         DamageEffect();
         monsterUI.CreatePopUpText(transform.position, (int)damage);
 
-        controller.monsterAnimations.SetTrigger("damage");
+        monsterControl.monsterAnimations.SetTrigger("damage");
 
         if(health <= lowHealth)
         {
-            controller.monsterAnimations.SetTrigger("lowHealth");
+            monsterControl.monsterAnimations.SetTrigger("lowHealth");
         }
 
         if (health <= 0)
         {
             health = 0;
-            Die(controller.battleController);
+            Die();
             return true;
         }
 

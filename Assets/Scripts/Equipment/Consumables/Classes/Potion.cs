@@ -24,10 +24,7 @@ public class Potion : Consumables
                 Unit unit = t.content.GetComponent<Unit>();
 
                 unit.Heal(addHealth);
-
-                unit.HealEffect();
-
-                
+     
                 if (unit.GetComponent<PlayerUnit>() != null)
                 {
                     PlayerUnit p = unit.GetComponent<PlayerUnit>();
@@ -37,12 +34,6 @@ public class Potion : Consumables
                     {
                         battleController.currentUnit.animations.SetThrow();
                     }
-
-                    if (p.isNearDeath)
-                    {
-                        p.Revive(battleController);
-                    }
-
                 }
                 return true;
             }

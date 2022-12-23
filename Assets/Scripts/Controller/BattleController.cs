@@ -154,6 +154,19 @@ public class BattleController : StateMachine
         {
             ChangeState<DefeatState>();
         }
+
+        else
+        {
+            foreach(PlayerUnit p in playerUnits)
+            {
+                if (!p.isNearDeath)
+                {
+                    return;
+                }
+            }
+
+            ChangeState<DefeatState>();
+        }
     }
 
     public void FadeUnits()

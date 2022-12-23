@@ -233,15 +233,7 @@ public class MonsterAbility : ScriptableObject
     public void UseAbility(PlayerUnit target, EnemyUnit enemy, BattleController controller)
     {
         CalculateDmg(enemy, target);
-
-        if (target.ReceiveDamage(finalDamage))
-        {
-            target.NearDeath(controller);
-        }
-        else
-        {
-            target.Damage();
-        }
+        target.ReceiveDamage(finalDamage);
     }
 
     void CalculateDmg(EnemyUnit enemy, PlayerUnit target)

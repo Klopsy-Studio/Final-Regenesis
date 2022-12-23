@@ -245,7 +245,7 @@ public class Abilities : ScriptableObject
                     if (target.ReceiveDamage(finalDamage))
                     {
                         ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
-                        target.GetComponent<EnemyUnit>().Die(controller);
+                        target.GetComponent<EnemyUnit>().Die();
                     }
                     else
                     {
@@ -261,30 +261,16 @@ public class Abilities : ScriptableObject
                     ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
 
                     CalculateDmg(controller.currentUnit,u);
-                    if (u.ReceiveDamage(finalDamage))
-                    {
-                        u.NearDeath(controller);
-                    }
+                    u.ReceiveDamage(finalDamage);
                 }
 
                 break;
                 
             case EffectType.Heal:
                 CalculateHeal();
-                target.HealEffect();
                 target.Heal(finalHeal);
                 ActionEffect.instance.Play(cameraSize, effectDuration, shakeIntensity, shakeDuration);
 
-                if (target.GetComponent<PlayerUnit>() != null)
-                {
-                    PlayerUnit u = target.GetComponent<PlayerUnit>();
-
-                    if (u.isNearDeath)
-                    {
-                        u.Revive(controller);
-                        u.Default();
-                    }
-                }
                 break;
             case EffectType.Buff:
                 //Fill with buff code
