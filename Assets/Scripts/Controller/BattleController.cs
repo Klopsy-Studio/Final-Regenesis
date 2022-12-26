@@ -130,7 +130,7 @@ public class BattleController : StateMachine
         //    }
         //}
 
-        //playtestingFunctions.elements = timelineElements;
+        playtestingFunctions.elements = timelineElements;
 
     }
 
