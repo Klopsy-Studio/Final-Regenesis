@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 6056112858640174182}
   - component: {fileID: 4582827575210456694}
   m_Layer: 6
-  m_Name: Ola
+  m_Name: OlaPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

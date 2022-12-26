@@ -45,6 +45,7 @@ public class PlayerUnit : Unit
     [Header("Weapons")]
     public SpriteRenderer hammerSprite;
     public SpriteRenderer bowSprite;
+    public SpriteRenderer bowTensedSprite;
     public SpriteRenderer gunbladeSprite;
     [SerializeField] GameObject hammerParent;
     [SerializeField] GameObject bowParent;

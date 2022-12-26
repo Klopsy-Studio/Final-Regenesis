@@ -33,6 +33,9 @@ public class Weapons : Equipment
 
     public Sprite weaponSprite;
     public Sprite weaponCombat;
+
+    //Extra sprites if necessary
+    public Sprite bowTensed;
     
     public Sprite weaponIcon;
 
@@ -62,6 +65,7 @@ public class Weapons : Equipment
                 break;
             case KitType.Bow:
                 c.bowSprite.sprite = weaponSprite;
+                c.bowTensedSprite.sprite = bowTensed;
                 break;
             case KitType.Gunblade:
                 c.gunbladeSprite.sprite = weaponSprite;
