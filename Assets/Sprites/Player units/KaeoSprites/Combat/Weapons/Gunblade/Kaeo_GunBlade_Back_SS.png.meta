@@ -131,7 +131,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 11
-        y: 78
+        y: 142
         width: 39
         height: 45
       alignment: 7
@@ -151,7 +151,7 @@ TextureImporter:
       name: Kaeo_GunBlade_Back_SS_1
       rect:
         serializedVersion: 2
-        x: 11
+        x: 75
         y: 142
         width: 39
         height: 45
@@ -172,8 +172,8 @@ TextureImporter:
       name: Kaeo_GunBlade_Back_SS_2
       rect:
         serializedVersion: 2
-        x: 75
-        y: 78
+        x: 139
+        y: 142
         width: 39
         height: 45
       alignment: 7
@@ -193,8 +193,8 @@ TextureImporter:
       name: Kaeo_GunBlade_Back_SS_3
       rect:
         serializedVersion: 2
-        x: 75
-        y: 142
+        x: 11
+        y: 78
         width: 39
         height: 45
       alignment: 7
@@ -214,8 +214,8 @@ TextureImporter:
       name: Kaeo_GunBlade_Back_SS_4
       rect:
         serializedVersion: 2
-        x: 139
-        y: 142
+        x: 75
+        y: 78
         width: 39
         height: 45
       alignment: 7

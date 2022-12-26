@@ -21,8 +21,8 @@ public class Unit : TimelineElements
     protected float originalTimeStunned;
     public TimelineVelocity previousVelocity;
 
-    
-  
+
+
     public override int ActionsPerTurn
     {
         get { return actionsPerTurn; }
@@ -39,8 +39,8 @@ public class Unit : TimelineElements
     //Variables que se comparten entre unidades del jugador y del enemigo
     public int maxHealth;
     public int health;
- 
-  
+
+
     public AnimationClip hurtAnimation;
 
     public string unitName;
@@ -103,7 +103,7 @@ public class Unit : TimelineElements
 
     public void DisableCriticalMark()
     {
-        if(criticalMark!= null)
+        if (criticalMark != null)
         {
             criticalMark.SetActive(false);
         }
@@ -118,7 +118,7 @@ public class Unit : TimelineElements
         {
             fTimelineVelocity = 100000f;
         }
-        
+
     }
     public void Place(Tile target)
     {
@@ -157,7 +157,7 @@ public class Unit : TimelineElements
     {
         stunThreshold += value;
 
-        if(stunThreshold >= stunLimit)
+        if (stunThreshold >= stunLimit)
         {
             stunThreshold = 0;
             FallBackOnTimeline();
@@ -168,16 +168,16 @@ public class Unit : TimelineElements
     {
         timelineFill -= 50;
 
-        if(timelineFill <= 0)
+        if (timelineFill <= 0)
         {
             timelineFill = 0;
         }
     }
     public virtual bool ReceiveDamage(float damage)
     {
-        
+
         health -= (int)damage;
-        
+
         if (health <= 0)
         {
             health = 0;
@@ -187,12 +187,12 @@ public class Unit : TimelineElements
         {
             return false;
         }
-      
+
     }
 
     public virtual bool ReceiveDamageStun(float damage, float StunDMG)
     {
-        health-=(int)damage;
+        health -= (int)damage;
 
         if (health <= 0)
         {
@@ -211,7 +211,7 @@ public class Unit : TimelineElements
 
         health += (int)heal;
 
-        if(health >= maxHealth)
+        if (health >= maxHealth)
         {
             health = maxHealth;
         }
@@ -252,7 +252,7 @@ public class Unit : TimelineElements
     public virtual void Die(BattleController battleController)
     {
         battleController.unitsInGame.Remove(this);
-        
+
     }
 
     public virtual void Stun()
@@ -293,7 +293,7 @@ public class Unit : TimelineElements
                 break;
             //case TimelineVelocity.Stun:
             //    fTimelineVelocity = 0;
-                //break;
+            //break;
             default:
                 break;
         }
@@ -347,7 +347,7 @@ public class Unit : TimelineElements
             Debug.Log("stunned");
             timeStunned -= Time.deltaTime;
 
-            if(timeStunned <= 0)
+            if (timeStunned <= 0)
             {
                 timelineVelocity = previousVelocity;
                 SetCurrentVelocity();
@@ -357,7 +357,7 @@ public class Unit : TimelineElements
 
             return false;
         }
-        
+
     }
 
     public void SetVelocityWhenTurnIsFinished()
@@ -464,5 +464,8 @@ public class Unit : TimelineElements
         battlecryMark.SetActive(false);
     }
 
-
+    public void PlayActionEffect()
+    {
+        ActionEffect.instance.Play(3, 0.5f, 0.01f, 0.05f);
+    }
 }
