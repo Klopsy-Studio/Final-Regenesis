@@ -198,6 +198,7 @@ public class PlayerUnit : Unit
     public void Revive()
     {
         deathElement.DisableDeath(controller);
+        elementEnabled = true;
         status.unitPortrait.sprite = timelineIcon;
         Default();
         playerUI.gameObject.SetActive(true);
@@ -209,10 +210,10 @@ public class PlayerUnit : Unit
     public override void Die()
     {
         controller.playerUnits.Remove(this);
-
+        controller.timelineElements.Remove(this);
+        elementEnabled = false;
         animations.SetDeath();
         AudioManager.instance.Play("HunterDeath");
-        status.gameObject.SetActive(false);
         isDead = true;
         controller.CheckAllUnits();
     }
@@ -239,7 +240,6 @@ public class PlayerUnit : Unit
                 }
 
                 timelineFill += fTimelineVelocity * Time.deltaTime;
-                //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
 
                 return false;
             }
@@ -270,6 +270,7 @@ public class PlayerUnit : Unit
 
         else
         {
+            Debug.Log("Near Death");
             return false;
         }
         
