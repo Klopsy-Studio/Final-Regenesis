@@ -5,18 +5,26 @@ using UnityEngine.UI;
 
 public class MissionInfoPanel : MonoBehaviour
 {
-    //PARA EL BOTON BUSCAR INFO DE DELEGATES;
+   
     public Text missionName;
-    public Text zone;
-    public Text hazard;
-    public Text otherCreature;
-    public Text money;
-    public Text item;
+    public Text environmentDescription;
+    public Image missionImage;
+   
 
-    public Button button;
+
 
     public void ClosePanel()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void UpdateMissionInfoPanel(LevelData _leveldata)
+    {
+      
+        missionName.text = _leveldata.missionName;
+        environmentDescription.text = _leveldata.environmentDescription;
+        missionImage.sprite = _leveldata.missionImage;
+
+        //zone.text = _environment;   
     }
 }

@@ -48,6 +48,7 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
         mapManager.acceptMissionButton.missionInfoPanel = missionInfoPanel;
         mapManager.acceptMissionButton.mission = levelData;
         mapManager.UpdateMapManager();
+        mapManager.missionInfoPanel.UpdateMissionInfoPanel(levelData);
     }
 
     public void AcceptMission()

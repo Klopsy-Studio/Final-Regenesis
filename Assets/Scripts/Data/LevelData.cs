@@ -38,6 +38,12 @@ public class LevelData : ScriptableObject
     //Variables to unlock new missions
     public bool hasBeenCompleted;
     public LevelData[] UnlockableMissions;
+
+    //Mission Description
+    //[TextArea]
+    public string environmentDescription;
+    public Sprite missionImage;
+
     public string GenerateId()
     {
         id = name.Substring(0, 3) + type.ToString().Substring(0,1) + rank.ToString() + position.ToString();
