@@ -56,7 +56,7 @@ public class BunkhouseUnitManager : MonoBehaviour
         openSelectWeaponPanel.SetUnitProfileID(id);
         if (changeUnitWeaponID != null) changeUnitWeaponID();
         weaponIMG.sprite = unitProfile.unitWeapon.Sprite;
-        movimiento.text = unitProfile.unitWeapon.originalRange.ToString();
+        movimiento.text = unitProfile.unitWeapon.range.ToString();
         defensa.text = unitProfile.unitWeapon.Defense.ToString();
         defElemental.text = unitProfile.unitWeapon.WeaponDefenseElement.ToString();
         poder.text = unitProfile.unitWeapon.Power.ToString();
@@ -104,7 +104,7 @@ public class SetWeaponInfoText
     public void SetWeaponText(Weapons weapon)
     {
         weaponIMG.sprite = weapon.Sprite;
-        range.SetText(weapon.originalRange.ToString());
+        range.SetText(weapon.range.ToString());
         def.SetText(weapon.Defense.ToString());
         eleDef.SetText(weapon.WeaponDefenseElement.ToString());
         power.SetText(weapon.Power.ToString());

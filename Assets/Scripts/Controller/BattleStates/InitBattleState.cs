@@ -40,6 +40,7 @@ public class InitBattleState : BattleState
             player.animations.SetCharacter(index);
             index += 0.5f;
             Unit unit = instance.GetComponent<Unit>();
+            unit.controller = owner;
             unit.Place(board.GetTile(p));
             unit.Match();
 
@@ -62,7 +63,7 @@ public class InitBattleState : BattleState
             Point p = levelData.enemySpawnPoints.ToArray()[i];
 
             Unit unit = instance.GetComponent<Unit>();
-
+            unit.controller = owner;
             unit.Place(board.GetTile(p));
 
             unit.Match();

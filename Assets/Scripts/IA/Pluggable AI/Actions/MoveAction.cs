@@ -48,6 +48,10 @@ public class MoveAction : Action
             case MoveType.ClosestUnit:
                 while(validTiles.Count == 0)
                 {
+                    if(invalidUnits.Count >= 3)
+                    {
+
+                    }
                     foreach (PlayerUnit p in controller.battleController.playerUnits)
                     {
                         if (invalidUnits.Contains(p))
@@ -201,7 +205,6 @@ public class MoveAction : Action
 
         OnExit(controller);
     }
-
     protected override void OnExit(MonsterController controller)
     {
         isCalled = false;

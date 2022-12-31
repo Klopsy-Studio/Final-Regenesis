@@ -173,7 +173,7 @@ public class PlayerUnit : Unit
 
 
 
-    public override void NearDeath(BattleController battleController)
+    public override void NearDeath()
     {
         NearDeathSprite();
         PlayerUnitDeath element = Instantiate(nearDeathElement);
@@ -182,14 +182,17 @@ public class PlayerUnit : Unit
         isNearDeath = true;
         deathElement = element;
         deathElement.unit = this;
-        battleController.timelineElements.Add(element);
+        controller.timelineElements.Add(element);
         iconTimeline.gameObject.SetActive(false);
         timelineTypes = TimeLineTypes.Null;
+        controller.CheckAllUnits();
+
     }
 
-    public void Revive(BattleController battleController)
+    public void Revive()
     {
-        deathElement.DisableDeath(battleController);
+        deathElement.DisableDeath(controller);
+        elementEnabled = true;
         status.unitPortrait.sprite = timelineIcon;
         Default();
         playerUI.gameObject.SetActive(true);
@@ -198,15 +201,15 @@ public class PlayerUnit : Unit
         isNearDeath = false;
         timelineTypes = TimeLineTypes.PlayerUnit;
     }
-    public override void Die(BattleController battleController)
+    public override void Die()
     {
-        battleController.playerUnits.Remove(this);
-
+        controller.playerUnits.Remove(this);
+        controller.timelineElements.Remove(this);
+        elementEnabled = false;
         animations.SetDeath();
         AudioManager.instance.Play("HunterDeath");
-        status.gameObject.SetActive(false);
         isDead = true;
-        battleController.CheckAllUnits();
+        controller.CheckAllUnits();
     }
 
     public override void Stun()
@@ -231,7 +234,6 @@ public class PlayerUnit : Unit
                 }
 
                 timelineFill += fTimelineVelocity * Time.deltaTime;
-                //Debug.Log(gameObject.name + "timelineFill " + timelineFill);
 
                 return false;
             }
@@ -262,6 +264,7 @@ public class PlayerUnit : Unit
 
         else
         {
+            Debug.Log("Near Death");
             return false;
         }
         
@@ -306,16 +309,18 @@ public class PlayerUnit : Unit
         health -= (int)damage;
 
         status.HealthAnimation(health);
-        Damage();
         DamageEffect();
         Debug.Log("Damaged");
         if (health <= 0)
         {
+            NearDeath();
+            NearDeathSprite();
             health = 0;
             return true;
         }
         else
         {
+            Damage();
             return false;
         }
     }
@@ -327,6 +332,11 @@ public class PlayerUnit : Unit
         health += (int)heal;
         status.HealthAnimation(health);
         HealEffect();
+
+        if (isNearDeath)
+        {
+            Revive();
+        }
         if (health >= maxHealth)
         {
             health = maxHealth;

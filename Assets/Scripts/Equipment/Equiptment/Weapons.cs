@@ -6,28 +6,32 @@ using UnityEngine;
 public class Weapons : Equipment
 {
     public int criticalPercentage;
+    [SerializeField] int originalCriticalPercentage;
     public int CriticalPercentage { get { return criticalPercentage; } }
 
     [SerializeField] WeaponElement weaponAttackElement;
+    [SerializeField] WeaponElement originalWeaponAttackElement;
     public WeaponElement WeaponAttackElement { get { return weaponAttackElement; } }
 
     [SerializeField] WeaponElement weaponDefenseElement;
+    [SerializeField] WeaponElement originalWeaponDefenseElement;
     public WeaponElement WeaponDefenseElement { get { return weaponDefenseElement; } }
 
     [SerializeField] private int power;
+    [SerializeField] int originalPower;
     public int Power { get { return power; } }
 
     [SerializeField] private int elementPower;
+    [SerializeField] int originalElementPower;
     public int ElementPower { get { return elementPower; } }
 
     [SerializeField] private int defense;
+    [SerializeField] int originalDefense;
     public int Defense { get { return defense; } }
 
+    public int range;
 
-
-
-    public int originalRange;
-    [HideInInspector] public int range;
+    [SerializeField] int originalRange;
 
     public Abilities[] Abilities;
 
@@ -41,12 +45,12 @@ public class Weapons : Equipment
 
     public override void EquipItem(PlayerUnit c)
     {
-        c.power = power;
-        c.criticalPercentage = criticalPercentage;
+        c.power = Power;
+        c.criticalPercentage = CriticalPercentage;
         c.attackElement = WeaponAttackElement;
         c.defenseElement = WeaponDefenseElement;
-        c.elementPower = elementPower;
-        c.defense = defense;
+        c.elementPower = ElementPower;
+        c.defense = Defense;
 
         foreach(Abilities a in Abilities)
         {
@@ -80,5 +84,15 @@ public class Weapons : Equipment
         range = originalRange;
     }
 
+
+    public void SetDefaultValues()
+    {
+        power = originalPower;
+        criticalPercentage = originalCriticalPercentage;
+        weaponAttackElement = originalWeaponAttackElement;
+        weaponDefenseElement = originalWeaponDefenseElement;
+        elementPower = originalElementPower;
+        defense = originalDefense;
+    }
 
 }

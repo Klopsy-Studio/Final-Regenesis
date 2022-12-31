@@ -20,7 +20,6 @@ public class PlayerUnitDeath : TimelineElements
         unit.elementEnabled = false;
 
         controller.timelineElements.Remove(this);
-        controller.timelineElements.Remove(unit);
         //disabled = true;
         timelineFill = 0;
     }

@@ -203,7 +203,12 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
                         {
                             if (t.content.GetComponent<PlayerUnit>() != null)
                             {
-                                targets.Add(t.content.GetComponent<PlayerUnit>().unitSprite);
+                                PlayerUnit u = t.content.GetComponent<PlayerUnit>();
+
+                                if (!u.isNearDeath)
+                                {
+                                    targets.Add(t.content.GetComponent<PlayerUnit>().unitSprite);
+                                }
                             }
                         }
                     }
@@ -227,7 +232,12 @@ public class SelectorMovement : MonoBehaviour, IPointerEnterHandler, IPointerExi
                         {
                             if (t.content.GetComponent<PlayerUnit>() != null)
                             {
-                                targets.Add(t.content.GetComponent<PlayerUnit>().unitSprite);
+                                PlayerUnit u = t.content.GetComponent<PlayerUnit>();
+
+                                if (!u.isNearDeath)
+                                {
+                                    targets.Add(t.content.GetComponent<PlayerUnit>().unitSprite);
+                                }
                             }
                         }
                     }

@@ -13,7 +13,8 @@ public class ActionEffect : MonoBehaviour
     public bool recovery;
 
     [Header("References")]
-    [SerializeField] private CinemachineVirtualCamera camera;
+    [SerializeField] private CinemachineVirtualCamera cinemachineCamera;
+    [SerializeField] CinemachineBasicMultiChannelPerlin shakeChannel;
     [SerializeField] private Volume volume;
     [SerializeField] private Vignette vignette;
     [SerializeField] private ChromaticAberration chromaticAberration;
@@ -60,7 +61,7 @@ public class ActionEffect : MonoBehaviour
     {
         // Get references
             // Object references
-        camera = FindObjectOfType<CinemachineVirtualCamera>();
+        cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
         volume = FindObjectOfType<Volume>();
 
             // Individual post-processing effect references
@@ -78,7 +79,7 @@ public class ActionEffect : MonoBehaviour
             colorAdjustments = cad;
 
         // Save up some of the original parameters of these components
-        originalCameraSize = camera.m_Lens.OrthographicSize; // Camera size
+        originalCameraSize = cinemachineCamera.m_Lens.OrthographicSize; // Camera size
         originalVignetteIntensity = vignette.intensity.value;
         originalChromaticAberrationIntensity = chromaticAberration.intensity.value;
         originalColorAdjustmentsSaturation = colorAdjustments.saturation.value;
@@ -109,16 +110,27 @@ public class ActionEffect : MonoBehaviour
         effectDuration = _effectDuration;
         shakeIntensity = _shakeIntensity;
         shakeDuration = _shakeDuration;
+        shakeChannel = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
 
         play = true; // Sets the variable to true
     }
+    public void Play(ActionEffectParameters parameters)
+    {
+        // Set effect parameters as arguments
+        cameraSize = parameters.cameraSize;
+        effectDuration = parameters.effectDuration;
+        shakeIntensity = parameters.shakeIntensity;
+        shakeDuration = parameters.shakeDuration;
 
+        play = true; // Sets the variable to true
+    }
     private void Effect()
     {
         _currentTime += zoomDuration * Time.deltaTime; // A variable that adds over time
         
         #region Zoom
-        camera.m_Lens.OrthographicSize = Mathf.Lerp(originalCameraSize, cameraSize, zoomInCurve.Evaluate(_currentTime)); // Lerp the Size of the camera with an animation curve
+        cinemachineCamera.m_Lens.OrthographicSize = Mathf.Lerp(originalCameraSize, cameraSize, zoomInCurve.Evaluate(_currentTime)); // Lerp the Size of the camera with an animation curve
         #endregion
 
         #region Vignette
@@ -133,12 +145,15 @@ public class ActionEffect : MonoBehaviour
         colorAdjustments.saturation.value = Mathf.Lerp(originalColorAdjustmentsSaturation, colorAdjustmentsSaturation, zoomInCurve.Evaluate(_currentTime));
         #endregion
 
-        CameraShake.instance.Shake(shakeIntensity, shakeDuration);
-
+        shakeChannel.m_AmplitudeGain = shakeIntensity;
+        shakeChannel.m_FrequencyGain = shakeDuration;
         // Condition on the effect "play" duration (the recovery duration is not included in this time interval)
         if (_currentTime >= effectDuration)
         {
             _currentTime = 0f;
+            shakeChannel.m_AmplitudeGain = 0f;
+            shakeChannel.m_FrequencyGain = 1f;
+
             play = false;
             recovery = true;
         }
@@ -148,8 +163,9 @@ public class ActionEffect : MonoBehaviour
     {
         _currentTime += zoomDuration * Time.deltaTime;
 
+        
         #region Zoom
-        camera.m_Lens.OrthographicSize = Mathf.Lerp(camera.m_Lens.OrthographicSize, originalCameraSize, zoomOutCurve.Evaluate(_currentTime));
+        cinemachineCamera.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineCamera.m_Lens.OrthographicSize, originalCameraSize, zoomOutCurve.Evaluate(_currentTime));
         #endregion
 
         #region Vignette

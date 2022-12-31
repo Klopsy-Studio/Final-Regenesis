@@ -20,9 +20,9 @@ public class Unit : TimelineElements
     public float timeStunned;
     protected float originalTimeStunned;
     public TimelineVelocity previousVelocity;
-
-
-
+    [HideInInspector] public BattleController controller;
+    
+  
     public override int ActionsPerTurn
     {
         get { return actionsPerTurn; }
@@ -245,14 +245,14 @@ public class Unit : TimelineElements
         }
     }
 
-    public virtual void NearDeath(BattleController battleController)
+    public virtual void NearDeath()
     {
 
     }
-    public virtual void Die(BattleController battleController)
+    public virtual void Die()
     {
-        battleController.unitsInGame.Remove(this);
-
+        controller.unitsInGame.Remove(this);
+        
     }
 
     public virtual void Stun()

@@ -23,6 +23,11 @@ public class PlaytestEditor : Editor
             }
         }
 
+        GUILayout.Space(10f);
+        if (GUILayout.Button("Play Action Effect"))
+        {
+            current.PlayActionEffect();
+        }
 
     }
 

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake instance;
-
+    [SerializeField] CinemachineCamera camera;
     float shakeTimeRemaining;
     float shakeIntensity;
     float shakeFadeTime;
@@ -41,5 +42,7 @@ public class CameraShake : MonoBehaviour
         shakeIntensity = intensity;
 
         shakeFadeTime = intensity / duration;
+
+        
     }
 }

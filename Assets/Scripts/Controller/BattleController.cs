@@ -122,14 +122,6 @@ public class BattleController : StateMachine
             backpackInventory.RefillBackpack();
         }
 
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    foreach(TimelineElements e in timelineElements)
-        //    {
-        //        e.fTimelineVelocity = 0;
-        //    }
-        //}
-
         playtestingFunctions.elements = timelineElements;
 
     }
@@ -154,13 +146,25 @@ public class BattleController : StateMachine
     public void DeactivateTileSelector()
     {
         tileSelectionIndicator.gameObject.SetActive(false);
-
     }
 
     public void CheckAllUnits()
     {
         if(playerUnits.Count == 0)
         {
+            ChangeState<DefeatState>();
+        }
+
+        else
+        {
+            foreach(PlayerUnit p in playerUnits)
+            {
+                if (!p.isNearDeath)
+                {
+                    return;
+                }
+            }
+
             ChangeState<DefeatState>();
         }
     }
