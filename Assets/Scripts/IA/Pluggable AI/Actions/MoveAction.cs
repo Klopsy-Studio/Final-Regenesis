@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum MoveType
 {
-    ClosestUnit, LeastHealthUnit, GetAway
+    ClosestUnit, LeastHealthUnit, GetAway, Random
 };
 [CreateAssetMenu(menuName = "PluggableAI/Actions/MoveAction")]
 public class MoveAction : Action
@@ -46,11 +46,12 @@ public class MoveAction : Action
         switch (chosenType)
         {
             case MoveType.ClosestUnit:
-                while(validTiles.Count == 0)
+                while (validTiles.Count == 0)
                 {
                     if(invalidUnits.Count >= 3)
                     {
-
+                        impossibleMovement = true;
+                        break;
                     }
                     foreach (PlayerUnit p in controller.battleController.playerUnits)
                     {
@@ -67,7 +68,7 @@ public class MoveAction : Action
                         }
                     }
 
-                    if(t == null)
+                    if (t == null)
                     {
                         impossibleMovement = true;
                         break;
@@ -98,6 +99,11 @@ public class MoveAction : Action
 
                 while (validTiles.Count == 0)
                 {
+                    if (invalidUnits.Count >= 3)
+                    {
+                        impossibleMovement = true;
+                        break;
+                    }
                     foreach (PlayerUnit p in controller.battleController.playerUnits)
                     {
                         if (invalidUnits.Contains(p))
@@ -106,7 +112,7 @@ public class MoveAction : Action
                             continue;
                         if (p.isNearDeath)
                             continue;
-                        if (p.health< value || value == 0)
+                        if (p.health < value || value == 0)
                         {
                             t = p;
                             value = t.health;
@@ -159,14 +165,31 @@ public class MoveAction : Action
 
                 else
                 {
-                    foreach(Tile tile in tiles)
+                    foreach (Tile tile in tiles)
                     {
-                        if(value == 0 || Vector3.Distance(controller.currentEnemy.transform.position, tile.transform.position) >= value)
+                        if (value == 0 || Vector3.Distance(controller.currentEnemy.transform.position, tile.transform.position) >= value)
                         {
                             tileToMove = tile;
                             value = Vector3.Distance(controller.currentEnemy.transform.position, tile.transform.position);
                         }
                     }
+                }
+                break;
+
+            case MoveType.Random:
+                List<Tile> allTiles = new List<Tile>(controller.battleController.board.playableTiles.Values);
+
+                foreach(Tile e in allTiles)
+                {
+                    if (e.CheckSurroundings(controller.battleController.board) != null) 
+                    {
+                        validTiles.Add(e);
+                    }
+                }
+
+                if(validTiles.Count <= 0)
+                {
+                    impossibleMovement = true;
                 }
                 break;
             default:
@@ -205,6 +228,8 @@ public class MoveAction : Action
 
         OnExit(controller);
     }
+
+
     protected override void OnExit(MonsterController controller)
     {
         isCalled = false;

@@ -1261,6 +1261,7 @@ MonoBehaviour:
   stunned: 0
   timeStunned: 2
   previousVelocity: 0
+  controller: {fileID: 0}
   turnEnded: 0
   actionDone: 0
   currentPoint:
@@ -1302,16 +1303,8 @@ MonoBehaviour:
   status: {fileID: 0}
   playerUI: {fileID: 2133546689949067580}
   animations: {fileID: 703906005040748471}
-  idleSprite: {fileID: 0}
-  weaponSprite: {fileID: 0}
-  combatSprite: {fileID: 0}
-  attackSprite: {fileID: 0}
-  damageSprite: {fileID: 0}
-  pushSprite: {fileID: 0}
-  nearDeathSprite: {fileID: 0}
-  deathSprite: {fileID: 0}
-  deathTimelineSprite: {fileID: 0}
   movementEffect: {fileID: 2246286409456321014}
+  deathTimelineSprite: {fileID: 0}
   nearDeathElement: {fileID: 3939858003233122212, guid: a861d1a67cc412440a66419a54589b01, type: 3}
   deathElement: {fileID: 0}
   isNearDeath: 0

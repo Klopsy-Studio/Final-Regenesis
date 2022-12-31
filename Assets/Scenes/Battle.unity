@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &123018423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1098223091, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+  m_PrefabInstance: {fileID: 85011357939115778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &145362153
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +876,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776187689}
   m_CullTransparentMesh: 1
+--- !u!1 &859089495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1164059254, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+  m_PrefabInstance: {fileID: 85011357939115778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &859089499
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859089495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 0}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &986026867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Action Effect
       objectReference: {fileID: 0}
+    - target: {fileID: 137132376550216511, guid: 35887d8fac8d16040b3301868163d814, type: 3}
+      propertyPath: cinemachineCamera
+      value: 
+      objectReference: {fileID: 123018423}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35887d8fac8d16040b3301868163d814, type: 3}
 --- !u!20 &1374194395 stripped
@@ -1616,6 +1653,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elements: []
+  testParameters:
+    cameraSize: 3
+    effectDuration: 0.5
+    shakeIntensity: 0.01
+    shakeDuration: 0.05
 --- !u!4 &1978384203
 Transform:
   m_ObjectHideFlags: 0
