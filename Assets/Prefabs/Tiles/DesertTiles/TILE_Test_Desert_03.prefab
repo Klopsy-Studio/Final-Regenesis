@@ -30,7 +30,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3959468725763629856}
-  - {fileID: 7293505746404102114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69,16 +68,23 @@ MonoBehaviour:
     y: 0
   height: 0
   model: {fileID: 1042619849740964356}
+  tileSprite: {fileID: 0}
   displayName: Choose Desert Tile 3
   occupied: 0
   m_content: {fileID: 0}
   prev: {fileID: 0}
   distance: 0
   selected: 0
-  defaultMaterial: {fileID: 2100000, guid: 11f3483cda4836442ad4f9cc14545497, type: 2}
-  prevMaterial: {fileID: 0}
-  attackMaterial: {fileID: 2100000, guid: 228f4a9464f340e41990a11336c7e83e, type: 2}
-  movementMaterial: {fileID: 2100000, guid: 31a9c6f2a8e2c7c419e70156daa01509, type: 2}
+  emptyColor: {r: 0, g: 0, b: 0, a: 0}
+  movementColor: {r: 0, g: 0, b: 0, a: 0}
+  attackColor: {r: 0, g: 0, b: 0, a: 0}
+  abilityColor: {r: 0, g: 0, b: 0, a: 0}
+  selection: {fileID: 0}
+  emptySelection: {fileID: 0}
+  selectMovementObject: {fileID: 0}
+  selectAttackObject: {fileID: 0}
+  previousObject: {fileID: 0}
+  previousColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4248021596361963183
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,73 +197,3 @@ Transform:
   m_Father: {fileID: 4993379407655412962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7114849205747886089
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4993379407655412962}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.487478e-16
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: faf6abc4f0b4c714e85b714e80de53cf, type: 2}
-    - target: {fileID: 919132149155446097, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_Name
-      value: DesertBasic_03_cube
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
---- !u!4 &7293505746404102114 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bae6eac5de137e84ca5dd04203f78254, type: 3}
-  m_PrefabInstance: {fileID: 7114849205747886089}
-  m_PrefabAsset: {fileID: 0}

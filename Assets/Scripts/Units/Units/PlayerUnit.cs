@@ -22,21 +22,13 @@ public class PlayerUnit : Unit
     [Header("Animations")]
     public UnitAnimations animations;
 
-    [HideInInspector] public Sprite idleSprite;
-    [HideInInspector] public Sprite weaponSprite;
-    [HideInInspector] public Sprite combatSprite;
-    [HideInInspector] public Sprite attackSprite;
-    [HideInInspector] public Sprite damageSprite;
-    [HideInInspector] public Sprite pushSprite;
-    [HideInInspector] public Sprite nearDeathSprite;
-    [HideInInspector] public Sprite deathSprite;
-    [HideInInspector] public Sprite deathTimelineSprite;
-
+    
     
     [Header("VFX")]
     [SerializeField] Animator movementEffect;
 
     [Header("Unit Death")]
+    [HideInInspector] public Sprite deathTimelineSprite;
     public PlayerUnitDeath nearDeathElement;
     public PlayerUnitDeath deathElement;
 
@@ -45,6 +37,7 @@ public class PlayerUnit : Unit
     [Header("Weapons")]
     public SpriteRenderer hammerSprite;
     public SpriteRenderer bowSprite;
+    public SpriteRenderer bowTensedSprite;
     public SpriteRenderer gunbladeSprite;
     [SerializeField] GameObject hammerParent;
     [SerializeField] GameObject bowParent;
@@ -74,17 +67,18 @@ public class PlayerUnit : Unit
         switch (weapon.EquipmentType)
         {
             case KitType.Hammer:
-                animations.SetAnimation("hammer");
+                animations.SetWeapon(0f);
                 bowParent.SetActive(false);
                 gunbladeParent.SetActive(false);
                 break;
             case KitType.Bow:
-                animations.SetAnimation("bow");
+                animations.SetWeapon(0.5f);
+
                 hammerParent.SetActive(false);
                 gunbladeParent.SetActive(false);
                 break;
             case KitType.Gunblade:
-                animations.SetAnimation("gunblade");
+                animations.SetWeapon(1f);
                 hammerParent.SetActive(false);
                 bowParent.SetActive(false);
                 break;

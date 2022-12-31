@@ -44,13 +44,3 @@ public class WeaponSpriteData
     public SpriteRenderer attackSprite;
 }
 
-[System.Serializable]
-public class WeaponOffset
-{
-    public Vector3 savedWeaponSpriteOffset;
-    [Space]
-    public Vector3 idleCombatSpriteOffset;
-
-    [Space]
-    public Vector3 attackSpriteOffset;
-}

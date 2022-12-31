@@ -26,19 +26,24 @@ public class InitBattleState : BattleState
     {
         System.Type[] components = new System.Type[] { typeof(WalkMovement) };
 
-        for (int i = 0; i < GameManager.instance.unitsPrefab.Count; i++)
+        float index = 0f;
+        for (int i = 0; i < GameManager.instance.unitProfilesList.Length; i++)
         {
-            GameObject instance = Instantiate(GameManager.instance.unitsPrefab[i]);
+            GameObject instance = Instantiate(GameManager.instance.unitsPrefab);
+            instance.name = GameManager.instance.unitProfilesList[i].name;
+            PlayerUnit player = instance.GetComponent<PlayerUnit>();
+            AssignUnitData(GameManager.instance.unitProfilesList[i], player);
 
-            AssignUnitData(GameManager.instance.unitProfilesList[i], instance.GetComponent<PlayerUnit>());
-
-            instance.GetComponent<PlayerUnit>().profile = GameManager.instance.unitProfilesList[i];
+            player.profile = GameManager.instance.unitProfilesList[i];
             Point p = levelData.playerSpawnPoints.ToArray()[i];
 
+            player.animations.SetCharacter(index);
+            index += 0.5f;
             Unit unit = instance.GetComponent<Unit>();
             unit.Place(board.GetTile(p));
             unit.Match();
 
+            
             Movement m = instance.AddComponent(components[0]) as Movement;
             m.jumpHeight = 1;
 
@@ -89,19 +94,8 @@ public class InitBattleState : BattleState
         unit.weapon = data.unitWeapon;
         unit.unitName = data.unitName;
 
-      
-
-        unit.damageSprite = data.unitDamageReaction;
-        unit.weaponSprite = data.unitTakeOutWeapon;
-        unit.pushSprite = data.unitPush;
-
         unit.timelineIcon = data.unitTimelineIcon;
 
-
-        unit.unitSprite.color = data.unitColor;
-
-        unit.deathSprite = data.death;
-        unit.nearDeathSprite = data.nearDeath;
         unit.deathTimelineSprite = data.deathTimeline;
 
     }
