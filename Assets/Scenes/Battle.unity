@@ -1819,6 +1819,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
+      propertyPath: unitsPrefab
+      value: 
+      objectReference: {fileID: 3783648232820829175, guid: cc682c42333305941a2e18e39b714c57, type: 3}
+    - target: {fileID: 8466311377366334691, guid: 8f5ba69734eb2584d99d798cde9ecca3, type: 3}
       propertyPath: currentMission
       value: 
       objectReference: {fileID: 11400000, guid: 6f8d056180f863748b6497c8a3ee33d8, type: 2}

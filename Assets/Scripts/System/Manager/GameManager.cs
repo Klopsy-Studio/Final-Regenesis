@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
    /* [HideInInspector] */public UnitProfile[] unitProfilesList;
 
-    public List<GameObject> unitsPrefab;
+    public GameObject unitsPrefab;
 
     private void Awake()
     {

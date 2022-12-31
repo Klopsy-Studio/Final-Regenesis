@@ -5,13 +5,24 @@ using UnityEngine;
 public class UnitAnimations : MonoBehaviour
 {
     [SerializeField] Animator unitAnimator;
-    
 
+    public void SetCharacter(float value)
+    {
+        unitAnimator.SetFloat("Character", value);
+    }
+    public void SetWeapon(float value)
+    {
+        unitAnimator.SetFloat("Weapon", value);
+    }
     public void SetAnimation(string animationToCall)
     {
         unitAnimator.SetTrigger(animationToCall);
     }
+    public void SetAnimation(string animationToCall, bool state)
+    {
+        unitAnimator.SetBool(animationToCall, state);
 
+    }
     public void SetIdle()
     {
         SetAnimation("idle");
