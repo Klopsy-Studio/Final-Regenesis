@@ -384,7 +384,7 @@ public class BoardCreator : MonoBehaviour
 
         board.tiles = new List<Vector3>(tilesScript.Count);
 
-        board.tileData = new List<TileData>(tilesScript.Count);
+        board.tileData = new List<DataTile>(tilesScript.Count);
         board.sprites = new List<Sprite>(tilesScript.Count);
         board.tileContent = new List<ObstacleType>(tilesScript.Count);
         board.playerSpawnPoints = new List<Point>(playerSpawnPoints.Count);

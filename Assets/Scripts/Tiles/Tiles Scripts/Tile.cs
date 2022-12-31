@@ -11,7 +11,7 @@ public enum ObstacleType
 [System.Serializable]
 public class Tile : MonoBehaviour
 {
-    public TileData data;
+    public DataTile data;
     public int tileIndex;
     public const float stepHeight = 0.25f; 
     public Point pos;
