@@ -10,37 +10,36 @@ public class TutorialSlides : MonoBehaviour
     [SerializeField] Sprite[] slides;
     [SerializeField] Image imageComponent;
 
-    [SerializeField] GameObject nextButton;
-    [SerializeField] GameObject prevButton;
-    [SerializeField] GameObject playButton;
     public void NextSlide()
     {
-        index++;
-        imageComponent.sprite = slides[index];
+        if (index >= slides.Length-1)
+        {
+            index = 0;
+        }
+        else
+        {
+            index++;
+        }
 
-        if (index == 1)
-        {
-            prevButton.SetActive(true);
-        }
-        if(index >= slides.Length-1)
-        {
-            nextButton.SetActive(false);
-            playButton.SetActive(true);
-        }
+        imageComponent.sprite = slides[index];
     }
 
     public void PrevSlide()
     {
-        index--;
-
         if(index == 0)
         {
-            prevButton.SetActive(false);
+            index = slides.Length - 1;
         }
-
-        playButton.SetActive(false);
-        nextButton.SetActive(true);
+        else
+        {
+            index--;
+        }
         imageComponent.sprite = slides[index];
+    }
 
+    public void ResetSlides()
+    {
+        index = 0;
+        imageComponent.sprite = slides[index];
     }
 }
