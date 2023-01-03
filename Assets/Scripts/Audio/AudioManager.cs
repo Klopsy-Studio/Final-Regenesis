@@ -10,8 +10,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    [SerializeField] AudioMixerGroup mixer;
     public Sound[] sounds;
     private float volume = 0.5f;
+
     private void Awake()
     {
         #region Singleton
@@ -37,6 +39,8 @@ public class AudioManager : MonoBehaviour
             sound.source.volume = sound.volume * volume; // IMPORTANT: sound.volume is the Audio clip's own volume value
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
+            sound.source.playOnAwake = sound.playOnAwake;
+            sound.source.outputAudioMixerGroup= mixer;
         }
     }
 
