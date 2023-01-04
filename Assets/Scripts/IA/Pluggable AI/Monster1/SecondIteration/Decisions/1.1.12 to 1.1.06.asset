@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4799935a8b323a44af45f4a4515015a, type: 3}
-  m_Name: Can1.1.04
+  m_Script: {fileID: 11500000, guid: 6c8ab4fa5f77d9447941adc74c8c2159, type: 3}
+  m_Name: 1.1.12 to 1.1.06
   m_EditorClassIdentifier: 
   multipleStates: 0
   conditionalStates: []
-  conditionalType: 1
+  conditionalType: 0
   trueState:
-  - {fileID: 11400000, guid: bc2a9e6ea6c29df42a49cd1c001a9b48, type: 2}
+  - {fileID: 11400000, guid: 02badb34306d3154d9ee59c7bfa12786, type: 2}
   _trueState:
-  - {fileID: 11400000, guid: bc2a9e6ea6c29df42a49cd1c001a9b48, type: 2}
+  - {fileID: 0}
   falseState: []
   _falseState: []

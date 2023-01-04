@@ -7,7 +7,7 @@ public abstract class Decision : ScriptableObject
     public bool multipleStates;
 
     public List<Decision> conditionalStates;
-
+    [SerializeField] bool conditionalType;
     public List<MState> trueState;
     [HideInInspector] public List<MState> _trueState;
     public List<MState> falseState;
@@ -23,7 +23,14 @@ public abstract class Decision : ScriptableObject
             {
                 if (d.Decide(controller))
                 {
-                    _trueState.Add(d._trueState[0]);
+                    if (d.conditionalType)
+                    {
+                        _trueState.Add(d._trueState[0]);
+                    }
+                    else
+                    {
+                        _falseState.Add(d.trueState[0]);
+                    }
                 }
             }
         }
@@ -37,13 +44,20 @@ public abstract class Decision : ScriptableObject
 
     public void ResetDecision()
     {
-        _trueState.Clear();
+        if(_trueState != null)
+        {
+            _trueState.Clear();
+        }
         foreach (MState state in trueState)
         {
             _trueState.Add(state);
         }
 
-        _falseState.Clear();
+
+        if(_falseState != null)
+        {
+            _falseState.Clear();
+        }
 
         foreach (MState state in falseState)
         {

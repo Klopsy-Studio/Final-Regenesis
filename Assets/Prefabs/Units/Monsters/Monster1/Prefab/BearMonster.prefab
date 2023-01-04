@@ -71,6 +71,7 @@ MonoBehaviour:
   stunned: 0
   timeStunned: 2
   previousVelocity: 0
+  controller: {fileID: 0}
   turnEnded: 0
   actionDone: 0
   currentPoint:
@@ -111,7 +112,7 @@ MonoBehaviour:
   sprite: {fileID: 1262454043973379550}
   defaultSprite: {fileID: 21300000, guid: 61b579e26d144ac448c7e81bc5af7340, type: 3}
   reactSprite: {fileID: 21300000, guid: 662c4f150086c11409210e8ae2bccc6b, type: 3}
-  controller: {fileID: 3600112416777368949}
+  monsterControl: {fileID: 3600112416777368949}
   lowHealth: 100
   monsterUI: {fileID: 8579801364242190014}
 --- !u!114 &3600112416777368949

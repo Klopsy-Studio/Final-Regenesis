@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   play: 0
-  camera: {fileID: 0}
+  recovery: 0
+  cinemachineCamera: {fileID: 0}
+  shakeChannel: {fileID: 0}
   volume: {fileID: 0}
   vignette: {fileID: 0}
   chromaticAberration: {fileID: 0}
@@ -129,3 +131,4 @@ MonoBehaviour:
   vignetteIntensity: 0.5
   chromaticAberrationIntensity: 0.5
   colorAdjustmentsSaturation: 50
+  secondCamera: {fileID: 0}
