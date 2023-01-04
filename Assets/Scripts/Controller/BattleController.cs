@@ -56,6 +56,8 @@ public class BattleController : StateMachine
     public AbilityTargets targets;
     public GameObject bowExtraAttackObject;
     public Text bowExtraAttackText;
+
+    [SerializeField] Animator sceneTransition;
     [Space]
     [Header("Combat Variables")]
     [HideInInspector] public int attackChosen;
@@ -113,7 +115,10 @@ public class BattleController : StateMachine
 
     //}
 
-
+    private void Start()
+    {
+        sceneTransition.SetBool("fadeOut", true);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))

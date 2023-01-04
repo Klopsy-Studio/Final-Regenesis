@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CampScene.unity
     guid: 22cd009815b39bd4daf00a837f286eb1
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 4634749f4f217ac4fa3f3f01142355df
   m_configObjects: {}

@@ -9,7 +9,14 @@ public class MenuTab : MonoBehaviour
 
     public void OpenTab()
     {
-        tab.gameObject.SetActive(true);
-        currentTab.SetActive(false);
+        if(tab!= null)
+        {
+            tab.gameObject.SetActive(true);
+        }
+
+        if(currentTab != null)
+        {
+            currentTab.SetActive(false);
+        }
     }
 }
