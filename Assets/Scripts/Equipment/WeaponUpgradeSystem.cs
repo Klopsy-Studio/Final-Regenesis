@@ -14,17 +14,17 @@ public class WeaponUpgradeSystem : ScriptableObject
 public class AllWeaponsTrees
 {
     public string TreeName;
-    public WeaponUpgradeTree[] weaponUpgrade;
+    public WeaponUpgrade[] weaponUpgrade;
    
   
 }
 
 [System.Serializable]
-public class WeaponUpgradeTree
+public class WeaponUpgrade
 {
     public string itemName;
     public Weapons weapon;
-    public int cost;
+  
     public Weapons weaponRequired;
     public MaterialRequirement[] materialsRequired;
   

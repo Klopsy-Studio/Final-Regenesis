@@ -37,8 +37,6 @@ public class BunkhouseUnitManager : MonoBehaviour
     void UpdateDefaultWeaponPanel()
     {
 
-
-
         for (int i = 0; i < GameManager.instance.unitProfilesList.Length; i++)
         {
             weaponsInfo[i].SetWeaponText(GameManager.instance.unitProfilesList[i].unitWeapon);

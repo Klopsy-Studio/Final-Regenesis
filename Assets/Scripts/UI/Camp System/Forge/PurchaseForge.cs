@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class PurchaseForge : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] ForgeManager forgeManager;
+    [SerializeField] OldForgeManager forgeManager;
     [HideInInspector] public Weapons weaponToPurchase;
     public void OnPointerClick(PointerEventData eventData)
     {
