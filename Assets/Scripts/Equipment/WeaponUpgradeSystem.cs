@@ -44,6 +44,7 @@ public class WeaponUpgrade
 
     public void QuitRequiredWeapon(EquipmentInventory _inventory)
     {
+        if(weaponRequired == null) { return; }
         foreach (var i in _inventory.container)
         {
             if (i.weapon == weaponRequired)
@@ -66,7 +67,7 @@ public class MaterialRequirement
 
     public bool DoIHaveEnoughMaterial(MaterialInventory inventory)
     {
-
+        Debug.Log("hello there");
         foreach (var item in inventory.materialContainer)
         {
             if(item.material == monsterMaterial)

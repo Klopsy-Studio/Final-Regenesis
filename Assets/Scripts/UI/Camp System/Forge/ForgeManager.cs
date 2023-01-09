@@ -14,6 +14,9 @@ public class ForgeManager : MonoBehaviour
 
     [SerializeField] MaterialRequiredSlot[] materialsRequiredSlot;
 
+    //Ponerlo en privado cuando se termine el testeo
+    public WeaponInfoTemplate currentWeaponInfoTemplate;
+
     private void Start()
     {
         CreateDisplay();
@@ -39,15 +42,67 @@ public class ForgeManager : MonoBehaviour
 
     public void UpdateMaterialRequiredPanel(WeaponUpgrade _weaponUpgrade)
     {
-
+        //Deactivate all materialSlot
+        foreach (var material in materialsRequiredSlot)
+        {
+            material.gameObject.SetActive(false);
+        }
         for (int i = 0; i < _weaponUpgrade.materialsRequired.Length; i++)
         {
+            //Activate the materialSlot if is needed
+            materialsRequiredSlot[i].gameObject.SetActive(true);
             var materialRequired = _weaponUpgrade.materialsRequired[i];
-            //materialsRequiredSlot[i].sprite = materialRequired.monsterMaterial.sprite;
+            
             materialsRequiredSlot[i].SetUpMaterialRequiredSlot(materialRequired);
         }
     }
 
+    public void SelectCurrentWeaponPanelInfo(WeaponInfoTemplate _weaponInfoTemplate)
+    {
+        currentWeaponInfoTemplate = _weaponInfoTemplate;
+    }
+
+    public bool CanPurchaseWeapon()
+    {
+        //Check if enough materials
+
+        //var materialsRequired = currentWeaponInfoTemplate
+
+        //ESTO ESTA MAL revisar weaponinfotemplate
+        for (int i = 0; i < currentWeaponInfoTemplate.WeaponUpgrade.materialsRequired.Length; i++)
+        {
+    
+            if (!currentWeaponInfoTemplate.WeaponUpgrade.materialsRequired[i].DoIHaveEnoughMaterial(GameManager.instance.materialInventory))
+            {
+           
+                Debug.Log("no tienes suficiente materiales");
+                return false;
+            }
+        }
+
+        //check if you have the required weapon
+        if(currentWeaponInfoTemplate.WeaponUpgrade.weaponRequired != null)
+        {
+            if (!currentWeaponInfoTemplate.WeaponUpgrade.HasRequiredWeapon(GameManager.instance.equipmentInventory))
+            {
+                Debug.Log("NO TIENES EL ARMA REQUERIDA");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void ReduceMaterialAndWeapon()
+    {
+        for (int i = 0; i < currentWeaponInfoTemplate.WeaponUpgrade.materialsRequired.Length; i++)
+        {
+            currentWeaponInfoTemplate.WeaponUpgrade.materialsRequired[i].ReduceMaterial(GameManager.instance.materialInventory);
+        }
+
+        currentWeaponInfoTemplate.WeaponUpgrade.QuitRequiredWeapon(GameManager.instance.equipmentInventory);
+        
+    }
 
 }
 
