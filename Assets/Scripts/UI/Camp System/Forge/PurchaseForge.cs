@@ -4,33 +4,39 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class PurchaseForge : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] ForgeManager forgeManager;
+    //[SerializeField] OldForgeManager forgeManager;
+    [SerializeField] ForgeManager newForgeManager;
     [HideInInspector] public Weapons weaponToPurchase;
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(weaponToPurchase == null)
+        if(newForgeManager.currentWeaponInfoTemplate == null)
         {
-            Debug.Log("WEAPON TO PURCHASE IS NULL");
+            Debug.Log("CurrentWeaponInfoTemplate es null");
+            return;
+        }
+        if(newForgeManager.currentWeaponInfoTemplate.WeaponUpgrade.weapon == null)
+        {
+            Debug.Log("El weapon que se quiere comprar es null");
+            return;
         }
 
-        if (forgeManager.canPurchaseItem())
-        {
-            Debug.Log("AAAAAAAAA");
-            forgeManager.coins -= forgeManager.currentWeaponInfoSelected.cost;
+        //Check if it meets the necessary materials and weapon
+        if (!newForgeManager.CanPurchaseWeapon()){return;}
 
-            for (int i = 0; i < forgeManager.currentWeaponInfoSelected.materialRequirement.Length; i++)
-            {
-                forgeManager.currentWeaponInfoSelected.materialRequirement[i].ReduceMaterial(GameManager.instance.materialInventory);
-             
-            }
+        //Add weapon to inventory
+        var newEquipment = newForgeManager.currentWeaponInfoTemplate.WeaponUpgrade.weapon;
+        GameManager.instance.equipmentInventory.AddItem(newEquipment);
 
-            forgeManager.UpdateForgeUI();
-            GameManager.instance.equipmentInventory.AddItem(weaponToPurchase);
-            forgeManager.currentWeaponInfoSelected.weaponUpgradeTree.QuitRequiredWeapon(GameManager.instance.equipmentInventory);
-        }
+        //Reduce Material and/or weapon required
+        newForgeManager.ReduceMaterialAndWeapon();
 
-        
-     
-     
+        //UpdateUI
+        newForgeManager.UpdateMaterialRequiredPanel(newForgeManager.currentWeaponInfoTemplate.WeaponUpgrade);
+
     }
+
+
+
+
 }

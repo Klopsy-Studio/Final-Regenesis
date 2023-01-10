@@ -9243,8 +9243,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1478846033}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12669,7 +12669,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 912.32294, y: 491.01312, z: -48.435303}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1077070691}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18227,6 +18228,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1753292542, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753292542, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1938830860, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -18319,10 +18328,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CampCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6830464552636739693, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
-      propertyPath: coinUI
-      value: 
-      objectReference: {fileID: 1962589611}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
 --- !u!1001 &8466311376182702065

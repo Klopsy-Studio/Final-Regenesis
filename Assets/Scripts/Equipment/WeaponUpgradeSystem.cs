@@ -14,17 +14,17 @@ public class WeaponUpgradeSystem : ScriptableObject
 public class AllWeaponsTrees
 {
     public string TreeName;
-    public WeaponUpgradeTree[] weaponUpgrade;
+    public WeaponUpgrade[] weaponUpgrade;
    
   
 }
 
 [System.Serializable]
-public class WeaponUpgradeTree
+public class WeaponUpgrade
 {
     public string itemName;
     public Weapons weapon;
-    public int cost;
+  
     public Weapons weaponRequired;
     public MaterialRequirement[] materialsRequired;
   
@@ -44,6 +44,7 @@ public class WeaponUpgradeTree
 
     public void QuitRequiredWeapon(EquipmentInventory _inventory)
     {
+        if(weaponRequired == null) { return; }
         foreach (var i in _inventory.container)
         {
             if (i.weapon == weaponRequired)
@@ -66,7 +67,7 @@ public class MaterialRequirement
 
     public bool DoIHaveEnoughMaterial(MaterialInventory inventory)
     {
-
+        Debug.Log("hello there");
         foreach (var item in inventory.materialContainer)
         {
             if(item.material == monsterMaterial)
