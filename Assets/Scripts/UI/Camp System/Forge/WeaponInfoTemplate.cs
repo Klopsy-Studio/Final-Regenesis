@@ -8,6 +8,10 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
 {
     public int WeaponDamage { get; private set; }
     public int WeaponRange { get; private set; }
+    public int WeaponCritic { get; private set; }
+    public int WeaponDefense { get; private set; }
+    //public int WeaponElementalDefense { get; private set; }
+
     ForgeManager forgeManager;
     public TextMeshProUGUI weaponName;
     public WeaponUpgrade WeaponUpgrade { get; private set; }
@@ -33,6 +37,10 @@ public class WeaponInfoTemplate : MonoBehaviour, IPointerClickHandler
         forgeManager = _forgeManager;
         WeaponDamage = weapon.Power;
         WeaponRange = weapon.range;
+        WeaponCritic = weapon.criticalPercentage;
+        WeaponDefense = weapon.Defense;
+
+
     }
 
 

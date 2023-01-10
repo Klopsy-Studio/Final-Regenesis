@@ -111,10 +111,16 @@ public class WeaponPanelInfo
 {
     public TextMeshProUGUI weaponDamage;
     public TextMeshProUGUI weaponRange;
+    public TextMeshProUGUI weaponCritic;
+    public TextMeshProUGUI weaponDefense;
+    public TextMeshProUGUI weaponElementalDefense;
+    public TextMeshProUGUI weaponElementalAttack;
 
     public void UpdatePanelInfo(WeaponInfoTemplate _weaponInfoTemplate)
     {
-        weaponDamage.SetText(_weaponInfoTemplate.WeaponDamage.ToString());
-        weaponRange.SetText(_weaponInfoTemplate.WeaponRange.ToString());
+        weaponDamage.SetText("DMG: "+_weaponInfoTemplate.WeaponDamage.ToString());
+        weaponRange.SetText("RNG: "+_weaponInfoTemplate.WeaponRange.ToString());
+        weaponCritic.SetText("CRT: "+_weaponInfoTemplate.WeaponCritic.ToString()+"%");
+        weaponDefense.SetText("DEF: "+_weaponInfoTemplate.WeaponDefense.ToString());
     }
 }
