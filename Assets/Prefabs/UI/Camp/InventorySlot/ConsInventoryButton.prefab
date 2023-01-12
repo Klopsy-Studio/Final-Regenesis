@@ -248,6 +248,8 @@ MonoBehaviour:
   displayconsumableInventory: {fileID: 0}
   inventory: {fileID: 11400000, guid: 972abb1e68fcc244fa956728ca86e636, type: 2}
   consumableID: 0
+  itemImage: {fileID: 4602325891412176860}
+  itemAmountText: {fileID: 8944555159423906440}
 --- !u!1 &8664114447723056263
 GameObject:
   m_ObjectHideFlags: 0
