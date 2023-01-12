@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class EquipmentBunkhouseButton : UIButtons
 {
@@ -10,7 +11,8 @@ public class EquipmentBunkhouseButton : UIButtons
     public EquipmentInventory inventory;
     public int equipmentID;
     private int unitProfileID;
-    public Image weaponImage;
+    [SerializeField] Image weaponImage;
+    [SerializeField] TextMeshProUGUI weaponName;
   
     public void FillVariables(EquipmentInventory _inventory, int i, DisplayEquipmentBunkhouse _displayEquipmentBunkhouse)
     {
@@ -18,6 +20,7 @@ public class EquipmentBunkhouseButton : UIButtons
         equipmentID = i;
         displayEquipmentBunkhouse = _displayEquipmentBunkhouse;
         weaponImage.sprite = inventory.container[equipmentID].weapon.Sprite;
+        weaponName.SetText(inventory.container[equipmentID].weapon.name);
 
     }
     public void SetUnitProfileID(int id)

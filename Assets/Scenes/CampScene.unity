@@ -18228,14 +18228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1753292542, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1753292542, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1938830860, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -18327,6 +18319,14 @@ PrefabInstance:
     - target: {fileID: 6830464552629700038, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
       propertyPath: m_Name
       value: CampCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830464553226683193, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830464553452443054, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe16939626ed62c4a942fe57660cf50b, type: 3}

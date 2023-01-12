@@ -304,6 +304,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: f10321b6418451b4cad52286af6067e9, type: 2}
   equipmentID: 0
   weaponImage: {fileID: 5104995330917350921}
+  weaponName: {fileID: 6547451181354219015}
 --- !u!1 &5104995330917350967
 GameObject:
   m_ObjectHideFlags: 0

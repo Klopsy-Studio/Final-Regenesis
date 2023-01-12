@@ -17,7 +17,6 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
     void Start()
     {
         BunkhouseUnitManager.changeUnitWeaponID += UpdateUnitsProfileID;
-
         CreateDisplay();
 
     }
@@ -25,6 +24,9 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
     public void UpdateWeaponImage(int i)
     {
         bunkHouseManager.UpdateWeaponIMG(i);
+        bunkHouseManager.FillUnitVariables(i);
+        bunkHouseManager.UpdateDefaultWeaponPanel();
+
     }
 
     public void SetUnitProfileID(int id)
@@ -45,7 +47,8 @@ public class DisplayEquipmentBunkhouse : MonoBehaviour
         {
             var obj = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, transform);
             slotPrefablist.Add(obj);
-            obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
+            //obj.transform.GetChild(1).GetComponentInChildren<Image>().sprite = inventory.container[i].weapon.Sprite;
+
             equipmentDisplayed.Add(inventory.container[i], obj);
             if (obj.TryGetComponent(out EquipmentBunkhouseButton button))
             {

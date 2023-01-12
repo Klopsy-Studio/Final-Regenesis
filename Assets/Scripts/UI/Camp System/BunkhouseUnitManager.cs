@@ -11,9 +11,9 @@ public class BunkhouseUnitManager : MonoBehaviour
     public delegate void ClickAction();
     public static event ClickAction changeUnitWeaponID;
 
-  
-    public DisplayEquipmentBunkhouse openSelectWeaponPanel;
 
+    public DisplayEquipmentBunkhouse openSelectWeaponPanel;
+    [SerializeField] GameObject gameObjectSelectWeaponPanel;
 
 
     public SetWeaponInfoText[] weaponsInfo;
@@ -34,7 +34,7 @@ public class BunkhouseUnitManager : MonoBehaviour
        
         UpdateDefaultWeaponPanel();
     }
-    void UpdateDefaultWeaponPanel()
+    public void UpdateDefaultWeaponPanel()
     {
 
         for (int i = 0; i < GameManager.instance.unitProfilesList.Length; i++)
@@ -43,13 +43,10 @@ public class BunkhouseUnitManager : MonoBehaviour
         }
     }
   
-    public void FillUnitVariables(int id)
+    public void FillUnitVariables(int id) //unity button (post its)
     {
         
-       
         var unitProfile = GameManager.instance.unitProfilesList[id];
-
-      
 
         openSelectWeaponPanel.SetUnitProfileID(id);
         if (changeUnitWeaponID != null) changeUnitWeaponID();
@@ -72,12 +69,13 @@ public class BunkhouseUnitManager : MonoBehaviour
 
     
 
-    public void OpenSelectWeapon()
+    public void OpenSelectWeapon() //KIT Equipado Button
+
     {
-        if (openSelectWeaponPanel != null)
+        if (gameObjectSelectWeaponPanel != null)
         {
-          
-            openSelectWeaponPanel.gameObject.SetActive(true);
+
+            gameObjectSelectWeaponPanel.SetActive(true);
         }
         else
         {
