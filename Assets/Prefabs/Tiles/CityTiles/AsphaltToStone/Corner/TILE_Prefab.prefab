@@ -83,6 +83,7 @@ MonoBehaviour:
   movementColor: {r: 0.19607843, g: 0.972549, b: 0.7607843, a: 0.5019608}
   attackColor: {r: 1, g: 0.27058825, b: 0.27058825, a: 0.5019608}
   abilityColor: {r: 0.972549, g: 0.6431373, b: 0.44313726, a: 0.5019608}
+  tileIndicator: {fileID: 3647956776351870686}
   selection: {fileID: 241694277703071630}
   emptySelection: {fileID: 8927425012177018910}
   selectMovementObject: {fileID: 0}

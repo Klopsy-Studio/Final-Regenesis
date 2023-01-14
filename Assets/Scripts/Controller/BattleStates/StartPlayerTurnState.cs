@@ -10,7 +10,9 @@ public class StartPlayerTurnState : BattleState
         owner.currentUnit.status.ChangeToBig();
         Debug.Log("?");
         owner.turnStatusUI.ActivateTurn(owner.currentUnit.unitName);
+        owner.board.ActivateTileSelection();
         StartCoroutine(SetStats());
+
     }
 
     IEnumerator SetStats()
