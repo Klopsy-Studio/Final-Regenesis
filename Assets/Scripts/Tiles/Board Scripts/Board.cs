@@ -48,7 +48,10 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
             SpawnProp(data, i);
         }
 
-        Instantiate(data.levelModel);
+        if(data.levelModel != null)
+        {
+            Instantiate(data.levelModel);
+        }
     }
 
     Prop SpawnProp(LevelData data, int i)

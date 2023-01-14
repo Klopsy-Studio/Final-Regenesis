@@ -34,7 +34,7 @@ public class LevelData : ScriptableObject
     //Units in game
 
     public GameObject enemyInLevel;
-
+    public GameObject levelModel;
     //Variables to unlock new missions
     public bool hasBeenCompleted;
     public LevelData[] UnlockableMissions;
