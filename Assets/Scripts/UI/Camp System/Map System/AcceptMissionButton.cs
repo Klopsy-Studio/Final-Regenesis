@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class AcceptMissionButton : MonoBehaviour, IPointerClickHandler
 {
@@ -14,6 +15,8 @@ public class AcceptMissionButton : MonoBehaviour, IPointerClickHandler
         {
             GameManager.instance.currentMission = mission;
             missionInfoPanel.gameObject.SetActive(false);
+            GameManager.instance.sceneToLoad = "Battle";
+            SceneManager.LoadScene("LoadingScreen");
         }
         else
         {

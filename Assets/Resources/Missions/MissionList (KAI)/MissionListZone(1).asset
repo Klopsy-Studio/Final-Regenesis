@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MissionListZone(1)
   m_EditorClassIdentifier: 
   missions:
-  - {fileID: 11400000, guid: 9befea02fb684e14fbb554ef5e3e4852, type: 2}
-  - {fileID: 11400000, guid: 6c913df84830224429c53b292a734f63, type: 2}
+  - {fileID: 11400000, guid: 7c3e7b6401c1e0c4390931a7e60b4bf6, type: 2}
+  - {fileID: 11400000, guid: 0c52f0ccaaa22694388fdd130f15b6ea, type: 2}

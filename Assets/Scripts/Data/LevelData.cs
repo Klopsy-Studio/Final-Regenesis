@@ -44,6 +44,8 @@ public class LevelData : ScriptableObject
     public string environmentDescription;
     public Sprite missionImage;
 
+    public GameObject levelModel;
+
     public string GenerateId()
     {
         id = name.Substring(0, 3) + type.ToString().Substring(0,1) + rank.ToString() + position.ToString();

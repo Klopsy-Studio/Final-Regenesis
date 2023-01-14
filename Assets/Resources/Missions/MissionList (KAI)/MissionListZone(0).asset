@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MissionListZone(0)
   m_EditorClassIdentifier: 
   missions:
-  - {fileID: 11400000, guid: 8a329494ee2ac3e41ac5771dbacc109e, type: 2}
-  - {fileID: 11400000, guid: bcc3963095638fc4692b58d256dedfa1, type: 2}
-  - {fileID: 11400000, guid: f4eb094270743374788ffd52e3f8d181, type: 2}
+  - {fileID: 11400000, guid: b90eaef850f44a14781502a4bdce162b, type: 2}
+  - {fileID: 11400000, guid: 8ea9f5aad4d10b747898816ffc564d5e, type: 2}
+  - {fileID: 11400000, guid: 99231dcfbb0b15d439428e7c6160b11c, type: 2}

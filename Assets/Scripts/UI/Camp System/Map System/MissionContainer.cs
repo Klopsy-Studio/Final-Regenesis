@@ -12,7 +12,7 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
     [SerializeField] MissionInfoPanel missionInfoPanel;
     [SerializeField] Text nameText; 
     public LevelData levelData;
-    string missionName;
+    //string missionName;
     MapManager mapManager;
 
     //public MissionContainer[] UnlockableMissions;
@@ -32,8 +32,9 @@ public class MissionContainer : MonoBehaviour, IPointerClickHandler
     public void FillVariables(MapManager _mapManager)
     {
         
-        missionName = levelData.missionName;
-        nameText.text = missionName;
+        //missionName = levelData.missionName;
+        nameText.text = levelData.missionName;
+       
         mapManager = _mapManager;
         missionInfoPanel = mapManager.missionInfoPanel;
         mapManager.allMissionsDictionary.Add(levelData, this );
