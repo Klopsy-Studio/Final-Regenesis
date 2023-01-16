@@ -19,7 +19,6 @@ public class LoadingScreenManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(LoadScene());
-
     }
     IEnumerator LoadScene()
     {

@@ -20,7 +20,7 @@ public class EquipmentBunkhouseButton : UIButtons
         equipmentID = i;
         displayEquipmentBunkhouse = _displayEquipmentBunkhouse;
         weaponImage.sprite = inventory.container[equipmentID].weapon.Sprite;
-        weaponName.SetText(inventory.container[equipmentID].weapon.name);
+        weaponName.SetText(inventory.container[equipmentID].weapon.EquipmentName);
 
     }
     public void SetUnitProfileID(int id)

@@ -44,7 +44,6 @@ public class LevelData : ScriptableObject
     public string environmentDescription;
     public Sprite missionImage;
 
-    public GameObject levelModel;
 
     public string GenerateId()
     {

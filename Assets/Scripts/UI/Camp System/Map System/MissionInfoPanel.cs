@@ -19,8 +19,7 @@ public class MissionInfoPanel : MonoBehaviour
     }
 
     public void UpdateMissionInfoPanel(LevelData _leveldata)
-    {
-      
+    {    
         missionName.text = _leveldata.missionName;
         environmentDescription.text = _leveldata.environmentDescription;
         missionImage.sprite = _leveldata.missionImage;
