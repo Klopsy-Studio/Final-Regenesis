@@ -25,7 +25,7 @@ MonoBehaviour:
   money: 0
   items: []
   enemyInLevel: {fileID: 118657081945532926, guid: 6c3fe94c1c37ecb4abd0073b46a3f0b7, type: 3}
-  levelModel: {fileID: 4468857820028463356, guid: 30203d0798350f340815202c3f816a40, type: 3}
+  levelModel: {fileID: 6584384849868536987, guid: e1b2fcc6429744d439ce26d0b379c177, type: 3}
   hasBeenCompleted: 0
   UnlockableMissions: []
   environmentDescription: 
