@@ -48,9 +48,28 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
             SpawnProp(data, i);
         }
 
-        Instantiate(data.levelModel);
+        if(data.levelModel != null)
+        {
+            Instantiate(data.levelModel);
+        }
     }
 
+
+    public void ActivateTileSelection()
+    {
+        foreach(Tile t in playableTiles.Values)
+        {
+            t.ActivateTileSelection();
+        }
+    }
+
+    public void DeactivateTileSelection()
+    {
+        foreach (Tile t in playableTiles.Values)
+        {
+            t.DeactivateTileSelection();
+        }
+    }
     Prop SpawnProp(LevelData data, int i)
     {
         switch (data.propData[i].type)

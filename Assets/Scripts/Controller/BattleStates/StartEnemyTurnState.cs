@@ -10,7 +10,7 @@ public class StartEnemyTurnState : BattleState
     {
         base.Enter();
         owner.isTimeLineActive = false;
-
+        owner.board.ActivateTileSelection();
         owner.turnStatusUI.ActivateTurn("Ursamyr");
         //tileSelectionIndicator.gameObject.SetActive(false);
        

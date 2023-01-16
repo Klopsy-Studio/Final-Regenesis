@@ -61,7 +61,7 @@ public class Tile : MonoBehaviour
     public Color movementColor;
     public Color attackColor;
     public Color abilityColor;
-
+    public GameObject tileIndicator;
     public SpriteRenderer selection;
 
     public GameObject emptySelection;
@@ -76,7 +76,27 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
+        if(tileIndicator != null)
+        {
+            tileIndicator.SetActive(false);
+        }
         currentObject = emptySelection;
+    }
+
+    public void ActivateTileSelection()
+    {
+        if (tileIndicator != null)
+        {
+            tileIndicator.SetActive(true);
+        }
+    }
+
+    public void DeactivateTileSelection()
+    {
+        if (tileIndicator != null)
+        {
+            tileIndicator.SetActive(false);
+        }
     }
     public void Match() //Matches the values of the variables with the gameObjects transforms values
     {

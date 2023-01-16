@@ -81,7 +81,7 @@ public class Weapons : Equipment
 
     private void OnEnable()
     {
-        range = originalRange;
+        //range = originalRange;
     }
 
 

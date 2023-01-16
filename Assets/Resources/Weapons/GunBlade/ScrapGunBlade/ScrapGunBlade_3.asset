@@ -27,8 +27,8 @@ MonoBehaviour:
   originalElementPower: 0
   defense: 21
   originalDefense: 21
-  originalRange: 3
   range: 3
+  originalRange: 3
   Abilities:
   - {fileID: 11400000, guid: e0596f79f82278245b278984a8d5c50c, type: 2}
   - {fileID: 11400000, guid: 9ebea38be86854b42adf64085c7424b6, type: 2}
@@ -36,4 +36,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f069e865b35b3f4389cdb3261fa0972, type: 2}
   weaponSprite: {fileID: 21300000, guid: 812705858d5145946959ea331e5af0c3, type: 3}
   weaponCombat: {fileID: 21300000, guid: 812705858d5145946959ea331e5af0c3, type: 3}
+  bowTensed: {fileID: 0}
   weaponIcon: {fileID: 21300000, guid: 6437da7758991f849a9d1d9faedf79c2, type: 3}
