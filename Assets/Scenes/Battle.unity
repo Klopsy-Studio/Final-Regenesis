@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 245198385}
   - component: {fileID: 245198384}
   - component: {fileID: 245198388}
+  - component: {fileID: 245198389}
   m_Layer: 0
   m_Name: ReturnToCamp
   m_TagString: Untagged
@@ -647,6 +648,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 245198389}
+        m_TargetAssemblyTypeName: StopSound, Assembly-CSharp
+        m_MethodName: StopSpecificSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Music
           m_BoolArgument: 0
         m_CallState: 2
   onHover:
@@ -775,6 +788,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcf360e15d0b0e342a46d4e4ce865775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &245198389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245198382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5012cdb181383e47a4bb46f10157b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &281146700
