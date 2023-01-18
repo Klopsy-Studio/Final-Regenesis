@@ -243,4 +243,17 @@ public class BattleController : StateMachine
     {
         StartCoroutine(coroutine);
     }
+
+    public void ReturnToCamp()
+    {
+        sceneTransition.SetTrigger("fadeIn");
+        GameManager.instance.sceneToLoad = "CampScene";
+        Invoke("LoadingScreen", 1.5f);
+    }
+
+
+    public void LoadingScreen()
+    {
+        SceneManager.LoadScene("LoadingScreen");
+    }
 }

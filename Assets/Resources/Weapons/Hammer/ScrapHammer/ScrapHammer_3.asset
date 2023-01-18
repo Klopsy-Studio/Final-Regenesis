@@ -21,8 +21,8 @@ MonoBehaviour:
   originalWeaponAttackElement: 0
   weaponDefenseElement: 0
   originalWeaponDefenseElement: 0
-  power: 1246
-  originalPower: 103
+  power: 114
+  originalPower: 114
   elementPower: 0
   originalElementPower: 0
   defense: 29
@@ -36,4 +36,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e120d4edc6b39b64ca7302cc35dbcc06, type: 2}
   weaponSprite: {fileID: 21300000, guid: 8f7014b8544deae469d971d3607e474a, type: 3}
   weaponCombat: {fileID: 21300000, guid: efa98d75072835448943a5690f689b1d, type: 3}
+  bowTensed: {fileID: 0}
   weaponIcon: {fileID: 21300000, guid: 224cf31abff4211428f1a97ec9c0652c, type: 3}

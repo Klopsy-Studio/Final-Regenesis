@@ -16,9 +16,9 @@ public class TrueShot : AbilitySequence
         user.SpendActionPoints(ability.actionCost);
         user.SpendBullets(ability.ammoCost);
 
-        //ActionEffect.instance.Play(ability.cameraSize, ability.effectDuration, ability.shakeIntensity, ability.shakeDuration);
+        ActionEffect.instance.Play(ability.cameraSize, ability.effectDuration, ability.shakeIntensity, ability.shakeDuration);
 
-        if(target.GetComponent<Unit>()!= null)
+        if (target.GetComponent<Unit>()!= null)
         {
             Unit u = target.GetComponent<Unit>();
 

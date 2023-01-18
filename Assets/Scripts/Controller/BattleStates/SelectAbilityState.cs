@@ -128,11 +128,23 @@ public class SelectAbilityState : BattleState
     {
         owner.attackChosen = e.info;
 
-        if (abilityList[owner.attackChosen].CanDoAbility(owner.currentUnit.actionsPerTurn))
+        if(owner.currentUnit.weapon.EquipmentType == KitType.Gunblade)
         {
-            ActionSelectionUI.gameObject.SetActive(false);
-            owner.ChangeState<UseAbilityState>();
+            if (abilityList[owner.attackChosen].CanDoAbility(owner.currentUnit.actionsPerTurn, owner.currentUnit))
+            {
+                ActionSelectionUI.gameObject.SetActive(false);
+                owner.ChangeState<UseAbilityState>();
+            }
         }
+        else
+        {
+            if (abilityList[owner.attackChosen].CanDoAbility(owner.currentUnit.actionsPerTurn))
+            {
+                ActionSelectionUI.gameObject.SetActive(false);
+                owner.ChangeState<UseAbilityState>();
+            }
+        }
+        
     }
 
     //protected override void OnMouseSelectEvent(object sender, InfoEventArgs<Point> e)

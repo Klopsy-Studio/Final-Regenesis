@@ -25,8 +25,7 @@ public class DefeatState : BattleState
         owner.turnStatusUI.DeactivateTurn();
         yield return new WaitForSeconds(1);
 
-        //Switch later to show Loot load camp scene 
-        SceneManager.LoadScene("Battle");
+        owner.ChangeState<LootUIState>();
     }
 
 }
