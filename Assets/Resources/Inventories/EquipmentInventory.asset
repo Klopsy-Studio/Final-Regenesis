@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EquipmentInventory
   m_EditorClassIdentifier: 
   container:
-  - weapon: {fileID: 11400000, guid: 72387c6894696da47bbbe7088ad9619b, type: 2}
-  - weapon: {fileID: 11400000, guid: 4c5f37dc7f2b8944ea2fe7337aa4b71e, type: 2}
-  - weapon: {fileID: 11400000, guid: ad10c36158da3d947a9280cfb969d407, type: 2}
+  - weapon: {fileID: 11400000, guid: 04e984118d3f5f841bf65c06e999cb23, type: 2}
+  - weapon: {fileID: 11400000, guid: d150b137ecacc264dac67d37faec0a05, type: 2}
+  - weapon: {fileID: 11400000, guid: d150b137ecacc264dac67d37faec0a05, type: 2}
