@@ -119,15 +119,106 @@ public class BattleController : StateMachine
     {
         sceneTransition.SetBool("fadeOut", true);
     }
+
+    bool tilesTest = true;
+    bool unitUItest = true;
+    bool monsterLifeTest = true;
+    bool windTest = true;
+    public bool playtestToggle = true;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (playtestToggle)
         {
-            SceneManager.LoadScene("Battle");
-            backpackInventory.RefillBackpack();
-        }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                if (uiController.gameObject.activeSelf)
+                {
+                    uiController.gameObject.SetActive(false);
+                }
+                else
+                {
+                    uiController.gameObject.SetActive(true);
+                }
+            }
 
-        playtestingFunctions.elements = timelineElements;
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                if (tilesTest)
+                {
+                    board.ActivateTileSelectionToggle();
+                    tilesTest = false;
+                }
+                else
+                {
+                    board.DeactivateTileSelection();
+                    tilesTest = true;
+                }
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                if (currentUnit != null)
+                {
+                    if (unitUItest)
+                    {
+                        currentUnit.playerUI.actionPointsObject.SetActive(true);
+                        unitUItest = false;
+                    }
+                    else
+                    {
+                        currentUnit.playerUI.actionPointsObject.SetActive(false);
+                        unitUItest = true;
+                    }
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                foreach (PlayerUnit u in playerUnits)
+                {
+                    isTimeLineActive = false;
+                    u.animations.SetNearDeath();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                foreach (PlayerUnit u in playerUnits)
+                {
+                    isTimeLineActive = false;
+                    u.animations.SetDeath();
+                }
+            }
+            playtestingFunctions.elements = timelineElements;
+
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                enemyUnits[0].health = 1;
+            }
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                if (windTest)
+                {
+                    environmentEvent.fTimelineVelocity = 20;
+                    windTest = false;
+                }
+                else
+                {
+                    environmentEvent.fTimelineVelocity = 0;
+
+                    windTest = true;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                board.toggleTileActivation = !board.toggleTileActivation;
+            }
+        }
+        //Disable UI 
+       
 
     }
 

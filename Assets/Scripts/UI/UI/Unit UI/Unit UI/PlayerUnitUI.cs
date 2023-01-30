@@ -9,7 +9,7 @@ public class PlayerUnitUI : UnitUI
     [SerializeField] float speed;
     [Header("UI")]
     public Canvas unitUI;
-    [SerializeField] GameObject actionPointsObject;
+    public GameObject actionPointsObject;
     [SerializeField] GameObject stunIndicator;
     [SerializeField] List<Image> actionPoints;
 
@@ -40,6 +40,8 @@ public class PlayerUnitUI : UnitUI
     List<Image> previewBullets = new List<Image>();
 
     int index;
+
+    [SerializeField] bool toggleShowUnitUI;
 
     private void Start()
     {
@@ -88,9 +90,12 @@ public class PlayerUnitUI : UnitUI
     public void ShowActionPoints()
     {
         previewActionPoints.Clear();
-        actionPointsObject.SetActive(true);
+        if (toggleShowUnitUI)
+        {
+            actionPointsObject.SetActive(true);
+        }
 
-        if(actionPoints != null)
+        if (actionPoints != null)
         {
             foreach (Image i in actionPoints)
             {

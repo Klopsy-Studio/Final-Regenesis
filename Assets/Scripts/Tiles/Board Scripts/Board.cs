@@ -36,6 +36,7 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
 
     public Color selectedTileColor = new Color(0, 1, 1, 1);
 
+    public bool toggleTileActivation;
     public void Load(LevelData data)
     {
         for (int i = 0; i < data.tiles.Count; i++)
@@ -57,14 +58,22 @@ public class Board : MonoBehaviour //Adjust to new level creation system. Exampl
 
     public void ActivateTileSelection()
     {
+        if (!toggleTileActivation) return;
         foreach(Tile t in playableTiles.Values)
         {
             t.ActivateTileSelection();
         }
     }
-
+    public void ActivateTileSelectionToggle()
+    {
+        foreach (Tile t in playableTiles.Values)
+        {
+            t.ActivateTileSelection();
+        }
+    }
     public void DeactivateTileSelection()
     {
+        
         foreach (Tile t in playableTiles.Values)
         {
             t.DeactivateTileSelection();

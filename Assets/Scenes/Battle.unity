@@ -2285,6 +2285,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925041791}
   m_CullTransparentMesh: 1
+--- !u!114 &964793997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85011359170528442, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+  m_PrefabInstance: {fileID: 85011357939115778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642b10dcd55a4164eab9fbdd6b1e2556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &986026867
 GameObject:
   m_ObjectHideFlags: 0
@@ -9203,6 +9214,10 @@ PrefabInstance:
       propertyPath: mixer
       value: 
       objectReference: {fileID: 24300002, guid: ab110cfe914c66c409bf58ac0aaaf973, type: 2}
+    - target: {fileID: 2642857776655601379, guid: 819a807c29f8a6842941cc2c17d9df3b, type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2832544815566834583, guid: 819a807c29f8a6842941cc2c17d9df3b, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -9329,6 +9344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcada203755c4044e87ea857b1487e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   elements: []
   testParameters:
     cameraSize: 3
@@ -10012,6 +10028,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: uiController
+      value: 
+      objectReference: {fileID: 964793997}
+    - target: {fileID: 3099776044107931976, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: sceneTransition
       value: 
       objectReference: {fileID: 1684189117}
@@ -10077,6 +10097,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3099776045518085930, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099776045650747274, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: toggleTileActivation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385728648161413568, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
+      propertyPath: m_FontData.m_RichText
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4385728648161413568, guid: b17578884795fd34fb5cc5374c73f868, type: 3}
